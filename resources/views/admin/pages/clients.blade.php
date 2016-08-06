@@ -7,6 +7,190 @@
     <li role="presentation" class=""><a href="#right-profiles" id="right-profiles" role="tab" data-toggle="tab" aria-expanded="false"><span class="fa fa-users"></span> Right Profiles</a>
     </li>
   </ul>
+  <div id="aboutUsTabContent" class="tab-content">
+    <div role="tabpanel" class="tab-pane fade active in" id="leftProfile1" aria-labelledby="">
+       <div class="col-md-12">
+        <div class="x_panel">
+          <div class="x_content">
+            <form class="form-horizontal form-label-left">
+            <article class="well">
+              <div class="form-group">
+                  <label class="control-label col-md-1">Name:</label>
+                  <div class="col-md-2">
+                    <input type="text" class="form-control" placeholder="John Doe">
+                  </div>
+                  <label class="control-label col-md-1">Description:</label>
+                  <div class="col-md-4">
+                  <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+                </div>
+                <label class="control-label col-md-1">Link:</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
+                  </div>
+              </div>
+            </article>
+            <article class="well">
+              <div class="form-group">
+                  <label class="control-label col-md-1">Name:</label>
+                  <div class="col-md-2">
+                    <input type="text" class="form-control" placeholder="John Doe">
+                  </div>
+                  <label class="control-label col-md-1">Description:</label>
+                  <div class="col-md-4">
+                  <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+                </div>
+                <label class="control-label col-md-1">Link:</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
+                  </div>
+              </div>
+            </article>
+            <article class="well">
+              <div class="form-group">
+                  <label class="control-label col-md-1">Name:</label>
+                  <div class="col-md-2">
+                    <input type="text" class="form-control" placeholder="John Doe">
+                  </div>
+                  <label class="control-label col-md-1">Description:</label>
+                  <div class="col-md-4">
+                  <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+                </div>
+                <label class="control-label col-md-1">Link:</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
+                  </div>
+              </div>
+            </article>
+            <article class="well">
+              <div class="form-group">
+                  <label class="control-label col-md-1">Name:</label>
+                  <div class="col-md-2">
+                    <input type="text" class="form-control" placeholder="John Doe">
+                  </div>
+                  <label class="control-label col-md-1">Description:</label>
+                  <div class="col-md-4">
+                  <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+                </div>
+                <label class="control-label col-md-1">Link:</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
+                  </div>
+              </div>
+            </article>
+            <article class="well">
+              <div class="form-group">
+                  <label class="control-label col-md-1">Name:</label>
+                  <div class="col-md-2">
+                    <input type="text" class="form-control" placeholder="John Doe">
+                  </div>
+                  <label class="control-label col-md-1">Description:</label>
+                  <div class="col-md-4">
+                  <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+                </div>
+                <label class="control-label col-md-1">Link:</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
+                  </div>
+              </div>
+            </article>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="rightProfile2" aria-labelledby="right-profiles">
+
+       <div class="col-md-12">
+        <div class="x_panel">
+          <div class="x_content">
+            <form class="form-horizontal form-label-left">
+            <article class="well">
+              <div class="form-group">
+                  <label class="control-label col-md-1">Name:</label>
+                  <div class="col-md-2">
+                    <input type="text" class="form-control" placeholder="John Doe">
+                  </div>
+                  <label class="control-label col-md-1">Description:</label>
+                  <div class="col-md-4">
+                  <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+                </div>
+                <label class="control-label col-md-1">Link:</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
+                  </div>
+              </div>
+            </article>
+            <article class="well">
+              <div class="form-group">
+                  <label class="control-label col-md-1">Name:</label>
+                  <div class="col-md-2">
+                    <input type="text" class="form-control" placeholder="John Doe">
+                  </div>
+                  <label class="control-label col-md-1">Description:</label>
+                  <div class="col-md-4">
+                  <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+                </div>
+                <label class="control-label col-md-1">Link:</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
+                  </div>
+              </div>
+            </article>
+            <article class="well">
+              <div class="form-group">
+                  <label class="control-label col-md-1">Name:</label>
+                  <div class="col-md-2">
+                    <input type="text" class="form-control" placeholder="John Doe">
+                  </div>
+                  <label class="control-label col-md-1">Description:</label>
+                  <div class="col-md-4">
+                  <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+                </div>
+                <label class="control-label col-md-1">Link:</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
+                  </div>
+              </div>
+            </article>
+            <article class="well">
+              <div class="form-group">
+                  <label class="control-label col-md-1">Name:</label>
+                  <div class="col-md-2">
+                    <input type="text" class="form-control" placeholder="John Doe">
+                  </div>
+                  <label class="control-label col-md-1">Description:</label>
+                  <div class="col-md-4">
+                  <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+                </div>
+                <label class="control-label col-md-1">Link:</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
+                  </div>
+              </div>
+            </article>
+            <article class="well">
+              <div class="form-group">
+                  <label class="control-label col-md-1">Name:</label>
+                  <div class="col-md-2">
+                    <input type="text" class="form-control" placeholder="John Doe">
+                  </div>
+                  <label class="control-label col-md-1">Description:</label>
+                  <div class="col-md-4">
+                  <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+                </div>
+                <label class="control-label col-md-1">Link:</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
+                  </div>
+              </div>
+            </article>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
 </div>
 </div>
 <!--end about us profile -->
