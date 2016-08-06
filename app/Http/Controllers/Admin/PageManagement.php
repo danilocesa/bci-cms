@@ -49,7 +49,7 @@ class PageManagement extends Controller
      */
     public function show($id)
     {
-        //
+        dd(1);
     }
 
     /**

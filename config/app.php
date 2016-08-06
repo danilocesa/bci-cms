@@ -156,6 +156,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /* Audit Trail */
+        OwenIt\Auditing\AuditingServiceProvider::class,
+
     ],
 
     /*
