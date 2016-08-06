@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Http\PageContent;
+use App\PageContent;
+use App\PageCategory;
 
 class PageManagement extends Controller
 {
     public function __construct(){
+        $this->page_category = new PageCategory;
         $this->page_content = new PageContent;
     }
     /**
@@ -21,8 +23,10 @@ class PageManagement extends Controller
      */
     public function index()
     {
+        $directors = $this->page_content->where('page_category_id',1)->get();
+        $aboutInfo = $this->page_category->where('page_category_id',1)->first();
         
-        return view('admin\pages\index');
+        return view('admin\pages\index',[ 'directors'=>$directors,'aboutInfo' => $aboutInfo ]);
     }
 
     /**
@@ -43,7 +47,8 @@ class PageManagement extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        dd($request->all());
     }
 
     /**

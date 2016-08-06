@@ -14,7 +14,11 @@ class PageCategory extends Migration
     {
         Schema::create('page_category', function (Blueprint $table) {
             $table->increments('page_category_id');
-            $table->string('page_category_name');
+            $table->string('page_category_name',20);
+            $table->string('page_description');
+            $table->string('meta_keywords');
+            $table->string('meta_description');
+            $table->string('image',50);
             // $table->timestamps();/
             // $table->rememberToken();
             // $table->timestamps();

@@ -15,16 +15,15 @@ class PageContent extends Migration
         Schema::create('page_content', function (Blueprint $table) {
             $table->increments('page_content_id');
             $table->integer('page_category_id');
-            $table->string('page_description');
-            $table->string('director_name');
-            $table->string('director_position');
-            $table->string('director_desc');
-            $table->string('client_image');
-            $table->string('portfolio_text');
-            $table->string('portfolio_image');
-            $table->string('url');
-            $table->string('fb_link');
-            $table->string('linkedin');
+            $table->string('director_name',30);
+            $table->string('director_position',20);
+            $table->string('director_desc',150);
+            $table->string('client_image',100);
+            $table->string('portfolio_text',10);
+            $table->string('portfolio_image',150);
+            $table->string('url',150);
+            $table->string('fb_link',150);
+            $table->string('linkedin',150);
             // $table->timestamps();/
             // $table->rememberToken();
             // $table->timestamps();

@@ -17,7 +17,7 @@
     <link href="{{ asset('css/nprogress.min.css') }}" rel="stylesheet">
     @yield('styles')
     <!-- Custom Theme Style -->
-    <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
   </head>
 
   <body class="nav-md">

@@ -1,3 +1,7 @@
+<form action="" method="POST" >
+{{ csrf_field() }}
+<input type="hidden" name="page_name" value="1" />
+<input type="hidden" name="method" value="_PUT" />
 <!--about us profile -->
 <div class="row">
   <div class="x_title">
@@ -6,11 +10,10 @@
     <div class="clearfix"></div>
   </div>
   <div class="" role="tabpanel" data-example-id="togglable-tabs">
-
     <ul id="aboutUsTab" class="nav nav-tabs bar_tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#left-profiles" id="left-profiles" role="tab" data-toggle="tab"  aria-expanded="true"><span class="fa fa-users"></span> Left Directors</a>
+      <li role="presentation" class="active"><a href="#leftProfile1" id="left-profiles" role="tab" data-toggle="tab"  aria-expanded="true"><span class="fa fa-users"></span> Left Directors</a>
       </li>
-      <li role="presentation" class=""><a href="#right-profiles" id="right-profiles" role="tab" data-toggle="tab" aria-expanded="false"><span class="fa fa-users"></span> Right Directors</a>
+      <li role="presentation" class=""><a href="#rightProfile2" id="right-profiles" role="tab" data-toggle="tab" aria-expanded="false"><span class="fa fa-users"></span> Right Directors</a>
       </li>
     </ul>
     <div id="aboutUsTabContent" class="tab-content">
@@ -18,178 +21,68 @@
          <div class="col-md-12">
           <div class="x_panel">
             <div class="x_content">
-              <form class="form-horizontal form-label-left">
-              <article class="well">
+              @foreach($directors as $key => $director)
+              @if($key < 4)
+              <article class="well directors">
                 <div class="form-group">
-                    <label class="control-label col-md-1">Name:</label>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" placeholder="John Doe">
-                    </div>
-                    <label class="control-label col-md-1">Description:</label>
+                    <label class="control-label col-md-2">Name:</label>
                     <div class="col-md-4">
-                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+                      <input type="text" class="form-control" name="directors[]" placeholder="John Doe" value="{{ $director->director_name }}">
+                    </div>
+                     <label class="control-label col-md-2">Position:</label>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" name="directors_position[]" placeholder="John Doe" value="{{ $director->director_position }}">
+                    </div>
+                </div><br /><br />
+                <div class="form-group">    
+                    <label class="control-label col-md-2">Description:</label>
+                    <div class="col-md-4">
+                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry." name="directors_desc[]" >{{ $director->director_desc}} </textarea>
                   </div>
-                  <label class="control-label col-md-1">Link:</label>
-                  <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
+                  <label class="control-label col-md-2">Link:</label>
+                  <div class="col-md-4">
+                      <input type="text" class="form-control" name="director_link[]" placeholder="http://linkedin.com/john-doe" value="{{ $director->url }}">
                     </div>
                 </div>
               </article>
-              <article class="well">
-                <div class="form-group">
-                    <label class="control-label col-md-1">Name:</label>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" placeholder="John Doe">
-                    </div>
-                    <label class="control-label col-md-1">Description:</label>
-                    <div class="col-md-4">
-                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
-                  </div>
-                  <label class="control-label col-md-1">Link:</label>
-                  <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
-                    </div>
-                </div>
-              </article>
-              <article class="well">
-                <div class="form-group">
-                    <label class="control-label col-md-1">Name:</label>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" placeholder="John Doe">
-                    </div>
-                    <label class="control-label col-md-1">Description:</label>
-                    <div class="col-md-4">
-                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
-                  </div>
-                  <label class="control-label col-md-1">Link:</label>
-                  <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
-                    </div>
-                </div>
-              </article>
-              <article class="well">
-                <div class="form-group">
-                    <label class="control-label col-md-1">Name:</label>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" placeholder="John Doe">
-                    </div>
-                    <label class="control-label col-md-1">Description:</label>
-                    <div class="col-md-4">
-                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
-                  </div>
-                  <label class="control-label col-md-1">Link:</label>
-                  <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
-                    </div>
-                </div>
-              </article>
-              <article class="well">
-                <div class="form-group">
-                    <label class="control-label col-md-1">Name:</label>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" placeholder="John Doe">
-                    </div>
-                    <label class="control-label col-md-1">Description:</label>
-                    <div class="col-md-4">
-                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
-                  </div>
-                  <label class="control-label col-md-1">Link:</label>
-                  <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
-                    </div>
-                </div>
-              </article>
-              </form>
+              @else
+                @break;
+              @endif
+              @endforeach
             </div>
           </div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane fade" id="rightProfile2" aria-labelledby="right-profiles">
+      <div role="tabpanel" class="tab-pane fade" id="rightProfile2" aria-labelledby="">
          <div class="col-md-12">
           <div class="x_panel">
             <div class="x_content">
-              <form class="form-horizontal form-label-left">
-              <article class="well">
+              @foreach($directors as $key => $director)
+              @if($key > 3)
+              <article class="well directors">
                 <div class="form-group">
-                    <label class="control-label col-md-1">Name:</label>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" placeholder="John Doe">
-                    </div>
-                    <label class="control-label col-md-1">Description:</label>
+                    <label class="control-label col-md-2">Name:</label>
                     <div class="col-md-4">
-                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+                      <input type="text" class="form-control" name="directors[]" placeholder="John Doe" value="{{ $director->director_name }}">
+                    </div>
+                     <label class="control-label col-md-2">Position:</label>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" name="directors_position[]" placeholder="John Doe" value="{{ $director->director_position }}">
+                    </div>
+                </div><br /><br />
+                <div class="form-group">    
+                    <label class="control-label col-md-2">Description:</label>
+                    <div class="col-md-4">
+                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry." name="directors_desc[]" >{{ $director->director_desc}} </textarea>
                   </div>
-                  <label class="control-label col-md-1">Link:</label>
-                  <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
+                  <label class="control-label col-md-2">Link:</label>
+                  <div class="col-md-4">
+                      <input type="text" class="form-control" name="director_link[]" placeholder="http://linkedin.com/john-doe" value="{{ $director->url }}">
                     </div>
                 </div>
               </article>
-              <article class="well">
-                <div class="form-group">
-                    <label class="control-label col-md-1">Name:</label>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" placeholder="John Doe">
-                    </div>
-                    <label class="control-label col-md-1">Description:</label>
-                    <div class="col-md-4">
-                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
-                  </div>
-                  <label class="control-label col-md-1">Link:</label>
-                  <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
-                    </div>
-                </div>
-              </article>
-              <article class="well">
-                <div class="form-group">
-                    <label class="control-label col-md-1">Name:</label>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" placeholder="John Doe">
-                    </div>
-                    <label class="control-label col-md-1">Description:</label>
-                    <div class="col-md-4">
-                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
-                  </div>
-                  <label class="control-label col-md-1">Link:</label>
-                  <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
-                    </div>
-                </div>
-              </article>
-              <article class="well">
-                <div class="form-group">
-                    <label class="control-label col-md-1">Name:</label>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" placeholder="John Doe">
-                    </div>
-                    <label class="control-label col-md-1">Description:</label>
-                    <div class="col-md-4">
-                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
-                  </div>
-                  <label class="control-label col-md-1">Link:</label>
-                  <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
-                    </div>
-                </div>
-              </article>
-              <article class="well">
-                <div class="form-group">
-                    <label class="control-label col-md-1">Name:</label>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" placeholder="John Doe">
-                    </div>
-                    <label class="control-label col-md-1">Description:</label>
-                    <div class="col-md-4">
-                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
-                  </div>
-                  <label class="control-label col-md-1">Link:</label>
-                  <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="http://linkedin.com/john-doe">
-                    </div>
-                </div>
-              </article>
-              </form>
+              @endif
+              @endforeach
             </div>
           </div>
         </div>
@@ -209,7 +102,7 @@
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
-        <input type="file" /> <br />
+        <input type="file" name="aboutUs_image" /> <br />
         <img src="{{ asset('image.png') }}" />
       </div>
     </div>
@@ -221,18 +114,17 @@
       <div class="clearfix"></div>
     </div>
     <div class="x_content">
-      <form class="form-horizontal form-label-left">
         <div class="form-group">
             <label class="">Meta Description (150 max):</label>
-            <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+            <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry." name="meta_description" >{{ $aboutInfo->meta_description}}</textarea>
         </div> 
         <div class="form-group">
             <label class="">Meta Keywords (Separate with comma):</label>
-            <textarea class="form-control" rows="2" placeholder="Lorem, Ipsum, is, simply, dummy, text, of"></textarea>
-        </div>    
-      </form>
+            <textarea class="form-control" rows="2" placeholder="Lorem, Ipsum, is, simply, dummy, text, of" name="meta_keywords" >{{ $aboutInfo->meta_keywords }}</textarea>
+        </div>
     </div>
   </div>
 </div>
 </div>
 <!--end about us image & seo -->		
+</form>
