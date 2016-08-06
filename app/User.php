@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use OwenIt\Auditing\AuditingTrait;
 
 class User extends Authenticatable
 {
+    use AuditingTrait;
     /**
      * The attributes that are mass assignable.
      *

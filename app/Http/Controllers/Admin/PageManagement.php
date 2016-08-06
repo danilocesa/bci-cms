@@ -7,8 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Http\PageContent;
+
 class PageManagement extends Controller
 {
+    public function __construct(){
+        $this->page_content = new PageContent;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -49,7 +54,7 @@ class PageManagement extends Controller
      */
     public function show($id)
     {
-        dd(1);
+        return view('admin\pages\index');
     }
 
     /**
