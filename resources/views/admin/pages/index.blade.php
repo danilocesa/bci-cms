@@ -17,7 +17,7 @@
                       <ul id="pagesTab" class="nav nav-tabs bar_tabs" role="tablist">
                         <li role="presentation" class="active"><a href="{{ url('web-admin/page-management') }}" id="aboutUsTab" role="tab" aria-expanded="true">About Us</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Clients</a>
+                        <li role="presentation" class=""><a href="{{ url('web-admin/page-management/clients') }}" role="tab" id="clientsTab" aria-expanded="false">Clients</a>
                         </li>
                         <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Portfolio</a>
                         </li>
@@ -30,8 +30,8 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="aboutUsTab1" aria-labelledby="aboutUsTab">
                           @include('admin.pages.about-us')
                         </div>
-                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-
+                        <div role="tabpanel" class="tab-pane fade" id="clientstab" aria-labelledby="clientsTab">
+                          @include('admin.pages.clients')
                         
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
