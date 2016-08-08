@@ -18,7 +18,12 @@ Route::get('/', function () {
 });
 
 
-Route::group(['as' => 'web-admin'], function () {
+Route::group(['as' => 'web-admin'
+	// , 'middleware' => ['role:admin']
+	]
+	, function () {
+
+
 	/*
 	* AuthController
 	*/
@@ -28,27 +33,33 @@ Route::group(['as' => 'web-admin'], function () {
 		}	
 		return view('admin/login');
 	});
-	Route::post('web-admin','Admin\AuthController@authAdmin');
-	Route::get('web-admin/logout','Admin\AuthController@doLogout');
-	Route::get('web-admin/dashboard','Admin\AuthController@dashboard');
 
-	/*
-	* PageManagement
-	*/
-	Route::resource('web-admin/page-management','Admin\PageManagement');
+//	if(Auth::user()){
+		Route::post('web-admin','Admin\AuthController@authAdmin');
+		Route::get('web-admin/logout','Admin\AuthController@doLogout');
+		Route::get('web-admin/dashboard','Admin\AuthController@dashboard');
 
-	/*
-	* AdminManagement
-	*/
-	Route::resource('web-admin/user-management','Admin\UserAdminManagement');
+		/*
+        * PageManagement
+        */
+		Route::resource('web-admin/page-management','Admin\PageManagement');
 
-	/*
-	* Audit Trail
-	*/
-	Route::resource('web-admin/audit-trail','Admin\AuditTrail');
-	
+		/*
+        * AdminManagement
+        */
+		Route::resource('web-admin/user-management','Admin\UserAdminManagement');
 
-	Route::get('web-admin/cAdu/{email}/{password}','Admin\AuthController@createAdminU');
-	Route::get('web-admin/cheLog/','Admin\AuthController@checkLogged');
+		/*
+        * Audit Trail
+        */
+		Route::resource('web-admin/audit-trail','Admin\AuditTrail');
+
+
+		Route::get('web-admin/cAdu/{email}/{password}','Admin\AuthController@createAdminU');
+		Route::get('web-admin/cheLog/','Admin\AuthController@checkLogged');
+
+//	}
+
+
 
 });

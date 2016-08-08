@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as Authenticatable;
 use OwenIt\Auditing\AuditingTrait;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class AdminsTB extends Model implements Authenticatable
 {
-    use AuditingTrait;
+    use AuditingTrait,EntrustUserTrait;
     protected $table = 'admins';
 
 

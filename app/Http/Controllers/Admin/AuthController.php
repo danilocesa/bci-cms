@@ -62,14 +62,11 @@ class AuthController extends Controller
 
 
     public function dashboard(){
-        if(auth()->user()){
-            return view('admin/dashboard');
-        }
-        else{
+        if(!auth()->user()){
             abort(404);
         }
+        return view('admin/dashboard');
         // dump(auth()->user());
-        
     }
 
     public function doLogout(){

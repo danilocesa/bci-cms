@@ -24,7 +24,9 @@
                     </ul>
                     <div id="pagesTabContent" class="tab-content">
                       <div class="tab-pane fade {{ Request::segment(3) == '' ? 'active in' : '' }}" >
-                        @include('admin.pages.about-us')
+                        @if(isset($directors))
+                            @include('admin.pages.about-us')
+                        @endif
                       </div>
                       <div class="tab-pane fade {{ Request::segment(3) == 'clients' ? 'active in' : '' }}" >
                         @include('admin.pages.clients')

@@ -84,4 +84,15 @@ class UserAdminManagement extends Controller
     {
         //
     }
+
+    /**
+    * Store the added roles.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+    public function addRoles(Request $request)
+    {  
+        
+    }
 }
