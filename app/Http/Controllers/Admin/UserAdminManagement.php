@@ -6,9 +6,23 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use OwenIt\Auditing\AuditingTrait;
+
+use App\Role;
+
 
 class UserAdminManagement extends Controller
 {
+    use AuditingTrait;
+    /** 
+    * Initializing models
+    *
+    *
+    */
+    public function __construct(){
+        $this->role = new Role;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +30,8 @@ class UserAdminManagement extends Controller
      */
     public function index()
     {
-        return view('admin\users\index');
+        
+        return view('admin\users\index',['roles_list'=>$this->role->orderBy('updated_at','desc')->get()]);
     }
 
     /**
@@ -91,8 +106,20 @@ class UserAdminManagement extends Controller
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
-    public function addRoles(Request $request)
+    public function addRole(Request $request)
     {  
-        
+        $role_name = str_slug($request->roleName,'-');
+        $role = $this->role->where('name',$role_name)->first();
+        if($role){ //Check for existing roles
+            return response()->json(false);
+        }
+
+        $this->role->name = $role_name;
+        $this->role->display_name = ucwords($request->roleName);
+        $this->role->save();
+
+        return response()->json($request);
     }
+
+
 }

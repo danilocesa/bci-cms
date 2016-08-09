@@ -277,3 +277,15 @@ if (typeof NProgress != 'undefined') {
         NProgress.done();
     });
 }
+
+
+function callAjax(obj,callback){
+    // console.log(obj);
+    $.ajax({
+        url: obj.url,
+        type: obj.method,
+        data: obj.data,
+        success: function (result){ callback(result); },
+        error: function (result) { return result; }
+    });
+}

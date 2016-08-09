@@ -48,6 +48,8 @@ Route::group(['as' => 'web-admin'
         * AdminManagement
         */
 		Route::resource('web-admin/user-management','Admin\UserAdminManagement');
+		Route::post('web-admin/user-management/addRole','Admin\UserAdminManagement@addRole');
+
 
 		/*
         * Audit Trail

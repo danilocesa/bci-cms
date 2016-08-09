@@ -73,7 +73,7 @@
     <!-- NProgress -->
     <script src="{{ asset('js/nprogress.min.js') }}"></script>
     <!-- Custom Theme Scripts -->
-    <script src="{{ asset('js/custom.min.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
 
     @yield('scripts')
   </body>
