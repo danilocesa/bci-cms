@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::group(['as' => 'web-admin'
+Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	// , 'middleware' => ['role:admin']
 	]
 	, function () {
@@ -27,7 +27,7 @@ Route::group(['as' => 'web-admin'
 	/*
 	* AuthController
 	*/
-	Route::get('web-admin',function(){
+	Route::get('/',function(){
 		if(Auth::user()){
 			return redirect('web-admin/dashboard');
 		}	
@@ -35,30 +35,37 @@ Route::group(['as' => 'web-admin'
 	});
 
 //	if(Auth::user()){
-		Route::post('web-admin','Admin\AuthController@authAdmin');
-		Route::get('web-admin/logout','Admin\AuthController@doLogout');
-		Route::get('web-admin/dashboard','Admin\AuthController@dashboard');
+		Route::post('/','Admin\AuthController@authAdmin');
+		Route::get('logout','Admin\AuthController@doLogout');
+		Route::get('dashboard','Admin\AuthController@dashboard');
 
 		/*
         * PageManagement
         */
-		Route::resource('web-admin/page-management','Admin\PageManagement');
+		Route::resource('page-management','Admin\PageManagement');
 
 		/*
         * AdminManagement
         */
-		Route::resource('web-admin/user-management','Admin\UserAdminManagement');
-		Route::post('web-admin/user-management/addRole','Admin\UserAdminManagement@addRole');
+		Route::resource('user-management','Admin\UserAdminManagement');
+		
 
+		/*
+        * RoleAndPermission
+        */
+        Route::get('role-and-permission/add-permission','Admin\RoleAndPermission@addPermission');
+        Route::get('role-and-permission/attach-permission','Admin\RoleAndPermission@attachPermission');
+		Route::resource('role-and-permission','Admin\RoleAndPermission');
+		
 
 		/*
         * Audit Trail
         */
-		Route::resource('web-admin/audit-trail','Admin\AuditTrail');
+		Route::resource('audit-trail','Admin\AuditTrail');
 
 
-		Route::get('web-admin/cAdu/{email}/{password}','Admin\AuthController@createAdminU');
-		Route::get('web-admin/cheLog/','Admin\AuthController@checkLogged');
+		Route::get('cAdu/{email}/{password}','Admin\AuthController@createAdminU');
+		Route::get('cheLog/','Admin\AuthController@checkLogged');
 
 //	}
 

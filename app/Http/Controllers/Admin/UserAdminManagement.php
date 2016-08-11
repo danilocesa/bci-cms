@@ -6,14 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use OwenIt\Auditing\AuditingTrait;
-
 use App\Role;
+use App\Permission;
 
 
 class UserAdminManagement extends Controller
 {
-    use AuditingTrait;
     /** 
     * Initializing models
     *
@@ -21,6 +19,7 @@ class UserAdminManagement extends Controller
     */
     public function __construct(){
         $this->role = new Role;
+        $this->permissions = new Permission;
     }
 
     /**
@@ -31,7 +30,7 @@ class UserAdminManagement extends Controller
     public function index()
     {
         
-        return view('admin\users\index',['roles_list'=>$this->role->orderBy('updated_at','desc')->get()]);
+        return view('admin\users\index',['roles_list'=>$this->role->orderBy('updated_at','desc')->get(),'permissions'=>$this->permissions->all()]);
     }
 
     /**
@@ -98,27 +97,6 @@ class UserAdminManagement extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-    * Store the added roles.
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
-    public function addRole(Request $request)
-    {  
-        $role_name = str_slug($request->roleName,'-');
-        $role = $this->role->where('name',$role_name)->first();
-        if($role){ //Check for existing roles
-            return response()->json(false);
-        }
-
-        $this->role->name = $role_name;
-        $this->role->display_name = ucwords($request->roleName);
-        $this->role->save();
-
-        return response()->json($request);
     }
 
 

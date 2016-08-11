@@ -30,14 +30,18 @@
           title: 'Oh No!',
           text: 'Role name is required.',
           type: 'error',
-          styling: 'bootstrap3'
+          addclass: "stack-bottomright",
+          styling: 'bootstrap3',
+          buttons: { sticker: false }
         });
+
+
         return;
       }
       /** End add role validation **/
 
       /** Call ajax for add role post **/
-        callAjax({method:'POST',url:'user-management/addRole',data:{roleName: $roleName, _token:'{{ csrf_token() }}' }},function(result){
+        callAjax({method:'POST',url:'role-and-permission',data:{roleName: $roleName, _token:'{{ csrf_token() }}' }},function(result){
           if(!result){
             new PNotify({
               title: 'Oh No!',
@@ -52,14 +56,25 @@
             title: 'Success!',
             text: 'Role added.',
             type: 'success',
-            styling: 'bootstrap3'
+            addclass: "stack-bottomright", 
+            styling: 'bootstrap3',
+            buttons: { sticker: false }
           });
-          setTimeout(function(){ location.reload(); }, 2000);
+          $('#addPermission').modal({backdrop: 'static', keyboard: false});
+          // setTimeout(function(){ location.reload(); }, 2000);
         });
       /** End ajax add role **/
   
     });
     /** End add role action **/
+
+    /** Add permission action **/
+    $('#add-permissions').click(function(){
+      callAjax({method:'GET',url:'role-and-permission/attach-permission'},function(result){
+        console.log(result);
+      });
+    });
+    /** End add permission action **/
 
   });
 </script>
@@ -68,7 +83,7 @@
 <div class="">
   <div class="page-title">
     <div class="title_left">
-      <h3>Admins</h3>
+      <h3>Users</h3>
     </div>
   </div>
 
@@ -77,7 +92,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>List of Admins</h2>
+          <h2>List of Users</h2>
          <button type="submit" class="btn btn-success pull-right"><i class="fa fa-user"></i> Add User</button>
           <div class="clearfix"></div>
         </div>
@@ -161,8 +176,33 @@
         </div>
       </div>
     </div>
-    </div> 
-             
+    </div>   
+
+   <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" id="addPermission">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header"> <h4 class="modal-title">Add Permissions</h4>
+      </div>
+      <div class="modal-body">
+       <ul class="to_do">
+        @foreach($permissions  as $permission)
+          <li>
+            <p><input type="checkbox" class="flat" value="{{ $permission->id }}" name="permissions[]"> {{ $permission->display_name }} </p>
+          </li>
+        @endforeach 
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="add-permissions">Save changes</button>
+      </div>
+
+    </div>
+  </div>  
+  </div> 
+
+
 </div>
  	
 @endsection
