@@ -11,7 +11,6 @@ use App\Permission;
 
 class RoleAndPermission extends Controller
 {
-    private $newRole;
     /** 
     * Initializing models
     *
@@ -57,7 +56,17 @@ class RoleAndPermission extends Controller
             return response()->json(false);
         }
 
-        $request->session()->put('roles', ['role_name'=>$role_name,'display_name'=>ucwords($request->roleName)]); //Store role name to session for attaching permissions
+        /** Save new role **/
+        $this->role->name = $role_name;
+        $this->role->display_name = ucwords($request->roleName);
+        $this->role->save();
+        if(!$request->session()->has('roleID') ){
+            $request->session()->put('roleID',$this->role->id);
+        }   else {
+            $request->session()->forget('roleID');
+        }
+        
+        // $request->session()->put('roles', ['role_name'=>$role_name,'display_name'=>ucwords($request->roleName)]); //Store role name to session for attaching permissions
 
         return response()->json($request);
     }
@@ -129,28 +138,18 @@ class RoleAndPermission extends Controller
      * @return \Illuminate\Http\Response
      */
     public function attachPermission(Request $request){
-        /** Save new role **/
-        $newRole = $this->role->name = $request->session()->get('roles')['role_name'];
-        $newRole = $this->role->display_name = $request->session()->get('roles')['display_name'];
-        $newRole = $this->role->save();
+        if(!$request->permissions){
+            return 'error';
+        }
+        $params = array();
+        parse_str($request->permissions, $params);
 
-        $request->session()->forget('role_name');
-
-        $editUser = new Permission();
-$editUser->name         = 'edit-user2343sss';
-$editUser->display_name = 'Edit Users'; // optional
-// Allow a user to...
-$editUser->description  = 'edit existing users'; // optional
-$editUser->save();
-
+        $newRole = $this->role->where('id',$request->session()->get('roleID'))->first();
+        $addPerm = $this->permissions->whereIn('id',$params['permissions'])->get();
         /** Attaching permission in newly created role **/
-        $permissions = $this->permissions->where('id',1)->first();
-        $newRole->attachPermission($editUser);
-        // dd($newRole->perms()->sync(array($createPost->id));
-        // $newRole->attachPermission($createPost);
-        // $this->permission->name         = 'contact-page';
-        // $this->permission->display_name = 'View contact';
-        // $this->permission->save();
+        $newRole->attachPermissions($addPerm);
+
+        return 'success';
     }
 
 }

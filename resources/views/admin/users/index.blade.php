@@ -70,8 +70,38 @@
 
     /** Add permission action **/
     $('#add-permissions').click(function(){
-      callAjax({method:'GET',url:'role-and-permission/attach-permission'},function(result){
-        console.log(result);
+      if(!$('input[name="permissions[]"').serialize()){
+          new PNotify({
+            title: 'Oh No!',
+            text: 'Permission is required.',
+            type: 'error',
+            addclass: "stack-bottomright",
+            styling: 'bootstrap3',
+            buttons: { sticker: false }
+          });
+          return;
+      }
+      callAjax({method:'POST',url:'role-and-permission/attach-permission',data:{permissions:$('input[name="permissions[]"').serialize() , _token:'{{ csrf_token() }}' }},function(result){
+        if(result == 'error'){
+          new PNotify({
+            title: 'Oh No!',
+            text: 'Permission is required.',
+            type: 'error',
+            addclass: "stack-bottomright",
+            styling: 'bootstrap3',
+            buttons: { sticker: false }
+          });
+          return;
+        } 
+        new PNotify({
+          title: 'Success!',
+          text: 'Permission added.',
+          type: 'success',
+          addclass: "stack-bottomright", 
+          styling: 'bootstrap3',
+          buttons: { sticker: false }
+        });
+        setTimeout(function(){ location.reload(); }, 2000);
       });
     });
     /** End add permission action **/
@@ -189,7 +219,7 @@
        <ul class="to_do">
         @foreach($permissions  as $permission)
           <li>
-            <p><input type="checkbox" class="flat" value="{{ $permission->id }}" name="permissions[]"> {{ $permission->display_name }} </p>
+            <p><input type="checkbox" class="flat permissions" value="{{ $permission->id }}" name="permissions[]"> {{ $permission->display_name }} </p>
           </li>
         @endforeach 
         </ul>
