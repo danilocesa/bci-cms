@@ -60,11 +60,8 @@ class RoleAndPermission extends Controller
         $this->role->name = $role_name;
         $this->role->display_name = ucwords($request->roleName);
         $this->role->save();
-        if(!$request->session()->has('roleID') ){
-            $request->session()->put('roleID',$this->role->id);
-        }   else {
-            $request->session()->forget('roleID');
-        }
+        
+        $request->session()->put('roleID',$this->role->id);
         
         // $request->session()->put('roles', ['role_name'=>$role_name,'display_name'=>ucwords($request->roleName)]); //Store role name to session for attaching permissions
 
@@ -143,11 +140,13 @@ class RoleAndPermission extends Controller
         }
         $params = array();
         parse_str($request->permissions, $params);
-
+        
         $newRole = $this->role->where('id',$request->session()->get('roleID'))->first();
         $addPerm = $this->permissions->whereIn('id',$params['permissions'])->get();
         /** Attaching permission in newly created role **/
         $newRole->attachPermissions($addPerm);
+
+        $request->session()->forget('roleID');
 
         return 'success';
     }

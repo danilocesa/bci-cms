@@ -82,6 +82,7 @@
           return;
       }
       callAjax({method:'POST',url:'role-and-permission/attach-permission',data:{permissions:$('input[name="permissions[]"').serialize() , _token:'{{ csrf_token() }}' }},function(result){
+        console.log(result);
         if(result == 'error'){
           new PNotify({
             title: 'Oh No!',
@@ -207,8 +208,6 @@
       </div>
     </div>
     </div>   
-
-   <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
 
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" id="addPermission">
   <div class="modal-dialog modal-sm">
