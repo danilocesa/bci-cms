@@ -54,6 +54,7 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
         * RoleAndPermission
         */
         Route::get('role-and-permission/add-permission','Admin\RoleAndPermission@addPermission');
+        Route::get('role-and-permission/show-permission/{id}','Admin\RoleAndPermission@showPermission');
         Route::post('role-and-permission/attach-permission','Admin\RoleAndPermission@attachPermission');
 		Route::resource('role-and-permission','Admin\RoleAndPermission');
 		

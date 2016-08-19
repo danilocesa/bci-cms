@@ -60,6 +60,7 @@
             styling: 'bootstrap3',
             buttons: { sticker: false }
           });
+          $('#modal-perm-title').text('Add Permissions');
           $('#addPermission').modal({backdrop: 'static', keyboard: false});
           // setTimeout(function(){ location.reload(); }, 2000);
         });
@@ -96,16 +97,56 @@
         } 
         new PNotify({
           title: 'Success!',
-          text: 'Permission added.',
+          text: 'Permission added. Reloading list...',
           type: 'success',
           addclass: "stack-bottomright", 
           styling: 'bootstrap3',
           buttons: { sticker: false }
         });
-        setTimeout(function(){ location.reload(); }, 2000);
+        $('#add-permissions').prop('disabled',true);
+        setTimeout(function(){ location.reload(); }, 1300);
       });
     });
     /** End add permission action **/
+
+    /** Delete role action **/
+    $('.delete-role').click(function(){
+     var $id = $(this).closest('td').data('id');
+     callAjax({method:'POST',url:'role-and-permission/'+$id,data:{_method: 'delete', _token:'{{ csrf_token() }}' }},function(result){
+         new PNotify({
+          title: 'Deleted!',
+          text: 'Role deleted. Reloading list...',
+          type: 'error',
+          addclass: "stack-bottomright", 
+          styling: 'bootstrap3',
+          buttons: { sticker: false }
+        });
+        $('.delete-role').prop('disabled',true);
+        $('.edit-role').prop('disabled',true);
+        setTimeout(function(){ location.reload(); }, 1300);
+     });
+
+    });  
+
+    /** End delete role action **/
+
+    /** Edit Permission **/
+    $('.edit-role').click(function(){
+      var $id = $(this).closest('td').data('id');
+      callAjax({method:'GET',url:'role-and-permission/show-permission/'+$id},function(result){
+        $.each(result,function(index,el){
+          // $('.permissions[value="'+el.permission_id+'"]').attr('checked', true);
+          $('.permissions[value="'+el.permission_id+'"]').iCheck('check');
+          console.log(el);
+
+        });
+        console.log(result);
+      });
+      $('#modal-perm-title').text('Edit Permissions');
+      $('#addPermission').modal();
+    });  
+
+    /** End edit permission **/
 
   });
 </script>
@@ -198,7 +239,7 @@
                 <td>{{ $role->display_name }}</td>
                 <td>{{ $role->created_at }}</td>
                 <td>{{ $role->updated_at}}</td>
-                <td>Delete</td>
+                <td  data-id="{{ $role->id }}" ><button type="button" class="btn btn-info btn-xs edit-role">Edit</button><button type="button" class="btn btn-danger btn-xs delete-role">Delete</button></td>
               </tr>
               @endforeach 
             </tbody>
@@ -212,13 +253,13 @@
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" id="addPermission">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      <div class="modal-header"> <h4 class="modal-title">Add Permissions</h4>
+      <div class="modal-header"> <h4 class="modal-title" id="modal-perm-title"></h4>
       </div>
       <div class="modal-body">
        <ul class="to_do">
         @foreach($permissions  as $permission)
           <li>
-            <p><input type="checkbox" class="flat permissions" value="{{ $permission->id }}" name="permissions[]"> {{ $permission->display_name }} </p>
+            <p><input type="checkbox" class="flat permissions" value="{{ $permission->id }}" name="permissions[]" > {{ $permission->display_name }} </p>
           </li>
         @endforeach 
         </ul>

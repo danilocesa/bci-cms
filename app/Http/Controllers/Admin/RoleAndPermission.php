@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Role;
 use App\Permission;
+use App\PermissionRole;
 
 class RoleAndPermission extends Controller
 {
@@ -19,6 +20,7 @@ class RoleAndPermission extends Controller
     public function __construct(){
         $this->role = new Role;
         $this->permissions = new Permission;
+        $this->permission_role = new PermissionRole;
     }
 
     /**
@@ -99,7 +101,7 @@ class RoleAndPermission extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
     }
 
     /**
@@ -110,7 +112,9 @@ class RoleAndPermission extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $this->role->where('id',$id)->delete();
+        return response()->json(true);
     }
 
     /**
@@ -149,6 +153,18 @@ class RoleAndPermission extends Controller
         $request->session()->forget('roleID');
 
         return 'success';
+    }
+
+    /**
+     * Attach permission to the role
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function showPermission($id){
+        $role_list = $this->permission_role->where('role_id',$id)->get();
+        return response()->json($role_list);
     }
 
 }
