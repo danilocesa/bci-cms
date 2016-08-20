@@ -31,7 +31,6 @@ class RoleAndPermission extends Controller
     public function index()
     {
         abort(404);
-        // return response()->json($this->role->all());
     }
 
     /**
@@ -64,8 +63,6 @@ class RoleAndPermission extends Controller
         $this->role->save();
         
         $request->session()->put('roleID',$this->role->id);
-        
-        // $request->session()->put('roles', ['role_name'=>$role_name,'display_name'=>ucwords($request->roleName)]); //Store role name to session for attaching permissions
 
         return response()->json($request);
     }
@@ -118,21 +115,6 @@ class RoleAndPermission extends Controller
     }
 
     /**
-     * create a new permission
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function addPermission(Request $request){
-
-        // $this->permission->name         = 'contact-page';
-        // $this->permission->display_name = 'View contact';
-        // $this->permission->save();
-
-        // $role->attachPermission($var);
-    }
-
-    /**
      * Attach permission to the role
      *
      * @param  \Illuminate\Http\Request  $request
@@ -142,21 +124,26 @@ class RoleAndPermission extends Controller
         if(!$request->permissions){
             return 'error';
         }
+
         $params = array();
         parse_str($request->permissions, $params);
-        
-        $newRole = $this->role->where('id',$request->session()->get('roleID'))->first();
-        $addPerm = $this->permissions->whereIn('id',$params['permissions'])->get();
-        /** Attaching permission in newly created role **/
-        $newRole->attachPermissions($addPerm);
-
-        $request->session()->forget('roleID');
-
+        $getPerm = $this->permissions->whereIn('id',$params['permissions'])->get();
+        if($request->get('action') == "add"){
+            $newRole = $this->role->where('id',$request->session()->get('roleID'))->first();
+            /** Attaching permission in newly created role **/
+            $newRole->attachPermissions($getPerm);
+            $request->session()->forget('roleID');
+        }
+        else{
+            $editRole = $this->role->where('id',$request->get('id'))->first();
+            $this->permission_role->where('role_id',$request->get('id'))->delete();
+            $editRole->attachPermissions($getPerm);
+        }
         return 'success';
     }
 
     /**
-     * Attach permission to the role
+     * Show permission for updating role
      *
      * @param  int $id
      * @return \Illuminate\Http\Response

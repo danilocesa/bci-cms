@@ -47,6 +47,7 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 		/*
         * AdminManagement
         */
+        Route::get('user-management/users','Admin\UserAdminManagement@userList');
 		Route::resource('user-management','Admin\UserAdminManagement');
 		
 

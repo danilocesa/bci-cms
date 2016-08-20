@@ -162,6 +162,9 @@ return [
         /* ACL */
         Zizaco\Entrust\EntrustServiceProvider::class,
 
+        /* Datatables */
+        Yajra\Datatables\DatatablesServiceProvider::class,
+
     ],
 
     /*
@@ -209,6 +212,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+
+        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
 
     ],
 

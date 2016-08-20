@@ -12,14 +12,30 @@
    <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
    <script src="{{ asset('js/pnotify.js') }}"></script>
    <script src="{{ asset('js/pnotify.buttons.js') }}"></script>
+   <script src="{{ asset('js/pnotify.confirm.js') }}"></script>
    
 
 <script>
+  var $editID = null;
   $(document).ready(function() {
   
-    $('#datatable').dataTable();
+    $('#user_datatable').dataTable({
+        processing: true,
+        serverSide: true,
+        ajax: '{{ url("web-admin/user-management/users") }}',
+        columns: [
+            {data: 0, name: 'id'},
+            {data: 1, name: 'first_name'},
+            {data: 2, name: 'last_name'},
+            {data: 3, name: 'activated'},
+            {data: 4, name: 'created_at'},
+            {data: 5, name: 'action'}
+
+        ]
+    });
 
     $('#role_datatable').dataTable();
+    $('#close-permissions').hide();
 
     /** Add role action **/
     $('#add_role').click(function(){
@@ -65,12 +81,12 @@
           // setTimeout(function(){ location.reload(); }, 2000);
         });
       /** End ajax add role **/
-  
     });
     /** End add role action **/
 
     /** Add permission action **/
-    $('#add-permissions').click(function(){
+    $('#permissions-action').click(function(){
+      var $permAction = $(this).data('action');
       if(!$('input[name="permissions[]"').serialize()){
           new PNotify({
             title: 'Oh No!',
@@ -82,7 +98,8 @@
           });
           return;
       }
-      callAjax({method:'POST',url:'role-and-permission/attach-permission',data:{permissions:$('input[name="permissions[]"').serialize() , _token:'{{ csrf_token() }}' }},function(result){
+      
+      callAjax({method:'POST',url:'role-and-permission/attach-permission',data:{permissions:$('input[name="permissions[]"').serialize(),action:$(this).data('action') , id: $editID ,_token:'{{ csrf_token() }}' }},function(result){
         console.log(result);
         if(result == 'error'){
           new PNotify({
@@ -95,15 +112,22 @@
           });
           return;
         } 
-        new PNotify({
-          title: 'Success!',
-          text: 'Permission added. Reloading list...',
-          type: 'success',
-          addclass: "stack-bottomright", 
-          styling: 'bootstrap3',
-          buttons: { sticker: false }
-        });
-        $('#add-permissions').prop('disabled',true);
+
+        if($(this).data('action') == "add"){ //add permissions
+          new PNotify({
+            title: 'Success!',
+            text: 'Permission added. Reloading list...',
+            type: 'success',
+            addclass: "stack-bottomright", 
+            styling: 'bootstrap3',
+            buttons: { sticker: false }
+          });
+        }
+        else{ //edit permisssions
+          console.log($editID);
+          console.log($('input[name="permissions[]"').serialize());
+        }  
+        $('#permissions-action').prop('disabled',true);
         setTimeout(function(){ location.reload(); }, 1300);
       });
     });
@@ -112,37 +136,56 @@
     /** Delete role action **/
     $('.delete-role').click(function(){
      var $id = $(this).closest('td').data('id');
-     callAjax({method:'POST',url:'role-and-permission/'+$id,data:{_method: 'delete', _token:'{{ csrf_token() }}' }},function(result){
-         new PNotify({
-          title: 'Deleted!',
-          text: 'Role deleted. Reloading list...',
-          type: 'error',
-          addclass: "stack-bottomright", 
-          styling: 'bootstrap3',
-          buttons: { sticker: false }
+     (new PNotify({
+        title: 'Confirmation Needed',
+        text: 'Are you sure?',
+        type: 'error',
+        styling: 'bootstrap3',
+        icon: 'glyphicon glyphicon-question-sign',
+        hide: false,
+        confirm: {
+            confirm: true
+        },
+        buttons: { sticker: false, closer: false },
+        history: {
+          history: false
+        },
+        addclass: 'stack-modal',
+        stack: {
+            'dir1': 'down',
+            'dir2': 'right',
+            'modal': true
+        }
+      })).get().on('pnotify.confirm', function() {
+        callAjax({method:'POST',url:'role-and-permission/'+$id,data:{_method: 'delete', _token:'{{ csrf_token() }}' }},function(result){
+          new PNotify({
+            title: 'Deleted!',
+            text: 'Role deleted. Reloading list...',
+            type: 'error',
+            addclass: "stack-bottomright", 
+            styling: 'bootstrap3',
+            buttons: { sticker: false }
+          });
+          $('.delete-role').prop('disabled',true);
+          $('.edit-role').prop('disabled',true);
+          setTimeout(function(){ location.reload(); }, 1000);
         });
-        $('.delete-role').prop('disabled',true);
-        $('.edit-role').prop('disabled',true);
-        setTimeout(function(){ location.reload(); }, 1300);
-     });
-
+      }).on('pnotify.cancel', function() { $('.ui-pnotify-modal-overlay').remove(); });
     });  
 
     /** End delete role action **/
 
     /** Edit Permission **/
     $('.edit-role').click(function(){
-      var $id = $(this).closest('td').data('id');
-      callAjax({method:'GET',url:'role-and-permission/show-permission/'+$id},function(result){
+      $editID = $(this).closest('td').data('id');
+      $('#permissions-action').data('action','edit');
+      callAjax({method:'GET',url:'role-and-permission/show-permission/'+$editID},function(result){
         $.each(result,function(index,el){
-          // $('.permissions[value="'+el.permission_id+'"]').attr('checked', true);
           $('.permissions[value="'+el.permission_id+'"]').iCheck('check');
-          console.log(el);
-
         });
-        console.log(result);
       });
       $('#modal-perm-title').text('Edit Permissions');
+      $('#close-permissions').show();
       $('#addPermission').modal();
     });  
 
@@ -169,31 +212,17 @@
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
-          <p class="text-muted font-13 m-b-30">
-            DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-          </p>
-          <table id="datatable" class="table table-striped table-bordered">
+          <table id="user_datatable" class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Status</th>
+                <th>Created Date</th>
+                <th>Action</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Olivia Liang</td>
-                <td>Support Engineer</td>
-                <td>Singapore</td>
-                <td>64</td>
-                <td>2011/02/03</td>
-                <td>$234,500</td>
-              </tr>
-          
-            </tbody>
           </table>
         </div>
       </div>
@@ -239,7 +268,7 @@
                 <td>{{ $role->display_name }}</td>
                 <td>{{ $role->created_at }}</td>
                 <td>{{ $role->updated_at}}</td>
-                <td  data-id="{{ $role->id }}" ><button type="button" class="btn btn-info btn-xs edit-role">Edit</button><button type="button" class="btn btn-danger btn-xs delete-role">Delete</button></td>
+                <td  data-id="{{ $role->id }}" ><button type="button" class="btn btn-info btn-xs edit-role"><i class="fa fa-edit"></i>  Edit</button><button type="button" class="btn btn-danger btn-xs delete-role"><i class="fa fa-trash"></i>  Delete</button></td>
               </tr>
               @endforeach 
             </tbody>
@@ -253,7 +282,9 @@
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" id="addPermission">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      <div class="modal-header"> <h4 class="modal-title" id="modal-perm-title"></h4>
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-permissions"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="modal-perm-title"></h4>
       </div>
       <div class="modal-body">
        <ul class="to_do">
@@ -265,7 +296,7 @@
         </ul>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="add-permissions">Save changes</button>
+        <button type="button" class="btn btn-primary" id="permissions-action" data-action="add" >Save changes</button>
       </div>
 
     </div>

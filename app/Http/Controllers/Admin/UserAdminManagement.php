@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Role;
 use App\Permission;
+use App\AdminsTB;
+use Yajra\Datatables\Datatables;
 
 
 class UserAdminManagement extends Controller
@@ -20,6 +22,7 @@ class UserAdminManagement extends Controller
     public function __construct(){
         $this->role = new Role;
         $this->permissions = new Permission;
+        $this->admins = new AdminsTB;
     }
 
     /**
@@ -98,6 +101,24 @@ class UserAdminManagement extends Controller
     {
         //
     }
+
+    /**
+     * Process datatables ajax request.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function userList()
+    {
+        $users = AdminsTB::select(['id','first_name', 'last_name', 'activated', 'created_at']);
+
+        return Datatables::of($users)->addColumn('action', function ($user) {
+                return '<a href="#edit-'.$user->id.'" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i> Status</a><a href="#edit-'.$user->id.'" class="btn btn-xs btn-primary"><i class="fa fa-lock"></i> Role</a><a href="#edit-'.$user->id.'" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</a>';
+            })->make();
+
+        // return Datatables::of(AdminsTB::query())->make(true);
+    }
+
+
 
 
 }
