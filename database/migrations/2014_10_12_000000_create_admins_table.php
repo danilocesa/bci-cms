@@ -26,6 +26,8 @@ class CreateAdminsTable extends Migration
             $table->string('remember_token', 100)->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->string('middle_name')->nullable();
+            $table->string('gender')->nullable();
             $table->timestamps();
             // $table->rememberToken();
             // $table->timestamps();

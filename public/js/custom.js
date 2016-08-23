@@ -280,7 +280,7 @@ if (typeof NProgress != 'undefined') {
 
 
 function callAjax(obj,callback){
-    // console.log(obj);
+    console.log(obj);
     $.ajax({
         url: obj.url,
         type: obj.method,
