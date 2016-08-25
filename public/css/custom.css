@@ -4133,5 +4133,9 @@ ul.notifications {
 
 /** Admin **/
 .directors{
-  height:130px;
+  height:165px;
+}
+
+.dir-desc-link{
+  margin-top:15px;
 }

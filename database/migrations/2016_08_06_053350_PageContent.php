@@ -24,7 +24,7 @@ class PageContent extends Migration
             $table->string('url',150);
             $table->string('fb_link',150);
             $table->string('linkedin',150);
-            // $table->timestamps();/
+            $table->timestamps();
             // $table->rememberToken();
             // $table->timestamps();
         });
