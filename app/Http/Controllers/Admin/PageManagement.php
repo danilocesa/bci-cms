@@ -47,18 +47,25 @@ class PageManagement extends Controller
      */
     public function store(Request $request)
     {
-        foreach ($request->get('page_content_id') as $pageId) {
-            dump($request->get('directors')[$pageId - 1]);
-            $this->page_content
-                ->where('page_content_id',$pageId)
+        if($request->get('page_category') == 1){ //About us update
+            foreach ($request->get('page_content_id') as $pageId) {
+                $this->page_content
+                    ->where('page_content_id',$pageId)
+                    ->update([
+                        'director_name'=>$request->get('directors')[$pageId - 1],
+                        'director_position'=>$request->get('directors_position')[$pageId - 1],
+                        'director_desc' => $request->get('directors_desc')[$pageId - 1],
+                        'linkedin' => $request->get('director_link')[$pageId - 1]
+                    ]);
+            }
+
+            $this->page_category->where('page_category_id',1)
                 ->update([
-                    'director_name'=>$request->get('directors')[$pageId - 1],
-                    'director_position'=>$request->get('directors_position')[$pageId - 1],
-                    'director_desc' => $request->get('directors_desc')[$pageId - 1],
-                    'linkedin' => $request->get('director_link')[$pageId - 1]
+                    'meta_description' => $request->get('meta_description'),
+                    'meta_keywords'     =>$request->get('meta_keywords')
                 ]);
         }
-
+        
         return response()->json(true);
     }
 

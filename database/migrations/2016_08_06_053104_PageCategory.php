@@ -19,9 +19,7 @@ class PageCategory extends Migration
             $table->string('meta_keywords');
             $table->string('meta_description');
             $table->string('image',50);
-            // $table->timestamps();/
-            // $table->rememberToken();
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 
