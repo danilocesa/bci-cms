@@ -1,12 +1,12 @@
-<form action="" method="POST" >
+<form action="" method="POST" id="aboutUs-form" data-parsley-validate>
 {{ csrf_field() }}
-<input type="hidden" name="page_name" value="1" />
+<input type="hidden" name="page_category" value="1" />
 <input type="hidden" name="method" value="_PUT" />
 <!--about us profile -->
 <div class="row">
   <div class="x_title">
     <h2><span class="fa fa-users"></span> Directors</h2>
-    <button type="submit" class="btn btn-success pull-right">Save</button>
+    <button type="submit" class="btn btn-success pull-right save-btn" data-type="about-us" >Save</button>
     <div class="clearfix"></div>
   </div>
   <div class="" role="tabpanel" data-example-id="togglable-tabs">
@@ -24,20 +24,21 @@
               @foreach($directors as $key => $director)
               @if($key < 4)
               <article class="well directors">
+                <input type="hidden" name="page_content_id[]" value="{{ $director->page_content_id}} " />
                 <div class="form-group">
                     <label class="control-label col-md-2">Name:</label>
                     <div class="col-md-4">
-                      <input type="text" class="form-control" name="directors[]" placeholder="John Doe" value="{{ $director->director_name }}">
+                      <input type="text" class="form-control" name="directors[]" placeholder="John Doe" value="{{ $director->director_name }}" required >
                     </div>
                      <label class="control-label col-md-2">Position:</label>
                     <div class="col-md-4">
-                      <input type="text" class="form-control" name="directors_position[]" placeholder="John Doe" value="{{ $director->director_position }}">
+                      <input type="text" class="form-control" name="directors_position[]" placeholder="John Doe" value="{{ $director->director_position }}" required >
                     </div>
                 </div><br /><br />
-                <div class="form-group">    
+                <div class="form-group dir-desc-link">    
                     <label class="control-label col-md-2">Description:</label>
                     <div class="col-md-4">
-                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry." name="directors_desc[]" >{{ $director->director_desc}} </textarea>
+                    <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry." name="directors_desc[]" data-parsley-trigger="keyup" data-parsley-minlength="3" data-parsley-minlength-message=" It should have 3 characters or more.">{{ $director->director_desc}} </textarea>
                   </div>
                   <label class="control-label col-md-2">Link:</label>
                   <div class="col-md-4">
@@ -60,6 +61,7 @@
               @foreach($directors as $key => $director)
               @if($key > 3)
               <article class="well directors">
+               <input type="hidden" name="page_content_id[]" value="{{ $director->page_content_id}} " />
                 <div class="form-group">
                     <label class="control-label col-md-2">Name:</label>
                     <div class="col-md-4">

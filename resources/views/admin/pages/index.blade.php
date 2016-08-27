@@ -44,5 +44,31 @@
             </div>
           </div>
         </div>
- 	
+@endsection
+
+
+@section('scripts')
+ <script src="{{ asset('js/parsley.min.js') }}"></script>
+<script>
+  $(document).ready(function(){
+    window.Parsley.on('parsley:field:validate', function() {
+      validateFront();
+    });
+    var validateFront = function() {
+      if (true === $('#aboutUs-form').parsley().isValid()) {
+        $('.bs-callout-info').removeClass('hidden');
+        $('.bs-callout-warning').addClass('hidden');
+      } else {
+        $('.bs-callout-info').addClass('hidden');
+        $('.bs-callout-warning').removeClass('hidden');
+      }
+    };
+    $('.save-btn').on('click',function(){
+      $('#aboutUs-form').parsley().validate();
+      validateFront();
+    });
+
+  });
+
+</script>
 @endsection
