@@ -13,12 +13,14 @@
    <script src="{{ asset('js/pnotify.js') }}"></script>
    <script src="{{ asset('js/pnotify.buttons.js') }}"></script>
    <script src="{{ asset('js/pnotify.confirm.js') }}"></script>
+   <script src="{{ asset('js/parsley.min.js') }}"></script>
    
 
 <script>
   var $editID = null;
   $(document).ready(function() {
   
+
     $('#user_datatable').dataTable({
         processing: true,
         serverSide: true,
@@ -100,7 +102,6 @@
       }
       
       callAjax({method:'POST',url:'role-and-permission/attach-permission',data:{permissions:$('input[name="permissions[]"').serialize(),action:$(this).data('action') , id: $editID ,_token:'{{ csrf_token() }}' }},function(result){
-        console.log(result);
         if(result == 'error'){
           new PNotify({
             title: 'Oh No!',
@@ -112,8 +113,7 @@
           });
           return;
         } 
-
-        if($(this).data('action') == "add"){ //add permissions
+        if($permAction == "add"){ //add permissions
           new PNotify({
             title: 'Success!',
             text: 'Permission added. Reloading list...',
@@ -124,8 +124,14 @@
           });
         }
         else{ //edit permisssions
-          console.log($editID);
-          console.log($('input[name="permissions[]"').serialize());
+           new PNotify({
+            title: 'Success!',
+            text: 'Role edited. Reloading list...',
+            type: 'success',
+            addclass: "stack-bottomright", 
+            styling: 'bootstrap3',
+            buttons: { sticker: false }
+          });
         }  
         $('#permissions-action').prop('disabled',true);
         setTimeout(function(){ location.reload(); }, 1300);
@@ -191,6 +197,34 @@
 
     /** End edit permission **/
 
+    /** Add User **/
+      $('#user-action').click(function(){
+         $.ajax({
+          type: 'post',
+          url: 'user-management',
+          data: $('#addUser-form').serialize(),
+          success: function(result){
+            console.log(result);
+          }
+
+
+         });
+         // callAjax({method:'POST',url:'user-management',data:{formdata:$('#addUser-form').serialize(),_token:'{{ csrf_token() }}' }},function(result){
+         //  console.log(result);
+         // });
+
+
+        // $("#addUser-form :input").each(function(){
+        //   var input = $(this);
+        //   console.log(input.attr('name'));
+        //   console.log(input.attr('required'));
+        // });
+        // console.log($form);
+
+      });
+
+
+    /** End add user **/
   });
 </script>
 @endsection
@@ -208,7 +242,7 @@
       <div class="x_panel">
         <div class="x_title">
           <h2>List of Users</h2>
-         <button type="submit" class="btn btn-success pull-right"><i class="fa fa-user"></i> Add User</button>
+         <button type="submit" class="btn btn-success pull-right" data-toggle="modal" data-target=".bs-addUser-modal-sm"><i class="fa fa-user"></i> Add User</button>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
@@ -303,6 +337,90 @@
   </div>  
   </div> 
 
+
+<div class="modal fade bs-addUser-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" id="addUser-modal">
+<div class="modal-dialog modal-md">
+  <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-permissions"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="modal-addUser-title">Add User</h4>
+    </div>
+    <div class="modal-body">
+    <div class="bs-callout bs-callout-warning hidden">
+  <h4>Oh snap!</h4>
+  <p>This form seems to be invalid :(</p>
+</div>
+
+<div class="bs-callout bs-callout-info hidden">
+  <h4>Yay!</h4>
+  <p>Everything seems to be ok :)</p>
+</div>
+      <form id="addUser-form" class="form-horizontal form-label-left">
+        {{ csrf_field() }}
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
+          </label>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="first-name" name="firstname" required="required" class="form-control col-md-7 col-xs-12">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+          </label>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="last-name" name="lastname" required="required" class="form-control col-md-7 col-xs-12">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
+          </label>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gender" >Gender <span class="required">*</span> </label>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="radio" class="flat" name="gender" value="m" checked="checked" / > Male
+            <input type="radio" class="flat" name="gender" value="f" /> Female
+          </div>
+        </div>
+         <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password <span class="required">*</span>
+          </label>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="password" id="password" name="password" required="required" class="form-control col-md-7 col-xs-12">
+          </div>
+        </div>
+         <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Confirm Password
+          </label>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="password" id="confirm-password" name="password_confirmation" required="required" class="form-control col-md-7 col-xs-12">
+          </div>
+        </div>
+         <div class="form-group">
+         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="role">Role <span class="required">*</span>
+          </label>
+           <div class="col-md-6 col-sm-6 col-xs-12">
+              <select class="form-control" tabindex="-1" name="role">
+                <option value="">Please select role</option>
+                @foreach($roles_list as $role)
+                  <option value="{{ $role->id }}">{{ $role->display_name }}</option>
+                @endforeach 
+                
+              </select>
+          </div>
+        </div>                  
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" id="user-action" data-action="add" >Save</button>
+    </div>
+
+  </div>
+</div>  
+</div> 
 
 </div>
  	

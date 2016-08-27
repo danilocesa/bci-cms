@@ -10,6 +10,7 @@ use App\Role;
 use App\Permission;
 use App\AdminsTB;
 use Yajra\Datatables\Datatables;
+use Validator;
 
 
 class UserAdminManagement extends Controller
@@ -54,7 +55,23 @@ class UserAdminManagement extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'firstname' => 'required|min:2',
+            'lastname' => 'required|min:2',
+            'gender'   => 'required|',
+            'password' => 'required|min:6',
+            'password_confirmation' => 'required|same:password',
+            'role'  => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            
+        }
+
+
+        return response()->json($validator->errors());
     }
 
     /**
