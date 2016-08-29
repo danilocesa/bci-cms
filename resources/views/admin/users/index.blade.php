@@ -20,7 +20,7 @@
   var $editID = null;
   $(document).ready(function() {
   
-
+    $('#addUser-errors').hide();
     $('#user_datatable').dataTable({
         processing: true,
         serverSide: true,
@@ -167,7 +167,7 @@
           new PNotify({
             title: 'Deleted!',
             text: 'Role deleted. Reloading list...',
-            type: 'error',
+            type: 'success',
             addclass: "stack-bottomright", 
             styling: 'bootstrap3',
             buttons: { sticker: false }
@@ -197,34 +197,145 @@
 
     /** End edit permission **/
 
-    /** Add User **/
+    /** User Action **/
       $('#user-action').click(function(){
+        var $self = $(this), formError;
+        if($self.data('action') == 'edit'){
+          callAjax({method:'POST',url:'user-management/'+$self.data('user-id'),data:{
+              _method:'PUT',
+              _token: '{{ csrf_token() }}',
+              firstname : $('input[name="firstname"]').val(),
+              lastname : $('input[name="lastname"]').val(),
+              email : $('input[name="email"]').val(),
+              gender : $('input[name="gender"]').val(),
+              status : $('[name="status"]').val(),
+              role : $('[name="role"]').val(),
+              password : $('input[name="password"]').val(),
+              password_confirmation : $('input[name="password_confirmation"]').val()
+            }},
+            function(result){
+              console.log(result);
+              if(result != 'success'){
+                 $('#addUser-errors').show();
+                formError = '<ul>'; 
+                 $.each( result, function( key, value ) {
+                    formError += '<li>' + value[0] + '</li>'; //showing only the first error.
+                });
+                formError += '</ul>';
+                $( '#addUser-errors' ).html( formError );
+              } else{
+                new PNotify({
+                  title: 'Edit User',
+                  text: 'User updated. Reloading list...',
+                  type: 'success',
+                  addclass: "stack-bottomright", 
+                  styling: 'bootstrap3',
+                  buttons: { sticker: false }
+                });
+                $self.prop('disabled',true);
+                setTimeout(function(){ location.reload(); }, 1300);
+              }
+
+            // $.each(result,function(index,el){
+            //   $('.permissions[value="'+el.permission_id+'"]').iCheck('check');
+            // });
+          });
+        } else{
+        /** Adding user **/
          $.ajax({
           type: 'post',
           url: 'user-management',
           data: $('#addUser-form').serialize(),
           success: function(result){
-            console.log(result);
+            var formError;
+            if(result != 'success'){
+                $('#addUser-errors').show();
+                formError = '<ul>'; 
+                 $.each( result, function( key, value ) {
+                    formError += '<li>' + value[0] + '</li>'; //showing only the first error.
+                });
+                formError += '</ul>';
+                $( '#addUser-errors' ).html( formError );
+            } else {
+              new PNotify({
+                title: 'New User!',
+                text: 'New user added. Reloading list...',
+                type: 'success',
+                addclass: "stack-bottomright", 
+                styling: 'bootstrap3',
+                buttons: { sticker: false }
+              });
+              $self.prop('disabled',true);
+              setTimeout(function(){ location.reload(); }, 1300);
+            }
           }
-
-
          });
-         // callAjax({method:'POST',url:'user-management',data:{formdata:$('#addUser-form').serialize(),_token:'{{ csrf_token() }}' }},function(result){
-         //  console.log(result);
-         // });
 
-
-        // $("#addUser-form :input").each(function(){
-        //   var input = $(this);
-        //   console.log(input.attr('name'));
-        //   console.log(input.attr('required'));
-        // });
-        // console.log($form);
-
+         /** End adding user **/
+         }
       });
+    /** End user action **/
+
+    /** Edit User **/
+    $('#user_datatable').on('click','.edit-user',function(){
+      $editID = $(this).data('id');
+      $('#user-action').data('action','edit');
+      callAjax({method:'GET',url:'user-management/'+$editID+'/edit'},function(result){
+        $('input[name="firstname"]').val(result.first_name);
+        $('input[name="lastname"]').val(result.last_name);
+        $('input[name="email"]').val(result.email);
+        $('input[name=gender][value='+ result.gender +']').prop('checked', 'checked'); //fix this
+        $('[name="status"]').val(result.activated); 
+        $('[name="role"]').val(result.permissions);
+      });
+      $('#modal-addUser-title').text('Edit User');
+      $('#addUser-modal').modal();
+      $('#user-action').data('user-id',$editID);
+    });  
+
+    /** End edit user **/
 
 
-    /** End add user **/
+
+    /** Delete user action **/
+    $('#user_datatable').on('click','.delete-user',function(){
+     var $id = $(this).data('id');
+     (new PNotify({
+        title: 'Confirmation Needed',
+        text: 'Are you sure?',
+        type: 'error',
+        styling: 'bootstrap3',
+        icon: 'glyphicon glyphicon-question-sign',
+        hide: false,
+        confirm: {
+            confirm: true
+        },
+        buttons: { sticker: false, closer: false },
+        history: {
+          history: false
+        },
+        addclass: 'stack-modal',
+        stack: {
+            'dir1': 'down',
+            'dir2': 'right',
+            'modal': true
+        }
+      })).get().on('pnotify.confirm', function() {
+        callAjax({method:'POST',url:'user-management/'+$id,data:{_method: 'delete', _token:'{{ csrf_token() }}' }},function(result){
+          new PNotify({
+            title: 'Deleted!',
+            text: 'User deleted. Reloading list...',
+            type: 'success',
+            addclass: "stack-bottomright", 
+            styling: 'bootstrap3',
+            buttons: { sticker: false }
+          });
+          setTimeout(function(){ location.reload(); }, 1000);
+        });
+      }).on('pnotify.cancel', function() { $('.ui-pnotify-modal-overlay').remove(); });
+    });  
+
+    /** End delete user action **/
   });
 </script>
 @endsection
@@ -346,15 +457,10 @@
     <h4 class="modal-title" id="modal-addUser-title">Add User</h4>
     </div>
     <div class="modal-body">
-    <div class="bs-callout bs-callout-warning hidden">
-  <h4>Oh snap!</h4>
-  <p>This form seems to be invalid :(</p>
-</div>
-
-<div class="bs-callout bs-callout-info hidden">
-  <h4>Yay!</h4>
-  <p>Everything seems to be ok :)</p>
-</div>
+    <div class="alert alert-danger alert-dismissible fade in" id="addUser-errors">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+      </button>
+    </div>
       <form id="addUser-form" class="form-horizontal form-label-left">
         {{ csrf_field() }}
         <div class="form-group">
@@ -381,8 +487,8 @@
         <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gender" >Gender <span class="required">*</span> </label>
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <input type="radio" class="flat" name="gender" value="m" checked="checked" / > Male
-            <input type="radio" class="flat" name="gender" value="f" /> Female
+            <input type="radio" class="flat gender-radio" name="gender" value="m" /> Male
+            <input type="radio" class="flat gender-radio" name="gender" value="f" /> Female
           </div>
         </div>
          <div class="form-group">
@@ -399,6 +505,18 @@
             <input type="password" id="confirm-password" name="password_confirmation" required="required" class="form-control col-md-7 col-xs-12">
           </div>
         </div>
+        <div class="form-group">
+         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="role">Status <span class="required">*</span>
+          </label>
+           <div class="col-md-6 col-sm-6 col-xs-12">
+              <select class="form-control" tabindex="-1" name="status">
+                <option value="">Please select status</option>
+                <option value="1">Active</option>
+                <option value="0">De-active</option>
+                
+              </select>
+          </div>
+        </div> 
          <div class="form-group">
          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="role">Role <span class="required">*</span>
           </label>
@@ -415,7 +533,7 @@
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" id="user-action" data-action="add" >Save</button>
+      <button type="button" class="btn btn-primary" id="user-action" data-action="add" data-user-id="" >Save</button>
     </div>
 
   </div>
