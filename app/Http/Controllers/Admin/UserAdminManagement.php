@@ -54,26 +54,35 @@ class UserAdminManagement extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-        $formdata = array();
-        parse_str($request->get('formdata'), $formdata);
-        return response()->json($formdata);
-        $validator = Validator::make($formdata,  [
-            'first_name' => 'required|min:2',
-            'last_name' => 'required|min:2',
-            'email'    => 'required|email',
-            'gender' => 'required',
+    {
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|unique:admins,email',
+            'firstname' => 'required|min:2',
+            'lastname' => 'required|min:2',
+            'gender'   => 'required|',
             'password' => 'required|min:6',
             'password_confirmation' => 'required|same:password',
-            'role'  => 'required',
+            'status'  => 'required',
+            'role'  => 'required'
         ]);
 
         if ($validator->fails()) {
             return response()->json($validator->errors());
-        }else{
-            return response()->json($request);
         }
-        
+
+        $this->admins->email = $request->get('email');
+        $this->admins->first_name = $request->get('firstname');
+        $this->admins->last_name = $request->get('lastname');
+        $this->admins->gender = $request->get('gender');
+        $this->admins->password = bcrypt($request->get('password'));
+        $this->admins->activated = $request->get('status');
+        $this->admins->permissions = $request->get('role');
+        $this->admins->save();
+
+        $this->admins->where('email',$request->get('email'))->first()->roles()->attach($request->get('role'));
+
+        return response()->json('success');
     }
 
     /**
@@ -95,7 +104,8 @@ class UserAdminManagement extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = $this->admins->where('id',$id)->first();
+        return response()->json($user);
     }
 
     /**
@@ -107,7 +117,36 @@ class UserAdminManagement extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'firstname' => 'required|min:2',
+            'lastname' => 'required|min:2',
+            'gender'   => 'required|',
+            'password' => 'required|min:6',
+            'password_confirmation' => 'required|same:password',
+            'status'  => 'required',
+            'role'  => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors());
+        }
+
+        $user = $this->admins->where('id',$id)->first();
+
+        $user->email = $request->get('email');        
+        $user->first_name = $request->get('firstname');
+        $user->last_name = $request->get('lastname');
+        $user->gender = $request->get('gender');
+        $user->password = bcrypt($request->get('password'));
+        $user->activated = $request->get('status');
+        $user->permissions = $request->get('role');
+        $user->save();
+
+        //Change permission also
+
+
+        return response()->json('success');
     }
 
     /**
@@ -118,7 +157,8 @@ class UserAdminManagement extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->admins->where('id',$id)->delete();
+        return response()->json(true);
     }
 
     /**
@@ -131,7 +171,7 @@ class UserAdminManagement extends Controller
         $users = AdminsTB::select(['id','first_name', 'last_name', 'activated', 'created_at']);
 
         return Datatables::of($users)->addColumn('action', function ($user) {
-                return '<a href="#edit-'.$user->id.'" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i> Status</a><a href="#edit-'.$user->id.'" class="btn btn-xs btn-primary"><i class="fa fa-lock"></i> Role</a><a href="#edit-'.$user->id.'" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</a>';
+                return '<span class="btn btn-xs btn-primary edit-user" data-id="'.$user->id.'"><i class="fa fa-lock"></i> Edit</span><span class="btn btn-xs btn-danger delete-user" data-id="'.$user->id.'"><i class="fa fa-trash"></i> Delete</span>';
             })->make();
 
         // return Datatables::of(AdminsTB::query())->make(true);

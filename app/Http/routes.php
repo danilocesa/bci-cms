@@ -28,49 +28,40 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	* AuthController
 	*/
 	Route::get('/',function(){
-		if(Auth::user()){
-			return redirect('web-admin/dashboard');
-		}	
 		return view('admin/login');
 	});
 
-//	if(Auth::user()){
-		Route::post('/','Admin\AuthController@authAdmin');
-		Route::get('logout','Admin\AuthController@doLogout');
-		Route::get('dashboard','Admin\AuthController@dashboard');
+	Route::post('/','Admin\AuthController@authAdmin');
+	Route::get('logout','Admin\AuthController@doLogout');
+	Route::get('dashboard','Admin\AuthController@dashboard');
 
-		/*
-        * PageManagement
-        */
-		Route::resource('page-management','Admin\PageManagement');
+	/*
+    * PageManagement
+    */
+	Route::resource('page-management', ['middleware' => ['permission:view-page'], 'uses' => 'Admin\PageManagement']);
 
-		/*
-        * AdminManagement
-        */
-        Route::get('user-management/users','Admin\UserAdminManagement@userList');
-		Route::resource('user-management','Admin\UserAdminManagement');
-		
+	/*
+    * AdminManagement
+    */
+    Route::get('user-management/users','Admin\UserAdminManagement@userList');
+	Route::resource('user-management','Admin\UserAdminManagement');
+	
 
-		/*
-        * RoleAndPermission
-        */
-        Route::get('role-and-permission/add-permission','Admin\RoleAndPermission@addPermission');
-        Route::get('role-and-permission/show-permission/{id}','Admin\RoleAndPermission@showPermission');
-        Route::post('role-and-permission/attach-permission','Admin\RoleAndPermission@attachPermission');
-		Route::resource('role-and-permission','Admin\RoleAndPermission');
-		
+	/*
+    * RoleAndPermission
+    */
+    Route::get('role-and-permission/add-permission','Admin\RoleAndPermission@addPermission');
+    Route::get('role-and-permission/show-permission/{id}','Admin\RoleAndPermission@showPermission');
+    Route::post('role-and-permission/attach-permission','Admin\RoleAndPermission@attachPermission');
+	Route::resource('role-and-permission','Admin\RoleAndPermission');
+	
 
-		/*
-        * Audit Trail
-        */
-		Route::resource('audit-trail','Admin\AuditTrail');
-
-
-		Route::get('cAdu/{email}/{password}','Admin\AuthController@createAdminU');
-		Route::get('cheLog/','Admin\AuthController@checkLogged');
-
-//	}
+	/*
+    * Audit Trail
+    */
+	Route::resource('audit-trail','Admin\AuditTrail');
 
 
-
+	Route::get('cAdu/{email}/{password}','Admin\AuthController@createAdminU');
+	Route::get('cheLog/','Admin\AuthController@checkLogged');
 });

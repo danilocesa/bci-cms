@@ -64,8 +64,19 @@
       }
     };
     $('.save-btn').on('click',function(){
+
       $('#aboutUs-form').parsley().validate();
       validateFront();
+
+       new PNotify({
+          title: 'Oh No!',
+          text: 'Role name is required.',
+          type: 'error',
+          addclass: "stack-bottomright",
+          styling: 'bootstrap3',
+          buttons: { sticker: false }
+        });
+       event.preventDefault();
     });
 
   });
