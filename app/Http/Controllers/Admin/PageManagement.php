@@ -5,14 +5,19 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller; 
 
 use App\PageContent;
 use App\PageCategory;
 
+use Auth;
+
 class PageManagement extends Controller
 {
     public function __construct(){
+        if(!Auth::user()->can('view-page')){
+            abort(404);
+        }
         $this->page_category = new PageCategory;
         $this->page_content = new PageContent;
     }

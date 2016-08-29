@@ -353,7 +353,9 @@
       <div class="x_panel">
         <div class="x_title">
           <h2>List of Users</h2>
+        @permission('add-user')
          <button type="submit" class="btn btn-success pull-right" data-toggle="modal" data-target=".bs-addUser-modal-sm"><i class="fa fa-user"></i> Add User</button>
+        @endpermission
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
@@ -374,6 +376,7 @@
     </div>
     </div> 
 <!-- Roles -->
+@permission('view-roles')
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
@@ -381,6 +384,7 @@
           <h2>List of Roles</h2>
             <div class="form-horizontal">
              <div class="form-group">
+                @permission('add-roles') 
                 <label class="col-sm-7 control-label">Role Name:</label>
                 <div class="col-sm-3">
                   <div class="input-group">
@@ -390,6 +394,7 @@
                     </span>
                   </div>
                 </div>
+                @endpermission
             </div> 
             </div> 
           <div class="clearfix"></div>
@@ -413,7 +418,13 @@
                 <td>{{ $role->display_name }}</td>
                 <td>{{ $role->created_at }}</td>
                 <td>{{ $role->updated_at}}</td>
-                <td  data-id="{{ $role->id }}" ><button type="button" class="btn btn-info btn-xs edit-role"><i class="fa fa-edit"></i>  Edit</button><button type="button" class="btn btn-danger btn-xs delete-role"><i class="fa fa-trash"></i>  Delete</button></td>
+                <td  data-id="{{ $role->id }}" >
+                  @permission('edit-roles')
+                  <button type="button" class="btn btn-info btn-xs edit-role"><i class="fa fa-edit"></i>  Edit</button>
+                  @endpermission
+                  @permission('delete-roles')
+                  <button type="button" class="btn btn-danger btn-xs delete-role"><i class="fa fa-trash"></i>  Delete</button></td>
+                  @endpermission
               </tr>
               @endforeach 
             </tbody>
@@ -423,6 +434,8 @@
       </div>
     </div>
     </div>   
+@endpermission
+
 
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" id="addPermission">
   <div class="modal-dialog modal-sm">

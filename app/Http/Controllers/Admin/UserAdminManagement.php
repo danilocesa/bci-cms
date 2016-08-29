@@ -11,6 +11,7 @@ use App\Permission;
 use App\AdminsTB;
 use Yajra\Datatables\Datatables;
 use Validator;
+use Auth;
 
 
 class UserAdminManagement extends Controller
@@ -143,8 +144,7 @@ class UserAdminManagement extends Controller
         $user->permissions = $request->get('role');
         $user->save();
 
-        //Change permission also
-
+        $user->roles()->attach($request->get('role'));
 
         return response()->json('success');
     }
@@ -169,9 +169,21 @@ class UserAdminManagement extends Controller
     public function userList()
     {
         $users = AdminsTB::select(['id','first_name', 'last_name', 'activated', 'created_at']);
+       
+        
 
         return Datatables::of($users)->addColumn('action', function ($user) {
-                return '<span class="btn btn-xs btn-primary edit-user" data-id="'.$user->id.'"><i class="fa fa-lock"></i> Edit</span><span class="btn btn-xs btn-danger delete-user" data-id="'.$user->id.'"><i class="fa fa-trash"></i> Delete</span>';
+                $actionHTML = '';
+                if(Auth::user()->can('edit-user')){
+                    $actionHTML .= '<span class="btn btn-xs btn-primary edit-user" data-id="'.$user->id.'"><i class="fa fa-lock"></i> Edit</span>';
+                }
+                if(Auth::user()->can('delete-user')){
+                     $actionHTML .= '<span class="btn btn-xs btn-danger delete-user" data-id="'.$user->id.'"><i class="fa fa-trash"></i> Delete</span>';
+                }
+                if(!Auth::user()->can('edit-user') && !Auth::user()->can('delete-user')){
+                    $actionHTML = 'Disabled';
+                }
+                return $actionHTML;
             })->make();
 
         // return Datatables::of(AdminsTB::query())->make(true);

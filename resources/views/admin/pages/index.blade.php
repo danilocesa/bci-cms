@@ -13,30 +13,46 @@
               <div class="x_panel">
                 <div class="x_content">
                     <ul id="pagesTab" class="nav nav-tabs bar_tabs" >
+                      @permission('about-page') 
                       <li class="{{ Request::segment(3) == '' ? 'active' : '' }}"><a href="{{ url('web-admin/page-management') }}">About Us</a>
                       </li>
+                      @endpermission
+                      @permission('clients-page') 
                       <li class="{{ Request::segment(3) == 'clients' ? 'active' : '' }}"><a href="{{ url('web-admin/page-management/clients') }}">Clients</a>
                       </li>
+                      @endpermission
+                      @permission('portfolio-page') 
                       <li class="{{ Request::segment(3) == 'portfolio' ? 'active' : '' }}"><a href="{{ url('web-admin/page-management/portfolio') }}">Portfolio</a>
                       </li>
+                      @endpermission
+                      @permission('contact-page') 
                       <li class="{{ Request::segment(3) == 'contact-us' ? 'active' : '' }}"><a href="{{ url('web-admin/page-management/contact-us') }}" >Contact Us</a>
                       </li>
+                      @endpermission
                     </ul>
                     <div id="pagesTabContent" class="tab-content">
+                      @permission('about-page') 
                       <div class="tab-pane fade {{ Request::segment(3) == '' ? 'active in' : '' }}" >
                         @if(isset($directors))
                             @include('admin.pages.about-us')
                         @endif
                       </div>
+                      @endpermission
+                      @permission('clients-page') 
                       <div class="tab-pane fade {{ Request::segment(3) == 'clients' ? 'active in' : '' }}" >
                         @include('admin.pages.clients')
                       </div>
+                      @endpermission
+                      @permission('portfolio-page') 
                       <div class="tab-pane fade {{ Request::segment(3) == 'portfolio' ? 'active in' : '' }} ">
                         @include('admin.pages.portfolio')
                       </div>
+                      @endpermission
+                      @permission('contact-page') 
                       <div class="tab-pane fade {{ Request::segment(3) == 'contact-us' ? 'active in' : '' }} ">
                         @include('admin.pages.contact-us')
                       </div>
+                      @endpermission
                     </div>
 
                 </div>
