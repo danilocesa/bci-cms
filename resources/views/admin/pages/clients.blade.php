@@ -189,14 +189,30 @@
 
 <!--clients seo -->
 <div class="row">
-<div class="col-md-12">
+<div class="col-md-6">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2><span class="fa fa-star"></span> Page Description</h2>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <div class="form-horizontal form-label-left">
+        <div class="form-group">
+            <label class="">Page Description:</label>
+            <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+        </div>    
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-6">
   <div class="x_panel">
     <div class="x_title">
       <h2><span class="fa fa-star"></span> Search Engine Optimization (SEO)</h2>
       <div class="clearfix"></div>
     </div>
     <div class="x_content">
-      <form class="form-horizontal form-label-left">
+      <div class="form-horizontal form-label-left">
         <div class="form-group">
             <label class="">Meta Description (150 max):</label>
             <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
@@ -205,7 +221,7 @@
             <label class="">Meta Keywords (Separate with comma):</label>
             <textarea class="form-control" rows="2" placeholder="Lorem, Ipsum, is, simply, dummy, text, of"></textarea>
         </div>    
-      </form>
+      </div>
     </div>
   </div>
 </div>

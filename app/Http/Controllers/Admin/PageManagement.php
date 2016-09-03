@@ -11,6 +11,8 @@ use App\PageContent;
 use App\PageCategory;
 
 use Auth;
+use Image;
+use Validator;
 
 class PageManagement extends Controller
 {
@@ -30,8 +32,9 @@ class PageManagement extends Controller
     {
         $directors = $this->page_content->where('page_category_id',1)->get();
         $aboutInfo = $this->page_category->where('page_category_id',1)->first();
-        
-        return view('admin\pages\index',[ 'directors'=>$directors,'aboutInfo' => $aboutInfo ]);
+        // $aboutInfo = $this->page_category->where('page_category_id',1)->first();
+    
+        return view('admin\pages\index',[ 'directors'=>$directors,'aboutInfo' => $aboutInfo]);
     }
 
     /**
@@ -52,26 +55,53 @@ class PageManagement extends Controller
      */
     public function store(Request $request)
     {
-        if($request->get('page_category') == 1){ //About us update
-            foreach ($request->get('page_content_id') as $pageId) {
-                $this->page_content
-                    ->where('page_content_id',$pageId)
-                    ->update([
-                        'director_name'=>$request->get('directors')[$pageId - 1],
-                        'director_position'=>$request->get('directors_position')[$pageId - 1],
-                        'director_desc' => $request->get('directors_desc')[$pageId - 1],
-                        'linkedin' => $request->get('director_link')[$pageId - 1]
-                    ]);
-            }
 
+        $validator = Validator::make($request->all(), [
+            'page_description'      => 'required',
+            'meta_description'      => 'required|max:150',
+            'meta_keywords'         => 'required',
+            'directors'             => 'required',
+            'directors_position'    => 'required',
+            'directors_desc'        => 'required',
+            'director_link'         => 'required'
+            // 'file'                  => 'required|image:jpg,png|max:2048'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator);
+        }
+
+        if ($request->hasFile('aboutUs_image')) {
+            $imageName = 'about-us'.'.'.$request->aboutUs_image->getClientOriginalExtension();
+            $img = Image::make($request->aboutUs_image->getRealPath());
+            $img->resize(100, 100)->save(public_path('/images').'/'.$imageName);
+            $path = $request->aboutUs_image->move(public_path('images'),$imageName);
             $this->page_category->where('page_category_id',1)
+                ->update([ 'image'=>$imageName ]);
+        }
+        foreach ($request->get('page_content_id') as $pageId) {
+            $this->page_content
+                ->where('page_content_id',$pageId)
                 ->update([
-                    'meta_description' => $request->get('meta_description'),
-                    'meta_keywords'     =>$request->get('meta_keywords')
+                    'director_name'=>$request->get('directors')[$pageId - 1],
+                    'director_position'=>$request->get('directors_position')[$pageId - 1],
+                    'director_desc' => $request->get('directors_desc')[$pageId - 1],
+                    'linkedin' => $request->get('director_link')[$pageId - 1]
                 ]);
         }
-        
-        return response()->json(true);
+
+        $this->page_category->where('page_category_id',1)
+            ->update([
+                'page_description'  =>  $request->get('page_description'),
+                'meta_description'  =>  $request->get('meta_description'),
+                'meta_keywords'     =>  $request->get('meta_keywords')
+            ]);
+
+
+        return redirect()->back()->with('success','Page Updated');    
+    
     }
 
     /**
@@ -82,20 +112,12 @@ class PageManagement extends Controller
      */
     public function show($id)
     {
+        $contactInfo = $this->page_category->where('page_category_id',4)->first();
+        $contactContent = $this->page_content->where('page_category_id',4)->first();
 
-        return view('admin\pages\index');
+        return view('admin\pages\index',['contactInfo' => $contactInfo,'contactContent' => $contactContent]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -106,7 +128,42 @@ class PageManagement extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dump($request->all());
+        if($request->get('page_category') == 2){ //Contact us update
+            $validator = Validator::make($request->all(), [
+                'page_description'      => 'required',
+                'meta_description'      => 'required|max:150',
+                'meta_keywords'         => 'required',
+                'facebook_link'         => 'required',
+                'linkedin_link'         => 'required',
+                'career_email'          => 'required|email',
+                'inquiry_email'         => 'required|email'
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()
+                    ->back()
+                    ->withErrors($validator);
+            }
+
+            $this->page_content->where('page_category_id',4)
+            ->update([
+                'fb_link'           =>  $request->get('facebook_link'),
+                'linkedin'          =>  $request->get('linkedin_link'),
+                'career_email'      =>  $request->get('career_email'),
+                'inquiry_email'     =>  $request->get('inquiry_email'),
+            ]);
+
+            $this->page_category->where('page_category_id',4)
+            ->update([
+                'page_description'  =>  $request->get('page_description'),
+                'meta_description'  =>  $request->get('meta_description'),
+                'meta_keywords'     =>  $request->get('meta_keywords')
+            ]);
+
+            return redirect()->back()->with('success','Page Updated'); 
+       }
+
     }
 
     /**

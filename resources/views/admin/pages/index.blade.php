@@ -40,17 +40,23 @@
                       @endpermission
                       @permission('clients-page') 
                       <div class="tab-pane fade {{ Request::segment(3) == 'clients' ? 'active in' : '' }}" >
-                        @include('admin.pages.clients')
+                        @if(Request::segment(3) == 'clients')
+                          @include('admin.pages.clients')
+                        @endif
                       </div>
                       @endpermission
                       @permission('portfolio-page') 
                       <div class="tab-pane fade {{ Request::segment(3) == 'portfolio' ? 'active in' : '' }} ">
-                        @include('admin.pages.portfolio')
+                        @if(Request::segment(3) == 'portfolio')
+                          @include('admin.pages.portfolio')
+                        @endif
                       </div>
                       @endpermission
                       @permission('contact-page') 
                       <div class="tab-pane fade {{ Request::segment(3) == 'contact-us' ? 'active in' : '' }} ">
-                        @include('admin.pages.contact-us')
+                        @if(Request::segment(3) == 'contact-us')
+                          @include('admin.pages.contact-us')
+                        @endif  
                       </div>
                       @endpermission
                     </div>
@@ -66,6 +72,19 @@
 @section('scripts')
  <script src="{{ asset('js/parsley.min.js') }}"></script>
 <script>
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#aboutUs-img').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
   $(document).ready(function(){
     window.Parsley.on('parsley:field:validate', function() {
       validateFront();
@@ -79,21 +98,18 @@
         $('.bs-callout-warning').removeClass('hidden');
       }
     };
+
     $('.save-btn').on('click',function(){
 
       $('#aboutUs-form').parsley().validate();
-      validateFront();
+          validateFront();
+      });
 
-       new PNotify({
-          title: 'Oh No!',
-          text: 'Role name is required.',
-          type: 'error',
-          addclass: "stack-bottomright",
-          styling: 'bootstrap3',
-          buttons: { sticker: false }
-        });
-       event.preventDefault();
+
+    $("#aboutUs-up").change(function(){
+        readURL(this);
     });
+
 
   });
 

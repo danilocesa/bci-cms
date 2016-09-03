@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2016 at 01:15 AM
+-- Generation Time: Sep 03, 2016 at 10:31 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -30,16 +30,16 @@ CREATE TABLE `admins` (
   `id` int(10) UNSIGNED NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `permissions` text COLLATE utf8_unicode_ci,
   `activated` tinyint(1) NOT NULL DEFAULT '0',
   `activation_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `activated_at` timestamp NULL DEFAULT NULL,
   `last_login` timestamp NULL DEFAULT NULL,
-  `persist_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `reset_password_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `permissions` int(11) NOT NULL,
   `first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gender` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -48,8 +48,9 @@ CREATE TABLE `admins` (
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `email`, `password`, `permissions`, `activated`, `activation_code`, `activated_at`, `last_login`, `persist_code`, `reset_password_code`, `remember_token`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES
-(1, 'dan@mixminds.com', '$2y$10$dsNMSDKAutQa227TYfXxbuBpzGOwBdVhsbYPlFP.VqQ.Qlk5zPNWK', NULL, 0, NULL, NULL, NULL, NULL, NULL, 'eTM8Fk7SdJ91ycfxOW6HmnUpKVe09eMdWdz2AwkaVlOzltH1WxX01MYgf49O', 'Dan', 'Cesa', '2016-07-22 19:07:28', '2016-08-05 23:18:29');
+INSERT INTO `admins` (`id`, `email`, `password`, `activated`, `activation_code`, `activated_at`, `last_login`, `reset_password_code`, `remember_token`, `permissions`, `first_name`, `last_name`, `gender`, `created_at`, `updated_at`) VALUES
+(1, 'dan@mixminds.com', '$2y$10$661RfUHjRhZdR.8cbjceB.tDAtwNdZWpqFRLaAfJJdQzZXaG/gET2', 1, NULL, NULL, NULL, NULL, 'ENxjDo5YtAAYSkJybwjOw4NOmyHxwsnsMVEadZ8ShEFOuC86uo3Lo96MxATi', 134, 'Dan', 'Cesa', 'm', '2016-07-22 19:07:28', '2016-08-29 05:47:18'),
+(8, 'logyou@you.com', '$2y$10$uoDQZ6jbKdGXXl324Tx.w.q7mirfG84ftTcNEfu/pjVNFRxygnDyW', 1, NULL, NULL, NULL, NULL, 'CTZJBGTMJu1gAPhGowmFBT8AT6hRtzqKV8oUdMD5MjuWF2EnEZZdBnVZaSRB', 135, 'logger', 'logme', 'm', '2016-08-29 00:23:18', '2016-08-29 05:50:59');
 
 -- --------------------------------------------------------
 
@@ -174,7 +175,66 @@ INSERT INTO `logs` (`id`, `user_id`, `owner_type`, `owner_id`, `old_value`, `new
 (96, 1, 'App\\Role', 103, 'null', '{"name":"dsf-sdfsd","display_name":"Dsf Sdfsd"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-15 07:04:23', '2016-08-15 07:04:23'),
 (97, 1, 'App\\Role', 104, 'null', '{"name":"sdf-sdfsdf","display_name":"Sdf Sdfsdf"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-15 07:04:30', '2016-08-15 07:04:30'),
 (98, 1, 'App\\Role', 105, 'null', '{"name":"fds-fdsf","display_name":"Fds Fdsf"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-15 07:04:38', '2016-08-15 07:04:38'),
-(99, 1, 'App\\Role', 106, 'null', '{"name":"sdfsd-sdf-d","display_name":"Sdfsd Sdf D"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-15 07:05:01', '2016-08-15 07:05:01');
+(99, 1, 'App\\Role', 106, 'null', '{"name":"sdfsd-sdf-d","display_name":"Sdfsd Sdf D"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-15 07:05:01', '2016-08-15 07:05:01'),
+(100, 1, 'App\\Role', 107, 'null', '{"name":"4234-24","display_name":"4234 24"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:15:41', '2016-08-16 15:15:41'),
+(101, 1, 'App\\Role', 108, 'null', '{"name":"3123123","display_name":"3123123"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:15:50', '2016-08-16 15:15:50'),
+(102, 1, 'App\\Role', 109, 'null', '{"name":"31231232","display_name":"31231232"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:15:57', '2016-08-16 15:15:57'),
+(103, 1, 'App\\Role', 110, 'null', '{"name":"123-1312312312","display_name":"123 1312312312"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:16:05', '2016-08-16 15:16:05'),
+(104, 1, 'App\\Role', 111, 'null', '{"name":"dsadsad","display_name":"Dsadsad"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:16:55', '2016-08-16 15:16:55'),
+(105, 1, 'App\\Role', 112, 'null', '{"name":"dsad-sad-asdsa","display_name":"Dsad Sad Asdsa"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:17:57', '2016-08-16 15:17:57'),
+(106, 1, 'App\\Role', 113, 'null', '{"name":"fdsfsd-dsfsd","display_name":"Fdsfsd Dsfsd"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:19:09', '2016-08-16 15:19:09'),
+(107, 1, 'App\\Role', 114, 'null', '{"name":"ds-sdfdf","display_name":"Ds Sdfdf"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:19:22', '2016-08-16 15:19:22'),
+(108, 1, 'App\\Role', 115, 'null', '{"name":"sd-asdasdasa","display_name":"Sd Asdasdasa"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:20:55', '2016-08-16 15:20:55'),
+(109, 1, 'App\\Role', 116, 'null', '{"name":"sd-dsfdsf","display_name":"Sd Dsfdsf"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:21:17', '2016-08-16 15:21:17'),
+(110, 1, 'App\\Role', 117, 'null', '{"name":"sdf-sdff","display_name":"Sdf Sdff"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:21:42', '2016-08-16 15:21:42'),
+(111, 1, 'App\\Role', 118, 'null', '{"name":"sdfd-fdsf","display_name":"Sdfd Fdsf"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:22:20', '2016-08-16 15:22:20'),
+(112, 1, 'App\\Role', 119, 'null', '{"name":"dsad-sad","display_name":"Dsad Sad"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:23:44', '2016-08-16 15:23:44'),
+(113, 1, 'App\\Role', 120, 'null', '{"name":"sadsadsad","display_name":"Sadsadsad"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:23:59', '2016-08-16 15:23:59'),
+(114, 1, 'App\\Role', 121, 'null', '{"name":"asd-asdsad","display_name":"Asd Asdsad"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:24:30', '2016-08-16 15:24:30'),
+(115, 1, 'App\\Role', 122, 'null', '{"name":"asdsadsa","display_name":"Asdsadsa"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:24:37', '2016-08-16 15:24:37'),
+(116, 1, 'App\\Role', 123, 'null', '{"name":"sad-sadsad","display_name":"Sad Sadsad"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:25:01', '2016-08-16 15:25:01'),
+(117, 1, 'App\\Role', 124, 'null', '{"name":"sdsadasdsadsa21-21312","display_name":"Sdsadasdsadsa21 21312"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:25:10', '2016-08-16 15:25:10'),
+(118, 1, 'App\\Role', 125, 'null', '{"name":"124y-g34r231-t5r324","display_name":"124y G34r231 T5r324"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:25:22', '2016-08-16 15:25:22'),
+(119, 1, 'App\\Role', 126, 'null', '{"name":"sdfsdfsdf","display_name":" Sdfsdfsdf"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:32:02', '2016-08-16 15:32:02'),
+(120, 1, 'App\\Role', 127, 'null', '{"name":"dsa-asdsa","display_name":"Dsa Asdsa"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-16 15:32:16', '2016-08-16 15:32:16'),
+(121, 1, 'App\\Role', 128, 'null', '{"name":"dasdsad","display_name":"Dasdsad"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-19 06:09:01', '2016-08-19 06:09:01'),
+(122, 1, 'App\\Role', 129, 'null', '{"name":"ddsadsa","display_name":"Ddsadsa"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-19 06:12:19', '2016-08-19 06:12:19'),
+(123, 1, 'App\\Role', 130, 'null', '{"name":"dsads","display_name":"Dsads"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-19 06:12:29', '2016-08-19 06:12:29'),
+(124, 1, 'App\\Role', 131, 'null', '{"name":"sdsad","display_name":"Sdsad"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-19 06:12:49', '2016-08-19 06:12:49'),
+(125, 1, 'App\\Role', 132, 'null', '{"name":"sad-asd","display_name":"Sad Asd"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-19 06:13:12', '2016-08-19 06:13:12'),
+(126, 1, 'App\\Role', 133, 'null', '{"name":"sadsads","display_name":"Sadsads"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-19 06:13:23', '2016-08-19 06:13:23'),
+(127, 1, 'App\\Role', 134, 'null', '{"name":"dsadsad","display_name":"Dsadsad"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-19 07:01:35', '2016-08-19 07:01:35'),
+(128, 1, 'App\\Role', 135, 'null', '{"name":"1111111","display_name":"1111111"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-19 07:09:46', '2016-08-19 07:09:46'),
+(129, 1, 'App\\Role', 136, 'null', '{"name":"sdfdsfdsf","display_name":"Sdfdsfdsf"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-19 07:51:06', '2016-08-19 07:51:06'),
+(130, 1, 'App\\Role', 132, 'null', '{"name":"sadsad","display_name":"Sadsad"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-20 03:55:51', '2016-08-20 03:55:51'),
+(131, 1, 'App\\Role', 133, 'null', '{"name":"sdsad22","display_name":"Sdsad22"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-20 03:56:00', '2016-08-20 03:56:00'),
+(132, 1, 'App\\Role', 134, 'null', '{"name":"super-administrator","display_name":"Super Administrator"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-20 07:05:29', '2016-08-20 07:05:29'),
+(133, 1, 'App\\AdminsTB', 1, '{"remember_token":"eTM8Fk7SdJ91ycfxOW6HmnUpKVe09eMdWdz2AwkaVlOzltH1WxX01MYgf49O"}', '{"remember_token":"Z37o5QGlDR3dRH95YdNieAGE2riWRQs2VzfEHgpAyR5SrLfuFkDpiIZ9sBXz"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-20 07:21:07', '2016-08-20 07:21:07'),
+(134, 1, 'App\\Role', 135, 'null', '{"name":"lll","display_name":"Lll"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-24 06:06:20', '2016-08-24 06:06:20'),
+(135, 1, 'App\\AdminsTB', 2, 'null', '{"email":"asdsad@sdfdsf.com","first_name":"dsa","last_name":"asdsad","gender":"m","password":"$2y$10$FtfmP05xuo8PSi8mQ0uoE.QbGzWg.sMqEuVTiZAh.Iis.nFuCIfIu"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/user-management', '::1', '2016-08-28 18:44:39', '2016-08-28 18:44:39'),
+(136, 1, 'App\\AdminsTB', 3, 'null', '{"email":"asdsad@sdfdsf.com","first_name":"dsa","last_name":"asdsad","gender":"m","password":"$2y$10$NBJN7LuNXjjWMDmIDNuluujU3Vwp4tYiItaZB33zn1qwpRmVqDqzq"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/user-management', '::1', '2016-08-28 18:44:55', '2016-08-28 18:44:55'),
+(137, 1, 'App\\AdminsTB', 4, 'null', '{"email":"test@test.com","first_name":"test","last_name":"test","gender":"f","password":"$2y$10$XPIQ.NmWFahxU23znUfNfui9Ug.ITvoLrhjC4..oHbqM421YRN1MK"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/user-management', '::1', '2016-08-28 18:48:56', '2016-08-28 18:48:56'),
+(138, 1, 'App\\AdminsTB', 5, 'null', '{"email":"asdas@sdfdsfd.com","first_name":"test","last_name":"test","gender":"m","password":"$2y$10$qv3OzjCi.Y1KgL\\/guPpz9e0lSwxIpoZb5bpNKfZ4a9preahtDb242","activated":1}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/user-management', '::1', '2016-08-28 18:53:22', '2016-08-28 18:53:22'),
+(139, 1, 'App\\AdminsTB', 6, 'null', '{"email":"dsfsdf@fsdfsdf.com","first_name":"sdfdsf","last_name":"dsfsdfsdf","gender":"m","password":"$2y$10$SA3O6517ZuWNEbECfY5MXeAXseuCRt25cM.RoxxeEzs6FyzH\\/65fG","activated":1}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/user-management', '::1', '2016-08-28 18:59:57', '2016-08-28 18:59:57'),
+(140, 1, 'App\\AdminsTB', 7, 'null', '{"email":"fsdfsdf@asdasd.com","first_name":"sdfdsf","last_name":"sdfsdfsd","gender":"f","password":"$2y$10$iFUSNhkQoYPwr1FmQPMkge\\/2k5ZV0WxySRJ6ZaO23KT0sQ6rUKET.","activated":"0","permissions":"134"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/user-management', '::1', '2016-08-28 22:46:00', '2016-08-28 22:46:00'),
+(141, 1, 'App\\AdminsTB', 7, '{"password":"$2y$10$iFUSNhkQoYPwr1FmQPMkge\\/2k5ZV0WxySRJ6ZaO23KT0sQ6rUKET.","gender":"f"}', '{"password":"$2y$10$7YUaXZZ4Z.RYwhQ05oRzEOrgqSx.afcGyc6aijJ0QilPif9vigmqy","gender":"m"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/7', '::1', '2016-08-29 00:19:56', '2016-08-29 00:19:56'),
+(142, 1, 'App\\AdminsTB', 7, '{"password":"$2y$10$7YUaXZZ4Z.RYwhQ05oRzEOrgqSx.afcGyc6aijJ0QilPif9vigmqy","last_name":"sdfsdfsd"}', '{"password":"$2y$10$blYoXPSJI7cYHpw650V8\\/O2wWV3gygZ4u6H95Gz09HD252vDu9RES","last_name":"sdfsdfsdqq"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/7', '::1', '2016-08-29 00:20:56', '2016-08-29 00:20:56'),
+(143, 1, 'App\\AdminsTB', 7, '{"password":"$2y$10$blYoXPSJI7cYHpw650V8\\/O2wWV3gygZ4u6H95Gz09HD252vDu9RES"}', '{"password":"$2y$10$kUBlOtdE7EsQ2loY90Avt.b8Tq9mdB4Em7jGKV3nUGV3bO3J\\/at6y"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/7', '::1', '2016-08-29 00:21:08', '2016-08-29 00:21:08'),
+(144, 1, 'App\\AdminsTB', 7, '{"password":"$2y$10$kUBlOtdE7EsQ2loY90Avt.b8Tq9mdB4Em7jGKV3nUGV3bO3J\\/at6y","first_name":"sdfdsf","last_name":"sdfsdfsdqq"}', '{"password":"$2y$10$ivJaqqBDb421D6xMhCqneudpXSGPdUFRmKdDQk47e48fSp1Cjm7pi","first_name":"qq","last_name":"qq"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/7', '::1', '2016-08-29 00:21:32', '2016-08-29 00:21:32'),
+(145, 1, 'App\\AdminsTB', 7, '{"password":"$2y$10$ivJaqqBDb421D6xMhCqneudpXSGPdUFRmKdDQk47e48fSp1Cjm7pi"}', '{"password":"$2y$10$oPUCE2HWJn9npBLIPUkRSOW\\/WXLXjtJSaThvXH5kpWiG5BVBj6Zk."}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/7', '::1', '2016-08-29 00:21:47', '2016-08-29 00:21:47'),
+(146, 1, 'App\\Role', 135, 'null', '{"name":"logger","display_name":"Logger"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-08-29 00:22:27', '2016-08-29 00:22:27'),
+(147, 1, 'App\\AdminsTB', 1, '{"password":"$2y$10$dsNMSDKAutQa227TYfXxbuBpzGOwBdVhsbYPlFP.VqQ.Qlk5zPNWK","permissions":0,"gender":"f"}', '{"password":"$2y$10$wN3htzTmjrHYF\\/qQR5r.nO.EIjjY6.07IvgILcNzlHjVPMpERGgwK","permissions":"134","gender":"m"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/1', '::1', '2016-08-29 00:22:52', '2016-08-29 00:22:52'),
+(148, 1, 'App\\AdminsTB', 8, 'null', '{"email":"logyou@you.com","first_name":"logger","last_name":"logme","gender":"m","password":"$2y$10$uoDQZ6jbKdGXXl324Tx.w.q7mirfG84ftTcNEfu\\/pjVNFRxygnDyW","activated":"1","permissions":"135"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/user-management', '::1', '2016-08-29 00:23:18', '2016-08-29 00:23:18'),
+(149, 1, 'App\\AdminsTB', 1, '{"password":"$2y$10$wN3htzTmjrHYF\\/qQR5r.nO.EIjjY6.07IvgILcNzlHjVPMpERGgwK","activated":0}', '{"password":"$2y$10$.aIDDSF.2bB33Y\\/1WcDnPe\\/6fsJIUJW9\\/v9Zdxzhs8WIgYyUGf5F2","activated":"1"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/1', '::1', '2016-08-29 05:25:26', '2016-08-29 05:25:26'),
+(150, 1, 'App\\AdminsTB', 1, '{"remember_token":"Z37o5QGlDR3dRH95YdNieAGE2riWRQs2VzfEHgpAyR5SrLfuFkDpiIZ9sBXz"}', '{"remember_token":"WWTAdUEyuMYFYc3Ad65Lww7u2lxuQiXLXLLndND1qqWu7D0v5JOfp2Be7GLX"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-29 05:41:55', '2016-08-29 05:41:55'),
+(151, 1, 'App\\AdminsTB', 1, '{"remember_token":"WWTAdUEyuMYFYc3Ad65Lww7u2lxuQiXLXLLndND1qqWu7D0v5JOfp2Be7GLX"}', '{"remember_token":"E3tYxICOA2HiZl0QWEH1vIWQJGoEtAoBAYkjKu0aBEJsCPK74SFcxpZL5M7F"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-29 05:42:33', '2016-08-29 05:42:33'),
+(152, 8, 'App\\AdminsTB', 8, '{"remember_token":null}', '{"remember_token":"OMuwFZOxaXF6GClFg9PYszolvXbxIhPSY8Wi47D3ssaI20c0TNdsRBOntF4G"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-29 05:43:06', '2016-08-29 05:43:06'),
+(153, 1, 'App\\AdminsTB', 1, '{"remember_token":"E3tYxICOA2HiZl0QWEH1vIWQJGoEtAoBAYkjKu0aBEJsCPK74SFcxpZL5M7F"}', '{"remember_token":"5zjJnIwsuFckqkQC0CiBeKbyyH8MIC5J4jHPF1Cz4SnG5UXWOscJ2Qn4KLFA"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-29 05:43:26', '2016-08-29 05:43:26'),
+(154, 8, 'App\\AdminsTB', 8, '{"remember_token":"OMuwFZOxaXF6GClFg9PYszolvXbxIhPSY8Wi47D3ssaI20c0TNdsRBOntF4G"}', '{"remember_token":"0ezNwQCw8qUWbLbxYeYCjggRnvPQr5lL3F7fYMeV8LvLqnWYdSE0HzdB5XJC"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-29 05:43:37', '2016-08-29 05:43:37'),
+(155, 1, 'App\\AdminsTB', 1, '{"password":"$2y$10$.aIDDSF.2bB33Y\\/1WcDnPe\\/6fsJIUJW9\\/v9Zdxzhs8WIgYyUGf5F2"}', '{"password":"$2y$10$661RfUHjRhZdR.8cbjceB.tDAtwNdZWpqFRLaAfJJdQzZXaG\\/gET2"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/1', '::1', '2016-08-29 05:44:55', '2016-08-29 05:44:55'),
+(156, 1, 'App\\AdminsTB', 1, '{"remember_token":"5zjJnIwsuFckqkQC0CiBeKbyyH8MIC5J4jHPF1Cz4SnG5UXWOscJ2Qn4KLFA"}', '{"remember_token":"5Tf5ln5JiJuyX6uwmf9nvLCsRzfvSoZAUqCjTfMI8Ygz8PiunqrWrLy5Jmr0"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-29 05:45:39', '2016-08-29 05:45:39'),
+(157, 1, 'App\\AdminsTB', 1, '{"remember_token":"5Tf5ln5JiJuyX6uwmf9nvLCsRzfvSoZAUqCjTfMI8Ygz8PiunqrWrLy5Jmr0"}', '{"remember_token":"ENxjDo5YtAAYSkJybwjOw4NOmyHxwsnsMVEadZ8ShEFOuC86uo3Lo96MxATi"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-29 05:47:18', '2016-08-29 05:47:18'),
+(158, 8, 'App\\AdminsTB', 8, '{"remember_token":"0ezNwQCw8qUWbLbxYeYCjggRnvPQr5lL3F7fYMeV8LvLqnWYdSE0HzdB5XJC"}', '{"remember_token":"CTZJBGTMJu1gAPhGowmFBT8AT6hRtzqKV8oUdMD5MjuWF2EnEZZdBnVZaSRB"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-29 05:50:59', '2016-08-29 05:50:59');
 
 -- --------------------------------------------------------
 
@@ -212,18 +272,20 @@ CREATE TABLE `page_category` (
   `page_description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `meta_description` varchar(180) COLLATE utf8_unicode_ci DEFAULT NULL,
   `meta_keywords` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `image` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+  `image` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `page_category`
 --
 
-INSERT INTO `page_category` (`page_category_id`, `page_category_name`, `page_description`, `meta_description`, `meta_keywords`, `image`) VALUES
-(1, 'about-us', '', NULL, NULL, NULL),
-(2, 'clients', '', NULL, NULL, NULL),
-(3, 'portfolio', '', NULL, NULL, NULL),
-(4, 'contact-us', '', NULL, NULL, NULL);
+INSERT INTO `page_category` (`page_category_id`, `page_category_name`, `page_description`, `meta_description`, `meta_keywords`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'about-us', '2222', 'this is a teasdasdas dasdsa dasd sad asd asdasd asdasd asd adasd asd asd asdsa asd asd asd asd sad sad asd asd asd asd as sa as dst', 'test me, wew, ', 'about-us.jpg', '2016-09-03 07:34:57', '2016-09-02 23:34:57'),
+(2, 'clients', '', NULL, NULL, NULL, '2016-08-25 15:10:57', '0000-00-00 00:00:00'),
+(3, 'portfolio', '', NULL, NULL, NULL, '2016-08-25 15:10:57', '0000-00-00 00:00:00'),
+(4, 'contact-us', 'asdas', 'asdas', 'dsad,sfdsf sdfs, sdfsdfdsf', NULL, '2016-09-03 08:07:03', '2016-09-03 00:07:03');
 
 -- --------------------------------------------------------
 
@@ -242,23 +304,28 @@ CREATE TABLE `page_content` (
   `portfolio_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fb_link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `linkedin` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `linkedin` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `career_email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `inquiry_email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `page_content`
 --
 
-INSERT INTO `page_content` (`page_content_id`, `page_category_id`, `director_name`, `director_position`, `director_desc`, `client_image`, `portfolio_text`, `portfolio_image`, `url`, `fb_link`, `linkedin`) VALUES
-(1, 1, 'gemma g. alcantara', 'managing director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.', '', '', '', '', '', ''),
-(2, 1, 'joey server', 'chief creative director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.', '', '', '', '', '', ''),
-(3, 1, 'rey tolentino', 'creative director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.', '', '', '', '', '', ''),
-(4, 1, 'lita marte', 'finance director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.', '', '', '', '', '', ''),
-(5, 1, 'tiger jimenez', 'senior art director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.', '', '', '', '', '', ''),
-(6, 1, 'igine jose', 'technical director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.', '', '', '', '', '', ''),
-(7, 1, 'paul salapantan', 'strategic planning director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.', '', '', '', '', '', ''),
-(8, 1, 'vanessa julian', 'account director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.', '', '', '', '', '', ''),
-(9, 1, 'jessica salas', 'event director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.', '', '', '', '', '', '');
+INSERT INTO `page_content` (`page_content_id`, `page_category_id`, `director_name`, `director_position`, `director_desc`, `client_image`, `portfolio_text`, `portfolio_image`, `url`, `fb_link`, `linkedin`, `career_email`, `inquiry_email`, `created_at`, `updated_at`) VALUES
+(1, 1, 'gemma g. alcantara', 'chairman & managing director', 'asd                            ', '', '', '', '', '', '', '', '', '2016-09-03 07:34:56', '2016-09-02 23:34:56'),
+(2, 1, 'ernest fritz server jr.', 'chief creative director', 'asd                               ', '', '', '', '', '', '', '', '', '2016-09-03 07:34:56', '2016-09-02 23:34:56'),
+(3, 1, 'reynaldo tolentino', 'creative director', 'Evolve or dissolve, life is just changing too fast.                                                 ', '', '', '', '', '', '', '', '', '2016-09-03 07:34:56', '2016-09-02 23:34:56'),
+(4, 1, 'carmelita marte', 'finance & admin manager', 'Take any challenge as a creative opportunity. (Alexandra Watkins)                                    ', '', '', '', '', '', '', '', '', '2016-09-03 07:34:56', '2016-09-02 23:34:56'),
+(5, 1, 'lysander antonio jimenez', 'senior art director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                ', '', '', '', '', '', '', '', '', '2016-09-03 07:34:57', '2016-09-02 23:34:57'),
+(6, 1, 'luigina mari jose', 'senior manager technical department head', '“Technical Director, Aspiring Painter, (Still) Frustrated Singer and a (Former) Frustrated Filmmaker and Scriptwriter”                                             ', '', '', '', '', '', '', '', '', '2016-09-03 07:34:57', '2016-09-02 23:34:57'),
+(7, 1, 'paul robert salapantan', 'strategic business consultant', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                ', '', '', '', '', '', '', '', '', '2016-09-03 07:34:57', '2016-09-02 23:34:57'),
+(8, 1, 'vanessa vera julian', 'group account director', 'We will perish without passion. “Working hard for something we don’t care about is called stress; working hard for something we love is called passion” – Simon Sinek.                                              ', '', '', '', '', '', '', '', '', '2016-09-03 07:34:57', '2016-09-02 23:34:57'),
+(9, 1, 'jessica ana salas', 'senior manager, production mgt.head', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                ', '', '', '', '', '', '', '', '', '2016-09-03 07:34:57', '2016-09-02 23:34:57'),
+(10, 4, '', '', '', '', '', '', '', 'https://www.facebook.com/bci-enav', 'https://www.linkedin.com/company/bci-enav', 'career@bci-enav.com', 'inquiry@bci-enav.com', '2016-09-03 08:07:03', '2016-09-03 00:07:03');
 
 -- --------------------------------------------------------
 
@@ -323,12 +390,21 @@ CREATE TABLE `permission_role` (
 --
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
-(7, 97),
-(8, 95),
-(9, 95),
-(14, 101),
-(15, 101),
-(16, 101);
+(1, 134),
+(1, 135),
+(3, 134),
+(4, 134),
+(5, 134),
+(6, 134),
+(7, 134),
+(8, 134),
+(9, 134),
+(10, 134),
+(11, 134),
+(12, 134),
+(14, 134),
+(15, 134),
+(16, 134);
 
 -- --------------------------------------------------------
 
@@ -350,33 +426,8 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
-(10, 'test', 'Test', NULL, '2016-08-09 07:16:23', '2016-08-09 07:16:23'),
-(11, 'www', 'Www', NULL, '2016-08-09 07:21:07', '2016-08-09 07:21:07'),
-(12, 'sssss', 'Sssss', NULL, '2016-08-09 07:21:29', '2016-08-09 07:21:29'),
-(13, 'fsdfd', 'Fsdfd', NULL, '2016-08-09 07:41:37', '2016-08-09 07:41:37'),
-(14, 'sssfsd', 'Sssfsd', NULL, '2016-08-09 07:45:18', '2016-08-09 07:45:18'),
-(15, 'sdfsdf', 'Sdfsdf', NULL, '2016-08-10 05:15:40', '2016-08-10 05:15:40'),
-(16, 'ssssfdf', 'Ssssfdf', NULL, '2016-08-10 05:41:10', '2016-08-10 05:41:10'),
-(17, 'sdf', 'Sdf', NULL, '2016-08-10 05:41:26', '2016-08-10 05:41:26'),
-(18, 'sdfdsf3rf3', 'Sdfdsf3rf3', NULL, '2016-08-10 05:42:04', '2016-08-10 05:42:04'),
-(89, 'sdfssssdf', 'Sdfssssdf', NULL, '2016-08-13 09:07:00', '2016-08-13 09:07:00'),
-(90, 'sdf-sdf', 'Sdf Sdf', NULL, '2016-08-13 09:08:01', '2016-08-13 09:08:01'),
-(91, 'fs-dfd-fdsf', 'Fs Dfd Fdsf', NULL, '2016-08-13 09:08:41', '2016-08-13 09:08:41'),
-(92, 'sdfsssdf', 'Sdfsssdf', NULL, '2016-08-13 09:08:58', '2016-08-13 09:08:58'),
-(93, 'sf-sdf', 'Sf Sdf', NULL, '2016-08-13 09:19:58', '2016-08-13 09:19:58'),
-(94, 'df-sdfds', 'Df Sdfds', NULL, '2016-08-13 09:20:28', '2016-08-13 09:20:28'),
-(95, 'sdf-sdf-d', 'Sdf Sdf D', NULL, '2016-08-13 09:21:23', '2016-08-13 09:21:23'),
-(96, 'dsadsa', 'Dsadsa', NULL, '2016-08-13 09:21:35', '2016-08-13 09:21:35'),
-(97, 'asdsad', 'Asdsad', NULL, '2016-08-15 06:22:09', '2016-08-15 06:22:09'),
-(98, 'asdasdsadsadsad', 'Asdasdsadsadsad', NULL, '2016-08-15 06:22:21', '2016-08-15 06:22:21'),
-(99, 'fgdfg', 'Fgdfg', NULL, '2016-08-15 07:01:23', '2016-08-15 07:01:23'),
-(100, 'fgdfgbfdgdf', 'Fgdfgbfdgdf ', NULL, '2016-08-15 07:01:33', '2016-08-15 07:01:33'),
-(101, 'sdfds-sf', 'Sdfds Sf', NULL, '2016-08-15 07:02:09', '2016-08-15 07:02:09'),
-(102, 'sfsdf', 'Sfsdf', NULL, '2016-08-15 07:02:18', '2016-08-15 07:02:18'),
-(103, 'dsf-sdfsd', 'Dsf Sdfsd', NULL, '2016-08-15 07:04:23', '2016-08-15 07:04:23'),
-(104, 'sdf-sdfsdf', 'Sdf Sdfsdf', NULL, '2016-08-15 07:04:30', '2016-08-15 07:04:30'),
-(105, 'fds-fdsf', 'Fds Fdsf', NULL, '2016-08-15 07:04:38', '2016-08-15 07:04:38'),
-(106, 'sdfsd-sdf-d', 'Sdfsd Sdf D', NULL, '2016-08-15 07:05:01', '2016-08-15 07:05:01');
+(134, 'super-administrator', 'Super Administrator', NULL, '2016-08-20 07:05:29', '2016-08-20 07:05:29'),
+(135, 'logger', 'Logger', NULL, '2016-08-29 00:22:27', '2016-08-29 00:22:27');
 
 -- --------------------------------------------------------
 
@@ -388,6 +439,14 @@ CREATE TABLE `role_user` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `role_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `role_user`
+--
+
+INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
+(1, 134),
+(8, 135);
 
 --
 -- Indexes for dumped tables
@@ -460,12 +519,12 @@ ALTER TABLE `role_user`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 --
 -- AUTO_INCREMENT for table `page_category`
 --
@@ -475,7 +534,7 @@ ALTER TABLE `page_category`
 -- AUTO_INCREMENT for table `page_content`
 --
 ALTER TABLE `page_content`
-  MODIFY `page_content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `page_content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `permissions`
 --
@@ -485,7 +544,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 --
 -- Constraints for dumped tables
 --

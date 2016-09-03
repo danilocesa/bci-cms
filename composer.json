@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "owen-it/laravel-auditing": "^2.4",
         "zizaco/entrust" : "5.2.x-dev",
-        "yajra/laravel-datatables-oracle": "^6.17"
+        "yajra/laravel-datatables-oracle": "^6.17",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
