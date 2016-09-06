@@ -1,5 +1,9 @@
 @extends('admin.shared._master')
 @section('title','Page Mangement')
+@section('styles')
+<link rel="stylesheet" href="{{ asset('css/jquery-upload.css')}}">
+
+@endsection
 @section('main-content')
 <div class="">
           <div class="page-title">
@@ -71,6 +75,10 @@
 
 @section('scripts')
  <script src="{{ asset('js/parsley.min.js') }}"></script>
+
+ <script src="{{ asset('js/jquery.ui.widget.js') }}"></script>
+ <script src="{{ asset('js/jquery.iframe-transport.js') }}"></script>
+  <script src="{{ asset('js/jquery.upload.min.js') }}"></script>
 <script>
 function readURL(input) {
 
@@ -109,6 +117,26 @@ function readURL(input) {
     $("#aboutUs-up").change(function(){
         readURL(this);
     });
+
+
+
+     // $('#aboutUs-img').fileupload({
+     //    url: url,
+     //    dataType: 'json',
+     //    done: function (e, data) {
+     //        $.each(data.result.files, function (index, file) {
+     //            $('<p/>').text(file.name).appendTo('#files');
+     //        });
+     //    },
+     //    progressall: function (e, data) {
+     //        var progress = parseInt(data.loaded / data.total * 100, 10);
+     //        $('#loader-up .loaderUp-bar').css(
+     //            'width',
+     //            progress + '%'
+     //        );
+     //    }
+     //  }).prop('disabled', !$.support.fileInput)
+     //    .parent().addClass($.support.fileInput ? undefined : 'disabled');
 
 
   });

@@ -207,7 +207,6 @@
               firstname : $('input[name="firstname"]').val(),
               lastname : $('input[name="lastname"]').val(),
               email : $('input[name="email"]').val(),
-              gender : $('input[name="gender"]').val(),
               status : $('[name="status"]').val(),
               role : $('[name="role"]').val(),
               password : $('input[name="password"]').val(),
@@ -284,7 +283,6 @@
         $('input[name="firstname"]').val(result.first_name);
         $('input[name="lastname"]').val(result.last_name);
         $('input[name="email"]').val(result.email);
-        $('input[name=gender][value='+ result.gender +']').prop('checked', 'checked'); //fix this
         $('[name="status"]').val(result.activated); 
         $('[name="role"]').val(result.permissions);
       });
@@ -495,13 +493,6 @@
           </label>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="text" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gender" >Gender <span class="required">*</span> </label>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <input type="radio" class="flat gender-radio" name="gender" value="m" /> Male
-            <input type="radio" class="flat gender-radio" name="gender" value="f" /> Female
           </div>
         </div>
          <div class="form-group">

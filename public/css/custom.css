@@ -2845,7 +2845,7 @@ ul.project_files li a i {
 /* *********  /pricing  **************************** */
 /* *********  media gallery  **************************** */
 .thumbnail .image {
-  height: 120px;
+  height: 205px;
   overflow: hidden; }
 
 .caption {
@@ -2856,7 +2856,7 @@ ul.project_files li a i {
   margin-bottom: 5px; }
 
 .thumbnail {
-  height: 190px;
+  height: 265px;
   overflow: hidden; }
 
 .view {
@@ -2888,7 +2888,7 @@ ul.project_files li a i {
   margin: 43px 0 0 0; }
 
 .mask.no-caption .tools {
-  margin: 90px 0 0 0; }
+  margin: 165px 0 0 0; }
 
 .view .tools a {
   display: inline-block;
@@ -2919,9 +2919,11 @@ ul.project_files li a i {
   transition: all 0.2s linear; }
 
 .view-first .mask {
+  height:200px;
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 0.4s ease-in-out; }
+
 
 .view-first .tools {
   transform: translateY(-100px);

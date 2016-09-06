@@ -122,8 +122,12 @@
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
+        <label class="">Upload (3MB max):</label>
         <input type="file" name="aboutUs_image" id="aboutUs-up"/> <br />
         <img src="{{ asset('images/'.$aboutInfo->image) }}" width="300" id="aboutUs-img" />
+        <div id="loader-up" class="progress">
+          <div class="loaderUp-bar progress-bar-success"></div>
+        </div>
       </div>
     </div>
   </div>

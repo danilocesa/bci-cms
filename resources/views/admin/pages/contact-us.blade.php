@@ -34,22 +34,22 @@
     </div>
     <div class="x_content">
       <div class="form-horizontal form-label-left">
-        <input type="hidden" name="page_content_id" value="{{ $contactContent->page_content_id}} " />
+        <input type="hidden" name="page_content_id" value="{{ $pageContent->page_content_id}} " />
         <div class="form-group">
             <label class=""><span class="fa fa-facebook-square"></span> Facebook link:</label>
-            <input type="text" name="facebook_link" class="form-control" placeholder="http://facebook.com/bci-enav" value="{{ $contactContent->fb_link }}" />
+            <input type="text" name="facebook_link" class="form-control" placeholder="http://facebook.com/bci-enav" value="{{ $pageContent->fb_link }}" />
         </div> 
         <div class="form-group">
             <label class=""><span class="fa fa-linkedin-square"></span> Linkedin link:</label>
-            <input type="text" name="linkedin_link" class="form-control" placeholder="http://linkedin.com/bci-enav" value="{{ $contactContent->linkedin }}" />
+            <input type="text" name="linkedin_link" class="form-control" placeholder="http://linkedin.com/bci-enav" value="{{ $pageContent->linkedin }}" />
         </div>
           <div class="form-group">
             <label class=""><span class="fa fa-send"></span> Career email:</label>
-            <input type="text" name="career_email" class="form-control" placeholder="career@bci-enav.com" value="{{ $contactContent->career_email }}" />
+            <input type="text" name="career_email" class="form-control" placeholder="career@bci-enav.com" value="{{ $pageContent->career_email }}" />
         </div> 
           <div class="form-group">
             <label class=""><span class="fa fa-send"></span> Inquiry email:</label>
-            <input type="text" name="inquiry_email" class="form-control" placeholder="inquiry@bci-enav.com" value="{{ $contactContent->inquiry_email }}" />
+            <input type="text" name="inquiry_email" class="form-control" placeholder="inquiry@bci-enav.com" value="{{ $pageContent->inquiry_email }}" />
         </div>     
       </div>
     </div>
@@ -65,7 +65,7 @@
       <div class="form-horizontal form-label-left">
         <div class="form-group">
             <label class="">Description:</label>
-            <textarea class="form-control" name="page_description" rows="6" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.">{{ $contactInfo->page_description }}</textarea>
+            <textarea class="form-control" name="page_description" rows="6" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.">{{ $pageInfo->page_description }}</textarea>
         </div> 
       </div>
     </div>
@@ -81,11 +81,11 @@
       <div class="form-horizontal form-label-left">
         <div class="form-group">
             <label class="">Meta Description (150 max):</label>
-            <textarea class="form-control" name="meta_description" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.">{{ $contactInfo->meta_description }}</textarea>
+            <textarea class="form-control" name="meta_description" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.">{{ $pageInfo->meta_description }}</textarea>
         </div> 
         <div class="form-group">
             <label class="">Meta Keywords (Separate with comma):</label>
-            <textarea class="form-control" name="meta_keywords" rows="2" placeholder="Lorem, Ipsum, is, simply, dummy, text, of">{{ $contactInfo->meta_keywords }}</textarea>
+            <textarea class="form-control" name="meta_keywords" rows="2" placeholder="Lorem, Ipsum, is, simply, dummy, text, of">{{ $pageInfo->meta_keywords }}</textarea>
         </div>    
       </div>
     </div>

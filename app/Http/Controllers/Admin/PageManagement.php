@@ -32,7 +32,6 @@ class PageManagement extends Controller
     {
         $directors = $this->page_content->where('page_category_id',1)->get();
         $aboutInfo = $this->page_category->where('page_category_id',1)->first();
-        // $aboutInfo = $this->page_category->where('page_category_id',1)->first();
     
         return view('admin\pages\index',[ 'directors'=>$directors,'aboutInfo' => $aboutInfo]);
     }
@@ -64,7 +63,6 @@ class PageManagement extends Controller
             'directors_position'    => 'required',
             'directors_desc'        => 'required',
             'director_link'         => 'required'
-            // 'file'                  => 'required|image:jpg,png|max:2048'
         ]);
 
         if ($validator->fails()) {
@@ -112,10 +110,31 @@ class PageManagement extends Controller
      */
     public function show($id)
     {
-        $contactInfo = $this->page_category->where('page_category_id',4)->first();
-        $contactContent = $this->page_content->where('page_category_id',4)->first();
+        $catID = '';
+        $qType = '';
+        switch ($id) {
+            case 'clients':
+                $catID = 2;
+                $qType = 'first';
+                break;
+            case 'portfolio':
+                $catID = 3;
+                $qType = 'get';
+                break;
+            case 'contact-us':
+                $catID = 4;
+                $qType = 'first';
+                break; 
+        }
 
-        return view('admin\pages\index',['contactInfo' => $contactInfo,'contactContent' => $contactContent]);
+        $pageInfo = $this->page_category->where('page_category_id',$catID)->first();
+        $pageContent = $this->page_content->where('page_category_id',$catID)->$qType();
+
+   
+        return view('admin\pages\index',[
+            'pageInfo' => $pageInfo,
+            'pageContent' => $pageContent
+        ]);
     }
 
 
@@ -163,6 +182,42 @@ class PageManagement extends Controller
 
             return redirect()->back()->with('success','Page Updated'); 
        }
+       elseif($request->get('page_category') == 3){ //Portfolio update
+             $validator = Validator::make($request->all(), [
+                'page_description'      => 'required',
+                'meta_description'      => 'required|max:150',
+                'meta_keywords'         => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()
+                    ->back()
+                    ->withErrors($validator);
+            }
+            $counter = 0;
+            foreach ($request->get('page_content_id') as $pageId) {
+                $this->page_content
+                    ->where('page_content_id',$pageId)
+                    ->update([
+                        'portfolio_text'=>$request->get('portfolioText')[$counter]
+                    ]);
+                $counter ++;    
+            }
+
+            $this->page_category->where('page_category_id',3)
+            ->update([
+                'page_description'  =>  $request->get('page_description'),
+                'meta_description'  =>  $request->get('meta_description'),
+                'meta_keywords'     =>  $request->get('meta_keywords')
+            ]);
+
+            return redirect()->back()->with('success','Page Updated'); 
+
+
+       }
+       else{
+            dd(1);
+       }
 
     }
 
@@ -175,5 +230,10 @@ class PageManagement extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function processFile(){
+
     }
 }
