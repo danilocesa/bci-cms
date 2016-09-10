@@ -123,6 +123,7 @@
       </div>
       <div class="x_content">
         <label class="">Upload (3MB max):</label>
+         <div id="files" class="files"></div>
         <input type="file" name="aboutUs_image" id="aboutUs-up"/> <br />
         <img src="{{ asset('images/'.$aboutInfo->image) }}" width="300" id="aboutUs-img" />
         <div id="loader-up" class="progress">

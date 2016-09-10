@@ -233,7 +233,20 @@ class PageManagement extends Controller
     }
 
 
-    public function processFile(){
+    public function processUpload(Request $request){
+        // dump($request->all());
 
-    }
+         if ($request->hasFile('aboutUs_image')) {
+            $imageName = 'about-us'.'.'.$request->aboutUs_image->getClientOriginalExtension();
+            $img = Image::make($request->aboutUs_image->getRealPath());
+            $img->resize(100, 100)->save(public_path('/images').'/'.$imageName);
+            $path = $request->aboutUs_image->move(public_path('images'),$imageName);
+            $this->page_category->where('page_category_id',1)
+                ->update([ 'image'=>$imageName ]);
+        }
+
+        return response()->json('test');
+
+
+    }   
 }

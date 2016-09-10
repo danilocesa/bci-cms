@@ -75,10 +75,10 @@
 
 @section('scripts')
  <script src="{{ asset('js/parsley.min.js') }}"></script>
-
  <script src="{{ asset('js/jquery.ui.widget.js') }}"></script>
  <script src="{{ asset('js/jquery.iframe-transport.js') }}"></script>
-  <script src="{{ asset('js/jquery.upload.min.js') }}"></script>
+ <script src="{{ asset('js/jquery.upload.min.js') }}"></script>
+
 <script>
 function readURL(input) {
 
@@ -119,10 +119,12 @@ function readURL(input) {
     });
 
 
+    var filesList = $('input[type="file"]').prop('files');
 
-     // $('#aboutUs-img').fileupload({
-     //    url: url,
+     // $('#aboutUs-up').fileupload({
+     //    url: '{{ url("web-admin/page-uploads") }}',
      //    dataType: 'json',
+     //    send: {files: filesList},
      //    done: function (e, data) {
      //        $.each(data.result.files, function (index, file) {
      //            $('<p/>').text(file.name).appendTo('#files');
@@ -135,8 +137,18 @@ function readURL(input) {
      //            progress + '%'
      //        );
      //    }
-     //  }).prop('disabled', !$.support.fileInput)
-     //    .parent().addClass($.support.fileInput ? undefined : 'disabled');
+     //  })
+     //  .error(function (jqXHR, textStatus, errorThrown) {
+     //      console.log(jqXHR);
+     //      console.log(textStatus);
+     //      console.log(errorThrown);
+     //  })
+     //  .prop('disabled', !$.support.fileInput)
+     //  .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+
+       $('#aboutUs-up').fileupload('send', {files: filesList});
+
 
 
   });

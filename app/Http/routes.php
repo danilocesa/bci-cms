@@ -41,6 +41,7 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	/*
     * PageManagement
     */
+    Route::post('page-uploads','Admin\PageManagement@processUpload');
 	Route::resource('page-management','Admin\PageManagement');
 	
 	/*
