@@ -38,28 +38,13 @@ class AuthController extends Controller
 	    }
 
 	    if (Auth::attempt(['email' => $request->email, 'password' => $request->password]) ) {
-            return redirect()->intended('/web-admin/dashboard');
+            return redirect()->intended('web-admin/dashboard');
         } else{
             return back()->withInput()->with('checkUser', 'Incorrect Email or Password');
         }
 
 
     }
-
-    public function createAdminU($email,$password)
-    {
-    	$this->adminsTB->email = $email;
-    	$this->adminsTB->password = bcrypt($password);
-    	$this->adminsTB->save();
-
-    	return response('hehe');
-        // return User::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'password' => bcrypt($data['password']),
-        // ]);
-    }
-
 
     public function dashboard(){
         if(!auth()->user()){

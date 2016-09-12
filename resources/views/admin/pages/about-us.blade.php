@@ -1,8 +1,26 @@
-<form action="" method="POST" id="aboutUs-form" data-parsley-validate>
+<form action="" method="POST" id="aboutUs-form" enctype="multipart/form-data" data-parsley-validate>
 {{ csrf_field() }}
 <input type="hidden" name="page_category" value="1" />
-<input type="hidden" name="method" value="_PUT" />
 <!--about us profile -->
+@if (session('success'))
+   <div class="alert alert-success alert-dismissible fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+    </button>
+    Page updated successfully!
+  </div>
+@endif
+@if (count($errors) > 0)
+<div class="alert alert-danger alert-dismissible fade in" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+  </button>
+   <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <div class="row">
   <div class="x_title">
     <h2><span class="fa fa-users"></span> Directors</h2>
@@ -104,12 +122,29 @@
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
-        <input type="file" name="aboutUs_image" /> <br />
-        <img src="{{ asset('image.png') }}" />
+        <label class="">Upload (3MB max):</label>
+         <div id="files" class="files"></div>
+        <input type="file" name="aboutUs_image" id="aboutUs-up"/> <br />
+        <img src="{{ asset('images/'.$aboutInfo->image) }}" width="300" id="aboutUs-img" />
+        <div id="progress-wrp"><div class="progress-bar"></div ><div class="status">0%</div></div>
       </div>
     </div>
   </div>
-<div class="col-md-8">
+  <div class="col-md-4">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2><span class="fa fa-file"></span> Page Description</h2>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <div class="form-group">
+            <label class="">Description:</label>
+            <textarea class="form-control" rows="6" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry." name="page_description" >{{ $aboutInfo->page_description}}</textarea>
+        </div> 
+    </div>
+  </div>
+</div>
+<div class="col-md-4">
   <div class="x_panel">
     <div class="x_title">
       <h2><span class="fa fa-star"></span> Search Engine Optimization (SEO)</h2>

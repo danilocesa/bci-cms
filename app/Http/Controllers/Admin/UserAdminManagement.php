@@ -11,6 +11,7 @@ use App\Permission;
 use App\AdminsTB;
 use Yajra\Datatables\Datatables;
 use Validator;
+use Auth;
 
 
 class UserAdminManagement extends Controller
@@ -60,7 +61,6 @@ class UserAdminManagement extends Controller
             'email' => 'required|email|unique:admins,email',
             'firstname' => 'required|min:2',
             'lastname' => 'required|min:2',
-            'gender'   => 'required|',
             'password' => 'required|min:6',
             'password_confirmation' => 'required|same:password',
             'status'  => 'required',
@@ -74,7 +74,6 @@ class UserAdminManagement extends Controller
         $this->admins->email = $request->get('email');
         $this->admins->first_name = $request->get('firstname');
         $this->admins->last_name = $request->get('lastname');
-        $this->admins->gender = $request->get('gender');
         $this->admins->password = bcrypt($request->get('password'));
         $this->admins->activated = $request->get('status');
         $this->admins->permissions = $request->get('role');
@@ -121,7 +120,6 @@ class UserAdminManagement extends Controller
             'email' => 'required|email',
             'firstname' => 'required|min:2',
             'lastname' => 'required|min:2',
-            'gender'   => 'required|',
             'password' => 'required|min:6',
             'password_confirmation' => 'required|same:password',
             'status'  => 'required',
@@ -137,14 +135,12 @@ class UserAdminManagement extends Controller
         $user->email = $request->get('email');        
         $user->first_name = $request->get('firstname');
         $user->last_name = $request->get('lastname');
-        $user->gender = $request->get('gender');
         $user->password = bcrypt($request->get('password'));
         $user->activated = $request->get('status');
         $user->permissions = $request->get('role');
         $user->save();
 
-        //Change permission also
-
+        $user->roles()->attach($request->get('role'));
 
         return response()->json('success');
     }
@@ -169,9 +165,21 @@ class UserAdminManagement extends Controller
     public function userList()
     {
         $users = AdminsTB::select(['id','first_name', 'last_name', 'activated', 'created_at']);
+       
+        
 
         return Datatables::of($users)->addColumn('action', function ($user) {
-                return '<span class="btn btn-xs btn-primary edit-user" data-id="'.$user->id.'"><i class="fa fa-lock"></i> Edit</span><span class="btn btn-xs btn-danger delete-user" data-id="'.$user->id.'"><i class="fa fa-trash"></i> Delete</span>';
+                $actionHTML = '';
+                if(Auth::user()->can('edit-user')){
+                    $actionHTML .= '<span class="btn btn-xs btn-primary edit-user" data-id="'.$user->id.'"><i class="fa fa-lock"></i> Edit</span>';
+                }
+                if(Auth::user()->can('delete-user')){
+                     $actionHTML .= '<span class="btn btn-xs btn-danger delete-user" data-id="'.$user->id.'"><i class="fa fa-trash"></i> Delete</span>';
+                }
+                if(!Auth::user()->can('edit-user') && !Auth::user()->can('delete-user')){
+                    $actionHTML = 'Disabled';
+                }
+                return $actionHTML;
             })->make();
 
         // return Datatables::of(AdminsTB::query())->make(true);

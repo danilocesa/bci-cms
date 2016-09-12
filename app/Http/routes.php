@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 
 Route::group(['prefix'=>'web-admin','as' =>'web-admin'
-	// , 'middleware' => ['role:admin']
+	// , 'middleware' => ['auth']
 	]
 	, function () {
 
@@ -38,14 +38,15 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	/*
     * PageManagement
     */
-	Route::resource('page-management', ['middleware' => ['permission:view-page'], 'uses' => 'Admin\PageManagement']);
 
+    Route::post('page-uploads','Admin\PageManagement@processUpload');
+	Route::resource('page-management','Admin\PageManagement');
+	
 	/*
     * AdminManagement
     */
     Route::get('user-management/users','Admin\UserAdminManagement@userList');
 	Route::resource('user-management','Admin\UserAdminManagement');
-	
 
 	/*
     * RoleAndPermission
@@ -54,7 +55,6 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
     Route::get('role-and-permission/show-permission/{id}','Admin\RoleAndPermission@showPermission');
     Route::post('role-and-permission/attach-permission','Admin\RoleAndPermission@attachPermission');
 	Route::resource('role-and-permission','Admin\RoleAndPermission');
-	
 
 	/*
     * Audit Trail

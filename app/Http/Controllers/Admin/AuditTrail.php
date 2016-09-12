@@ -6,9 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class AuditTrail extends Controller
 {
+    public function __construct(){
+        if(!Auth::user()->can('view-logs')){
+            abort(404);
+        }
+    }    
     /**
      * Display a listing of the resource.
      *
