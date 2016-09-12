@@ -41,7 +41,8 @@
                 <div class="mask no-caption">
                   <div class="tools tools-bottom">
                     <a href="#"><i class="fa fa-link"></i></a>
-                    <a href="#"><i class="fa fa-pencil"></i></a>
+                    <i class="fa fa-pencil port-up" data-pencil-id="{{ $content->page_content_id }}" ></i>
+                    <input type="file" name="port_image[]" data-port-image="" data-pencil-id="{{ $content->page_content_id }}" class="port-file-up"/>
                   </div>
                 </div>
               </div>

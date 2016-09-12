@@ -121,6 +121,7 @@ function readURL(input) {
   $(document).ready(function(){
     var progress_bar_id     = '#progress-wrp';
     $(progress_bar_id).hide();
+    $('.port-file-up').hide();
 
     window.Parsley.on('parsley:field:validate', function() {
       validateFront();
@@ -209,6 +210,18 @@ function readURL(input) {
           $(progress_bar_id).hide();
         });
         
+    });
+
+    $('.port-up').click(function(){
+      var $self = $(this);
+      // alert($self.data('pencil-id'));
+      $('input[data-pencil-id="'+$self.data('pencil-id')+'"]').click();
+
+    });
+
+    $('.port-file-up').change(function(){
+      console.log('files');
+
     });
 
   });
