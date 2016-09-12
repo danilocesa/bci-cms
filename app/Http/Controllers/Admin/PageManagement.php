@@ -234,8 +234,8 @@ class PageManagement extends Controller
 
 
     public function processUpload(Request $request){
-        // dump($request->all());
-
+        
+        /** About Us Upload **/
          if ($request->hasFile('aboutUs_image')) {
             $imageName = 'about-us'.'.'.$request->aboutUs_image->getClientOriginalExtension();
             $img = Image::make($request->aboutUs_image->getRealPath());
@@ -245,7 +245,7 @@ class PageManagement extends Controller
                 ->update([ 'image'=>$imageName ]);
         }
 
-        return response()->json('test');
+        return response()->json('success');
 
 
     }   

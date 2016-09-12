@@ -126,9 +126,7 @@
          <div id="files" class="files"></div>
         <input type="file" name="aboutUs_image" id="aboutUs-up"/> <br />
         <img src="{{ asset('images/'.$aboutInfo->image) }}" width="300" id="aboutUs-img" />
-        <div id="loader-up" class="progress">
-          <div class="loaderUp-bar progress-bar-success"></div>
-        </div>
+        <div id="progress-wrp"><div class="progress-bar"></div ><div class="status">0%</div></div>
       </div>
     </div>
   </div>
