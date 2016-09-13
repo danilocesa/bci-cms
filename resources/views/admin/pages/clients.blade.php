@@ -1,4 +1,26 @@
+<form method="POST" id="clients-form" data-parsley-validate>
+{{ csrf_field() }}
+{{ method_field('PUT') }}
+<input type="hidden" name="page_category" value="2" />
 <!--clients page-->
+@if (session('success'))
+   <div class="alert alert-success alert-dismissible fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+    </button>
+    Page updated successfully!
+  </div>
+@endif
+@if (count($errors) > 0)
+<div class="alert alert-danger alert-dismissible fade in" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+  </button>
+   <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <div class="row">
   <div class="col-md-12">
     <div class="x_panel">
@@ -199,7 +221,7 @@
       <div class="form-horizontal form-label-left">
         <div class="form-group">
             <label class="">Page Description:</label>
-            <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+            <textarea class="form-control" name="page_description" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.">{{ $pageInfo->page_description }}</textarea>
         </div>    
       </div>
     </div>
@@ -215,11 +237,11 @@
       <div class="form-horizontal form-label-left">
         <div class="form-group">
             <label class="">Meta Description (150 max):</label>
-            <textarea class="form-control" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."></textarea>
+            <textarea class="form-control" name="meta_description" rows="2" placeholder="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.">{{ $pageInfo->meta_description }}</textarea>
         </div> 
         <div class="form-group">
             <label class="">Meta Keywords (Separate with comma):</label>
-            <textarea class="form-control" rows="2" placeholder="Lorem, Ipsum, is, simply, dummy, text, of"></textarea>
+            <textarea class="form-control" name="meta_keywords" rows="2" placeholder="Lorem, Ipsum, is, simply, dummy, text, of">{{ $pageInfo->meta_keywords }}</textarea>
         </div>    
       </div>
     </div>
@@ -227,3 +249,4 @@
 </div>
 </div>
 <!--end clients seo -->		
+</form>

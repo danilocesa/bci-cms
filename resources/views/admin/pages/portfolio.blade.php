@@ -32,12 +32,13 @@
       <div class="x_content">
 
         <div class="row">
+        <div id="progress-port"><div class="progress-bar"></div ><div class="status">0%</div></div>
         @foreach($pageContent as $content)
           <input type="hidden" name="page_content_id[]" value="{{ $content->page_content_id }}" />
            <div class="col-md-55">
             <div class="thumbnail">
               <div class="image view view-first">
-                <img style="width: 100%; display: block;" src="{{ asset('images/portfolio/'.$content->portfolio_image) }}" alt="image" />
+                <img style="width: 100%; display: block;" src="{{ asset('images/portfolio/'.$content->portfolio_image) }}" alt="image" data-port-id="{{ $content->page_content_id }}" />
                 <div class="mask no-caption">
                   <div class="tools tools-bottom">
                     <a href="#"><i class="fa fa-link"></i></a>

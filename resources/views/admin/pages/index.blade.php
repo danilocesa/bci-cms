@@ -29,6 +29,35 @@
     color: #000000;
 }
 
+#progress-port {
+    border: 1px solid #0099CC;
+    padding: 1px;
+    position: relative;
+    border-radius: 3px;
+    margin: 10px;
+    text-align: left;
+    background: #fff;
+    box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.12);
+    height:24px;
+}
+#progress-port .progress-bar{
+    height: 20px;
+    border-radius: 3px;
+    background-color: #1ABB9C;
+    width: 0;
+    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.11);
+}
+#progress-port .status{
+    top:3px;
+    left:50%;
+    position:absolute;
+    display:inline-block;
+    color: #000000;
+}
+.caption input{
+  width:100%;
+}
+
 </style>
 @endsection
 @section('main-content')
@@ -105,13 +134,22 @@
  <script src="{{ asset('js/pnotify.js') }}"></script>
 
 <script>
-function readURL(input) {
+function readURL(type,input,container = null) {
 
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
+          if(type == 1){
             $('#aboutUs-img').attr('src', e.target.result);
+          }
+          else if(type == 2){
+            //clients
+          }
+          else{
+            console.log(container);
+            $('img[data-port-id="'+container+'"]').attr('src', e.target.result);
+          }
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -120,7 +158,9 @@ function readURL(input) {
 
   $(document).ready(function(){
     var progress_bar_id     = '#progress-wrp';
+    var progress_port_id     = '#progress-port';
     $(progress_bar_id).hide();
+    $(progress_port_id).hide();
     $('.port-file-up').hide();
 
     window.Parsley.on('parsley:field:validate', function() {
@@ -172,7 +212,7 @@ function readURL(input) {
             return false;
         }
 
-        readURL(this);
+        readURL(1,this);
 
         var myFormData = new FormData();
         $(progress_bar_id).show();
@@ -219,8 +259,73 @@ function readURL(input) {
 
     });
 
-    $('.port-file-up').change(function(){
-      console.log('files');
+    $('.port-file-up').change(function(event){
+        var $self = $(this);
+        var input = $(event.currentTarget);
+        var file = input[0].files[0];
+
+        if(file.type.match('image.*') == null){
+          new PNotify({
+            title: 'Oh No!',
+            text: 'Please upload image only.',
+            type: 'error',
+            addclass: "stack-bottomright",
+            styling: 'bootstrap3',
+            buttons: { sticker: false }
+          });
+          return false;
+        }  
+
+        if(file.size > 3145728){
+            new PNotify({
+              title: 'Oh No!',
+              text: 'Maximum of 3MB only.',
+              type: 'error',
+              addclass: "stack-bottomright",
+              styling: 'bootstrap3',
+              buttons: { sticker: false }
+            });
+            return false;
+        }
+      readURL(3,this,input[0].dataset.pencilId);
+    
+        var myFormData = new FormData();
+        $(progress_port_id).show();
+        myFormData.append('port_image', file);
+        myFormData.append('_token', '{{ csrf_token() }}');
+        myFormData.append('port_id', input[0].dataset.pencilId);
+
+        $.ajax({
+          url: '{{ url("web-admin/page-uploads") }}' ,
+          type: 'POST',
+          processData: false, // important
+          contentType: false, // important
+          dataType : 'json',
+          data: myFormData,
+          success:function(result){
+            console.log(result);
+          },
+          xhr: function(){
+            var xhr = $.ajaxSettings.xhr();
+            if (xhr.upload) {
+                xhr.upload.addEventListener('progress', function(event) {
+                    var percent = 0;
+                    var position = event.loaded || event.position;
+                    var total = event.total;
+                    if (event.lengthComputable) {
+                        percent = Math.ceil(position / total * 100);
+                    }
+                    $(progress_port_id +" .progress-bar").css("width", + percent +"%");
+                    $(progress_port_id + " .status").text(percent +"%");
+                }, true);
+            }
+            return xhr;
+          },
+          mimeType:"multipart/form-data"
+        }).done(function(res){
+          $(progress_port_id).hide();
+        });
+
 
     });
 

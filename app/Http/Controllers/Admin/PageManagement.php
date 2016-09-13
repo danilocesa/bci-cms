@@ -37,16 +37,6 @@ class PageManagement extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -147,8 +137,8 @@ class PageManagement extends Controller
      */
     public function update(Request $request, $id)
     {
-        dump($request->all());
-        if($request->get('page_category') == 2){ //Contact us update
+        
+        if($request->get('page_category') == 4){ //Contact us update
             $validator = Validator::make($request->all(), [
                 'page_description'      => 'required',
                 'meta_description'      => 'required|max:150',
@@ -183,7 +173,7 @@ class PageManagement extends Controller
             return redirect()->back()->with('success','Page Updated'); 
        }
        elseif($request->get('page_category') == 3){ //Portfolio update
-             $validator = Validator::make($request->all(), [
+            $validator = Validator::make($request->all(), [
                 'page_description'      => 'required',
                 'meta_description'      => 'required|max:150',
                 'meta_keywords'         => 'required'
@@ -215,6 +205,27 @@ class PageManagement extends Controller
 
 
        }
+       elseif($request->get('page_category') == 2){
+            $validator = Validator::make($request->all(), [
+                'page_description'      => 'required',
+                'meta_description'      => 'required|max:150',
+                'meta_keywords'         => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()
+                    ->back()
+                    ->withErrors($validator);
+            }
+            $this->page_category->where('page_category_id',2)
+            ->update([
+                'page_description'  =>  $request->get('page_description'),
+                'meta_description'  =>  $request->get('meta_description'),
+                'meta_keywords'     =>  $request->get('meta_keywords')
+            ]);
+
+            return redirect()->back()->with('success','Page Updated'); 
+       }
        else{
             dd(1);
        }
@@ -234,15 +245,24 @@ class PageManagement extends Controller
 
 
     public function processUpload(Request $request){
-        
+        // return response()->json($request->all());
         /** About Us Upload **/
-         if ($request->hasFile('aboutUs_image')) {
+        if ($request->hasFile('aboutUs_image')) {
             $imageName = 'about-us'.'.'.$request->aboutUs_image->getClientOriginalExtension();
             $img = Image::make($request->aboutUs_image->getRealPath());
             $img->resize(100, 100)->save(public_path('/images').'/'.$imageName);
             $path = $request->aboutUs_image->move(public_path('images'),$imageName);
             $this->page_category->where('page_category_id',1)
                 ->update([ 'image'=>$imageName ]);
+        }
+
+        if($request->hasFile('port_image')){
+            $imageName = date('YmdHis').'-'.$request->port_image->getClientOriginalName();
+            $img = Image::make($request->port_image->getRealPath());
+            $img->resize(100, 100)->save(public_path('/images/portfolio').'/'.$imageName);
+            $path = $request->port_image->move(public_path('images/portfolio'),$imageName);
+            $this->page_content->where(['page_category_id'=>3,'page_content_id'=>$request->port_id])
+                ->update([ 'portfolio_image'=>$imageName ]);
         }
 
         return response()->json('success');
