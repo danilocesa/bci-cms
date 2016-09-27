@@ -254,7 +254,6 @@ function readURL(type,input,container = null) {
 
     $('.port-up').click(function(){
       var $self = $(this);
-      // alert($self.data('pencil-id'));
       $('input[data-pencil-id="'+$self.data('pencil-id')+'"]').click();
 
     });
@@ -328,6 +327,86 @@ function readURL(type,input,container = null) {
 
 
     });
+
+
+
+    $('.client-up').click(function(){
+      var $self = $(this);
+      $('input[data-pencil-id="'+$self.data('pencil-id')+'"]').click();
+
+    });
+
+
+    $('.client-file-up').change(function(event){
+        var $self = $(this);
+        var input = $(event.currentTarget);
+        var file = input[0].files[0];
+
+        if(file.type.match('image.*') == null){
+          new PNotify({
+            title: 'Oh No!',
+            text: 'Please upload image only.',
+            type: 'error',
+            addclass: "stack-bottomright",
+            styling: 'bootstrap3',
+            buttons: { sticker: false }
+          });
+          return false;
+        }  
+
+        if(file.size > 3145728){
+            new PNotify({
+              title: 'Oh No!',
+              text: 'Maximum of 3MB only.',
+              type: 'error',
+              addclass: "stack-bottomright",
+              styling: 'bootstrap3',
+              buttons: { sticker: false }
+            });
+            return false;
+        }
+      readURL(3,this,input[0].dataset.pencilId);
+    
+        var myFormData = new FormData();
+        $(progress_port_id).show();
+        myFormData.append('client_image', file);
+        myFormData.append('_token', '{{ csrf_token() }}');
+        myFormData.append('client_id', input[0].dataset.pencilId);
+
+        $.ajax({
+          url: '{{ url("web-admin/page-uploads") }}' ,
+          type: 'POST',
+          processData: false, // important
+          contentType: false, // important
+          dataType : 'json',
+          data: myFormData,
+          success:function(result){
+            console.log(result);
+          },
+          xhr: function(){
+            var xhr = $.ajaxSettings.xhr();
+            if (xhr.upload) {
+                xhr.upload.addEventListener('progress', function(event) {
+                    var percent = 0;
+                    var position = event.loaded || event.position;
+                    var total = event.total;
+                    if (event.lengthComputable) {
+                        percent = Math.ceil(position / total * 100);
+                    }
+                    $(progress_port_id +" .progress-bar").css("width", + percent +"%");
+                    $(progress_port_id + " .status").text(percent +"%");
+                }, true);
+            }
+            return xhr;
+          },
+          mimeType:"multipart/form-data"
+        }).done(function(res){
+          $(progress_port_id).hide();
+        });
+
+
+    });
+
 
   });
 

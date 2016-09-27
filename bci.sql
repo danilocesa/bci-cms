@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2016 at 05:22 PM
+-- Generation Time: Sep 27, 2016 at 05:33 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -282,8 +282,8 @@ CREATE TABLE `page_category` (
 --
 
 INSERT INTO `page_category` (`page_category_id`, `page_category_name`, `page_description`, `meta_description`, `meta_keywords`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'about-us', '2222', 'this is a teasdasdas dasdsa dasd sad asd asdasd asdasd asd adasd asd asd asdsa asd asd asd asd sad sad asd asd asd asd as sa as dst', 'test me, wew, ', 'about-us.jpg', '2016-09-06 14:35:05', '2016-09-06 06:35:05'),
-(2, 'clients', '', NULL, NULL, NULL, '2016-08-25 15:10:57', '0000-00-00 00:00:00'),
+(1, 'about-us', '2222', 'this is a teasdasdas dasdsa dasd sad asd asdasd asdasd asd adasd asd asd asdsa asd asd asd asd sad sad asd asd asd asd as sa as dst', 'test me, wew, ', 'about-us.PNG', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
+(2, 'clients', 'asdas', 'das', 'dsadas', NULL, '2016-09-19 14:45:40', '2016-09-19 06:45:40'),
 (3, 'portfolio', 'sfsdfs', 'df sdf', 'dsf', NULL, '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
 (4, 'contact-us', 'asdas', 'asdas', 'dsad,sfdsf sdfs, sdfsdfdsf', NULL, '2016-09-03 08:07:03', '2016-09-03 00:07:03');
 
@@ -299,6 +299,7 @@ CREATE TABLE `page_content` (
   `director_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `director_position` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `director_desc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `client_text` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `client_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `portfolio_text` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `portfolio_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -315,24 +316,36 @@ CREATE TABLE `page_content` (
 -- Dumping data for table `page_content`
 --
 
-INSERT INTO `page_content` (`page_content_id`, `page_category_id`, `director_name`, `director_position`, `director_desc`, `client_image`, `portfolio_text`, `portfolio_image`, `url`, `fb_link`, `linkedin`, `career_email`, `inquiry_email`, `created_at`, `updated_at`) VALUES
-(1, 1, 'gemma g. alcantara', 'chairman & managing director', 'asd                              ', '', '', '', '', '', '', '', '', '2016-09-06 14:35:05', '2016-09-06 06:35:05'),
-(2, 1, 'ernest fritz server jr.', 'chief creative director', 'asd                                 ', '', '', '', '', '', '', '', '', '2016-09-06 14:35:05', '2016-09-06 06:35:05'),
-(3, 1, 'reynaldo tolentino', 'creative director', 'Evolve or dissolve, life is just changing too fast.                                                   ', '', '', '', '', '', '', '', '', '2016-09-06 14:35:05', '2016-09-06 06:35:05'),
-(4, 1, 'carmelita marte', 'finance & admin manager', 'Take any challenge as a creative opportunity. (Alexandra Watkins)                                      ', '', '', '', '', '', '', '', '', '2016-09-06 14:35:05', '2016-09-06 06:35:05'),
-(5, 1, 'lysander antonio jimenez', 'senior art director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                  ', '', '', '', '', '', '', '', '', '2016-09-06 14:35:05', '2016-09-06 06:35:05'),
-(6, 1, 'luigina mari jose', 'senior manager technical department head', '“Technical Director, Aspiring Painter, (Still) Frustrated Singer and a (Former) Frustrated Filmmaker and Scriptwriter”                                               ', '', '', '', '', '', '', '', '', '2016-09-06 14:35:05', '2016-09-06 06:35:05'),
-(7, 1, 'paul robert salapantan', 'strategic business consultant', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                  ', '', '', '', '', '', '', '', '', '2016-09-06 14:35:05', '2016-09-06 06:35:05'),
-(8, 1, 'vanessa vera julian', 'group account director', 'We will perish without passion. “Working hard for something we don’t care about is called stress; working hard for something we love is called passion” – Simon Sinek.                                                ', '', '', '', '', '', '', '', '', '2016-09-06 14:35:05', '2016-09-06 06:35:05'),
-(9, 1, 'jessica ana salas', 'senior manager, production mgt.head', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                  ', '', '', '', '', '', '', '', '', '2016-09-06 14:35:05', '2016-09-06 06:35:05'),
-(10, 4, '', '', '', '', '', '', '', 'https://www.facebook.com/bci-enav', 'https://www.linkedin.com/company/bci-enav', 'career@bci-enav.com', 'inquiry@bci-enav.com', '2016-09-03 08:07:03', '2016-09-03 00:07:03'),
-(11, 3, '', '', '', '', 'tv', 'tv.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
-(12, 3, '', '', '', '', 'print', 'print.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
-(13, 3, '', '', '', '', 'activation', 'activations.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
-(14, 3, '', '', '', '', 'event', 'events.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
-(15, 3, '', '', '', '', 'shopper marketing', 'shopper.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
-(16, 3, '', '', '', '', 'ooh', 'ooh.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
-(17, 3, '', '', '', '', 'digital', 'digital.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41');
+INSERT INTO `page_content` (`page_content_id`, `page_category_id`, `director_name`, `director_position`, `director_desc`, `client_text`, `client_image`, `portfolio_text`, `portfolio_image`, `url`, `fb_link`, `linkedin`, `career_email`, `inquiry_email`, `created_at`, `updated_at`) VALUES
+(1, 1, 'gemma g. alcantara', 'chairman & managing director', 'asd                               ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:23', '2016-09-11 22:38:23'),
+(2, 1, 'ernest fritz server jr.', 'chief creative director', 'asd                                  ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
+(3, 1, 'reynaldo tolentino', 'creative director', 'Evolve or dissolve, life is just changing too fast.                                                    ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
+(4, 1, 'carmelita marte', 'finance & admin manager', 'Take any challenge as a creative opportunity. (Alexandra Watkins)                                       ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
+(5, 1, 'lysander antonio jimenez', 'senior art director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                   ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
+(6, 1, 'luigina mari jose', 'senior manager technical department head', '“Technical Director, Aspiring Painter, (Still) Frustrated Singer and a (Former) Frustrated Filmmaker and Scriptwriter”                                                ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
+(7, 1, 'paul robert salapantan', 'strategic business consultant', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                   ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
+(8, 1, 'vanessa vera julian', 'group account director', 'We will perish without passion. “Working hard for something we don’t care about is called stress; working hard for something we love is called passion” – Simon Sinek.                                                 ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
+(9, 1, 'jessica ana salas', 'senior manager, production mgt.head', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                   ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
+(10, 4, '', '', '', '', '', '', '', '', 'https://www.facebook.com/bci-enav', 'https://www.linkedin.com/company/bci-enav', 'career@bci-enav.com', 'inquiry@bci-enav.com', '2016-09-03 08:07:03', '2016-09-03 00:07:03'),
+(11, 3, '', '', '', '', '', 'tv', '20160919144516-1st ram.PNG', '', '', '', '', '', '2016-09-19 14:45:16', '2016-09-19 06:45:16'),
+(12, 3, '', '', '', '', '', 'print', 'print.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
+(13, 3, '', '', '', '', '', 'activation', 'activations.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
+(14, 3, '', '', '', '', '', 'event', 'events.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
+(15, 3, '', '', '', '', '', 'shopper marketing', 'shopper.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
+(16, 3, '', '', '', '', '', 'ooh', 'ooh.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
+(17, 3, '', '', '', '', '', 'digital', 'digital.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
+(18, 2, '', '', '', 'panasonic', '20160927152038-1st ram.PNG', '', '', '', '', '', '', '', '2016-09-27 15:20:38', '2016-09-27 07:20:38'),
+(19, 2, '', '', '', 'forex', 'forex.png', '', '', '', '', '', '', '', '2016-09-27 15:01:07', '0000-00-00 00:00:00'),
+(20, 2, '', '', '', 'ucpb', 'ucpb.png', '', '', '', '', '', '', '', '2016-09-27 15:01:12', '0000-00-00 00:00:00'),
+(21, 2, '', '', '', 'microsoft', 'microsoft.png', '', '', '', '', '', '', '', '2016-09-27 15:01:24', '0000-00-00 00:00:00'),
+(22, 2, '', '', '', 'accenture', 'accenture.png', '', '', '', '', '', '', '', '2016-09-27 15:01:21', '0000-00-00 00:00:00'),
+(23, 2, '', '', '', 'dbp', 'dbp.png', '', '', '', '', '', '', '', '2016-09-27 15:01:29', '0000-00-00 00:00:00'),
+(24, 2, '', '', '', 'scent shop', 'scentshop.png', '', '', '', '', '', '', '', '2016-09-27 15:01:37', '0000-00-00 00:00:00'),
+(25, 2, '', '', '', 'mitsubishi', 'Mitsubishi.png', '', '', '', '', '', '', '', '2016-09-27 15:01:48', '0000-00-00 00:00:00'),
+(26, 2, '', '', '', 'blue', 'blue.png', '', '', '', '', '', '', '', '2016-09-27 15:01:59', '0000-00-00 00:00:00'),
+(27, 2, '', '', '', 'bpi', 'bpi.png', '', '', '', '', '', '', '', '2016-09-27 15:02:02', '0000-00-00 00:00:00'),
+(28, 2, '', '', '', 'metrobank', 'metrobank.png', '', '', '', '', '', '', '', '2016-09-27 15:02:09', '0000-00-00 00:00:00'),
+(29, 2, '', '', '', 'ritemed', 'ritemed.png', '', '', '', '', '', '', '', '2016-09-27 15:02:13', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -541,7 +554,7 @@ ALTER TABLE `page_category`
 -- AUTO_INCREMENT for table `page_content`
 --
 ALTER TABLE `page_content`
-  MODIFY `page_content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `page_content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `permissions`
 --

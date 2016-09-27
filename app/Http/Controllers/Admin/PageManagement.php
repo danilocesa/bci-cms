@@ -105,7 +105,7 @@ class PageManagement extends Controller
         switch ($id) {
             case 'clients':
                 $catID = 2;
-                $qType = 'first';
+                $qType = 'get';
                 break;
             case 'portfolio':
                 $catID = 3;
@@ -120,7 +120,6 @@ class PageManagement extends Controller
         $pageInfo = $this->page_category->where('page_category_id',$catID)->first();
         $pageContent = $this->page_content->where('page_category_id',$catID)->$qType();
 
-   
         return view('admin\pages\index',[
             'pageInfo' => $pageInfo,
             'pageContent' => $pageContent
@@ -264,6 +263,16 @@ class PageManagement extends Controller
             $this->page_content->where(['page_category_id'=>3,'page_content_id'=>$request->port_id])
                 ->update([ 'portfolio_image'=>$imageName ]);
         }
+
+        if($request->hasFile('client_image')){
+            $imageName = date('YmdHis').'-'.$request->client_image->getClientOriginalName();
+            $img = Image::make($request->client_image->getRealPath());
+            $img->resize(100, 100)->save(public_path('/images/clients').'/'.$imageName);
+            $path = $request->client_image->move(public_path('images/clients'),$imageName);
+            $this->page_content->where(['page_category_id'=>2,'page_content_id'=>$request->client_id])
+                ->update([ 'client_image'=>$imageName ]);
+        }
+
 
         return response()->json('success');
 

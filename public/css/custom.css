@@ -2859,6 +2859,10 @@ ul.project_files li a i {
   height: 265px;
   overflow: hidden; }
 
+.thumbnail-clients {
+  height: 200px;
+  overflow: hidden; }
+
 .view {
   overflow: hidden;
   position: relative;

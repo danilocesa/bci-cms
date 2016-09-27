@@ -30,7 +30,6 @@
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
-
         <div class="row">
         <div id="progress-port"><div class="progress-bar"></div ><div class="status">0%</div></div>
         @foreach($pageContent as $content)
