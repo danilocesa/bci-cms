@@ -1,0 +1,157 @@
+/* ==========================================================================
+   Clients
+========================================================================== */
+#clients-container {height:560px;}
+#clients-container #clients-panasonic { height:24%; top:1em}
+#clients-container #clients-forex{ height:13%; top:10.5em}
+#clients-container #clients-dbp{ height:13%; top:18em}
+#clients-container #clients-scentshop{ height:20%; top:23em;}
+#clients-container #clients-ritemed { height:20%; top:32.5em}
+#clients-container #clients-bpi{ height:14%; top:30em;}
+#clients-container #clients-blue{ height:35%; top:21.5em;}
+#clients-container #clients-accenture{ height:20%; top:13em}
+#clients-container #clients-metrobank{ height:20%; top:31em}
+#clients-container #clients-microsoft{ height:27%; top:6.5em;}
+#clients-container #clients-ucpb{ height:14%; top:6.7em}
+#clients-container #clients-mitsubishi{ height:46%; top:12.5em;}
+/* ==========================================================================
+   Contact Us
+========================================================================== */  
+#cu-container{ height:540px; }
+#cu-container #cu-circle-linkein{height:25%;}
+#cu-container #cu-circle-fb		{height:35%;}
+#cu-container #cu-circle-career {height:16%;} 
+#cu-container #cu-circle-inquiry{height:30%;}
+/* ==========================================================================
+   Portfolio
+========================================================================== */  
+.port-circle-events {font-size:3em}
+.port-circle-digital {font-size:2.5em}
+.port-circle-print {font-size:5em}
+.port-circle-ooh {font-size:3em}
+.port-circle-shopper {font-size:2em}
+.port-circle-activation {font-size:3em}
+.port-circle-tv {font-size:15em}
+#event-details {top:17em}
+#event-details img {height:10%}
+#digital-details {top:11em}
+#digital-details img {height:10%}
+#ooh-details {top:11em}
+#ooh-details img {height:10%}
+#shopper-details {top:26em}
+#shopper-details img {height:10%}
+#activation-details {top:5em}
+#activation-details img {height:10%}
+#tv-details {top:0em}
+#tv-details img {height:10%}
+
+/* ==========================================================================
+   Media stage 1
+========================================================================== */
+@media only screen and (max-width: 320px){
+.clients-img-container {height: 25% !important; padding-bottom: 10px;}
+.cu-img-container {height: 25% !important; padding-bottom: 10px;}
+#cu-form-inquiry {top:12em;}
+#cu-form-msg-inquiry {top:10.5em;}
+
+.port-circle-print {font-size:3em}
+.port-circle-shopper {font-size:1.5em}
+.port-circle-activation {font-size:2em}
+.port-circle-tv {font-size:5em}
+}
+
+
+/* ==========================================================================
+   Media stage 2
+========================================================================== */
+@media only screen and (min-width: 321px) and (max-width: 479px) {
+.clients-img-container {height: 30% !important; padding-bottom: 10px;}
+#leftLine {height:120%; top:-11%; left:20%}
+#rightLine {height:120%; top:-11%; right:2%}
+
+.cu-img-container {height: 30% !important; padding-bottom: 10px;}
+
+.port-circle-print {font-size:3em}
+.port-circle-tv {font-size:7em}
+}
+
+
+/* ==========================================================================
+   Media stage 3
+========================================================================== */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+/* ==========================================================================
+   Clients
+========================================================================== */
+#clients-container #clients-panasonic { top:-8em;}
+#clients-container #clients-forex	  { top:6em; }
+#clients-container #clients-dbp		  { top:12em;}
+#clients-container #clients-scentshop { top:19em;}
+#clients-container #clients-ritemed   { top:28em;}
+#clients-container #clients-blue	  { top:21em;}
+#clients-container #clients-accenture { top:9em; }
+#clients-container #clients-metrobank { top:31em;}
+#clients-container #clients-microsoft { top:3em; }
+#clients-container #clients-mitsubishi{ top:9em; }
+/* ==========================================================================
+   Contact Us
+========================================================================== */  
+#cu-container #cu-circle-linkein{height:20%; top:2em}
+#cu-container #cu-circle-fb		{height:30%; top:0em}
+#cu-container #cu-circle-career { top:9em} 
+#cu-container #cu-circle-inquiry{height:25%; top:21em}
+#cu-form-inquiry {top:2em;}
+#cu-form-msg-inquiry {top:-0.5em;}
+
+.port-circle-print {font-size:4em}
+.port-circle-tv {font-size:8em}
+}
+
+
+@media only screen and (min-width: 480px) and (max-width: 600px) { 
+#clients-container #clients-panasonic { top:-5em; height:19%;}
+#clients-container #clients-forex	  { height: 11%;}
+#clients-container #clients-dbp		  { height: 11%;}
+#clients-container #clients-scentshop { top:17em; height: 17%;}
+#clients-container #clients-ritemed   { top:25em; height: 17%;}
+#clients-container #clients-bpi		  { top:28em; height: 12%;}
+#clients-container #clients-blue	  { top:20em; height: 30%;}
+#clients-container #clients-accenture { height: 17%; }
+#clients-container #clients-metrobank { top:29em; height: 17%;}
+#clients-container #clients-microsoft { top:3.5em; height: 25%;}
+#clients-container #clients-ucpb	  { top:0em; height: 11%; left:60%}
+#clients-container #clients-mitsubishi{ top:10em; height: 40%;}
+#accentureLine2{left: -165%;}
+}
+@media only screen and (min-width: 601px) and (max-width: 767px) {
+#clients-container #clients-ucpb	  { top:-3em;}
+#clients-container #clients-bpi		  { top:28em;}
+}
+
+
+/* ==========================================================================
+   Media stage 4
+========================================================================== */
+@media only screen and (min-width: 768px) and (max-width: 1139px) {
+/* ==========================================================================
+   Clients
+========================================================================== */     
+#clients-container #clients-panasonic {top:1.5em;}
+#clients-container #clients-forex{top:12em;}
+#clients-container #clients-mitsubishi {top:13em;}
+#clients-container #clients-metrobank {top:30em;}
+#clients-container #clients-scentshop {top:28em;}
+#clients-container #clients-ritemed {top:35.5em;}
+#clients-container #clients-bpi {top: 35em;}
+#clients-container #clients-blue {top: 22em;}
+#clients-container #clients-dbp {top:19em;}
+#clients-container #clients-ucpb {top:7em;}
+
+
+#cu-container #cu-circle-fb		{height:37%;}
+}
+
+@media only screen and (min-width: 1140px) {
+.main aside {height:80px;}
+}
+

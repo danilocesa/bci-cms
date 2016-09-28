@@ -13,10 +13,8 @@
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/','FrontEndController@index');
+Route::get('/{name}','FrontEndController@page');
 
 Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	// , 'middleware' => ['auth']
