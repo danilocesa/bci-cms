@@ -22,34 +22,19 @@
         <img src="img/about-us.png" alt="About-Us" />
         <div class="director-content">
             <div id="left">
+                @foreach($content as $key => $director)
+                @if($key < 4)
                 <a class="profile-name" href="#">
                     <h2 class="ui header">
-                      gemma g. alcantara
-                      <div class="sub header">managing director</div>
+                      {{ $director->director_name }}
+                      <div class="sub header">{{ $director->director_position }}</div>
                     </h2>
-                    <p>Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. </p>
+                    <p>{{ $director->director_desc }}</p>
                 </a>
-                <a class="profile-name" href="#">
-                    <h2 class="ui header">
-                      joey server
-                      <div class="sub header">chief creative director</div>
-                    </h2>
-                    <p>Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. </p>
-                </a>
-                <a class="profile-name" href="#">
-                    <h2 class="ui header">
-                      rey tolentino
-                      <div class="sub header">creative director</div>
-                    </h2>
-                    <p>Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. </p>
-                </a>
-                <a class="profile-name" href="#">
-                    <h2 class="ui header">
-                      lita marte
-                      <div class="sub header">finance director</div>
-                    </h2>
-                    <p>Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. </p>
-                </a>
+                @else
+                    @break;
+                @endif
+                @endforeach
             </div>
             <div id="right">
                 <a class="profile-name" href="#">

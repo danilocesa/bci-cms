@@ -40,13 +40,12 @@
                     tel# 6389478
                 </p>
             </aside>
-
             <nav id="bci-menu">
-                <a href="{{ url('/') }}"><div class="menu-circle" id="home-menu">home</div></a>
-                <a href="about-us.html"><div class="menu-circle" id="about-menu">about us</div></a>
-                <a href="clients.html"><div class="menu-circle" id="clients-menu">clients</div></a>
-                <a href="portfolio.html"><div class="menu-circle" id="portfolio-menu">portfolio</div></a>
-                <a href="contact-us.html"><div class="menu-circle" id="contact-us-menu">contact us</div></a>
+                <a href="{{ url('/') }}"><div class="menu-circle " id="home-menu">home</div></a>
+                <a href="{{ url('about-us') }}"><div class="menu-circle {{ @$page_name == 'about-us' || @$page_name == '' ? '' : 'invisible' }}" id="about-menu">about us</div></a>
+                <a href="{{ url('clients') }}"><div class="menu-circle {{ @$page_name == 'clients' || @$page_name == '' ? '' : 'invisible' }}" id="clients-menu">clients</div></a>
+                <a href="{{ url('portfolio') }}"><div class="menu-circle {{ @$page_name == 'portfolio'  || @$page_name == '' ? '' : 'invisible'}} " id="portfolio-menu">portfolio</div></a>
+                <a href="{{ url('contact-us') }}"><div class="menu-circle {{ @$page_name == 'portfolio'  || @$page_name == '' ? '' : 'invisible'}}" id="contact-us-menu">contact us</div></a>
             </nav>
                @yield('content')
         </div> <!-- #main -->
