@@ -24,7 +24,7 @@
             <div id="left">
                 @foreach($content as $key => $director)
                 @if($key <= 3)
-                <a class="profile-name" href="#">
+                <a class="profile-name" href="{{ $director->linkedin }}">
                     <h2 class="ui header">
                       {{ $director->director_name }}
                       <div class="sub header">{{ $director->director_position }}</div>
@@ -39,7 +39,7 @@
             <div id="right">
             @foreach($content as $key => $director)
                 @if($key >= 4)
-                <a class="profile-name" href="#">
+                <a class="profile-name" href="{{ $director->linkedin }}">
                     <h2 class="ui header">
                       {{ $director->director_name }}
                       <div class="sub header">{{ $director->director_position }}</div>

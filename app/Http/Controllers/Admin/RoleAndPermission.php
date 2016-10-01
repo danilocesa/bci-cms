@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Role;
 use App\Permission;
 use App\PermissionRole;
+use App\UILogs;
 
 class RoleAndPermission extends Controller
 {
@@ -21,6 +22,7 @@ class RoleAndPermission extends Controller
         $this->role = new Role;
         $this->permissions = new Permission;
         $this->permission_role = new PermissionRole;
+        $this->ui_logs = new UILogs;
     }
 
     /**
@@ -63,6 +65,12 @@ class RoleAndPermission extends Controller
         $this->role->save();
         
         $request->session()->put('roleID',$this->role->id);
+
+        $this->ui_logs->user_id = auth()->user()->id;
+        $this->ui_logs->name = auth()->user()->first_name.' '.auth()->user()->last_name;
+        $this->ui_logs->type = 'Role & Permission';
+        $this->ui_logs->type_description = 'Successfully added role: '.ucwords($request->roleName);
+        $this->ui_logs->save();
 
         return response()->json($request);
     }

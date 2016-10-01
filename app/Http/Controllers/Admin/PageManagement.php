@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\PageContent;
 use App\PageCategory;
+use App\UILogs;
 
 use Auth;
 use Image;
@@ -22,6 +23,7 @@ class PageManagement extends Controller
         }
         $this->page_category = new PageCategory;
         $this->page_content = new PageContent;
+        $this->ui_logs = new UILogs;
     }
     /**
      * Display a listing of the resource.
@@ -87,7 +89,12 @@ class PageManagement extends Controller
                 'meta_keywords'     =>  $request->get('meta_keywords')
             ]);
 
-
+        $this->ui_logs->user_id = auth()->user()->id;
+        $this->ui_logs->name = auth()->user()->first_name.' '.auth()->user()->last_name;
+        $this->ui_logs->type = 'Page Management';
+        $this->ui_logs->type_description = 'Successfully updated page: About Us';
+        $this->ui_logs->save();
+                    
         return redirect()->back()->with('success','Page Updated');    
     
     }
@@ -136,7 +143,7 @@ class PageManagement extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $pagelog = '';
         if($request->get('page_category') == 4){ //Contact us update
             $validator = Validator::make($request->all(), [
                 'page_description'      => 'required',
@@ -168,8 +175,7 @@ class PageManagement extends Controller
                 'meta_description'  =>  $request->get('meta_description'),
                 'meta_keywords'     =>  $request->get('meta_keywords')
             ]);
-
-            return redirect()->back()->with('success','Page Updated'); 
+            $pagelog = 'Contact Us';
        }
        elseif($request->get('page_category') == 3){ //Portfolio update
             $validator = Validator::make($request->all(), [
@@ -199,10 +205,7 @@ class PageManagement extends Controller
                 'meta_description'  =>  $request->get('meta_description'),
                 'meta_keywords'     =>  $request->get('meta_keywords')
             ]);
-
-            return redirect()->back()->with('success','Page Updated'); 
-
-
+            $pagelog = 'Portfolio';
        }
        elseif($request->get('page_category') == 2){
             $validator = Validator::make($request->all(), [
@@ -222,12 +225,19 @@ class PageManagement extends Controller
                 'meta_description'  =>  $request->get('meta_description'),
                 'meta_keywords'     =>  $request->get('meta_keywords')
             ]);
-
-            return redirect()->back()->with('success','Page Updated'); 
+            $pagelog = 'Clients';
        }
        else{
-            dd(1);
+            return redirect()->back()->with('errors','Else invoked.'); 
        }
+
+        $this->ui_logs->user_id = auth()->user()->id;
+        $this->ui_logs->name = auth()->user()->first_name.' '.auth()->user()->last_name;
+        $this->ui_logs->type = 'Page Management';
+        $this->ui_logs->type_description = 'Successfully updated page: '.$pagelog;
+        $this->ui_logs->save();
+
+       return redirect()->back()->with('success','Page Updated'); 
 
     }
 

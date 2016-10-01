@@ -25,11 +25,11 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	/*
 	* AuthController
 	*/
-	Route::get('/',function(){
+	Route::get('/login',function(){
 		return view('admin/login');
 	});
 
-	Route::post('/','Admin\AuthController@authAdmin');
+	Route::post('/login','Admin\AuthController@authAdmin');
 	Route::get('logout','Admin\AuthController@doLogout');
 	Route::get('dashboard','Admin\AuthController@dashboard');
 
@@ -57,6 +57,7 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	/*
     * Audit Trail
     */
+    Route::get('audit-trail/logs','Admin\AuditTrail@logsList');
 	Route::resource('audit-trail','Admin\AuditTrail');
 
 

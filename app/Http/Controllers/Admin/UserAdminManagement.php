@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Role;
+use App\RoleUser;
 use App\Permission;
 use App\AdminsTB;
+use App\UILogs;
 use Yajra\Datatables\Datatables;
 use Validator;
 use Auth;
@@ -23,8 +25,11 @@ class UserAdminManagement extends Controller
     */
     public function __construct(){
         $this->role = new Role;
+        $this->role_admin = new RoleUser;
         $this->permissions = new Permission;
         $this->admins = new AdminsTB;
+        $this->ui_logs = new UILogs;
+        $this->logAction = $this->admins->where('id',auth()->user()->id)->first();
     }
 
     /**
@@ -34,7 +39,11 @@ class UserAdminManagement extends Controller
      */
     public function index()
     {
-        
+        // $this->ui_logs->user_id = $this->logAction->id;
+        // $this->ui_logs->name = $this->logAction->first_name.' '.$this->logAction->last_name;
+        // $this->ui_logs->type = 'User Management';
+        // $this->ui_logs->type_description = 'Viewed user page';
+        // $this->ui_logs->save();
         return view('admin\users\index',['roles_list'=>$this->role->orderBy('updated_at','desc')->get(),'permissions'=>$this->permissions->all()]);
     }
 
@@ -49,7 +58,7 @@ class UserAdminManagement extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create User.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -80,6 +89,14 @@ class UserAdminManagement extends Controller
         $this->admins->save();
 
         $this->admins->where('email',$request->get('email'))->first()->roles()->attach($request->get('role'));
+
+        /** Log action **/
+        $this->ui_logs->user_id = $this->logAction->id;
+        $this->ui_logs->name = $this->logAction->first_name.' '.$this->logAction->last_name;
+        $this->ui_logs->type = 'User Management';
+        $this->ui_logs->type_description = 'Successfully created user: '.$request->get('firstname').' '.$request->get('lastname');
+        $this->ui_logs->save();
+
 
         return response()->json('success');
     }
@@ -132,6 +149,8 @@ class UserAdminManagement extends Controller
 
         $user = $this->admins->where('id',$id)->first();
 
+        $this->role_admin->where('user_id',$user->id)->delete();
+
         $user->email = $request->get('email');        
         $user->first_name = $request->get('firstname');
         $user->last_name = $request->get('lastname');
@@ -140,7 +159,16 @@ class UserAdminManagement extends Controller
         $user->permissions = $request->get('role');
         $user->save();
 
+
         $user->roles()->attach($request->get('role'));
+
+         /** Log action **/
+        $this->ui_logs->user_id = $this->logAction->id;
+        $this->ui_logs->name = $this->logAction->first_name.' '.$this->logAction->last_name;
+        $this->ui_logs->type = 'User Management';
+        $this->ui_logs->type_description = 'Successfully update user: '.$request->get('firstname').' '.$request->get('lastname');
+        $this->ui_logs->save();
+
 
         return response()->json('success');
     }
@@ -153,7 +181,17 @@ class UserAdminManagement extends Controller
      */
     public function destroy($id)
     {
+            
+        $deletedUser = $this->admins->where('id',$id)->first();
+        /** Log action **/
+        $this->ui_logs->user_id = $this->logAction->id;
+        $this->ui_logs->name = $this->logAction->first_name.' '.$this->logAction->last_name;
+        $this->ui_logs->type = 'User Management';
+        $this->ui_logs->type_description = 'Successfully deleted user: '.$deletedUser->first_name.' '.$deletedUser->last_name;
+        $this->ui_logs->save();
+
         $this->admins->where('id',$id)->delete();
+
         return response()->json(true);
     }
 

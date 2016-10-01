@@ -1,7 +1,7 @@
 <form method="POST" id="contactUs-form" data-parsley-validate>
 {{ csrf_field() }}
 {{ method_field('PUT') }}
-<input type="hidden" name="page_category" value="2" />
+<input type="hidden" name="page_category" value="4" />
 <!--contact-us page & seo-->
 @if (session('success'))
    <div class="alert alert-success alert-dismissible fade in" role="alert">

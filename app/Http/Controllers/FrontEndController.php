@@ -22,6 +22,7 @@ class FrontEndController extends Controller
     }
 
     public function page($name){
+
     	$view = str_replace('-', '_', $name);
     	$result = '';
     	switch ($name) {
@@ -44,10 +45,13 @@ class FrontEndController extends Controller
     			$content = $this->page_content->where('page_category_id',4)->first();
     			$page = $this->page_category->where('page_category_id',4)->first();
     			$result = ['page_name'=>$name,'content'=>$content,'page_desc'=>$page->page_description];
-    			break;	
+    			break;
+    		default:
+    			abort(404);
+    			break;		
     	}
     	return view($view,$result);
     }
 
-    
+
 }

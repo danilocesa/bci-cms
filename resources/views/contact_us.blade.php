@@ -1,5 +1,5 @@
 @extends('_master')
-@section('title', 'About Us')
+@section('title', 'Contact Us')
 @push('scripts')
  <script>
             window.onload = function() {
@@ -75,7 +75,7 @@
     <!-- Career form -->
     <p id="cu-form-message">Interested in joining our team? Fill out the form below.</p>
     <div id="cu-form">
-        <form method="">
+        <form method="" action>
         <div class="cu-form-field">
             <label>NAME:</label>
             <input type="text" placeholder="Full Name" name=""/>

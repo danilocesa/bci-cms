@@ -1,5 +1,5 @@
 @extends('_master')
-@section('title', 'About Us')
+@section('title', 'Portfolio')
 @push('scripts')
  <script type="text/javascript">
                         

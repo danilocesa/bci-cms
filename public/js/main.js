@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 
 
-$('a .invisible').click(function(){
+$('#bci-menu a .invisible').click(function(){
 	event.preventDefault();
 });
 

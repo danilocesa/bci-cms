@@ -212,7 +212,6 @@
               password_confirmation : $('input[name="password_confirmation"]').val()
             }},
             function(result){
-              console.log(result);
               if(result != 'success'){
                  $('#addUser-errors').show();
                 formError = '<ul>'; 
@@ -319,15 +318,17 @@
         }
       })).get().on('pnotify.confirm', function() {
         callAjax({method:'POST',url:'user-management/'+$id,data:{_method: 'delete', _token:'{{ csrf_token() }}' }},function(result){
-          new PNotify({
-            title: 'Deleted!',
-            text: 'User deleted. Reloading list...',
-            type: 'success',
-            addclass: "stack-bottomright", 
-            styling: 'bootstrap3',
-            buttons: { sticker: false }
-          });
-          setTimeout(function(){ location.reload(); }, 1000);
+          if(result){
+            new PNotify({
+              title: 'Deleted!',
+              text: 'User deleted. Reloading list...',
+              type: 'success',
+              addclass: "stack-bottomright", 
+              styling: 'bootstrap3',
+              buttons: { sticker: false }
+            });
+            setTimeout(function(){ location.reload(); }, 1000);
+          }
         });
       }).on('pnotify.cancel', function() { $('.ui-pnotify-modal-overlay').remove(); });
     });  
