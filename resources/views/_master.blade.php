@@ -36,8 +36,7 @@
         <div class="main wrapper clearfix">
             <aside>
                 <a href="index.html"><img src="{{ asset('images/bci-logo.png') }}" /></a>
-                <p>30th floor, tycoon bldg. pearl drive avenue ortigas center pasig city <br />
-                    tel# 6389478
+                <p>{{ $page_desc }}
                 </p>
             </aside>
             <nav id="bci-menu">
@@ -45,7 +44,7 @@
                 <a href="{{ url('about-us') }}"><div class="menu-circle {{ @$page_name == 'about-us' || @$page_name == '' ? '' : 'invisible' }}" id="about-menu">about us</div></a>
                 <a href="{{ url('clients') }}"><div class="menu-circle {{ @$page_name == 'clients' || @$page_name == '' ? '' : 'invisible' }}" id="clients-menu">clients</div></a>
                 <a href="{{ url('portfolio') }}"><div class="menu-circle {{ @$page_name == 'portfolio'  || @$page_name == '' ? '' : 'invisible'}} " id="portfolio-menu">portfolio</div></a>
-                <a href="{{ url('contact-us') }}"><div class="menu-circle {{ @$page_name == 'portfolio'  || @$page_name == '' ? '' : 'invisible'}}" id="contact-us-menu">contact us</div></a>
+                <a href="{{ url('contact-us') }}"><div class="menu-circle {{ @$page_name == 'contact-us'  || @$page_name == '' ? '' : 'invisible'}}" id="contact-us-menu">contact us</div></a>
             </nav>
                @yield('content')
         </div> <!-- #main -->

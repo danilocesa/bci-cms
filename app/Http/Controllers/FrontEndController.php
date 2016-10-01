@@ -17,20 +17,37 @@ class FrontEndController extends Controller
     }
 
     public function index(){
-
+    	$page_desc = '';
     	return view('index',['page_desc'=> $page_desc]);
     }
 
     public function page($name){
-    	dump($name);
     	$view = str_replace('-', '_', $name);
-    	$content = '';
+    	$result = '';
     	switch ($name) {
     		case 'about-us':
     			$content = $this->page_content->where('page_category_id',1)->get();
+    			$page = $this->page_category->where('page_category_id',1)->first();
+    			$result = ['page_name'=>$name,'content'=>$content,'aboutImage'=>$page->image,'page_desc'=>$page->page_description];
     			break;
+    		case 'clients':
+    			$content = $this->page_content->where('page_category_id',2)->get();
+    			$page = $this->page_category->where('page_category_id',2)->first();
+    			$result = ['page_name'=>$name,'content'=>$content,'page_desc'=>$page->page_description];
+    			break;
+    		case 'portfolio':
+    			$content = $this->page_content->where('page_category_id',3)->get();
+    			$page = $this->page_category->where('page_category_id',3)->first();
+    			$result = ['page_name'=>$name,'content'=>$content,'page_desc'=>$page->page_description];
+    			break;
+    		case 'contact-us':
+    			$content = $this->page_content->where('page_category_id',4)->first();
+    			$page = $this->page_category->where('page_category_id',4)->first();
+    			$result = ['page_name'=>$name,'content'=>$content,'page_desc'=>$page->page_description];
+    			break;	
     	}
-    	dump($content);
-    	return view($view,['page_name'=>$name,'content'=>$content]);
+    	return view($view,$result);
     }
+
+    
 }

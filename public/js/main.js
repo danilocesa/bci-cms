@@ -2,9 +2,8 @@ $(document).ready(function() {
 
 
 
-$('a.invisible').click(function(){
+$('a .invisible').click(function(){
 	event.preventDefault();
-
 });
 
 

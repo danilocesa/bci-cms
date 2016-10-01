@@ -112,7 +112,7 @@ html * { font-family: woodcut !important; }
 .port-circle-print p{    color:white;     font-size:5vw;     position:absolute;     left:8px;     top:23%}
 .port-circle-ooh{    float:left;     position:relative;     width:24%;     padding-bottom:24%;    margin: -2% 0% 0 2%;     overflow:hidden}
 .port-circle-ooh p{    color:white;     font-size:3.6vw;     position:absolute;     bottom:0px;     left:22%;}
-.port-circle-shopper{    float:left;     position:relative;     width:31%;     padding-bottom:31%;     margin:-7% 0% 5% 4%;     overflow:hidden}
+.port-circle-shopper{    float:left;     position:relative;     width:31%;     padding-bottom:31%;     margin:-7% 0% 0% 4%;     overflow:hidden}
 .port-circle-shopper p{    color:white;     font-size:2.2vw;     position:absolute;     bottom:18%;     left:40%;     right:10%; text-shadow: 1px 1px gray;}
 .port-circle-activation{    float:left;     position:relative;     width:34%;     padding-bottom:34%;     margin:4% 0 0 10%;     overflow:hidden}
 .port-circle-activation p{    color:white;     font-size:3.5vw;     position:absolute;     bottom:15%;     left:0;     right:0}
