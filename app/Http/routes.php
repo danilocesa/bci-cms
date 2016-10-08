@@ -15,6 +15,7 @@
 
 Route::get('/','FrontEndController@index');
 Route::get('/{name}','FrontEndController@page');
+Route::post('contact-submit','FrontEndController@contactForm');
 
 Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	// , 'middleware' => ['auth']

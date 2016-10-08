@@ -75,34 +75,36 @@
     <!-- Career form -->
     <p id="cu-form-message">Interested in joining our team? Fill out the form below.</p>
     <div id="cu-form">
-        <form method="" action>
+        <form method="post" action="{{ url('contact-submit') }}" >
+        {{ csrf_field() }}
+        <input type="hidden" name="form_type" value="1" />
         <div class="cu-form-field">
             <label>NAME:</label>
-            <input type="text" placeholder="Full Name" name=""/>
+            <input type="text" placeholder="Full Name" name="fullname" />
             <span class="cu-error"></span>
         </div>
         <div class="cu-form-field">
             <label>EMAIL ADDRESS:</label>
-            <input type="text" placeholder="Email" name=""/>
+            <input type="text" placeholder="Email" name="email" />
             <span class="cu-error"></span>
         </div>
         <div class="cu-form-field">
             <label>MOBILE NUMBER:</label>
-            <input type="text" placeholder="Mobile Number" name=""/>
+            <input type="text" placeholder="Mobile Number" name="mobile" />
             <span class="cu-error"></span>
         </div>
         <div class="cu-form-field cu-message">
             <label>MESSAGE:</label>
         </div>
         <div class="cu-form-field">
-            <textarea name=""></textarea>
+            <textarea name="message"></textarea>
         </div>
         <div class="cu-form-field cu-button">
-            <input type="submit" name="" value="UPLOAD"/>                           
+            <input type="submit" name="" value="SUBMIT"/>                           
             <label for="cu-file-upload" class="cu-attach-icon">
                 <img src="{{ asset('images/contactus/attachment-icon.png') }}" alt="Attach File" />
             </label>
-            <input id= "cu-file-upload" type="file" name="" alt="Attach File"/>
+            <input id= "cu-file-upload" type="file" name="file" alt="Attach File"/>
             
         </div>
         </form>
@@ -111,6 +113,8 @@
     <p id="cu-form-msg-inquiry">If your interested in our service and how we can help you, feel free to reach us by filling out form below.</p>
     <div id="cu-form-inquiry">
         <form method="">
+        {{ csrf_field() }}
+         <input type="hidden" name="form_type" value="2" />
         <div class="cu-form-field">
             <label>NAME:</label>
             <input type="text" placeholder="Full Name" name=""/>
@@ -133,7 +137,7 @@
             <textarea name=""></textarea>
         </div>
         <div class="cu-form-field cu-button">
-            <input type="submit" name="" value="UPLOAD"/>                           
+            <input type="submit" name="" value="SUBMIT"/>                           
             <label for="cu-file-upload" class="cu-attach-icon">
                 <img src="{{ asset('images/contactus/attachment-icon.png') }}" alt="Attach File" />
             </label>

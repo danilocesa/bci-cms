@@ -53,5 +53,9 @@ class FrontEndController extends Controller
     	return view($view,$result);
     }
 
+    public function contactForm(Request $request){
+        dd($request->all());
+    }
+
 
 }
