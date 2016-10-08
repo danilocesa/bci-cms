@@ -39,6 +39,8 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
     */
 
     Route::post('page-uploads','Admin\PageManagement@processUpload');
+    Route::get('page-management/sub-page/{id}','Admin\PageManagement@subPage');
+    Route::post('page-management/save-video','Admin\PageManagement@saveVideo');
 	Route::resource('page-management','Admin\PageManagement');
 	
 	/*

@@ -325,11 +325,15 @@ function readURL(type,input,container = null) {
           $(progress_port_id).hide();
         });
 
-
     });
 
+    
+    /** End portfolio jquery **/
 
 
+
+
+    /** Client **/
     $('.client-up').click(function(){
       var $self = $(this);
       $('input[data-pencil-id="'+$self.data('pencil-id')+'"]').click();
@@ -406,6 +410,8 @@ function readURL(type,input,container = null) {
 
 
     });
+
+    /** End client jquery **/
 
 
   });

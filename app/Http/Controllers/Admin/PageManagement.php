@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\PageContent;
 use App\PageCategory;
 use App\UILogs;
+use App\PageVideos;
 
 use Auth;
 use Image;
@@ -24,9 +25,10 @@ class PageManagement extends Controller
         $this->page_category = new PageCategory;
         $this->page_content = new PageContent;
         $this->ui_logs = new UILogs;
+        $this->page_videos = new PageVideos;
     }
     /**
-     * Display a listing of the resource.
+     * Display a listing about us info.
      *
      * @return \Illuminate\Http\Response
      */
@@ -39,7 +41,7 @@ class PageManagement extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Update about us info.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -286,6 +288,28 @@ class PageManagement extends Controller
 
         return response()->json('success');
 
-
     }   
+
+    public function subPage($id){
+        $page_content = $this->page_content->where('page_content_id',$id)->first();
+        $page_videos = $this->page_videos->where('page_content_id',$id)->get();
+        
+        return view('admin\pages\videos-page',['title'=>$page_content->portfolio_text,'videos'=>$page_videos]);
+    }
+
+    /**
+     * Store a newly created video link.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function saveVideo(Request $request)
+    {
+        /** Save video link **/
+        $this->page_videos->page_content_id = $request->id;
+        $this->page_videos->video_link      = $request->videoLink;
+        $this->page_videos->save();
+
+        return response()->json($request->all());
+    }
 }
