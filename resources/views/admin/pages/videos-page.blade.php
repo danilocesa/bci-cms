@@ -10,6 +10,7 @@
             <div class="page-title">
               <div class="title_left">
                 <h3>Video links</h3>
+                <a href="#" class="btn btn-info" >Back</a>
               </div>
             </div>
 
@@ -51,16 +52,16 @@
                           <tbody>
                             @foreach($videos as $v)
                             <tr>
-                              <td> <img src=""><?php 
-                                              $parts = parse_url($v->video_link);
-                                      
-                                              dump($parts);
-                                              ?>  </td>
-                              <td>{{ $v->video_link }}</td>
+                              <td> <img src="http://img.youtube.com/vi/<?php 
+                                              $query = parse_url($v->video_link,PHP_URL_QUERY);
+                                              parse_str($query, $params);
+                                              echo $params['v'];
+                                              ?>/default.jpg ">  </td>
+                              <td> <a href="{{ $v->video_link }}" target="_blank">{{ $v->video_link }}</a> </td>
                               <td>{{ $v->created_at }}</td>
                               <td>{{ $v->updated_at}}</td>
-                              <td  data-id="{{ $v->id }}" >
-                                <button type="button" class="btn btn-info btn-xs edit-video"><i class="fa fa-edit"></i>  Edit</button>
+                              <td  data-id="{{ $v->page_video_id }}" >
+                                <!--<button type="button" class="btn btn-info btn-xs edit-video"><i class="fa fa-edit"></i>  Edit</button>-->
                                 <button type="button" class="btn btn-danger btn-xs delete-video"><i class="fa fa-trash"></i>  Delete</button></td>
                             </tr>
                             @endforeach 
@@ -90,6 +91,7 @@
 <script src="{{ asset('js/pnotify.confirm.js') }}"></script>
 <script type="text/javascript">
   $('#video_datatable').dataTable();
+  /** Add video link action **/
   $('#add_video_link').click(function(){
       var $videoLink = $('input[name="video_link"]').val();
       /** Add video link validation **/
@@ -104,20 +106,22 @@
         });
         return;
       }
-      /** End add role validation **/
+      var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+      if(!regexp.test($videoLink)){
+        new PNotify({
+          title: 'Oh No!',
+          text: 'Video link must be a link.',
+          type: 'error',
+          addclass: "stack-bottomright",
+          styling: 'bootstrap3',
+          buttons: { sticker: false }
+        });
+        return;
+      }
+      /** End add video link validation **/
 
-      /** Call ajax for add role post **/
+      /** Call ajax for add video link post **/
         callAjax({method:'POST',url:"{{ url('web-admin/page-management/save-video') }}",data:{id:'{{ Request::segment(4) }}', videoLink: $videoLink, _token:'{{ csrf_token() }}' }},function(result){
-          console.log(result);
-          // if(!result){
-          //   new PNotify({
-          //     title: 'Oh No!',
-          //     text: 'Role name is already exist.',
-          //     type: 'error',
-          //     styling: 'bootstrap3'
-          //   });
-          //   return;
-          // }
           PNotify.removeAll();
           new PNotify({
             title: 'Success!',
@@ -127,14 +131,53 @@
             styling: 'bootstrap3',
             buttons: { sticker: false }
           });
-          // $('#modal-perm-title').text('Add Permissions');
-          // $('#addPermission').modal({backdrop: 'static', keyboard: false});
           setTimeout(function(){ location.reload(); }, 2000);
         });
-      /** End ajax add role **/
-    });
-    /** End add role action **/
+      /** End ajax add video link **/
+  });
+  /** End add video link action **/
 
+
+  /** Delete video link action **/
+  $('.delete-video').click(function(){
+     var $id = $(this).closest('td').data('id');
+     (new PNotify({
+        title: 'Confirmation Needed',
+        text: 'Are you sure?',
+        type: 'error',
+        styling: 'bootstrap3',
+        icon: 'glyphicon glyphicon-question-sign',
+        hide: false,
+        confirm: {
+            confirm: true
+        },
+        buttons: { sticker: false, closer: false },
+        history: {
+          history: false
+        },
+        addclass: 'stack-modal',
+        stack: {
+            'dir1': 'down',
+            'dir2': 'right',
+            'modal': true
+        }
+      })).get().on('pnotify.confirm', function() {
+        callAjax({method:'GET',url:'{{ url("web-admin/page-management/delete-video") }}/'+$id},function(result){
+          new PNotify({
+            title: 'Deleted!',
+            text: 'Video link deleted. Reloading list...',
+            type: 'success',
+            addclass: "stack-bottomright", 
+            styling: 'bootstrap3',
+            buttons: { sticker: false }
+          });
+          $('.delete-video').prop('disabled',true);
+          $('.edit-video').prop('disabled',true);
+          setTimeout(function(){ location.reload(); }, 1000);
+        });
+      }).on('pnotify.cancel', function() { $('.ui-pnotify-modal-overlay').remove(); });
+  });  
+  /** End delete video link action **/
 
 
 </script>

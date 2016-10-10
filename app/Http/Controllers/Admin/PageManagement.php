@@ -310,6 +310,21 @@ class PageManagement extends Controller
         $this->page_videos->video_link      = $request->videoLink;
         $this->page_videos->save();
 
-        return response()->json($request->all());
+        return response()->json('success');
     }
+
+
+    /**
+     * Delete video link.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteVideo($id)
+    {
+        $this->page_videos->where('page_video_id',$id)->delete();
+        return response()->json('success');
+    }
+
+
 }

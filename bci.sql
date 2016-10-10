@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2016 at 05:33 PM
+-- Generation Time: Oct 10, 2016 at 02:15 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -49,8 +49,9 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `email`, `password`, `activated`, `activation_code`, `activated_at`, `last_login`, `reset_password_code`, `remember_token`, `permissions`, `first_name`, `last_name`, `gender`, `created_at`, `updated_at`) VALUES
-(1, 'dan@mixminds.com', '$2y$10$661RfUHjRhZdR.8cbjceB.tDAtwNdZWpqFRLaAfJJdQzZXaG/gET2', 1, NULL, NULL, NULL, NULL, 'ENxjDo5YtAAYSkJybwjOw4NOmyHxwsnsMVEadZ8ShEFOuC86uo3Lo96MxATi', 134, 'Dan', 'Cesa', 'm', '2016-07-22 19:07:28', '2016-08-29 05:47:18'),
-(8, 'logyou@you.com', '$2y$10$uoDQZ6jbKdGXXl324Tx.w.q7mirfG84ftTcNEfu/pjVNFRxygnDyW', 1, NULL, NULL, NULL, NULL, 'CTZJBGTMJu1gAPhGowmFBT8AT6hRtzqKV8oUdMD5MjuWF2EnEZZdBnVZaSRB', 135, 'logger', 'logme', 'm', '2016-08-29 00:23:18', '2016-08-29 05:50:59');
+(1, 'dan@mixminds.com', '$2y$10$661RfUHjRhZdR.8cbjceB.tDAtwNdZWpqFRLaAfJJdQzZXaG/gET2', 1, NULL, NULL, NULL, NULL, 'tiAjdNgHHR7dSNZDBokNpOamwHHKUwVObHZufcQnHL2DPYO5VzHxX46J14uv', 134, 'Dan', 'Cesa', 'm', '2016-07-22 19:07:28', '2016-10-01 05:09:50'),
+(8, 'logyou@you.com', '$2y$10$uoDQZ6jbKdGXXl324Tx.w.q7mirfG84ftTcNEfu/pjVNFRxygnDyW', 1, NULL, NULL, NULL, NULL, 'CTZJBGTMJu1gAPhGowmFBT8AT6hRtzqKV8oUdMD5MjuWF2EnEZZdBnVZaSRB', 135, 'logger', 'logme', 'm', '2016-08-29 00:23:18', '2016-08-29 05:50:59'),
+(9, 'divinacandelaria@mixminds.com', '$2y$10$Z8P1149/wBnIwUN6QT4sE.QXq9xjB6Y8s7pDJ6aKQEiquRXULgR0W', 1, NULL, NULL, NULL, NULL, NULL, 135, 'Divina', 'Candelaria', '', '2016-10-01 03:16:56', '2016-10-01 04:22:11');
 
 -- --------------------------------------------------------
 
@@ -234,7 +235,30 @@ INSERT INTO `logs` (`id`, `user_id`, `owner_type`, `owner_id`, `old_value`, `new
 (155, 1, 'App\\AdminsTB', 1, '{"password":"$2y$10$.aIDDSF.2bB33Y\\/1WcDnPe\\/6fsJIUJW9\\/v9Zdxzhs8WIgYyUGf5F2"}', '{"password":"$2y$10$661RfUHjRhZdR.8cbjceB.tDAtwNdZWpqFRLaAfJJdQzZXaG\\/gET2"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/1', '::1', '2016-08-29 05:44:55', '2016-08-29 05:44:55'),
 (156, 1, 'App\\AdminsTB', 1, '{"remember_token":"5zjJnIwsuFckqkQC0CiBeKbyyH8MIC5J4jHPF1Cz4SnG5UXWOscJ2Qn4KLFA"}', '{"remember_token":"5Tf5ln5JiJuyX6uwmf9nvLCsRzfvSoZAUqCjTfMI8Ygz8PiunqrWrLy5Jmr0"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-29 05:45:39', '2016-08-29 05:45:39'),
 (157, 1, 'App\\AdminsTB', 1, '{"remember_token":"5Tf5ln5JiJuyX6uwmf9nvLCsRzfvSoZAUqCjTfMI8Ygz8PiunqrWrLy5Jmr0"}', '{"remember_token":"ENxjDo5YtAAYSkJybwjOw4NOmyHxwsnsMVEadZ8ShEFOuC86uo3Lo96MxATi"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-29 05:47:18', '2016-08-29 05:47:18'),
-(158, 8, 'App\\AdminsTB', 8, '{"remember_token":"0ezNwQCw8qUWbLbxYeYCjggRnvPQr5lL3F7fYMeV8LvLqnWYdSE0HzdB5XJC"}', '{"remember_token":"CTZJBGTMJu1gAPhGowmFBT8AT6hRtzqKV8oUdMD5MjuWF2EnEZZdBnVZaSRB"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-29 05:50:59', '2016-08-29 05:50:59');
+(158, 8, 'App\\AdminsTB', 8, '{"remember_token":"0ezNwQCw8qUWbLbxYeYCjggRnvPQr5lL3F7fYMeV8LvLqnWYdSE0HzdB5XJC"}', '{"remember_token":"CTZJBGTMJu1gAPhGowmFBT8AT6hRtzqKV8oUdMD5MjuWF2EnEZZdBnVZaSRB"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-08-29 05:50:59', '2016-08-29 05:50:59'),
+(159, 1, 'App\\AdminsTB', 1, '{"remember_token":"ENxjDo5YtAAYSkJybwjOw4NOmyHxwsnsMVEadZ8ShEFOuC86uo3Lo96MxATi"}', '{"remember_token":"iu71tbTcxY0bEWxjPxTysjOyhcYM0vpt4K1bhmf0Lv8Q8Pu7iNXDM6uZv2HK"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-10-01 00:57:57', '2016-10-01 00:57:57'),
+(160, 1, 'App\\AdminsTB', 1, '{"remember_token":"iu71tbTcxY0bEWxjPxTysjOyhcYM0vpt4K1bhmf0Lv8Q8Pu7iNXDM6uZv2HK"}', '{"remember_token":"NhhHs3nJ95jL0bLd8ptFQwSHibZc8LWmtm0tVkZdT2DaSbJ77iIcbb1Hm5P8"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-10-01 00:58:38', '2016-10-01 00:58:38'),
+(161, 1, 'App\\AdminsTB', 1, '{"remember_token":"NhhHs3nJ95jL0bLd8ptFQwSHibZc8LWmtm0tVkZdT2DaSbJ77iIcbb1Hm5P8"}', '{"remember_token":"GUAeTJqRzomK8hGdZccR4R1aFc623r3s2cudsWjchVWeFb4h6mbLFmJFDgbn"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-10-01 00:58:57', '2016-10-01 00:58:57'),
+(162, 1, 'App\\AdminsTB', 1, '{"remember_token":"GUAeTJqRzomK8hGdZccR4R1aFc623r3s2cudsWjchVWeFb4h6mbLFmJFDgbn"}', '{"remember_token":"bHF9RDWZ01cSQ27JbDG54EN7eysVx3tgbsKHCj3RGUjBFliX5HEpaduJxy3P"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-10-01 01:24:10', '2016-10-01 01:24:10'),
+(163, 1, 'App\\AdminsTB', 1, '{"remember_token":"bHF9RDWZ01cSQ27JbDG54EN7eysVx3tgbsKHCj3RGUjBFliX5HEpaduJxy3P"}', '{"remember_token":"SoAZkLubCkBcS9AfjFAuLvxazmlvh5zLavpHgRVjg6A17jpKvEnCB4tt7x8Z"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-10-01 01:26:27', '2016-10-01 01:26:27'),
+(164, 1, 'App\\AdminsTB', 9, 'null', '{"email":"divinacandelaria@mixminds.com","first_name":"Divina","last_name":"Candelaria","password":"$2y$10$9Kxjraqeg\\/ll5AnWa.j8VunzWkkfyljmx.9XbU7wFpjT3Dc6Z3Ap6","activated":"1","permissions":"134"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/user-management', '::1', '2016-10-01 03:16:56', '2016-10-01 03:16:56'),
+(165, 1, 'App\\AdminsTB', 9, '{"password":"$2y$10$9Kxjraqeg\\/ll5AnWa.j8VunzWkkfyljmx.9XbU7wFpjT3Dc6Z3Ap6"}', '{"password":"$2y$10$qd\\/aGFIEQg\\/.K5K6.zIAzOIeLQrtS8lHZgYEdF3PeChcOjInT27Sm"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/9', '::1', '2016-10-01 03:40:37', '2016-10-01 03:40:37'),
+(166, 1, 'App\\AdminsTB', 9, '{"password":"$2y$10$qd\\/aGFIEQg\\/.K5K6.zIAzOIeLQrtS8lHZgYEdF3PeChcOjInT27Sm"}', '{"password":"$2y$10$kf1q5EA5vMAayKcyyZ6y9eGR.9lw0jliaPcj7vsQsxpBcqsaJC\\/BO"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/9', '::1', '2016-10-01 03:40:44', '2016-10-01 03:40:44'),
+(167, 1, 'App\\AdminsTB', 9, '{"password":"$2y$10$kf1q5EA5vMAayKcyyZ6y9eGR.9lw0jliaPcj7vsQsxpBcqsaJC\\/BO"}', '{"password":"$2y$10$yBGf6uH9YF09RE\\/EusuCm.ncyr.dnfmnfbPK3Jj4XFsr5QvX4fJOG"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/9', '::1', '2016-10-01 04:20:18', '2016-10-01 04:20:18'),
+(168, 1, 'App\\AdminsTB', 9, '{"password":"$2y$10$yBGf6uH9YF09RE\\/EusuCm.ncyr.dnfmnfbPK3Jj4XFsr5QvX4fJOG"}', '{"password":"$2y$10$MZR8AKsUiGF60WlcK07Yiu9ZzxG5apeNehgZqQE1v2ot3ntGhJuAe"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/9', '::1', '2016-10-01 04:20:30', '2016-10-01 04:20:30'),
+(169, 1, 'App\\AdminsTB', 9, '{"password":"$2y$10$MZR8AKsUiGF60WlcK07Yiu9ZzxG5apeNehgZqQE1v2ot3ntGhJuAe"}', '{"password":"$2y$10$ypZb8.pLUYIlrqy2lCsAoupBlNhpm6Wj99iqt0ZsrQ16Yf353nMJa"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/9', '::1', '2016-10-01 04:20:47', '2016-10-01 04:20:47'),
+(170, 1, 'App\\AdminsTB', 9, '{"password":"$2y$10$ypZb8.pLUYIlrqy2lCsAoupBlNhpm6Wj99iqt0ZsrQ16Yf353nMJa","permissions":134}', '{"password":"$2y$10$Z8P1149\\/wBnIwUN6QT4sE.QXq9xjB6Y8s7pDJ6aKQEiquRXULgR0W","permissions":"135"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/user-management/9', '::1', '2016-10-01 04:22:11', '2016-10-01 04:22:11'),
+(171, 1, 'App\\AdminsTB', 10, 'null', '{"email":"sdfsd@fsdfd.com","first_name":"sdfs","last_name":"ssdfd","password":"$2y$10$rC5v3UsQj8VeNApeJo1TvODMru2DQNR2B2moavdRxLOm5928OjBqO","activated":"0","permissions":"135"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/user-management', '::1', '2016-10-01 04:24:58', '2016-10-01 04:24:58'),
+(172, 1, 'App\\AdminsTB', 11, 'null', '{"email":"sadasdas@sdfdsf.com","first_name":"asdsad","last_name":"sa","password":"$2y$10$owXY\\/J6iQbJkuRfpkL0Ny.TJ1zOyte6ED\\/2KdhnpRhrKjOEUEC3Zm","activated":"0","permissions":"135"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/user-management', '::1', '2016-10-01 04:25:47', '2016-10-01 04:25:47'),
+(173, 1, 'App\\Role', 136, 'null', '{"name":"asdsad","display_name":"Asdsad"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-10-01 04:39:33', '2016-10-01 04:39:33'),
+(174, 1, 'App\\Role', 137, 'null', '{"name":"asdsadssss","display_name":"Asdsadssss"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-10-01 04:40:57', '2016-10-01 04:40:57'),
+(175, 1, 'App\\Role', 138, 'null', '{"name":"asdsa","display_name":"Asdsa"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/role-and-permission', '::1', '2016-10-01 04:41:46', '2016-10-01 04:41:46'),
+(176, 1, 'App\\AdminsTB', 1, '{"remember_token":"SoAZkLubCkBcS9AfjFAuLvxazmlvh5zLavpHgRVjg6A17jpKvEnCB4tt7x8Z"}', '{"remember_token":"tiAjdNgHHR7dSNZDBokNpOamwHHKUwVObHZufcQnHL2DPYO5VzHxX46J14uv"}', 'updated', 'http://localhost/admin/admin-bci/public/web-admin/logout', '::1', '2016-10-01 05:09:50', '2016-10-01 05:09:50'),
+(177, 1, 'App\\PageVideos', 1, 'null', '{"page_content_id":"11","video_link":"ad  asdasdasd asd asd sad"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-08 06:08:05', '2016-10-08 06:08:05'),
+(178, 1, 'App\\PageVideos', 2, 'null', '{"page_content_id":"11","video_link":"https:\\/\\/www.youtube.com\\/watch?v=Tqx04n2_UHk"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-08 06:10:36', '2016-10-08 06:10:36'),
+(179, 1, 'App\\PageVideos', 3, 'null', '{"page_content_id":"11","video_link":"https:\\/\\/www.youtube.com\\/watch?v=DP3wEjE1ng4"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-08 06:17:31', '2016-10-08 06:17:31'),
+(180, 1, 'App\\PageVideos', 4, 'null', '{"page_content_id":"11","video_link":"https:\\/\\/www.youtube.com\\/watch?v=hUO-sRLotOI"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-08 07:12:16', '2016-10-08 07:12:16'),
+(181, 1, 'App\\PageVideos', 5, 'null', '{"page_content_id":"12","video_link":"https:\\/\\/www.youtube.com\\/watch?v=EnzA6mHQrog"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-08 07:14:17', '2016-10-08 07:14:17');
 
 -- --------------------------------------------------------
 
@@ -258,7 +282,9 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2016_05_22_190217_add_fields_to_log_table', 3),
 ('2016_08_06_053104_PageCategory', 3),
 ('2016_08_06_053350_PageContent', 3),
-('2016_08_08_142115_entrust_setup_tables', 4);
+('2016_08_08_142115_entrust_setup_tables', 4),
+('2016_10_01_090137_create_ui-log_table', 5),
+('2016_10_08_104606_create_page_videos', 6);
 
 -- --------------------------------------------------------
 
@@ -282,10 +308,10 @@ CREATE TABLE `page_category` (
 --
 
 INSERT INTO `page_category` (`page_category_id`, `page_category_name`, `page_description`, `meta_description`, `meta_keywords`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'about-us', '2222', 'this is a teasdasdas dasdsa dasd sad asd asdasd asdasd asd adasd asd asd asdsa asd asd asd asd sad sad asd asd asd asd as sa as dst', 'test me, wew, ', 'about-us.PNG', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
-(2, 'clients', 'asdas', 'das', 'dsadas', NULL, '2016-09-19 14:45:40', '2016-09-19 06:45:40'),
-(3, 'portfolio', 'sfsdfs', 'df sdf', 'dsf', NULL, '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
-(4, 'contact-us', 'asdas', 'asdas', 'dsad,sfdsf sdfs, sdfsdfdsf', NULL, '2016-09-03 08:07:03', '2016-09-03 00:07:03');
+(1, 'about-us', '2222', 'this is a teasdasdas dasdsa dasd sad asd asdasd asdasd asd adasd asd asd asdsa asd asd asd asd sad sad asd asd asd asd as sa as dst', 'test me, wew, ', 'about-us.PNG', '2016-10-01 12:48:37', '2016-10-01 04:48:37'),
+(2, 'clients', 'test', 'asdas', 'dsad,sfdsf sdfs, sdfsdfdsf', NULL, '2016-10-01 12:53:51', '2016-10-01 04:53:51'),
+(3, 'portfolio', 'test', 'df sdf', 'dsf', NULL, '2016-10-01 12:52:50', '2016-10-01 04:52:50'),
+(4, 'contact-us', 'test', 'asdas', 'dsad,sfdsf sdfs, sdfsdfdsf', NULL, '2016-10-01 12:54:33', '2016-10-01 04:54:33');
 
 -- --------------------------------------------------------
 
@@ -317,23 +343,23 @@ CREATE TABLE `page_content` (
 --
 
 INSERT INTO `page_content` (`page_content_id`, `page_category_id`, `director_name`, `director_position`, `director_desc`, `client_text`, `client_image`, `portfolio_text`, `portfolio_image`, `url`, `fb_link`, `linkedin`, `career_email`, `inquiry_email`, `created_at`, `updated_at`) VALUES
-(1, 1, 'gemma g. alcantara', 'chairman & managing director', 'asd                               ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:23', '2016-09-11 22:38:23'),
-(2, 1, 'ernest fritz server jr.', 'chief creative director', 'asd                                  ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
-(3, 1, 'reynaldo tolentino', 'creative director', 'Evolve or dissolve, life is just changing too fast.                                                    ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
-(4, 1, 'carmelita marte', 'finance & admin manager', 'Take any challenge as a creative opportunity. (Alexandra Watkins)                                       ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
-(5, 1, 'lysander antonio jimenez', 'senior art director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                   ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
-(6, 1, 'luigina mari jose', 'senior manager technical department head', '“Technical Director, Aspiring Painter, (Still) Frustrated Singer and a (Former) Frustrated Filmmaker and Scriptwriter”                                                ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
-(7, 1, 'paul robert salapantan', 'strategic business consultant', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                   ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
-(8, 1, 'vanessa vera julian', 'group account director', 'We will perish without passion. “Working hard for something we don’t care about is called stress; working hard for something we love is called passion” – Simon Sinek.                                                 ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
-(9, 1, 'jessica ana salas', 'senior manager, production mgt.head', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                   ', '', '', '', '', '', '', '', '', '', '2016-09-12 06:38:24', '2016-09-11 22:38:24'),
-(10, 4, '', '', '', '', '', '', '', '', 'https://www.facebook.com/bci-enav', 'https://www.linkedin.com/company/bci-enav', 'career@bci-enav.com', 'inquiry@bci-enav.com', '2016-09-03 08:07:03', '2016-09-03 00:07:03'),
-(11, 3, '', '', '', '', '', 'tv', '20160919144516-1st ram.PNG', '', '', '', '', '', '2016-09-19 14:45:16', '2016-09-19 06:45:16'),
-(12, 3, '', '', '', '', '', 'print', 'print.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
-(13, 3, '', '', '', '', '', 'activation', 'activations.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
-(14, 3, '', '', '', '', '', 'event', 'events.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
-(15, 3, '', '', '', '', '', 'shopper marketing', 'shopper.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
-(16, 3, '', '', '', '', '', 'ooh', 'ooh.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
-(17, 3, '', '', '', '', '', 'digital', 'digital.png', '', '', '', '', '', '2016-09-06 15:17:41', '2016-09-06 07:17:41'),
+(1, 1, 'gemma g. alcantara', 'chairman & managing director', 'asd                                ', '', '', '', '', '', '', '', '', '', '2016-10-01 12:48:37', '2016-10-01 04:48:37'),
+(2, 1, 'ernest fritz server jr.', 'chief creative director', 'asd                                   ', '', '', '', '', '', '', '', '', '', '2016-10-01 12:48:37', '2016-10-01 04:48:37'),
+(3, 1, 'reynaldo tolentino', 'creative director', 'Evolve or dissolve, life is just changing too fast.                                                     ', '', '', '', '', '', '', '', '', '', '2016-10-01 12:48:37', '2016-10-01 04:48:37'),
+(4, 1, 'carmelita marte', 'finance & admin manager', 'Take any challenge as a creative opportunity. (Alexandra Watkins)                                        ', '', '', '', '', '', '', '', '', '', '2016-10-01 12:48:37', '2016-10-01 04:48:37'),
+(5, 1, 'lysander antonio jimenez', 'senior art director', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                    ', '', '', '', '', '', '', '', '', '', '2016-10-01 12:48:37', '2016-10-01 04:48:37'),
+(6, 1, 'luigina mari jose', 'senior manager technical department head', '“Technical Director, Aspiring Painter, (Still) Frustrated Singer and a (Former) Frustrated Filmmaker and Scriptwriter”                                                 ', '', '', '', '', '', '', '', '', '', '2016-10-01 12:48:37', '2016-10-01 04:48:37'),
+(7, 1, 'paul robert salapantan', 'strategic business consultant', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                    ', '', '', '', '', '', '', '', '', '', '2016-10-01 12:48:37', '2016-10-01 04:48:37'),
+(8, 1, 'vanessa vera julian', 'group account director', 'We will perish without passion. “Working hard for something we don’t care about is called stress; working hard for something we love is called passion” – Simon Sinek.                                                  ', '', '', '', '', '', '', '', '', '', '2016-10-01 12:48:37', '2016-10-01 04:48:37'),
+(9, 1, 'jessica ana salas', 'senior manager, production mgt.head', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                    ', '', '', '', '', '', '', '', '', '', '2016-10-01 12:48:37', '2016-10-01 04:48:37'),
+(10, 4, '', '', '', '', '', '', '', '', 'https://www.facebook.com/bci-enav', 'https://www.linkedin.com/company/bci-enav', 'career@bci-enav.com', 'inquiry@bci-enav.com', '2016-10-01 12:54:33', '2016-10-01 04:54:33'),
+(11, 3, '', '', '', '', '', 'tv', '20160919144516-1st ram.PNG', '', '', '', '', '', '2016-10-01 12:52:49', '2016-10-01 04:52:49'),
+(12, 3, '', '', '', '', '', 'print', 'print.png', '', '', '', '', '', '2016-10-01 12:52:49', '2016-10-01 04:52:49'),
+(13, 3, '', '', '', '', '', 'activation', 'activations.png', '', '', '', '', '', '2016-10-01 12:52:49', '2016-10-01 04:52:49'),
+(14, 3, '', '', '', '', '', 'event', 'events.png', '', '', '', '', '', '2016-10-01 12:52:49', '2016-10-01 04:52:49'),
+(15, 3, '', '', '', '', '', 'shopper marketing', 'shopper.png', '', '', '', '', '', '2016-10-01 12:52:49', '2016-10-01 04:52:49'),
+(16, 3, '', '', '', '', '', 'ooh', 'ooh.png', '', '', '', '', '', '2016-10-01 12:52:49', '2016-10-01 04:52:49'),
+(17, 3, '', '', '', '', '', 'digital', 'digital.png', '', '', '', '', '', '2016-10-01 12:52:50', '2016-10-01 04:52:50'),
 (18, 2, '', '', '', 'panasonic', '20160927152038-1st ram.PNG', '', '', '', '', '', '', '', '2016-09-27 15:20:38', '2016-09-27 07:20:38'),
 (19, 2, '', '', '', 'forex', 'forex.png', '', '', '', '', '', '', '', '2016-09-27 15:01:07', '0000-00-00 00:00:00'),
 (20, 2, '', '', '', 'ucpb', 'ucpb.png', '', '', '', '', '', '', '', '2016-09-27 15:01:12', '0000-00-00 00:00:00'),
@@ -346,6 +372,29 @@ INSERT INTO `page_content` (`page_content_id`, `page_category_id`, `director_nam
 (27, 2, '', '', '', 'bpi', 'bpi.png', '', '', '', '', '', '', '', '2016-09-27 15:02:02', '0000-00-00 00:00:00'),
 (28, 2, '', '', '', 'metrobank', 'metrobank.png', '', '', '', '', '', '', '', '2016-09-27 15:02:09', '0000-00-00 00:00:00'),
 (29, 2, '', '', '', 'ritemed', 'ritemed.png', '', '', '', '', '', '', '', '2016-09-27 15:02:13', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `page_videos`
+--
+
+CREATE TABLE `page_videos` (
+  `page_video_id` int(10) UNSIGNED NOT NULL,
+  `page_content_id` int(11) NOT NULL,
+  `video_link` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `page_videos`
+--
+
+INSERT INTO `page_videos` (`page_video_id`, `page_content_id`, `video_link`, `created_at`, `updated_at`) VALUES
+(2, 11, 'https://www.youtube.com/watch?v=Tqx04n2_UHk', '2016-10-08 06:10:36', '2016-10-08 06:10:36'),
+(4, 11, 'https://www.youtube.com/watch?v=hUO-sRLotOI', '2016-10-08 07:12:16', '2016-10-08 07:12:16'),
+(5, 12, 'https://www.youtube.com/watch?v=EnzA6mHQrog', '2016-10-08 07:14:17', '2016-10-08 07:14:17');
 
 -- --------------------------------------------------------
 
@@ -412,7 +461,9 @@ CREATE TABLE `permission_role` (
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 134),
 (1, 135),
+(1, 138),
 (3, 134),
+(3, 138),
 (4, 134),
 (5, 134),
 (6, 134),
@@ -447,7 +498,8 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
 (134, 'super-administrator', 'Super Administrator', NULL, '2016-08-20 07:05:29', '2016-08-20 07:05:29'),
-(135, 'logger', 'Logger', NULL, '2016-08-29 00:22:27', '2016-08-29 00:22:27');
+(135, 'logger', 'Logger', NULL, '2016-08-29 00:22:27', '2016-08-29 00:22:27'),
+(138, 'asdsa', 'Asdsa', NULL, '2016-10-01 04:41:46', '2016-10-01 04:41:46');
 
 -- --------------------------------------------------------
 
@@ -466,7 +518,67 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 (1, 134),
-(8, 135);
+(8, 135),
+(9, 135);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ui_logs`
+--
+
+CREATE TABLE `ui_logs` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `type_description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `ui_logs`
+--
+
+INSERT INTO `ui_logs` (`id`, `user_id`, `name`, `type`, `type_description`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Dan Cesa', 'Login', 'Successfully Logged', '2016-10-01 01:25:39', '2016-10-01 01:25:39'),
+(2, 1, 'Dan Cesa', 'Login', 'Successfully Logged', '2016-10-01 01:26:56', '2016-10-01 01:26:56'),
+(3, 1, 'Dan Cesa', 'Audit Trail', 'Viewed Audit Trail', '2016-10-01 03:08:59', '2016-10-01 03:08:59'),
+(4, 1, 'Dan Cesa', 'Audit Trail', 'Viewed Audit Trail', '2016-10-01 03:09:01', '2016-10-01 03:09:01'),
+(5, 1, 'Dan Cesa', 'User Management', 'Viewed User Page', '2016-10-01 03:12:13', '2016-10-01 03:12:13'),
+(6, 1, 'Dan Cesa', 'Audit Trail', 'Viewed Audit Trail', '2016-10-01 03:12:15', '2016-10-01 03:12:15'),
+(7, 1, 'Dan Cesa', 'Audit Trail', 'Viewed Audit Trail', '2016-10-01 03:12:20', '2016-10-01 03:12:20'),
+(8, 1, 'Dan Cesa', 'Audit Trail', 'Viewed Audit Trail', '2016-10-01 03:12:25', '2016-10-01 03:12:25'),
+(9, 1, 'Dan Cesa', 'Audit Trail', 'Viewed Audit Trail', '2016-10-01 03:12:39', '2016-10-01 03:12:39'),
+(10, 1, 'Dan Cesa', 'User Management', 'Viewed User Page', '2016-10-01 03:12:57', '2016-10-01 03:12:57'),
+(11, 1, 'Dan Cesa', 'Audit Trail', 'Viewed Audit Trail', '2016-10-01 03:13:00', '2016-10-01 03:13:00'),
+(12, 1, 'Dan Cesa', 'User Management', 'Successfully created user: Divina Candelaria', '2016-10-01 03:16:56', '2016-10-01 03:16:56'),
+(13, 1, 'Dan Cesa', 'User Management', 'Viewed User Page', '2016-10-01 03:16:58', '2016-10-01 03:16:58'),
+(14, 1, 'Dan Cesa', 'Audit Trail', 'Viewed audit trail', '2016-10-01 03:17:00', '2016-10-01 03:17:00'),
+(15, 1, 'Dan Cesa', 'Audit Trail', 'Viewed audit trail', '2016-10-01 03:34:29', '2016-10-01 03:34:29'),
+(16, 1, 'Dan Cesa', 'Audit Trail', 'Viewed audit trail', '2016-10-01 03:39:37', '2016-10-01 03:39:37'),
+(17, 1, 'Dan Cesa', 'Audit Trail', 'Viewed audit trail', '2016-10-01 03:39:41', '2016-10-01 03:39:41'),
+(18, 1, 'Dan Cesa', 'User Management', 'Viewed user page', '2016-10-01 04:20:24', '2016-10-01 04:20:24'),
+(19, 1, 'Dan Cesa', 'User Management', 'Viewed user page', '2016-10-01 04:20:40', '2016-10-01 04:20:40'),
+(20, 1, 'Dan Cesa', 'User Management', 'Successfully update user: Divina Candelaria', '2016-10-01 04:20:47', '2016-10-01 04:20:47'),
+(21, 1, 'Dan Cesa', 'User Management', 'Viewed user page', '2016-10-01 04:20:48', '2016-10-01 04:20:48'),
+(22, 1, 'Dan Cesa', 'Audit Trail', 'Viewed audit trail', '2016-10-01 04:21:03', '2016-10-01 04:21:03'),
+(23, 1, 'Dan Cesa', 'User Management', 'Successfully update user: Divina Candelaria', '2016-10-01 04:22:11', '2016-10-01 04:22:11'),
+(24, 1, 'Dan Cesa', 'User Management', 'Successfully created user: sdfs ssdfd', '2016-10-01 04:24:58', '2016-10-01 04:24:58'),
+(25, 1, 'Dan Cesa', 'User Management', 'Successfully deleted user:  ', '2016-10-01 04:25:03', '2016-10-01 04:25:03'),
+(26, 1, 'Dan Cesa', 'User Management', 'Successfully created user: asdsad sa', '2016-10-01 04:25:47', '2016-10-01 04:25:47'),
+(27, 1, 'Dan Cesa', 'User Management', 'Successfully deleted user: asdsad sa', '2016-10-01 04:29:50', '2016-10-01 04:29:50'),
+(28, 1, 'Dan Cesa', 'Role & Permission', 'Successfully added role: asdsa', '2016-10-01 04:41:46', '2016-10-01 04:41:46'),
+(29, 1, 'Dan Cesa', 'Page Management', 'Successfully updated page: About Us', '2016-10-01 04:48:37', '2016-10-01 04:48:37'),
+(30, 1, 'Dan Cesa', 'page Management', 'Successfully updated page: Clients', '2016-10-01 04:52:35', '2016-10-01 04:52:35'),
+(31, 1, 'Dan Cesa', 'page Management', 'Successfully updated page: Portfolio', '2016-10-01 04:52:50', '2016-10-01 04:52:50'),
+(32, 1, 'Dan Cesa', 'Page Management', 'Successfully updated page: Clients', '2016-10-01 04:53:07', '2016-10-01 04:53:07'),
+(33, 1, 'Dan Cesa', 'Page Management', 'Successfully updated page: Clients', '2016-10-01 04:53:51', '2016-10-01 04:53:51'),
+(34, 1, 'Dan Cesa', 'Page Management', 'Successfully updated page: Contact Us', '2016-10-01 04:54:33', '2016-10-01 04:54:33'),
+(35, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-08 00:04:41', '2016-10-08 00:04:41'),
+(36, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-08 00:04:41', '2016-10-08 00:04:41'),
+(37, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-08 06:05:37', '2016-10-08 06:05:37');
 
 --
 -- Indexes for dumped tables
@@ -495,6 +607,12 @@ ALTER TABLE `page_category`
 --
 ALTER TABLE `page_content`
   ADD PRIMARY KEY (`page_content_id`);
+
+--
+-- Indexes for table `page_videos`
+--
+ALTER TABLE `page_videos`
+  ADD PRIMARY KEY (`page_video_id`);
 
 --
 -- Indexes for table `password_resets`
@@ -532,6 +650,12 @@ ALTER TABLE `role_user`
   ADD KEY `role_user_role_id_foreign` (`role_id`);
 
 --
+-- Indexes for table `ui_logs`
+--
+ALTER TABLE `ui_logs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -539,12 +663,12 @@ ALTER TABLE `role_user`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
 --
 -- AUTO_INCREMENT for table `page_category`
 --
@@ -556,6 +680,11 @@ ALTER TABLE `page_category`
 ALTER TABLE `page_content`
   MODIFY `page_content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
+-- AUTO_INCREMENT for table `page_videos`
+--
+ALTER TABLE `page_videos`
+  MODIFY `page_video_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
@@ -564,7 +693,12 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+--
+-- AUTO_INCREMENT for table `ui_logs`
+--
+ALTER TABLE `ui_logs`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- Constraints for dumped tables
 --
