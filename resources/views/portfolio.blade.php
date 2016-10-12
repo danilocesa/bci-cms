@@ -1,10 +1,10 @@
 @extends('_master')
 @section('title', 'Portfolio')
 @push('scripts')
- <script type="text/javascript">
-                        
+ <script type="text/javascript">      
             $(document).ready(function(){
-                $("nav#bci-menu").addClass('port-menu');       
+                $("nav#bci-menu").addClass('port-menu');
+                     
                 $(".main-content").attr('id','port-content');
                 $(".port-circle-print").click(function() {
                     $("#print-details").show();
@@ -124,8 +124,23 @@
                         }
 
                     });
-                 });                                           
-             
+                });  
+
+                $('.pop-video').click(function(){
+                    var $id = $(this).data('id');
+                    var $thumb = $(this).data('thumb');
+                    $('.ui.modal').modal('show');
+
+                    $('.ui.embed').embed({
+                      source      : 'youtube',
+                      id          : $id,
+                      icon        : 'video', 
+                      placeholder : $thumb
+                    });
+
+                });                                         
+
+                
             }); 
 
             function clickCircle(main,line,details,a) {
@@ -320,207 +335,184 @@
                     <svg width="100%" height="100%" id="sLine" ></svg>
                     <svg width="100%" height="100%" id="oneLine" ></svg>
 
-                <div id="events">
-                    <div class="port-circle-events port-bg port-img-events">
-                       <div class="port-content">
-                            <div class="port-table">
-                                <div class="port-table-cell">
-                                    <p>event</p>
-                                </div>
-                            </div>
+                 <div id="events">
+                        <div class="port-circle-events port-bg">
+                            <img src="images/portfolio/events.png" alt="" width="100%">
+                            <p>event</p>
                         </div>
-                    </div>
-                    <!-- Events Details -->
-                    <div id="event-details" class="hide">
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >                                                                        
-                    </div>
-                    <!-- Events Details End-->                    
-                </div> 
-                <div id="digital">
-                     <div class="port-circle-digital port-bg port-img-digital">
-                        <div class="port-content">
-                            <div class="port-table">
-                                <div class="port-table-cell">
-                                    <p>digital</p>
-                                </div>
-                            </div>
+                        <!-- Events Details -->
+                        <div id="event-details" class="hide">
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >                                                                        
                         </div>
-                    </div>
-                    <!-- Digital Details -->
-                     <div id="digital-details" class="hide">
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >  
-                    </div>
-                    <!-- Digital Details End-->                     
-                </div>                
-                <div id="print">
-                      <div class="port-circle-print port-bg port-img-print">
-                          <div class="port-content">
-                              <div class="port-table">
-                                  <div class="port-table-cell">
-                                      <p>print</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                </div>  
-                <div id="ooh">
-                      <div class="port-circle-ooh port-bg port-img-ooh">
-                          <div class="port-content">
-                              <div class="port-table">
-                                  <div class="port-table-cell">
-                                      <p>ooh</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                    <!-- tv Ooh -->
-                    <div id="ooh-details" class="hide">
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                    </div>
-                    <!-- tv Ooh End-->                       
-                </div>      
-                <div id="shopper">
-                      <div class="port-circle-shopper port-bg port-img-shopper">
-                          <div class="port-content">
-                              <div class="port-table">
-                                  <div class="port-table-cell">
-                                      <p>shopper</p>
-                                      <p>marketing</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                    <!-- tv Shopper -->
-                    <div id="shopper-details" class="hide">
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                    </div>
-                    <!-- tv Shopper End-->                        
-                </div>                             
+                        <!-- Events Details End-->                    
+                    </div> 
 
-                <div id="activation">                 
-                    <div class="port-circle-activation port-bg port-img-activation">
-                        <div class="port-content">
-                            <div class="port-table">
-                                <div class="port-table-cell">
-                                    <p>activation</p>
-                                </div>
-                            </div>
+                    <div id="digital">
+                        <div class="port-circle-digital port-bg">
+                            <img src="images/portfolio/digital.png" alt="" width="100%">
+                            <p>digital</p>
                         </div>
-                    </div>
-                    <!-- activation Details -->
-                    <div id="activation-details" class="hide">
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                    </div>
-                    <!-- activation Details End-->                     
-                </div>
-                <div id="tv">
-                    <div class="port-circle-tv port-bg port-img-tv">
-                        <div class="port-content">
-                            <div class="port-table">
-                                <div class="port-table-cell">
-                                    <p>tv</p>
-                                </div>
-                            </div>
+                        <!-- Digital Details -->
+                         <div id="digital-details" class="hide">
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >  
                         </div>
+                        <!-- Digital Details End-->                     
+                    </div>    
+
+                    <div id="print">
+                        <div class="port-circle-print port-bg">
+                            <img src="images/portfolio/print.png" alt="" width="100%">
+                            <p>print</p>
+                        </div>
+                    </div>  
+
+                    <div id="ooh">
+                        <div class="port-circle-ooh port-bg">
+                            <img src="images/portfolio/ooh.png" alt="" width="100%">
+                            <p>ooh</p>
+                        </div>
+                        <!-- tv Ooh -->
+                        <div id="ooh-details" class="hide">
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                        </div>
+                        <!-- tv Ooh End-->                       
                     </div>   
-                    <!-- tv Details -->
-                    <div id="tv-details" class="hide">
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                        <img src="img/portfolio/thumb2.png" alt="" >
-                        <img src="img/portfolio/thumb3.png" alt="" >
-                        <img src="img/portfolio/thumb1.png" alt="" >
-                    </div>                                     
-                </div> 
+
+                    <div id="shopper">
+                        <div class="port-circle-shopper port-bg">
+                            <img src="images/portfolio/shopper.png" alt="" width="100%">
+                            <p>shopper</p>
+                            <p>marketing</p>
+                        </div>
+                        <!-- tv Shopper -->
+                        <div id="shopper-details" class="hide">
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                        </div>
+                        <!-- tv Shopper End-->                        
+                    </div>                             
+
+                    <div id="activation">
+                        <div class="port-circle-activation port-bg">
+                            <img src="images/portfolio/activations.png" alt="" width="100%">
+                            <p>activation</p>
+                        </div>
+                        <!-- activation Details -->
+                        <div id="activation-details" class="hide">
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            <img src=" images/portfolio/thumb2.png" alt="" >
+                            <img src=" images/portfolio/thumb3.png" alt="" >
+                            <img src=" images/portfolio/thumb1.png" alt="" >
+                        </div>
+                        <!-- activation Details End-->                     
+                    </div>
+
+                    <div id="tv">
+                        <div class="port-circle-tv port-bg">
+                            <img src="images/portfolio/tv.png" alt="" width="100%">
+                            <p>tv</p>
+                        </div>   
+                        <!-- tv Details -->
+                        <div id="tv-details" class="hide">
+                            @foreach($videos as $video)
+                                @if($video->page_content_id == 11)
+                                    <img src="http://img.youtube.com/vi/<?php 
+                                              $query = parse_url($video->video_link,PHP_URL_QUERY);
+                                              parse_str($query, $params);
+                                              echo $params['v'];
+                                              ?>/default.jpg" alt="" class="pop-video" data-id="{{ $params['v'] }}" data-thumb="http://img.youtube.com/vi/{{ $params['v'] }}/sddefault.jpg" >
+                                @endif
+                            @endforeach
+                           
+                        </div>
+                        <!-- tv Details End-->                                       
+                    </div> 
                 </div>
                 <!-- Portfolio Main End-->   
 
                 </div>  <!-- end port content -->
+
+<div class="ui modal">
+  <i class="close icon"></i>
+<!--   <div class="header">
+    Modal Title
+  </div> -->
+  <div class="ui embed"></div>
+ <!--  <div class="actions">
+    <div class="ui button">Cancel</div>
+    <div class="ui button">OK</div>
+  </div> -->
+</div>
 
 @endsection

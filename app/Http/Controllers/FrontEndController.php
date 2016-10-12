@@ -8,12 +8,14 @@ use App\Http\Requests;
 
 use App\PageContent;
 use App\PageCategory;
+use App\PageVideos;
 
 class FrontEndController extends Controller
 {
     public function __construct(){
     	$this->page_content = new PageContent;
-    	$this->page_category = new PageCategory;
+        $this->page_category = new PageCategory;
+    	$this->page_videos = new PageVideos;
     }
 
     public function index(){
@@ -37,9 +39,10 @@ class FrontEndController extends Controller
     			$result = ['page_name'=>$name,'content'=>$content,'page_desc'=>$page->page_description];
     			break;
     		case 'portfolio':
-    			$content = $this->page_content->where('page_category_id',3)->get();
+                $content = $this->page_content->where('page_category_id',3)->get();
+    			$videos = $this->page_videos->where('page_category_id',3)->get();
     			$page = $this->page_category->where('page_category_id',3)->first();
-    			$result = ['page_name'=>$name,'content'=>$content,'page_desc'=>$page->page_description];
+    			$result = ['page_name'=>$name,'content'=>$content,'page_desc'=>$page->page_description,'videos'=>$videos];
     			break;
     		case 'contact-us':
     			$content = $this->page_content->where('page_category_id',4)->first();

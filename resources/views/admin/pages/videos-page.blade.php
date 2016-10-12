@@ -56,7 +56,7 @@
                                               $query = parse_url($v->video_link,PHP_URL_QUERY);
                                               parse_str($query, $params);
                                               echo $params['v'];
-                                              ?>/default.jpg ">  </td>
+                                              ?>/default.jpg">  </td>
                               <td> <a href="{{ $v->video_link }}" target="_blank">{{ $v->video_link }}</a> </td>
                               <td>{{ $v->created_at }}</td>
                               <td>{{ $v->updated_at}}</td>

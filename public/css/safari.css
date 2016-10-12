@@ -25,25 +25,6 @@
 /* ==========================================================================
    Portfolio
 ========================================================================== */  
-.port-circle-events {font-size:3em}
-.port-circle-digital {font-size:2.5em}
-.port-circle-print {font-size:5em}
-.port-circle-ooh {font-size:3em}
-.port-circle-shopper {font-size:2em}
-.port-circle-activation {font-size:3em}
-.port-circle-tv {font-size:15em}
-#event-details {top:17em}
-#event-details img {height:10%}
-#digital-details {top:11em}
-#digital-details img {height:10%}
-#ooh-details {top:11em}
-#ooh-details img {height:10%}
-#shopper-details {top:26em}
-#shopper-details img {height:10%}
-#activation-details {top:5em}
-#activation-details img {height:10%}
-#tv-details {top:0em}
-#tv-details img {height:10%}
 
 /* ==========================================================================
    Media stage 1
@@ -54,10 +35,6 @@
 #cu-form-inquiry {top:12em;}
 #cu-form-msg-inquiry {top:10.5em;}
 
-.port-circle-print {font-size:3em}
-.port-circle-shopper {font-size:1.5em}
-.port-circle-activation {font-size:2em}
-.port-circle-tv {font-size:5em}
 }
 
 
@@ -71,8 +48,6 @@
 
 .cu-img-container {height: 30% !important; padding-bottom: 10px;}
 
-.port-circle-print {font-size:3em}
-.port-circle-tv {font-size:7em}
 }
 
 
@@ -103,8 +78,6 @@
 #cu-form-inquiry {top:2em;}
 #cu-form-msg-inquiry {top:-0.5em;}
 
-.port-circle-print {font-size:4em}
-.port-circle-tv {font-size:8em}
 }
 
 

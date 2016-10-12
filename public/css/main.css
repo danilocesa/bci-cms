@@ -101,34 +101,27 @@ html * { font-family: woodcut !important; }
 /* ==========================================================================
    Portfolio
 ========================================================================== */
-#port-menu{    padding:initial}
+#portfolio-menu{    padding:initial}
 #port-content {width: 65%;}
-#port-menu p{    position:relative;     top:50%;     transform:translateY(-50%)}
-.port-circle-events{    float:left;     position:relative;     width:30%;     padding-bottom:30%;     margin:7% 8% 0 -2%;     overflow:hidden}
-.port-circle-events p{    color:white;     font-size:3.2vw;     position:absolute;     bottom:3px;     left:0;     right:0}
-.port-circle-digital{    float:left;     position:relative;     width:22%;     padding-bottom:22%;     margin: 0;     overflow:hidden}
-.port-circle-digital p{    color:white;     font-size:2.6vw;     position:absolute;     bottom:0px;     left:0;     right:0}
-.port-circle-print{    float:left;     position:relative;     width:35%;     padding-bottom:35%;     margin:7% 0 0 0%;     overflow:hidden}
-.port-circle-print p{    color:white;     font-size:5vw;     position:absolute;     left:8px;     top:23%}
-.port-circle-ooh{    float:left;     position:relative;     width:24%;     padding-bottom:24%;    margin: -2% 0% 0 2%;     overflow:hidden}
-.port-circle-ooh p{    color:white;     font-size:3.6vw;     position:absolute;     bottom:0px;     left:22%;}
-.port-circle-shopper{    float:left;     position:relative;     width:31%;     padding-bottom:31%;     margin:-7% 0% 0% 4%;     overflow:hidden}
-.port-circle-shopper p{    color:white;     font-size:2.2vw;     position:absolute;     bottom:18%;     left:40%;     right:10%; text-shadow: 1px 1px gray;}
-.port-circle-activation{    float:left;     position:relative;     width:34%;     padding-bottom:34%;     margin:4% 0 0 10%;     overflow:hidden}
-.port-circle-activation p{    color:white;     font-size:3.5vw;     position:absolute;     bottom:15%;     left:0;     right:0}
-.port-circle-tv{    float:left;     position:relative;     width:48%;     padding-bottom:48%;     margin:-10% 0px 0px 8%;     overflow:hidden}
-.port-circle-tv p{    color:white;     font-size:15vw}
+#portfolio-menu p{    position:relative;     top:50%;     transform:translateY(-50%); -webkit-transform:translateY(-50%); -ms-transform:translateY(-50%);}
+.port-circle-events{    float:left;     position:relative;     width:30%;     margin:7% 8% 0 -2%;     overflow:hidden; text-align:center;}
+.port-circle-events p{    color:white;     font-size:3.2em;     position:absolute;     bottom:3px;     left:0;     right:0}
+.port-circle-digital{    float:left;     position:relative;     width:22%;     margin: 0;     overflow:hidden; text-align:center;}
+.port-circle-digital p{    color:white;     font-size:2.6em;     position:absolute;     bottom:0px;     left:0;     right:0}
+.port-circle-print{    float:left;     position:relative;     width:35%;     margin:7% 0 0 0%;     overflow:hidden}
+.port-circle-print p{    color:white;     font-size:5em;     position:absolute;     left:8px;     top:23%}
+.port-circle-ooh{    float:left;     position:relative;     width:24%;     margin: -2% 0% 0 2%;     overflow:hidden;}
+.port-circle-ooh p{    color:white;     font-size:3.6em;     position:absolute;     bottom:0px;     left:22%;}
+.port-circle-shopper{    float:left;     position:relative;     width:31%;     margin:-7% 0% 0% 4%;     overflow:hidden}
+.port-circle-shopper p{    color:white;     font-size:2.2em;     position:absolute;     bottom:18%;     left:40%;     right:10%; text-shadow: 1px 1px gray;}
+.port-circle-activation{    float:left;     position:relative;     width:34%;     margin:4% 0 0 10%;     overflow:hidden; text-align:center;}
+.port-circle-activation p{    color:white;     font-size:3.5em;     position:absolute;     bottom:15%;     left:0;     right:0}
+.port-circle-tv{    float:left;     position:relative;     width:48%;     margin:-10% 0px 0px 8%;     overflow:hidden; text-align:center;}
+.port-circle-tv p{    color:white;     font-size:15em;     position:absolute;     top:50%;     transform: translateY(-50%); -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%);    left:0;     right:0}
 .port-content{    position:absolute;     height:100%;     width:100%;     padding:10%}
 .port-table{    display:table;     width:100%;     height:100%}
 .port-table-cell{    display:table-cell;     vertical-align:middle;     text-align:center}
 .port-bg{    background-position:center center;     background-repeat:no-repeat;     background-size:cover;     color:#fff;}
-.port-img-events{    background-image:url('../img/portfolio/events.png')}
-.port-img-print{    background-image:url('../img/portfolio/print.png')}
-.port-img-ooh{    background-image:url('../img/portfolio/ooh.png')}
-.port-img-shopper{    background-image:url('../img/portfolio/shopper.png')}
-.port-img-digital{    background-image:url('../img/portfolio/digital.png')}
-.port-img-activation{    background-image:url('../img/portfolio/activations.png')}
-.port-img-tv{    background-image:url('../img/portfolio/tv.png')}
 #port-lines{ width:100%;  margin-left:-20%;  position:absolute;  min-height:520px}
 #eline-1, #pline-1, #dline-1, #aline-1, #tline-1, #sline-1, #oline-1  {display:block;}
 #eline-2, #pline-2, #dline-2, #aline-2, #tline-2, #sline-2, #oline-2 { display: none; }
@@ -146,18 +139,18 @@ html * { font-family: woodcut !important; }
 .main-height {min-height:450px;}
 /*Other Details*/
 #port-main a {color:#00B8E8;}
-#event-details {width: 100%;position: absolute;margin: 43% 0% 0px 4%;}
-#event-details img {width:20%; height:18%; margin-bottom: 1px;}
-#digital-details {width: 100%;position: absolute;margin: 26% 0% 0px 7%;}
-#digital-details img {width:20%; height:18%; margin-bottom: 1px;}
-#ooh-details {width: 100%;position: absolute;margin: 27% 0% 0px 32%;}
-#ooh-details img {width:20%; height:18%; margin-bottom: 1px;}
-#shopper-details {width: 100%;position: absolute;margin: 70% 0% 0px 5%;}
-#shopper-details img {width:20%; height:18%; margin-bottom: 1px;}
-#activation-details {width: 100%;position: absolute;margin: 10% 0% 0px 2%;}
-#activation-details img {width:20%; height:18%; margin-bottom: 1px;}
-#tv-details {width: 90%;position: absolute;margin: 0%;}
-#tv-details img {width:20%; height:18%; margin-bottom: 1px;}
+#event-details {width: 100%;position: absolute;margin: 17em 0 0 4em;}
+#event-details img {width:20%; height:auto; margin-bottom: 1px;}
+#digital-details {width: 100%;position: absolute;margin: 11em 0 0 2.2em;}
+#digital-details img {width:20%; height:auto; margin-bottom: 1px;}
+#ooh-details {width: 100%;position: absolute;margin: 11em 0 0 12em;}
+#ooh-details img {width:20%; height:auto; margin-bottom: 1px;}
+#shopper-details {width: 100%;position: absolute;margin: 28em 0 0 2em;}
+#shopper-details img {width:20%; height:auto; margin-bottom: 1px;}
+#activation-details {width: 100%;position: absolute;margin: 5em 0 0 1em;}
+#activation-details img {width:20%; height:auto; margin-bottom: 1px;}
+#tv-details {width: 100%;position: absolute;margin: 0;}
+#tv-details img {width:20%; height:auto; margin-bottom: 1px;}
 /*Print*/
 #print-details {margin-top: 15%;width: 100%;}
 #print-details p{ font-size:1.7em;}
@@ -309,29 +302,30 @@ html * { font-family: woodcut !important; }
 /* ==========================================================================
     Portfolio
 ========================================================================== */
-.port-menu div:not(#port-menu), div:not(:first-child()){ display:none}
-#port-content{width:initial;}
-#port-menu{ width:100px;  height:100px;  position:relative;  margin:10% auto}
-#port-menu p{ position:relative;  top:50%;  transform:translateY(-50%)}
+.port-menu div:not(#portfolio-menu), div:not(:first-child()){ display:none}
+#port-content{width:100%;}
+#portfolio-menu{ width:100px;  height:100px;  position:relative;  margin:10% auto; display: -webkit-flexbox; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-flex-align: center; -ms-flex-align: center;-webkit-align-items: center; align-items: center; justify-content: center;}
+/*#portfolio-menu p{ position:relative;  top:50%;  transform:translateY(-50%); -webkit-transform:translateY(-50%); -ms-transform:translateY(-50%);}*/
 #port-lines{ display:none}
-.port-circle-events{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-events p{ font-size:8.6vw}
-.port-circle-print{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-print p{ font-size:10vw}
-.port-circle-digital{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-digital p{ font-size:7.6vw}
-.port-circle-ooh{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-ooh p{ font-size:10vw}
-.port-circle-shopper{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-shopper p{ font-size:6vw}
-.port-circle-activation{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-activation p{ font-size:7.5vw}
-.port-circle-tv{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-tv p{ font-size:19vw}
-#oneLine{ display:block;  position:absolute;  height:100%;  margin-top:-30%;  z-index:-1}
+.port-circle-events{ float:none;  width:40%;  margin:0 auto 10%}
+.port-circle-events p{ font-size:3em}
+.port-circle-print{ float:none;  width:40%; margin:0 auto 10%}
+.port-circle-print p{ font-size:3.2em}
+.port-circle-digital{ float:none;  width:40%;  margin:0 auto 10%}
+.port-circle-digital p{ font-size:2em}
+.port-circle-ooh{ float:none;  width:40%;  margin:0 auto 10%}
+.port-circle-ooh p{ font-size:3em}
+.port-circle-shopper{ float:none;  width:40%; margin:0 auto 10%}
+.port-circle-shopper p{ font-size:1.5em}
+.port-circle-activation{ float:none;  width:40%;  margin:0 auto 10%}
+.port-circle-activation p{ font-size:2em}
+.port-circle-tv{ float:none;  width:40%;  margin:0 auto 10%}
+.port-circle-tv p{ font-size:7em}
+#oneLine{ display:block;  position:absolute;  height:100%;  margin-top:-7em;  z-index:-1}
 #sLine{display:none}
 /*Other Details*/
 #event-details, #digital-details, #activation-details, #tv-details, #ooh-details, #shopper-details{    margin: 0 0 10% 0;text-align: center;width: 100%;}
+#event-details img, #digital-details img, #activation-details img, #tv-details img, #ooh-details img, #shopper-details img {width:80%; margin-bottom:0.3em;}
 /*Print Details*/
 #print-details {margin-top: 0;}
 .print-details-top { width:98%;}
@@ -397,29 +391,30 @@ html * { font-family: woodcut !important; }
 /* ==========================================================================
     Portfolio
 ========================================================================== */
-.port-menu div:not(#port-menu), div:not(:first-child()){ display:none}
-#port-content { width: initial;}
-#port-menu{ width:100px;  height:100px;  position:relative;  margin:10% auto}
-#port-menu p{ position:relative;  top:50%;  transform:translateY(-50%)}
+.port-menu div:not(#portfolio-menu), div:not(:first-child()){ display:none}
+#port-content { width: 100%;}
+#portfolio-menu{ width:100px;  height:100px;  position:relative;  margin:10% auto; display: -webkit-flexbox; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-flex-align: center; -ms-flex-align: center;-webkit-align-items: center; align-items: center; justify-content: center;}
+/*#portfolio-menu p{ position:relative;  top:50%;  transform:translateY(-50%); -webkit-transform:translateY(-50%); -ms-transform:translateY(-50%);}*/
 #port-lines{ display:none}
-.port-circle-events{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-events p{ font-size:8.6vw}
-.port-circle-print{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-print p{ font-size:10vw}
-.port-circle-digital{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-digital p{ font-size: 7.6vw}
-.port-circle-ooh{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-ooh p{ font-size:10vw}
-.port-circle-shopper{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-shopper p{ font-size:6vw}
-.port-circle-activation{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-activation p{ font-size:7.5vw}
-.port-circle-tv{ float:none;  width:40%;  padding-bottom:40%;  margin:0 auto 10%}
-.port-circle-tv p{ font-size:19vw}
-#oneLine{ display:block;  position:absolute;  height:100%;  margin-top:-30%;  z-index:-1}
+.port-circle-events{ float:none;  width:40%;  margin:0 auto 10%}
+.port-circle-events p{ font-size:4em}
+.port-circle-print{ float:none;  width:40%;  margin:0 auto 10%}
+.port-circle-print p{ font-size:4.5em}
+.port-circle-digital{ float:none;  width:40%; margin:0 auto 10%}
+.port-circle-digital p{ font-size: 3em}
+.port-circle-ooh{ float:none;  width:40%;  margin:0 auto 10%}
+.port-circle-ooh p{ font-size:4.5em}
+.port-circle-shopper{ float:none;  width:40%;  margin:0 auto 10%}
+.port-circle-shopper p{ font-size:2.2em}
+.port-circle-activation{ float:none;  width:40%;  margin:0 auto 10%}
+.port-circle-activation p{ font-size:3em}
+.port-circle-tv{ float:none;  width:40%;  margin:0 auto 10%}
+.port-circle-tv p{ font-size:9.5em}
+#oneLine{ display:block;  position:absolute;  height:100%;  margin-top:-7em;  z-index:-1}
 #sLine{display:none}
 /*Other Details*/
 #event-details, #digital-details, #activation-details, #tv-details, #ooh-details, #shopper-details{    margin: 0 0 10% 0;text-align: center;width: 100%;}
+#event-details img, #digital-details img, #activation-details img, #tv-details img, #ooh-details img, #shopper-details img {width:40%; margin-bottom:0.3em;}
 
 /*Print Details*/
 #print-details {margin-top: 0;}
@@ -590,28 +585,29 @@ html * { font-family: woodcut !important; }
 /* ==========================================================================
    Portfolio
 ========================================================================== */
-.port-menu div:not(#home-menu):not(#port-menu) { display:none;}
-#port-menu{ width:80px;  height:80px;  position:relative;}
-#port-menu p{ position:relative;  top:50%;  transform:translateY(-50%)}
+.port-menu div:not(#home-menu):not(#portfolio-menu) { display:none;}
+#portfolio-menu{ width:80px;  height:80px;  position:relative;}
+#portfolio-menu p{ position:relative;  top:50%;  transform:translateY(-50%); -webkit-transform:translateY(-50%); -ms-transform:translateY(-50%);}
 #port-lines{ display:none}
-.port-circle-events{ float:none;  width:50%;  padding-bottom:50%;  margin:0 auto 10%}
-.port-circle-events p{ font-size:7vw}
-.port-circle-print{ float:none;  width:50%;  padding-bottom:50%;  margin:0 auto 10%}
-.port-circle-print p{ font-size:8.5vw}
-.port-circle-digital{ float:none;  width:50%;  padding-bottom:50%;  margin:0 auto 10%}
-.port-circle-digital p{ font-size:6vw}
-.port-circle-ooh{ float:none;  width:50%;  padding-bottom:50%;  margin:0 auto 10%}
-.port-circle-ooh p{ font-size:8.5vw}
-.port-circle-shopper{ float:none;  width:50%;  padding-bottom:50%;  margin:0 auto 10%}
-.port-circle-shopper p{ font-size:5.5vw}
-.port-circle-activation{ float:none;  width:50%;  padding-bottom:50%;  margin:0 auto 10%}
-.port-circle-activation p{ font-size:6vw}
-.port-circle-tv{ float:none;  width:50%;  padding-bottom:50%;  margin:0 auto 10%}
-.port-circle-tv p{ font-size:14.5vw}
+.port-circle-events{ float:none;  width:50%;  margin:0 auto 10%}
+.port-circle-events p{ font-size:4em}
+.port-circle-print{ float:none;  width:50%;  margin:0 auto 10%}
+.port-circle-print p{ font-size:4.5em}
+.port-circle-digital{ float:none;  width:50%;  margin:0 auto 10%}
+.port-circle-digital p{ font-size:3em}
+.port-circle-ooh{ float:none;  width:50%;  margin:0 auto 10%}
+.port-circle-ooh p{ font-size:4.5em}
+.port-circle-shopper{ float:none;  width:50%;  margin:0 auto 10%}
+.port-circle-shopper p{ font-size:2.2em}
+.port-circle-activation{ float:none;  width:50%;  margin:0 auto 10%}
+.port-circle-activation p{ font-size:3em}
+.port-circle-tv{ float:none;  width:50%;  margin:0 auto 10%}
+.port-circle-tv p{ font-size:9.5em}
 #oneLine{ display:block;  position:absolute;  height:90%;  margin-top:0;  z-index:-1}
 #sLine{ display:block;  position:absolute;  z-index:-1;  margin-left:-20%}
 /*Other Details*/
 #event-details, #digital-details, #activation-details, #tv-details, #ooh-details, #shopper-details{    margin: 0 0 10% 0;text-align: center;width: 100%;}
+#event-details img, #digital-details img, #activation-details img, #tv-details img, #ooh-details img, #shopper-details img {width:40%; margin-bottom:0.3em;}
 
 /*Print Details*/
 #print-details {margin-top: 0;}
@@ -754,6 +750,13 @@ nav {float: right;width: 38%;}
 .port-circle-activation{ float:left;  position:relative;  width:34%;  padding-bottom:34%;  margin:3% 0 0 7%;  overflow:hidden}
 .port-circle-tv{ float:left;  position:relative;  width:49%;  padding-bottom:49%;  margin:-12% 0px 0px 8%;  overflow:hidden}*/
 .port-circle-shopper {margin: -14% 0% 7% 4%;}
+.port-circle-events p {font-size:3em;}
+.port-circle-digital p {font-size:2em;}
+.port-circle-print p {font-size:4em;}
+.port-circle-ooh p {font-size:2.8em;}
+.port-circle-shopper p {font-size:1.7em;}
+.port-circle-activation p {font-size:2.8em;}
+.port-circle-tv p {font-size:11em;}
 #oneLine{display:none}
 
 
