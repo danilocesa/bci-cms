@@ -9,13 +9,15 @@ use App\Http\Requests;
 use App\PageContent;
 use App\PageCategory;
 use App\PageVideos;
+use App\PrintAd;
 
 class FrontEndController extends Controller
 {
     public function __construct(){
     	$this->page_content = new PageContent;
         $this->page_category = new PageCategory;
-    	$this->page_videos = new PageVideos;
+        $this->page_videos = new PageVideos;
+    	$this->print_ad = new PrintAd;
     }
 
     public function index(){
@@ -40,9 +42,10 @@ class FrontEndController extends Controller
     			break;
     		case 'portfolio':
                 $content = $this->page_content->where('page_category_id',3)->get();
-    			$videos = $this->page_videos->where('page_category_id',3)->get();
+                $videos = $this->page_videos->where('page_category_id',3)->get();
+    			$print_ad = $this->print_ad->get();
     			$page = $this->page_category->where('page_category_id',3)->first();
-    			$result = ['page_name'=>$name,'content'=>$content,'page_desc'=>$page->page_description,'videos'=>$videos];
+    			$result = ['page_name'=>$name,'content'=>$content,'page_desc'=>$page->page_description,'videos'=>$videos,'print_ad'=>$print_ad];
     			break;
     		case 'contact-us':
     			$content = $this->page_content->where('page_category_id',4)->first();

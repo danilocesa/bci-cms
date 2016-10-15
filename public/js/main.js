@@ -2,24 +2,11 @@ $(document).ready(function() {
 
 
 
-$('#bci-menu a .invisible').click(function(){
-	event.preventDefault();
+$('#bci-menu a .invisible').on('click',function(){
+	alert(1);
+	e.preventDefault();
 });
 
-
-
-
-// $('.menu-circle').hover(function(){
-// 	$(this).transition('pulse');
-
-// });
-
-// $('.line-animate')
-//   .transition({
-//     animation : 'fade',
-//     interval  : 200,
-//   })
-// ;
 
 
 });

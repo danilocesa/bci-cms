@@ -10,7 +10,7 @@
             <div class="page-title">
               <div class="title_left">
                 <h3>Video links</h3>
-                <a href="#" class="btn btn-info" >Back</a>
+                <a href="{{ url('web-admin/page-management/portfolio') }}" class="btn btn-info" >Back</a>
               </div>
             </div>
 

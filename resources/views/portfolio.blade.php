@@ -134,7 +134,8 @@
                     $('.ui.embed').embed({
                       source      : 'youtube',
                       id          : $id,
-                      icon        : 'video', 
+                      type   : 'video',
+                      icon   : 'video play',
                       placeholder : $thumb
                     });
 
@@ -263,7 +264,7 @@
    <div class="main-content">
                      <!-- Print Details -->
                 <div id="print-details" style="display:none;">
-                    <div class="print-details-top">
+                    <!-- <div class="print-details-top">
                        <div class="port-content">
                             <div class="port-table">
                                 <div class="port-table-cell">
@@ -280,43 +281,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div> 
-                    <div class="print-details-bottom">
+                    </div>  -->
+                    @foreach($print_ad as $ad)
+                    <div class="print-details-top">
                        <div class="port-content">
                             <div class="port-table">
                                 <div class="port-table-cell">
-                                    <p>Print Ad Sample</p>
+                                    <img src="{{ asset('images/print-ad/'.$ad->print_image) }}" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="print-details-bottom">
-                       <div class="port-content">
-                            <div class="port-table">
-                                <div class="port-table-cell">
-                                    <p>Print Ad Sample</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="print-details-bottom">
-                       <div class="port-content">
-                            <div class="port-table">
-                                <div class="port-table-cell">
-                                    <p>Print Ad Sample</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="print-details-bottom">
-                       <div class="port-content">
-                            <div class="port-table">
-                                <div class="port-table-cell">
-                                    <p>Print Ad Sample</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>                   
                 <!-- Print Details End -->
 
@@ -337,151 +313,115 @@
 
                  <div id="events">
                         <div class="port-circle-events port-bg">
-                            <img src="images/portfolio/events.png" alt="" width="100%">
-                            <p>event</p>
+                            <img src="{{ asset('images/portfolio/'.$content[3]->portfolio_image) }}" alt="" width="100%">
+                            <p>{{ $content[3]->portfolio_text }}</p>
                         </div>
                         <!-- Events Details -->
                         <div id="event-details" class="hide">
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >                                                                        
+                           @foreach($videos as $video)
+                                @if($video->page_content_id == 14)
+                                    <img src="http://img.youtube.com/vi/<?php 
+                                              $query = parse_url($video->video_link,PHP_URL_QUERY);
+                                              parse_str($query, $params);
+                                              echo $params['v'];
+                                              ?>/default.jpg" alt="" class="pop-video" data-id="{{ $params['v'] }}" data-thumb="http://img.youtube.com/vi/{{ $params['v'] }}/sddefault.jpg" >
+                                @endif
+                            @endforeach                                                                       
                         </div>
                         <!-- Events Details End-->                    
                     </div> 
 
                     <div id="digital">
                         <div class="port-circle-digital port-bg">
-                            <img src="images/portfolio/digital.png" alt="" width="100%">
-                            <p>digital</p>
+                            <img src="{{ asset('images/portfolio/'.$content[6]->portfolio_image) }}" alt="" width="100%">
+                            <p>{{ $content[6]->portfolio_text }}</p>
                         </div>
                         <!-- Digital Details -->
                          <div id="digital-details" class="hide">
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >  
+                            @foreach($videos as $video)
+                                @if($video->page_content_id == 17)
+                                    <img src="http://img.youtube.com/vi/<?php 
+                                              $query = parse_url($video->video_link,PHP_URL_QUERY);
+                                              parse_str($query, $params);
+                                              echo $params['v'];
+                                              ?>/default.jpg" alt="" class="pop-video" data-id="{{ $params['v'] }}" data-thumb="http://img.youtube.com/vi/{{ $params['v'] }}/sddefault.jpg" >
+                                @endif
+                            @endforeach
                         </div>
                         <!-- Digital Details End-->                     
                     </div>    
 
                     <div id="print">
                         <div class="port-circle-print port-bg">
-                            <img src="images/portfolio/print.png" alt="" width="100%">
-                            <p>print</p>
+                            <img src="{{ asset('images/portfolio/'.$content[1]->portfolio_image) }}" alt="" width="100%">
+                            <p>{{ $content[1]->portfolio_text }}</p>
                         </div>
                     </div>  
 
                     <div id="ooh">
                         <div class="port-circle-ooh port-bg">
-                            <img src="images/portfolio/ooh.png" alt="" width="100%">
-                            <p>ooh</p>
+                            <img src="{{ asset('images/portfolio/'.$content[5]->portfolio_image) }}" alt="" width="100%">
+                            <p>{{ $content[5]->portfolio_text }}</p>
                         </div>
                         <!-- tv Ooh -->
                         <div id="ooh-details" class="hide">
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            @foreach($videos as $video)
+                                @if($video->page_content_id == 16)
+                                    <img src="http://img.youtube.com/vi/<?php 
+                                              $query = parse_url($video->video_link,PHP_URL_QUERY);
+                                              parse_str($query, $params);
+                                              echo $params['v'];
+                                              ?>/default.jpg" alt="" class="pop-video" data-id="{{ $params['v'] }}" data-thumb="http://img.youtube.com/vi/{{ $params['v'] }}/sddefault.jpg" >
+                                @endif
+                            @endforeach
                         </div>
                         <!-- tv Ooh End-->                       
                     </div>   
 
                     <div id="shopper">
                         <div class="port-circle-shopper port-bg">
-                            <img src="images/portfolio/shopper.png" alt="" width="100%">
-                            <p>shopper</p>
-                            <p>marketing</p>
+                            <img src="{{ asset('images/portfolio/'.$content[4]->portfolio_image) }}" alt="" width="100%">
+                            <p>{{ $content[4]->portfolio_text }}</p>
                         </div>
                         <!-- tv Shopper -->
                         <div id="shopper-details" class="hide">
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
+                            @foreach($videos as $video)
+                                @if($video->page_content_id == 15)
+                                    <img src="http://img.youtube.com/vi/<?php 
+                                              $query = parse_url($video->video_link,PHP_URL_QUERY);
+                                              parse_str($query, $params);
+                                              echo $params['v'];
+                                              ?>/default.jpg" alt="" class="pop-video" data-id="{{ $params['v'] }}" data-thumb="http://img.youtube.com/vi/{{ $params['v'] }}/sddefault.jpg" >
+                                @endif
+                            @endforeach
                         </div>
                         <!-- tv Shopper End-->                        
                     </div>                             
 
                     <div id="activation">
                         <div class="port-circle-activation port-bg">
-                            <img src="images/portfolio/activations.png" alt="" width="100%">
-                            <p>activation</p>
+                            <img src="{{ asset('images/portfolio/'.$content[2]->portfolio_image) }}" alt="" width="100%">
+                            <p>{{ $content[2]->portfolio_text }}</p>
                         </div>
                         <!-- activation Details -->
                         <div id="activation-details" class="hide">
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
-                            <img src=" images/portfolio/thumb2.png" alt="" >
-                            <img src=" images/portfolio/thumb3.png" alt="" >
-                            <img src=" images/portfolio/thumb1.png" alt="" >
+                           @foreach($videos as $video)
+                                @if($video->page_content_id == 13)
+                                    <img src="http://img.youtube.com/vi/<?php 
+                                              $query = parse_url($video->video_link,PHP_URL_QUERY);
+                                              parse_str($query, $params);
+                                              echo $params['v'];
+                                              ?>/default.jpg" alt="" class="pop-video" data-id="{{ $params['v'] }}" data-thumb="http://img.youtube.com/vi/{{ $params['v'] }}/sddefault.jpg" >
+                                @endif
+                            @endforeach
                         </div>
                         <!-- activation Details End-->                     
                     </div>
 
                     <div id="tv">
                         <div class="port-circle-tv port-bg">
-                            <img src="images/portfolio/tv.png" alt="" width="100%">
-                            <p>tv</p>
+                            <img src="{{ asset('images/portfolio/'.$content[0]->portfolio_image) }}" alt="" width="100%">
+                            <p>{{$content[0]->portfolio_text }}</p>
                         </div>   
                         <!-- tv Details -->
                         <div id="tv-details" class="hide">

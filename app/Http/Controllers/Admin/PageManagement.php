@@ -11,6 +11,7 @@ use App\PageContent;
 use App\PageCategory;
 use App\UILogs;
 use App\PageVideos;
+use App\PrintAd;
 
 use Auth;
 use Image;
@@ -26,6 +27,7 @@ class PageManagement extends Controller
         $this->page_content = new PageContent;
         $this->ui_logs = new UILogs;
         $this->page_videos = new PageVideos;
+        $this->print_ad = new PrintAd;
     }
     /**
      * Display a listing about us info.
@@ -268,6 +270,8 @@ class PageManagement extends Controller
         }
 
         if($request->hasFile('port_image')){
+            $deleteImage = $this->page_content->where(['page_category_id'=>3,'page_content_id'=>$request->port_id])->first();
+            unlink(public_path('/images/portfolio').'/'.$deleteImage->portfolio_image);
             $imageName = date('YmdHis').'-'.$request->port_image->getClientOriginalName();
             $img = Image::make($request->port_image->getRealPath());
             $img->resize(100, 100)->save(public_path('/images/portfolio').'/'.$imageName);
@@ -277,6 +281,8 @@ class PageManagement extends Controller
         }
 
         if($request->hasFile('client_image')){
+            $deleteImage = $this->page_content->where(['page_category_id'=>2,'page_content_id'=>$request->client_id])->first();
+            unlink(public_path('/images/clients').'/'.$deleteImage->client_image);
             $imageName = date('YmdHis').'-'.$request->client_image->getClientOriginalName();
             $img = Image::make($request->client_image->getRealPath());
             $img->resize(100, 100)->save(public_path('/images/clients').'/'.$imageName);
@@ -285,6 +291,16 @@ class PageManagement extends Controller
                 ->update([ 'client_image'=>$imageName ]);
         }
 
+
+        if($request->hasFile('print_image')){
+            $imageName = date('YmdHis').'-'.$request->print_image->getClientOriginalName();
+            $img = Image::make($request->print_image->getRealPath());
+            $img->resize(100, 100)->save(public_path('/images/print-ad').'/'.$imageName);
+            $path = $request->print_image->move(public_path('images/print-ad'),$imageName);
+
+            $this->print_ad->print_image = $imageName;
+            $this->print_ad->save();
+        }
 
         return response()->json('success');
 
@@ -319,7 +335,7 @@ class PageManagement extends Controller
     /**
      * Delete video link.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Id
      * @return \Illuminate\Http\Response
      */
     public function deleteVideo($id)
@@ -327,6 +343,36 @@ class PageManagement extends Controller
         $this->page_videos->where('page_video_id',$id)->delete();
         return response()->json('success');
     }
+
+    /**
+     * Print ads view
+     *
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function subPrint(){
+        // $page_content = $this->page_content->where('page_content_id',$id)->first();
+        // $page_videos = $this->page_videos->where('page_content_id',$id)->get();
+        
+        return view('admin\pages\print-page',['print_ad'=>$this->print_ad->get()]);
+    }
+
+    /**
+     * Print ads view
+     *
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function deletePrint($id){
+        $deleteImage = $this->print_ad->where('print_ad_id',$id)->first();
+        unlink(public_path('/images/print-ad').'/'.$deleteImage->print_image);
+        $this->print_ad->where('print_ad_id',$id)->delete();
+        // $page_content = $this->page_content->where('page_content_id',$id)->first();
+        // $page_videos = $this->page_videos->where('page_content_id',$id)->get();
+        
+        return redirect()->back();
+    }
+
 
 
 }

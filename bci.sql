@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2016 at 02:15 AM
+-- Generation Time: Oct 15, 2016 at 10:38 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -258,7 +258,13 @@ INSERT INTO `logs` (`id`, `user_id`, `owner_type`, `owner_id`, `old_value`, `new
 (178, 1, 'App\\PageVideos', 2, 'null', '{"page_content_id":"11","video_link":"https:\\/\\/www.youtube.com\\/watch?v=Tqx04n2_UHk"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-08 06:10:36', '2016-10-08 06:10:36'),
 (179, 1, 'App\\PageVideos', 3, 'null', '{"page_content_id":"11","video_link":"https:\\/\\/www.youtube.com\\/watch?v=DP3wEjE1ng4"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-08 06:17:31', '2016-10-08 06:17:31'),
 (180, 1, 'App\\PageVideos', 4, 'null', '{"page_content_id":"11","video_link":"https:\\/\\/www.youtube.com\\/watch?v=hUO-sRLotOI"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-08 07:12:16', '2016-10-08 07:12:16'),
-(181, 1, 'App\\PageVideos', 5, 'null', '{"page_content_id":"12","video_link":"https:\\/\\/www.youtube.com\\/watch?v=EnzA6mHQrog"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-08 07:14:17', '2016-10-08 07:14:17');
+(181, 1, 'App\\PageVideos', 5, 'null', '{"page_content_id":"12","video_link":"https:\\/\\/www.youtube.com\\/watch?v=EnzA6mHQrog"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-08 07:14:17', '2016-10-08 07:14:17'),
+(182, 1, 'App\\PageVideos', 6, 'null', '{"page_content_id":"11","page_category_id":3,"video_link":"https:\\/\\/www.youtube.com\\/watch?v=bvC_0foemLY&index=92&list=PLx0sYbCqOb8QTF1DCJVfQrtWknZFzuoAE"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-12 07:25:50', '2016-10-12 07:25:50'),
+(183, 1, 'App\\PrintAd', 1, 'null', '{"print_image":"20161015081110-1st ram.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:11:10', '2016-10-15 00:11:10'),
+(184, 1, 'App\\PrintAd', 2, 'null', '{"print_image":"20161015081227-Capture.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:12:27', '2016-10-15 00:12:27'),
+(185, 1, 'App\\PrintAd', 3, 'null', '{"print_image":"20161015081822-speed.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:18:22', '2016-10-15 00:18:22'),
+(186, 1, 'App\\PrintAd', 4, 'null', '{"print_image":"20161015082255-1st ram.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:22:55', '2016-10-15 00:22:55'),
+(187, 1, 'App\\PrintAd', 5, 'null', '{"print_image":"20161015082258-Capture.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:22:58', '2016-10-15 00:22:58');
 
 -- --------------------------------------------------------
 
@@ -284,7 +290,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2016_08_06_053350_PageContent', 3),
 ('2016_08_08_142115_entrust_setup_tables', 4),
 ('2016_10_01_090137_create_ui-log_table', 5),
-('2016_10_08_104606_create_page_videos', 6);
+('2016_10_08_104606_create_page_videos', 6),
+('2016_10_15_080200_create_print_ad', 7);
 
 -- --------------------------------------------------------
 
@@ -353,14 +360,14 @@ INSERT INTO `page_content` (`page_content_id`, `page_category_id`, `director_nam
 (8, 1, 'vanessa vera julian', 'group account director', 'We will perish without passion. “Working hard for something we don’t care about is called stress; working hard for something we love is called passion” – Simon Sinek.                                                  ', '', '', '', '', '', '', '', '', '', '2016-10-01 12:48:37', '2016-10-01 04:48:37'),
 (9, 1, 'jessica ana salas', 'senior manager, production mgt.head', 'Lorem ipsum. Lorem ipsum. Lorem ipsum.                                                    ', '', '', '', '', '', '', '', '', '', '2016-10-01 12:48:37', '2016-10-01 04:48:37'),
 (10, 4, '', '', '', '', '', '', '', '', 'https://www.facebook.com/bci-enav', 'https://www.linkedin.com/company/bci-enav', 'career@bci-enav.com', 'inquiry@bci-enav.com', '2016-10-01 12:54:33', '2016-10-01 04:54:33'),
-(11, 3, '', '', '', '', '', 'tv', '20160919144516-1st ram.PNG', '', '', '', '', '', '2016-10-01 12:52:49', '2016-10-01 04:52:49'),
+(11, 3, '', '', '', '', '', 'tv', '20161015065509-tv.png', '', '', '', '', '', '2016-10-15 06:55:09', '2016-10-14 22:55:09'),
 (12, 3, '', '', '', '', '', 'print', 'print.png', '', '', '', '', '', '2016-10-01 12:52:49', '2016-10-01 04:52:49'),
 (13, 3, '', '', '', '', '', 'activation', 'activations.png', '', '', '', '', '', '2016-10-01 12:52:49', '2016-10-01 04:52:49'),
 (14, 3, '', '', '', '', '', 'event', 'events.png', '', '', '', '', '', '2016-10-01 12:52:49', '2016-10-01 04:52:49'),
 (15, 3, '', '', '', '', '', 'shopper marketing', 'shopper.png', '', '', '', '', '', '2016-10-01 12:52:49', '2016-10-01 04:52:49'),
 (16, 3, '', '', '', '', '', 'ooh', 'ooh.png', '', '', '', '', '', '2016-10-01 12:52:49', '2016-10-01 04:52:49'),
 (17, 3, '', '', '', '', '', 'digital', 'digital.png', '', '', '', '', '', '2016-10-01 12:52:50', '2016-10-01 04:52:50'),
-(18, 2, '', '', '', 'panasonic', '20160927152038-1st ram.PNG', '', '', '', '', '', '', '', '2016-09-27 15:20:38', '2016-09-27 07:20:38'),
+(18, 2, '', '', '', 'panasonic', '20161015065300-panasonic.png', '', '', '', '', '', '', '', '2016-10-15 06:53:00', '2016-10-14 22:53:00'),
 (19, 2, '', '', '', 'forex', 'forex.png', '', '', '', '', '', '', '', '2016-09-27 15:01:07', '0000-00-00 00:00:00'),
 (20, 2, '', '', '', 'ucpb', 'ucpb.png', '', '', '', '', '', '', '', '2016-09-27 15:01:12', '0000-00-00 00:00:00'),
 (21, 2, '', '', '', 'microsoft', 'microsoft.png', '', '', '', '', '', '', '', '2016-09-27 15:01:24', '0000-00-00 00:00:00'),
@@ -382,6 +389,7 @@ INSERT INTO `page_content` (`page_content_id`, `page_category_id`, `director_nam
 CREATE TABLE `page_videos` (
   `page_video_id` int(10) UNSIGNED NOT NULL,
   `page_content_id` int(11) NOT NULL,
+  `page_category_id` int(11) NOT NULL,
   `video_link` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -391,10 +399,10 @@ CREATE TABLE `page_videos` (
 -- Dumping data for table `page_videos`
 --
 
-INSERT INTO `page_videos` (`page_video_id`, `page_content_id`, `video_link`, `created_at`, `updated_at`) VALUES
-(2, 11, 'https://www.youtube.com/watch?v=Tqx04n2_UHk', '2016-10-08 06:10:36', '2016-10-08 06:10:36'),
-(4, 11, 'https://www.youtube.com/watch?v=hUO-sRLotOI', '2016-10-08 07:12:16', '2016-10-08 07:12:16'),
-(5, 12, 'https://www.youtube.com/watch?v=EnzA6mHQrog', '2016-10-08 07:14:17', '2016-10-08 07:14:17');
+INSERT INTO `page_videos` (`page_video_id`, `page_content_id`, `page_category_id`, `video_link`, `created_at`, `updated_at`) VALUES
+(2, 11, 3, 'https://www.youtube.com/watch?v=Tqx04n2_UHk', '2016-10-08 06:10:36', '2016-10-08 06:10:36'),
+(4, 11, 3, 'https://www.youtube.com/watch?v=hUO-sRLotOI', '2016-10-08 07:12:16', '2016-10-08 07:12:16'),
+(6, 11, 3, 'https://www.youtube.com/watch?v=bvC_0foemLY&index=92&list=PLx0sYbCqOb8QTF1DCJVfQrtWknZFzuoAE', '2016-10-12 07:25:50', '2016-10-12 07:25:50');
 
 -- --------------------------------------------------------
 
@@ -476,6 +484,27 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (14, 134),
 (15, 134),
 (16, 134);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `print_ad`
+--
+
+CREATE TABLE `print_ad` (
+  `print_ad_id` int(10) UNSIGNED NOT NULL,
+  `print_image` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `print_ad`
+--
+
+INSERT INTO `print_ad` (`print_ad_id`, `print_image`, `created_at`, `updated_at`) VALUES
+(4, '20161015082255-1st ram.PNG', '2016-10-15 00:22:55', '2016-10-15 00:22:55'),
+(5, '20161015082258-Capture.PNG', '2016-10-15 00:22:58', '2016-10-15 00:22:58');
 
 -- --------------------------------------------------------
 
@@ -578,7 +607,9 @@ INSERT INTO `ui_logs` (`id`, `user_id`, `name`, `type`, `type_description`, `cre
 (34, 1, 'Dan Cesa', 'Page Management', 'Successfully updated page: Contact Us', '2016-10-01 04:54:33', '2016-10-01 04:54:33'),
 (35, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-08 00:04:41', '2016-10-08 00:04:41'),
 (36, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-08 00:04:41', '2016-10-08 00:04:41'),
-(37, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-08 06:05:37', '2016-10-08 06:05:37');
+(37, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-08 06:05:37', '2016-10-08 06:05:37'),
+(38, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-12 06:57:24', '2016-10-12 06:57:24'),
+(39, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-14 22:21:06', '2016-10-14 22:21:06');
 
 --
 -- Indexes for dumped tables
@@ -636,6 +667,12 @@ ALTER TABLE `permission_role`
   ADD KEY `permission_role_role_id_foreign` (`role_id`);
 
 --
+-- Indexes for table `print_ad`
+--
+ALTER TABLE `print_ad`
+  ADD PRIMARY KEY (`print_ad_id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -668,7 +705,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 --
 -- AUTO_INCREMENT for table `page_category`
 --
@@ -683,12 +720,17 @@ ALTER TABLE `page_content`
 -- AUTO_INCREMENT for table `page_videos`
 --
 ALTER TABLE `page_videos`
-  MODIFY `page_video_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `page_video_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `print_ad`
+--
+ALTER TABLE `print_ad`
+  MODIFY `print_ad_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -698,7 +740,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `ui_logs`
 --
 ALTER TABLE `ui_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- Constraints for dumped tables
 --

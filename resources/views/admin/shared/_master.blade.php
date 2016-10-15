@@ -26,7 +26,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{{ url('web-admin') }}" class="site_title"><img src="{{ asset('images/bci-logo.png') }}" height="40" /></a>
+              <a href="{{ url('/web-admin/dashboard') }}" class="site_title"><img src="{{ asset('images/bci-logo.png') }}" height="40" /></a>
             </div>
 
             <div class="clearfix"></div>

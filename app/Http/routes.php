@@ -42,6 +42,8 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
     Route::get('page-management/sub-page/{id}','Admin\PageManagement@subPage');
     Route::post('page-management/save-video','Admin\PageManagement@saveVideo');
     Route::get('page-management/delete-video/{id}','Admin\PageManagement@deleteVideo');
+    Route::get('page-management/sub-print','Admin\PageManagement@subPrint');
+    Route::get('page-management/delete-print/{id}','Admin\PageManagement@deletePrint');
 	Route::resource('page-management','Admin\PageManagement');
 	
 	/*
