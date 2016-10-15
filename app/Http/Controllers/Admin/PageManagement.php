@@ -12,6 +12,7 @@ use App\PageCategory;
 use App\UILogs;
 use App\PageVideos;
 use App\PrintAd;
+use App\SubClients;
 
 use Auth;
 use Image;
@@ -28,6 +29,7 @@ class PageManagement extends Controller
         $this->ui_logs = new UILogs;
         $this->page_videos = new PageVideos;
         $this->print_ad = new PrintAd;
+        $this->sub_clients = new SubClients;
     }
     /**
      * Display a listing about us info.
@@ -256,7 +258,12 @@ class PageManagement extends Controller
         //
     }
 
-
+    /**
+    * Remove the specified resource from storage.
+    *
+    * @param  \Illuminate\Http\Request $request
+    * @return \Illuminate\Http\Response
+    */
     public function processUpload(Request $request){
         // return response()->json($request->all());
         /** About Us Upload **/
@@ -302,10 +309,28 @@ class PageManagement extends Controller
             $this->print_ad->save();
         }
 
+        if($request->hasFile('subclient_image')){
+            $imageName = date('YmdHis').'-'.$request->subclient_image->getClientOriginalName();
+            $img = Image::make($request->subclient_image->getRealPath());
+            $img->resize(100, 100)->save(public_path('/images/clients/sub-clients').'/'.$imageName);
+            $path = $request->subclient_image->move(public_path('images/clients/sub-clients'),$imageName);
+
+            $this->sub_clients->subclient_image = $imageName;
+            $this->sub_clients->page_content_id = $request->page_content_id;
+            $this->sub_clients->save();
+        }
+
+
         return response()->json('success');
 
     }   
 
+    /**
+     * Sub portfolio page
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
     public function subPage($id){
         $page_content = $this->page_content->where('page_content_id',$id)->first();
         $page_videos = $this->page_videos->where('page_content_id',$id)->get();
@@ -328,6 +353,12 @@ class PageManagement extends Controller
         $this->page_videos->video_link          = $request->videoLink;
         $this->page_videos->save();
 
+        $this->ui_logs->user_id = auth()->user()->id;
+        $this->ui_logs->name = auth()->user()->first_name.' '.auth()->user()->last_name;
+        $this->ui_logs->type = 'Page Management';
+        $this->ui_logs->type_description = 'Successfully added new video';
+        $this->ui_logs->save();
+
         return response()->json('success');
     }
 
@@ -335,12 +366,19 @@ class PageManagement extends Controller
     /**
      * Delete video link.
      *
-     * @param  Id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function deleteVideo($id)
     {
         $this->page_videos->where('page_video_id',$id)->delete();
+
+        $this->ui_logs->user_id = auth()->user()->id;
+        $this->ui_logs->name = auth()->user()->first_name.' '.auth()->user()->last_name;
+        $this->ui_logs->type = 'Page Management';
+        $this->ui_logs->type_description = 'Successfully deleted video';
+        $this->ui_logs->save();
+
         return response()->json('success');
     }
 
@@ -351,27 +389,63 @@ class PageManagement extends Controller
      * @return \Illuminate\Http\Response
      */
     public function subPrint(){
-        // $page_content = $this->page_content->where('page_content_id',$id)->first();
-        // $page_videos = $this->page_videos->where('page_content_id',$id)->get();
-        
         return view('admin\pages\print-page',['print_ad'=>$this->print_ad->get()]);
     }
 
     /**
-     * Print ads view
+     * Delete print ads
      *
-     *
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function deletePrint($id){
         $deleteImage = $this->print_ad->where('print_ad_id',$id)->first();
         unlink(public_path('/images/print-ad').'/'.$deleteImage->print_image);
         $this->print_ad->where('print_ad_id',$id)->delete();
-        // $page_content = $this->page_content->where('page_content_id',$id)->first();
-        // $page_videos = $this->page_videos->where('page_content_id',$id)->get();
-        
+
+        $this->ui_logs->user_id = auth()->user()->id;
+        $this->ui_logs->name = auth()->user()->first_name.' '.auth()->user()->last_name;
+        $this->ui_logs->type = 'Page Management';
+        $this->ui_logs->type_description = 'Successfully deleted print ads';
+        $this->ui_logs->save();
+
         return redirect()->back();
     }
+
+    /**
+     * Sub client page view
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function subClient($id){
+        $subClients = $this->sub_clients->where('page_content_id',$id)->get();
+
+        return view('admin\pages\sub-clients',['sub_clients'=>$subClients]);
+    }
+
+    /**
+     * Delete sub clients
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteSubClient($id){
+        $deleteImage = $this->sub_clients->where('sub_clients_id',$id)->first();
+        unlink(public_path('/images/clients/sub-clients').'/'.$deleteImage->subclient_image);
+        $this->sub_clients->where('sub_clients_id',$id)->delete();
+
+        $this->ui_logs->user_id = auth()->user()->id;
+        $this->ui_logs->name = auth()->user()->first_name.' '.auth()->user()->last_name;
+        $this->ui_logs->type = 'Page Management';
+        $this->ui_logs->type_description = 'Successfully deleted sub-clients';
+        $this->ui_logs->save();
+
+        return redirect()->back();
+    }
+
+
+
 
 
 

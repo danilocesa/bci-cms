@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2016 at 10:38 AM
+-- Generation Time: Oct 15, 2016 at 04:52 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -264,7 +264,22 @@ INSERT INTO `logs` (`id`, `user_id`, `owner_type`, `owner_id`, `old_value`, `new
 (184, 1, 'App\\PrintAd', 2, 'null', '{"print_image":"20161015081227-Capture.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:12:27', '2016-10-15 00:12:27'),
 (185, 1, 'App\\PrintAd', 3, 'null', '{"print_image":"20161015081822-speed.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:18:22', '2016-10-15 00:18:22'),
 (186, 1, 'App\\PrintAd', 4, 'null', '{"print_image":"20161015082255-1st ram.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:22:55', '2016-10-15 00:22:55'),
-(187, 1, 'App\\PrintAd', 5, 'null', '{"print_image":"20161015082258-Capture.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:22:58', '2016-10-15 00:22:58');
+(187, 1, 'App\\PrintAd', 5, 'null', '{"print_image":"20161015082258-Capture.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:22:58', '2016-10-15 00:22:58'),
+(188, 1, 'App\\SubClients', 1, 'null', '{"subclient_image":"20161015131406-gallery_img_1.png"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 05:14:08', '2016-10-15 05:14:08'),
+(189, 1, 'App\\SubClients', 2, 'null', '{"subclient_image":"20161015132638-2.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 05:26:38', '2016-10-15 05:26:38'),
+(190, 1, 'App\\SubClients', 3, 'null', '{"subclient_image":"20161015142434-7.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:24:34', '2016-10-15 06:24:34'),
+(191, 1, 'App\\SubClients', 4, 'null', '{"subclient_image":"20161015142458-4.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:24:59', '2016-10-15 06:24:59'),
+(192, 1, 'App\\SubClients', 5, 'null', '{"subclient_image":"20161015142519-6.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:25:19', '2016-10-15 06:25:19'),
+(193, 1, 'App\\SubClients', 6, 'null', '{"subclient_image":"20161015142531-5.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:25:31', '2016-10-15 06:25:31'),
+(194, 1, 'App\\SubClients', 7, 'null', '{"subclient_image":"20161015142545-9.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:25:45', '2016-10-15 06:25:45'),
+(195, 1, 'App\\SubClients', 8, 'null', '{"subclient_image":"20161015142601-3.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:26:01', '2016-10-15 06:26:01'),
+(196, 1, 'App\\SubClients', 9, 'null', '{"subclient_image":"20161015142611-8.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:26:11', '2016-10-15 06:26:11'),
+(197, 1, 'App\\SubClients', 10, 'null', '{"subclient_image":"20161015142619-10.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:26:20', '2016-10-15 06:26:20'),
+(198, 1, 'App\\SubClients', 11, 'null', '{"subclient_image":"20161015142632-11.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:26:33', '2016-10-15 06:26:33');
+INSERT INTO `logs` (`id`, `user_id`, `owner_type`, `owner_id`, `old_value`, `new_value`, `type`, `route`, `ip`, `created_at`, `updated_at`) VALUES
+(199, 1, 'App\\SubClients', 12, 'null', '{"subclient_image":"20161015143215-1.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:32:15', '2016-10-15 06:32:15'),
+(200, 1, 'App\\SubClients', 13, 'null', '{"subclient_image":"20161015143504-1.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:35:04', '2016-10-15 06:35:04'),
+(201, 1, 'App\\SubClients', 14, 'null', '{"subclient_image":"20161015144512-panasonic.png","page_content_id":"18"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:45:12', '2016-10-15 06:45:12');
 
 -- --------------------------------------------------------
 
@@ -291,7 +306,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2016_08_08_142115_entrust_setup_tables', 4),
 ('2016_10_01_090137_create_ui-log_table', 5),
 ('2016_10_08_104606_create_page_videos', 6),
-('2016_10_15_080200_create_print_ad', 7);
+('2016_10_15_080200_create_print_ad', 7),
+('2016_10_15_125834_create_subclient', 8);
 
 -- --------------------------------------------------------
 
@@ -553,6 +569,38 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sub_clients`
+--
+
+CREATE TABLE `sub_clients` (
+  `sub_clients_id` int(10) UNSIGNED NOT NULL,
+  `page_content_id` int(11) NOT NULL,
+  `subclient_image` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `sub_clients`
+--
+
+INSERT INTO `sub_clients` (`sub_clients_id`, `page_content_id`, `subclient_image`, `created_at`, `updated_at`) VALUES
+(2, 25, '20161015132638-2.png', '2016-10-15 05:26:38', '2016-10-15 05:26:38'),
+(3, 25, '20161015142434-7.png', '2016-10-15 06:24:34', '2016-10-15 06:24:34'),
+(4, 25, '20161015142458-4.png', '2016-10-15 06:24:59', '2016-10-15 06:24:59'),
+(5, 25, '20161015142519-6.png', '2016-10-15 06:25:19', '2016-10-15 06:25:19'),
+(6, 25, '20161015142531-5.png', '2016-10-15 06:25:31', '2016-10-15 06:25:31'),
+(7, 25, '20161015142545-9.png', '2016-10-15 06:25:45', '2016-10-15 06:25:45'),
+(8, 25, '20161015142601-3.png', '2016-10-15 06:26:01', '2016-10-15 06:26:01'),
+(9, 25, '20161015142611-8.png', '2016-10-15 06:26:11', '2016-10-15 06:26:11'),
+(10, 25, '20161015142619-10.png', '2016-10-15 06:26:19', '2016-10-15 06:26:19'),
+(11, 25, '20161015142632-11.png', '2016-10-15 06:26:32', '2016-10-15 06:26:32'),
+(13, 25, '20161015143504-1.png', '2016-10-15 06:35:04', '2016-10-15 06:35:04'),
+(14, 18, '20161015144512-panasonic.png', '2016-10-15 06:45:12', '2016-10-15 06:45:12');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ui_logs`
 --
 
@@ -609,7 +657,9 @@ INSERT INTO `ui_logs` (`id`, `user_id`, `name`, `type`, `type_description`, `cre
 (36, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-08 00:04:41', '2016-10-08 00:04:41'),
 (37, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-08 06:05:37', '2016-10-08 06:05:37'),
 (38, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-12 06:57:24', '2016-10-12 06:57:24'),
-(39, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-14 22:21:06', '2016-10-14 22:21:06');
+(39, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-14 22:21:06', '2016-10-14 22:21:06'),
+(40, 1, 'Dan Cesa', 'Page Management', 'Successfully deleted sub-clients', '2016-10-15 05:24:59', '2016-10-15 05:24:59'),
+(41, 1, 'Dan Cesa', 'Page Management', 'Successfully deleted sub-clients', '2016-10-15 06:34:58', '2016-10-15 06:34:58');
 
 --
 -- Indexes for dumped tables
@@ -687,6 +737,12 @@ ALTER TABLE `role_user`
   ADD KEY `role_user_role_id_foreign` (`role_id`);
 
 --
+-- Indexes for table `sub_clients`
+--
+ALTER TABLE `sub_clients`
+  ADD PRIMARY KEY (`sub_clients_id`);
+
+--
 -- Indexes for table `ui_logs`
 --
 ALTER TABLE `ui_logs`
@@ -705,7 +761,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 --
 -- AUTO_INCREMENT for table `page_category`
 --
@@ -737,10 +793,15 @@ ALTER TABLE `print_ad`
 ALTER TABLE `roles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 --
+-- AUTO_INCREMENT for table `sub_clients`
+--
+ALTER TABLE `sub_clients`
+  MODIFY `sub_clients_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
 -- AUTO_INCREMENT for table `ui_logs`
 --
 ALTER TABLE `ui_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- Constraints for dumped tables
 --

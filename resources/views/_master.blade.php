@@ -17,7 +17,7 @@
         <script>
             if(navigator.userAgent.indexOf("Safari")!=-1){
                 console.log("You are using Safari!");
-                document.write('<link rel="stylesheet" type="text/css" href="css/safari.css" />');
+                document.write('<link rel="stylesheet" type="text/css" href="{{ asset("css/safari.css") }}" />');
             }
         </script>
         <script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
@@ -36,15 +36,15 @@
         <div class="main wrapper clearfix">
             <aside>
                 <a href="index.html"><img src="{{ asset('images/bci-logo.png') }}" /></a>
-                <p>{{ $page_desc }}
+                <p>{{ $page_desc or null }}
                 </p>
             </aside>
             <nav id="bci-menu">
                 <a href="{{ url('/') }}"><div class="menu-circle " id="home-menu">home</div></a>
-                <a href="{{ url('about-us') }}"><div class="menu-circle {{ @$page_name == 'about-us' || @$page_name == '' ? '' : 'invisible' }}" id="about-menu">about us</div></a>
-                <a href="{{ url('clients') }}"><div class="menu-circle {{ @$page_name == 'clients' || @$page_name == '' ? '' : 'invisible' }}" id="clients-menu">clients</div></a>
-                <a href="{{ url('portfolio') }}"><div class="menu-circle {{ @$page_name == 'portfolio'  || @$page_name == '' ? '' : 'invisible'}} " id="portfolio-menu">portfolio</div></a>
-                <a href="{{ url('contact-us') }}"><div class="menu-circle {{ @$page_name == 'contact-us'  || @$page_name == '' ? '' : 'invisible'}}" id="contact-us-menu">contact us</div></a>
+                <a href="{{ url('about-us') }}"><div class="menu-circle {{ Request::segment(1) == 'about-us' || Request::segment(1) == '' ? '' : 'invisible' }}" id="about-menu">about us</div></a>
+                <a href="{{ url('clients') }}"><div class="menu-circle {{ Request::segment(1) == 'clients' || Request::segment(1) == '' ? '' : 'invisible' }}" id="clients-menu">clients</div></a>
+                <a href="{{ url('portfolio') }}"><div class="menu-circle {{ Request::segment(1) == 'portfolio'  || Request::segment(1) == '' ? '' : 'invisible'}} " id="portfolio-menu">portfolio</div></a>
+                <a href="{{ url('contact-us') }}"><div class="menu-circle {{ Request::segment(1) == 'contact-us'  || Request::segment(1) == '' ? '' : 'invisible'}}" id="contact-us-menu">contact us</div></a>
             </nav>
                @yield('content')
         </div> <!-- #main -->

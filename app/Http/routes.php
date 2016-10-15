@@ -16,6 +16,7 @@
 Route::get('/','FrontEndController@index');
 Route::get('/{name}','FrontEndController@page');
 Route::post('contact-submit','FrontEndController@contactForm');
+Route::get('/clients/{id}','FrontEndController@subClients');
 
 Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	// , 'middleware' => ['auth']
@@ -44,6 +45,8 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
     Route::get('page-management/delete-video/{id}','Admin\PageManagement@deleteVideo');
     Route::get('page-management/sub-print','Admin\PageManagement@subPrint');
     Route::get('page-management/delete-print/{id}','Admin\PageManagement@deletePrint');
+    Route::get('page-management/sub-clients/{id}','Admin\PageManagement@subClient');
+    Route::get('page-management/delete-subclients/{id}','Admin\PageManagement@deleteSubClient');
 	Route::resource('page-management','Admin\PageManagement');
 	
 	/*

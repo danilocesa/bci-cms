@@ -93,60 +93,60 @@
                 <svg width="100%" height="100%" id="panasonicLine1" class="clients-line"></svg>
                 <svg width="100%" height="100%" id="panasonicLine2" class="clients-line"></svg>
                 <svg width="100%" height="100%" id="panasonicLine3" class="clients-line"></svg>
-                <a href="#"><img src="{{ asset('images/clients/'.$content[0]->client_image) }}" alt="Panasonic" class="clients-img"/></a>
+                <a href="{{ url('clients/'.$content[0]->page_content_id) }}"><img src="{{ asset('images/clients/'.$content[0]->client_image) }}" alt="Panasonic" class="clients-img"/></a>
             </div>
             <div class="clients-img-container" id="clients-forex">
                 <svg width="100%" height="100%" id="forexLine1" class="clients-line"></svg>
                 <svg width="100%" height="100%" id="forexLine2" class="clients-line"></svg>
                 <svg width="100%" height="100%" id="forexLine3" class="clients-line"></svg>
-                <a href="#"><img src="{{ asset('images/clients/'.$content[1]->client_image) }}" alt="Forex" class="clients-img"/></a>
+                <a href="{{ url('clients/'.$content[1]->page_content_id) }}"><img src="{{ asset('images/clients/'.$content[1]->client_image) }}" alt="Forex" class="clients-img"/></a>
             </div>
-            <div class="clients-img-container" id="clients-dbp">
-                <svg width="100%" height="100%" id="dbpLine1" class="clients-line"></svg>
-                <svg width="100%" height="100%" id="dbpLine2" class="clients-line"></svg>
-                <a href="#"><img src="{{ asset('images/clients/'.$content[5]->client_image) }}" alt="DBP" class="clients-img"/></a>
-            </div>
-            <div class="clients-img-container" id="clients-scentshop">
-                <svg width="100%" height="100%" id="scentshopLine2" class="clients-line"></svg>
-                <svg width="100%" height="100%" id="scentshopLine3" class="clients-line"></svg>
-                <a href="#"><img src="{{ asset('images/clients/'.$content[6]->client_image) }}" alt="ScentShop" class="clients-img"/></a>
-            </div>
-            <div class="clients-img-container"  id="clients-ritemed">
-                <svg width="100%" height="100%" id="ritemedLine1" class="clients-line"></svg>
-                <a href="#"><img src="{{ asset('images/clients/'.$content[11]->client_image) }}" alt="Ritemed" class="clients-img"/></a>
-            </div>
-            <div class="clients-img-container" id="clients-bpi">
-                <svg width="100%" height="100%" id="bpiLine1" class="clients-line"></svg>
-                <svg width="100%" height="100%" id="bpiLine2" class="clients-line"></svg>
-                <a href="#" ><img src="{{ asset('images/clients/'.$content[9]->client_image) }}" alt="BPI" class="clients-img"/></a>
-            </div>
-            <div class="clients-img-container" id="clients-blue">
-                <svg width="100%" height="100%" id="blueLine1" class="clients-line"></svg>
-                <svg width="100%" height="100%" id="blueLine2" class="clients-line"></svg>
-                <a href="#"><img src="{{ asset('images/clients/'.$content[8]->client_image) }}" alt="Blue" class="clients-img"/></a>
-            </div>
-            <div class="clients-img-container" id="clients-accenture">
-                <svg width="100%" height="100%" id="accentureLine1" class="clients-line"></svg>
-                <svg width="100%" height="100%" id="accentureLine2" class="clients-line"></svg>
-                <a href="#"><img src="{{ asset('images/clients/'.$content[4]->client_image) }}" alt="Accenture" class="clients-img"/></a>
-            </div>
-            <div class="clients-img-container" id="clients-metrobank">
-                <svg width="100%" height="100%" id="metrobankLine1" class="clients-line"></svg>
-                <a href="#"><img src="{{ asset('images/clients/'.$content[10]->client_image) }}" alt="Metrobank" class="clients-img"/></a>
+            <div class="clients-img-container" id="clients-ucpb">
+                <svg width="100%" height="100%" id="ucpbLine1" class="clients-line"></svg>
+                <a href="{{ url('clients/'.$content[2]->page_content_id) }}"><img src="{{ asset('images/clients/'.$content[2]->client_image) }}" alt="UCPB" class="clients-img"/></a>
             </div>
             <div class="clients-img-container" id="clients-microsoft">
                 <svg width="100%" height="100%" id="microsoftLine1" class="clients-line"></svg>
                 <svg width="100%" height="100%" id="microsoftLine2" class="clients-line"></svg>
-                <a href="#"><img src="{{ asset('images/clients/'.$content[3]->client_image) }}" alt="Microsoft" class="clients-img"/></a>
+                <a href="{{ url('clients/'.$content[3]->page_content_id) }}"><img src="{{ asset('images/clients/'.$content[3]->client_image) }}" alt="Microsoft" class="clients-img"/></a>
             </div>
-            <div class="clients-img-container" id="clients-ucpb">
-                <svg width="100%" height="100%" id="ucpbLine1" class="clients-line"></svg>
-                <a href="#"><img src="{{ asset('images/clients/'.$content[2]->client_image) }}" alt="UCPB" class="clients-img"/></a>
+            <div class="clients-img-container" id="clients-accenture">
+                <svg width="100%" height="100%" id="accentureLine1" class="clients-line"></svg>
+                <svg width="100%" height="100%" id="accentureLine2" class="clients-line"></svg>
+                <a href="{{ url('clients/'.$content[4]->page_content_id) }}"><img src="{{ asset('images/clients/'.$content[4]->client_image) }}" alt="Accenture" class="clients-img"/></a>
+            </div>
+            <div class="clients-img-container" id="clients-dbp">
+                <svg width="100%" height="100%" id="dbpLine1" class="clients-line"></svg>
+                <svg width="100%" height="100%" id="dbpLine2" class="clients-line"></svg>
+                <a href="{{ url('clients/'.$content[5]->page_content_id) }}"><img src="{{ asset('images/clients/'.$content[5]->client_image) }}" alt="DBP" class="clients-img"/></a>
+            </div>
+            <div class="clients-img-container" id="clients-scentshop">
+                <svg width="100%" height="100%" id="scentshopLine2" class="clients-line"></svg>
+                <svg width="100%" height="100%" id="scentshopLine3" class="clients-line"></svg>
+                <a href="{{ url('clients/'.$content[6]->page_content_id) }}"><img src="{{ asset('images/clients/'.$content[6]->client_image) }}" alt="ScentShop" class="clients-img"/></a>
             </div>
             <div class="clients-img-container" id="clients-mitsubishi">
                 <svg width="100%" height="100%" id="mitsubishiLine1" class="clients-line"></svg>
                 <svg width="100%" height="100%" id="mitsubishiLine2" class="clients-line"></svg>
-                <a href="mitsubishi.html"><img src="{{ asset('images/clients/'.$content[7]->client_image) }}" alt="Mitsubishi" class="clients-img"/></a>
+                <a href="{{ url('clients/'.$content[7]->page_content_id) }}"><img src="{{ asset('images/clients/'.$content[7]->client_image) }}" alt="Mitsubishi" class="clients-img"/></a>
+            </div>
+            <div class="clients-img-container" id="clients-blue">
+                <svg width="100%" height="100%" id="blueLine1" class="clients-line"></svg>
+                <svg width="100%" height="100%" id="blueLine2" class="clients-line"></svg>
+                <a href="{{ url('clients/'.$content[8]->page_content_id) }}"><img src="{{ asset('images/clients/'.$content[8]->client_image) }}" alt="Blue" class="clients-img"/></a>
+            </div>
+            <div class="clients-img-container" id="clients-bpi">
+                <svg width="100%" height="100%" id="bpiLine1" class="clients-line"></svg>
+                <svg width="100%" height="100%" id="bpiLine2" class="clients-line"></svg>
+                <a href="{{ url('clients/'.$content[9]->page_content_id) }}" ><img src="{{ asset('images/clients/'.$content[9]->client_image) }}" alt="BPI" class="clients-img"/></a>
+            </div>
+            <div class="clients-img-container" id="clients-metrobank">
+                <svg width="100%" height="100%" id="metrobankLine1" class="clients-line"></svg>
+                <a href="{{ url('clients/'.$content[10]->page_content_id) }}"><img src="{{ asset('images/clients/'.$content[10]->client_image) }}" alt="Metrobank" class="clients-img"/></a>
+            </div>
+            <div class="clients-img-container"  id="clients-ritemed">
+                <svg width="100%" height="100%" id="ritemedLine1" class="clients-line"></svg>
+                <a href="{{ url('clients/'.$content[11]->page_content_id) }}"><img src="{{ asset('images/clients/'.$content[11]->client_image) }}" alt="Ritemed" class="clients-img"/></a>
             </div>
         </div>
     </div>  

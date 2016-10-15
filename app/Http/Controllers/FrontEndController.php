@@ -10,6 +10,7 @@ use App\PageContent;
 use App\PageCategory;
 use App\PageVideos;
 use App\PrintAd;
+use App\SubClients;
 
 class FrontEndController extends Controller
 {
@@ -17,7 +18,8 @@ class FrontEndController extends Controller
     	$this->page_content = new PageContent;
         $this->page_category = new PageCategory;
         $this->page_videos = new PageVideos;
-    	$this->print_ad = new PrintAd;
+        $this->print_ad = new PrintAd;
+    	$this->sub_clients = new SubClients;
     }
 
     public function index(){
@@ -61,6 +63,11 @@ class FrontEndController extends Controller
 
     public function contactForm(Request $request){
         dd($request->all());
+    }
+
+    public function subClients($id){
+        $subclients = $this->sub_clients->where('page_content_id',$id)->get();
+        return view('sub_clients',['sub_clients'=>$subclients]);
     }
 
 
