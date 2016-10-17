@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2016 at 04:52 PM
+-- Generation Time: Oct 17, 2016 at 05:42 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -265,21 +265,8 @@ INSERT INTO `logs` (`id`, `user_id`, `owner_type`, `owner_id`, `old_value`, `new
 (185, 1, 'App\\PrintAd', 3, 'null', '{"print_image":"20161015081822-speed.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:18:22', '2016-10-15 00:18:22'),
 (186, 1, 'App\\PrintAd', 4, 'null', '{"print_image":"20161015082255-1st ram.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:22:55', '2016-10-15 00:22:55'),
 (187, 1, 'App\\PrintAd', 5, 'null', '{"print_image":"20161015082258-Capture.PNG"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-uploads', '::1', '2016-10-15 00:22:58', '2016-10-15 00:22:58'),
-(188, 1, 'App\\SubClients', 1, 'null', '{"subclient_image":"20161015131406-gallery_img_1.png"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 05:14:08', '2016-10-15 05:14:08'),
-(189, 1, 'App\\SubClients', 2, 'null', '{"subclient_image":"20161015132638-2.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 05:26:38', '2016-10-15 05:26:38'),
-(190, 1, 'App\\SubClients', 3, 'null', '{"subclient_image":"20161015142434-7.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:24:34', '2016-10-15 06:24:34'),
-(191, 1, 'App\\SubClients', 4, 'null', '{"subclient_image":"20161015142458-4.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:24:59', '2016-10-15 06:24:59'),
-(192, 1, 'App\\SubClients', 5, 'null', '{"subclient_image":"20161015142519-6.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:25:19', '2016-10-15 06:25:19'),
-(193, 1, 'App\\SubClients', 6, 'null', '{"subclient_image":"20161015142531-5.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:25:31', '2016-10-15 06:25:31'),
-(194, 1, 'App\\SubClients', 7, 'null', '{"subclient_image":"20161015142545-9.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:25:45', '2016-10-15 06:25:45'),
-(195, 1, 'App\\SubClients', 8, 'null', '{"subclient_image":"20161015142601-3.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:26:01', '2016-10-15 06:26:01'),
-(196, 1, 'App\\SubClients', 9, 'null', '{"subclient_image":"20161015142611-8.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:26:11', '2016-10-15 06:26:11'),
-(197, 1, 'App\\SubClients', 10, 'null', '{"subclient_image":"20161015142619-10.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:26:20', '2016-10-15 06:26:20'),
-(198, 1, 'App\\SubClients', 11, 'null', '{"subclient_image":"20161015142632-11.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:26:33', '2016-10-15 06:26:33');
-INSERT INTO `logs` (`id`, `user_id`, `owner_type`, `owner_id`, `old_value`, `new_value`, `type`, `route`, `ip`, `created_at`, `updated_at`) VALUES
-(199, 1, 'App\\SubClients', 12, 'null', '{"subclient_image":"20161015143215-1.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:32:15', '2016-10-15 06:32:15'),
-(200, 1, 'App\\SubClients', 13, 'null', '{"subclient_image":"20161015143504-1.png","page_content_id":"25"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:35:04', '2016-10-15 06:35:04'),
-(201, 1, 'App\\SubClients', 14, 'null', '{"subclient_image":"20161015144512-panasonic.png","page_content_id":"18"}', 'created', 'http://localhost/bci-admin/public/web-admin/page-uploads', '::1', '2016-10-15 06:45:12', '2016-10-15 06:45:12');
+(188, 1, 'App\\PageVideos', 7, 'null', '{"sub_client_id":"14","video_link":"https:\\/\\/www.youtube.com\\/watch?v=KLWDF4DFbF0&list=PLsWYhntNoL3hW_J9Ulrb-3s1iFaVQb1Y8&index=155"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-17 07:26:03', '2016-10-17 07:26:03'),
+(189, 1, 'App\\PageVideos', 8, 'null', '{"sub_client_id":"14","video_link":"https:\\/\\/www.youtube.com\\/watch?v=j02FFnpQ4iU&index=355&list=PLsWYhntNoL3hW_J9Ulrb-3s1iFaVQb1Y8"}', 'created', 'http://localhost/admin/admin-bci/public/web-admin/page-management/save-video', '::1', '2016-10-17 07:37:03', '2016-10-17 07:37:03');
 
 -- --------------------------------------------------------
 
@@ -406,6 +393,7 @@ CREATE TABLE `page_videos` (
   `page_video_id` int(10) UNSIGNED NOT NULL,
   `page_content_id` int(11) NOT NULL,
   `page_category_id` int(11) NOT NULL,
+  `sub_client_id` int(11) NOT NULL,
   `video_link` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -415,10 +403,11 @@ CREATE TABLE `page_videos` (
 -- Dumping data for table `page_videos`
 --
 
-INSERT INTO `page_videos` (`page_video_id`, `page_content_id`, `page_category_id`, `video_link`, `created_at`, `updated_at`) VALUES
-(2, 11, 3, 'https://www.youtube.com/watch?v=Tqx04n2_UHk', '2016-10-08 06:10:36', '2016-10-08 06:10:36'),
-(4, 11, 3, 'https://www.youtube.com/watch?v=hUO-sRLotOI', '2016-10-08 07:12:16', '2016-10-08 07:12:16'),
-(6, 11, 3, 'https://www.youtube.com/watch?v=bvC_0foemLY&index=92&list=PLx0sYbCqOb8QTF1DCJVfQrtWknZFzuoAE', '2016-10-12 07:25:50', '2016-10-12 07:25:50');
+INSERT INTO `page_videos` (`page_video_id`, `page_content_id`, `page_category_id`, `sub_client_id`, `video_link`, `created_at`, `updated_at`) VALUES
+(2, 11, 3, 0, 'https://www.youtube.com/watch?v=Tqx04n2_UHk', '2016-10-08 06:10:36', '2016-10-08 06:10:36'),
+(4, 11, 3, 0, 'https://www.youtube.com/watch?v=hUO-sRLotOI', '2016-10-08 07:12:16', '2016-10-08 07:12:16'),
+(6, 11, 3, 0, 'https://www.youtube.com/watch?v=bvC_0foemLY&index=92&list=PLx0sYbCqOb8QTF1DCJVfQrtWknZFzuoAE', '2016-10-12 07:25:50', '2016-10-12 07:25:50'),
+(8, 0, 0, 14, 'https://www.youtube.com/watch?v=j02FFnpQ4iU&index=355&list=PLsWYhntNoL3hW_J9Ulrb-3s1iFaVQb1Y8', '2016-10-17 07:37:03', '2016-10-17 07:37:03');
 
 -- --------------------------------------------------------
 
@@ -585,18 +574,18 @@ CREATE TABLE `sub_clients` (
 --
 
 INSERT INTO `sub_clients` (`sub_clients_id`, `page_content_id`, `subclient_image`, `created_at`, `updated_at`) VALUES
-(2, 25, '20161015132638-2.png', '2016-10-15 05:26:38', '2016-10-15 05:26:38'),
-(3, 25, '20161015142434-7.png', '2016-10-15 06:24:34', '2016-10-15 06:24:34'),
-(4, 25, '20161015142458-4.png', '2016-10-15 06:24:59', '2016-10-15 06:24:59'),
-(5, 25, '20161015142519-6.png', '2016-10-15 06:25:19', '2016-10-15 06:25:19'),
-(6, 25, '20161015142531-5.png', '2016-10-15 06:25:31', '2016-10-15 06:25:31'),
-(7, 25, '20161015142545-9.png', '2016-10-15 06:25:45', '2016-10-15 06:25:45'),
-(8, 25, '20161015142601-3.png', '2016-10-15 06:26:01', '2016-10-15 06:26:01'),
-(9, 25, '20161015142611-8.png', '2016-10-15 06:26:11', '2016-10-15 06:26:11'),
-(10, 25, '20161015142619-10.png', '2016-10-15 06:26:19', '2016-10-15 06:26:19'),
-(11, 25, '20161015142632-11.png', '2016-10-15 06:26:32', '2016-10-15 06:26:32'),
-(13, 25, '20161015143504-1.png', '2016-10-15 06:35:04', '2016-10-15 06:35:04'),
-(14, 18, '20161015144512-panasonic.png', '2016-10-15 06:45:12', '2016-10-15 06:45:12');
+(2, 25, '20161015132638-2.png', '2016-10-14 21:26:38', '2016-10-14 21:26:38'),
+(3, 25, '20161015142434-7.png', '2016-10-14 22:24:34', '2016-10-14 22:24:34'),
+(4, 25, '20161015142458-4.png', '2016-10-14 22:24:59', '2016-10-14 22:24:59'),
+(5, 25, '20161015142519-6.png', '2016-10-14 22:25:19', '2016-10-14 22:25:19'),
+(6, 25, '20161015142531-5.png', '2016-10-14 22:25:31', '2016-10-14 22:25:31'),
+(7, 25, '20161015142545-9.png', '2016-10-14 22:25:45', '2016-10-14 22:25:45'),
+(8, 25, '20161015142601-3.png', '2016-10-14 22:26:01', '2016-10-14 22:26:01'),
+(9, 25, '20161015142611-8.png', '2016-10-14 22:26:11', '2016-10-14 22:26:11'),
+(10, 25, '20161015142619-10.png', '2016-10-14 22:26:19', '2016-10-14 22:26:19'),
+(11, 25, '20161015142632-11.png', '2016-10-14 22:26:32', '2016-10-14 22:26:32'),
+(13, 25, '20161015143504-1.png', '2016-10-14 22:35:04', '2016-10-14 22:35:04'),
+(14, 18, '20161015144512-panasonic.png', '2016-10-14 22:45:12', '2016-10-14 22:45:12');
 
 -- --------------------------------------------------------
 
@@ -658,8 +647,10 @@ INSERT INTO `ui_logs` (`id`, `user_id`, `name`, `type`, `type_description`, `cre
 (37, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-08 06:05:37', '2016-10-08 06:05:37'),
 (38, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-12 06:57:24', '2016-10-12 06:57:24'),
 (39, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-14 22:21:06', '2016-10-14 22:21:06'),
-(40, 1, 'Dan Cesa', 'Page Management', 'Successfully deleted sub-clients', '2016-10-15 05:24:59', '2016-10-15 05:24:59'),
-(41, 1, 'Dan Cesa', 'Page Management', 'Successfully deleted sub-clients', '2016-10-15 06:34:58', '2016-10-15 06:34:58');
+(40, 1, 'Dan Cesa', 'Login', 'Successfully logged', '2016-10-17 06:34:48', '2016-10-17 06:34:48'),
+(41, 1, 'Dan Cesa', 'Page Management', 'Successfully added new video', '2016-10-17 07:26:03', '2016-10-17 07:26:03'),
+(42, 1, 'Dan Cesa', 'Page Management', 'Successfully deleted video', '2016-10-17 07:27:06', '2016-10-17 07:27:06'),
+(43, 1, 'Dan Cesa', 'Page Management', 'Successfully added new video', '2016-10-17 07:37:03', '2016-10-17 07:37:03');
 
 --
 -- Indexes for dumped tables
@@ -761,7 +752,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 --
 -- AUTO_INCREMENT for table `page_category`
 --
@@ -776,7 +767,7 @@ ALTER TABLE `page_content`
 -- AUTO_INCREMENT for table `page_videos`
 --
 ALTER TABLE `page_videos`
-  MODIFY `page_video_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `page_video_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `permissions`
 --
@@ -801,7 +792,7 @@ ALTER TABLE `sub_clients`
 -- AUTO_INCREMENT for table `ui_logs`
 --
 ALTER TABLE `ui_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- Constraints for dumped tables
 --

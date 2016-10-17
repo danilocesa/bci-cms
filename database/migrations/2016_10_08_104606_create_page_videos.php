@@ -16,6 +16,7 @@ class CreatePageVideos extends Migration
             $table->increments('page_video_id');
             $table->integer('page_content_id');
             $table->integer('page_category_id');
+            $table->integer('sub_client_id');
             $table->string('video_link',200);
             $table->timestamps();
         });

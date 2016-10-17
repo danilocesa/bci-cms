@@ -40,8 +40,8 @@
                 <img style="width: 100%; display: block;" src="{{ asset('images/clients/'.$content->client_image) }}" alt="image" data-port-id="{{ $content->page_content_id }}" />
                 <div class="mask no-caption">
                   <div class="tools tools-bottom" style="margin:150px 0 0 0;">
-                    <a href="{{ url('web-admin/page-management/sub-clients/'.$content->page_content_id) }}"><i class="fa fa-link"></i></a>
-                    <i class="fa fa-pencil client-up"  data-pencil-id="{{ $content->page_content_id }}"></i>
+                    <a href="{{ url('web-admin/page-management/sub-clients/'.$content->page_content_id) }}"  data-toggle="tooltip" data-placement="left" title="" data-original-title="Sub brands" ><i class="fa fa-link"></i></a>
+                    <i class="fa fa-pencil client-up" data-pencil-id="{{ $content->page_content_id }}"  data-toggle="tooltip" data-placement="right" title="" data-original-title="Update photo"></i>
                      <input type="file" name="client_image[]" data-port-image="" data-pencil-id="{{ $content->page_content_id }}" class="client-file-up" style="display:none;"/>
                   </div>
                 </div>

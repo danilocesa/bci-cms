@@ -65,6 +65,7 @@
   <div class="col-md-12">
     <div class="x_panel">
       <div class="x_title">
+
         <h2><span class="fa fa-file-image-o"></span> Sub-clients</h2>
         <div class="clearfix"></div>
         <a href="{{ url('web-admin/page-management/clients') }}" class="btn btn-info" >Back</a>
@@ -73,6 +74,7 @@
         @endif 
          <input type="file" name="subclient_image" class="subclient-file-up" data-id="{{ Request::segment(4) }}" />
         <div class="clearfix"></div>
+
       </div>
       <div class="x_content">
         <div class="row">
@@ -85,7 +87,8 @@
                 <img style="width: 100%; display: block;" src="{{ asset('images/clients/sub-clients/'.$sc->subclient_image) }}" alt="image" />
                 <div class="mask no-caption">
                   <div class="tools tools-bottom">
-                    <a href="{{ url('web-admin/page-management/delete-subclients/'.$sc->sub_clients_id) }}"><i class="fa fa-times"></i></a>
+                    <a href="{{ url('web-admin/page-management/subclient-videos/'.$sc->sub_clients_id) }}"  data-toggle="tooltip" data-placement="left" title="" data-original-title="Video link" ><i class="fa fa-link"></i></a>
+                    <a href="{{ url('web-admin/page-management/delete-subclients/'.$sc->sub_clients_id) }}"  data-toggle="tooltip" data-placement="right" title="" data-original-title="Delete" ><i class="fa fa-times"></i></a>
                   </div>
                 </div>
               </div>

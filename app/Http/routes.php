@@ -47,6 +47,7 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
     Route::get('page-management/delete-print/{id}','Admin\PageManagement@deletePrint');
     Route::get('page-management/sub-clients/{id}','Admin\PageManagement@subClient');
     Route::get('page-management/delete-subclients/{id}','Admin\PageManagement@deleteSubClient');
+    Route::get('page-management/subclient-videos/{id}','Admin\PageManagement@subVideos');
 	Route::resource('page-management','Admin\PageManagement');
 	
 	/*

@@ -40,9 +40,9 @@
                 <img style="width: 100%; display: block;" src="{{ asset('images/portfolio/'.$content->portfolio_image) }}" alt="image" data-port-id="{{ $content->page_content_id }}" />
                 <div class="mask no-caption">
                   <div class="tools tools-bottom">
-                    <a href="{{ $content->page_content_id == 12 ? url('web-admin/page-management/sub-print') : url('web-admin/page-management/sub-page/'.$content->page_content_id) }}"><i class="fa fa-link"></i></a>
-                    <i class="fa fa-pencil port-up" data-pencil-id="{{ $content->page_content_id }}" ></i>
-                    <input type="file" name="port_image[]" data-port-image="" data-pencil-id="{{ $content->page_content_id }}" class="port-file-up"/>
+                    <a href="{{ $content->page_content_id == 12 ? url('web-admin/page-management/sub-print') : url('web-admin/page-management/sub-page/'.$content->page_content_id) }}"  data-toggle="tooltip" data-placement="left" title="" data-original-title="Videos" ><i class="fa fa-link"></i></a>
+                    <i class="fa fa-pencil port-up" data-pencil-id="{{ $content->page_content_id }}"  data-toggle="tooltip" data-placement="right" title="" data-original-title="Update photo" ></i>
+                    <input type="file" name="port_image[]" data-port-image="" data-pencil-id="{{ $content->page_content_id }}" class="port-file-up" />
                   </div>
                 </div>
               </div>

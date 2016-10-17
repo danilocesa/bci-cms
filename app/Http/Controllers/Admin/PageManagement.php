@@ -347,11 +347,18 @@ class PageManagement extends Controller
     public function saveVideo(Request $request)
     {
         /** Save video link **/
-        $page_category = $this->page_content->where('page_content_id',$request->id)->first();
-        $this->page_videos->page_content_id     = $request->id;
-        $this->page_videos->page_category_id    = $page_category->page_category_id;
-        $this->page_videos->video_link          = $request->videoLink;
-        $this->page_videos->save();
+        if($request->type == 'sub'){
+            $this->page_videos->sub_client_id       = $request->id;
+            $this->page_videos->video_link          = $request->videoLink;
+            $this->page_videos->save();
+        }else{
+            $page_category = $this->page_content->where('page_content_id',$request->id)->first();
+            $this->page_videos->page_content_id     = $request->id;
+            $this->page_videos->page_category_id    = $page_category->page_category_id;
+            $this->page_videos->video_link          = $request->videoLink;
+            $this->page_videos->save();
+        }
+      
 
         $this->ui_logs->user_id = auth()->user()->id;
         $this->ui_logs->name = auth()->user()->first_name.' '.auth()->user()->last_name;
@@ -443,6 +450,20 @@ class PageManagement extends Controller
 
         return redirect()->back();
     }
+
+    /**
+     * View sub clients videos
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function subVideos($id){
+        $subVideos = $this->page_videos->where('sub_client_id',$id)->get();
+
+        return view('admin\pages\sub-videos',['sub_videos'=>$subVideos]);
+    }
+
+
 
 
 

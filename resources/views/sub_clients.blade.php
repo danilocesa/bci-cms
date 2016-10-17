@@ -138,10 +138,11 @@
                             <svg width="100%" height="100%" id="mitsubishiLine2" class="clients-line"></svg>
                             <a href="#" class="cv-show"><img src="{{ asset('images/clients/sub-clients/'.$sub_clients[0]->subclient_image) }}" alt="" class="clients-img"/></a>
                             <div class="cv-container" id="cv-mitsubishi">
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
+                                @foreach($sub_videos as $sbv)
+                                    @if($sub_clients[0]->sub_clients_id == $sbv->sub_client_id)
+                                        <a href="{{ $sbv->video_link }}" target="_blank"><p>{{ $sbv->video_link }}</p></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         <!--1-->
@@ -151,10 +152,11 @@
                             <svg width="100%" height="100%" id="blueLine2" class="clients-line"></svg>
                             <a href="#" class="cv-show"><img src="{{ asset('images/clients/sub-clients/'.$sub_clients[1]->subclient_image) }}" alt="" class="clients-img"/></a>
                             <div class="cv-container" id="cv-blue">
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
+                                 @foreach($sub_videos as $sbv)
+                                    @if($sub_clients[1]->sub_clients_id == $sbv->sub_client_id)
+                                        <a href="{{ $sbv->video_link }}" target="_blank"><p>{{ $sbv->video_link }}</p></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         @endif
@@ -165,10 +167,11 @@
                             <svg width="100%" height="100%" id="microsoftLine2" class="clients-line"></svg>
                             <a href="#" class="cv-show"><img src="{{ asset('images/clients/sub-clients/'.$sub_clients[2]->subclient_image) }}" alt="" class="clients-img"/></a>
                             <div class="cv-container" id="cv-microsoft">
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
+                                 @foreach($sub_videos as $sbv)
+                                    @if($sub_clients[2]->sub_clients_id == $sbv->sub_client_id)
+                                        <a href="{{ $sbv->video_link }}" target="_blank"><p>{{ $sbv->video_link }}</p></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         @endif
@@ -180,10 +183,11 @@
                             <svg width="100%" height="100%" id="panasonicLine3" class="clients-line"></svg>
                             <a href="#" class="cv-show"><img src="{{ asset('images/clients/sub-clients/'.$sub_clients[3]->subclient_image) }}" alt="" class="clients-img"/></a>
                             <div class="cv-container" id="cv-panasonic">
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
+                                 @foreach($sub_videos as $sbv)
+                                    @if($sub_clients[3]->sub_clients_id == $sbv->sub_client_id)
+                                        <a href="{{ $sbv->video_link }}" target="_blank"><p>{{ $sbv->video_link }}</p></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         @endif
@@ -194,10 +198,11 @@
                             <svg width="100%" height="100%" id="scentshopLine3" class="clients-line"></svg>
                             <a href="#" class="cv-show"><img src="{{ asset('images/clients/sub-clients/'.$sub_clients[4]->subclient_image) }}" alt="" class="clients-img"/></a>
                             <div class="cv-container" id="">
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
+                                 @foreach($sub_videos as $sbv)
+                                    @if($sub_clients[4]->sub_clients_id == $sbv->sub_client_id)
+                                        <a href="{{ $sbv->video_link }}" target="_blank"><p>{{ $sbv->video_link }}</p></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         @endif
@@ -208,10 +213,11 @@
                             <svg width="100%" height="100%" id="accentureLine2" class="clients-line"></svg>
                             <a href="#" class="cv-show"><img src="{{ asset('images/clients/sub-clients/'.$sub_clients[5]->subclient_image) }}" alt="" class="clients-img"/></a>
                             <div class="cv-container" id="">
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
+                                @foreach($sub_videos as $sbv)
+                                    @if($sub_clients[5]->sub_clients_id == $sbv->sub_client_id)
+                                        <a href="{{ $sbv->video_link }}" target="_blank"><p>{{ $sbv->video_link }}</p></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         @endif
@@ -221,10 +227,11 @@
                             <svg width="100%" height="100%" id="metrobankLine1" class="clients-line"></svg>
                             <a href="#" class="cv-show"><img src="{{ asset('images/clients/sub-clients/'.$sub_clients[6]->subclient_image) }}" alt="" class="clients-img"/></a>
                             <div class="cv-container" id="cv-metrobank">
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
+                                 @foreach($sub_videos as $sbv)
+                                    @if($sub_clients[6]->sub_clients_id == $sbv->sub_client_id)
+                                        <a href="{{ $sbv->video_link }}" target="_blank"><p>{{ $sbv->video_link }}</p></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         @endif
@@ -234,10 +241,11 @@
                             <svg width="100%" height="100%" id="ucpbLine1" class="clients-line"></svg>
                             <a href="#" class="cv-show"><img src="{{ asset('images/clients/sub-clients/'.$sub_clients[7]->subclient_image) }}" alt="" class="clients-img"/></a>
                             <div class="cv-container" id="">
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
+                                @foreach($sub_videos as $sbv)
+                                    @if($sub_clients[7]->sub_clients_id == $sbv->sub_client_id)
+                                        <a href="{{ $sbv->video_link }}" target="_blank"><p>{{ $sbv->video_link }}</p></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         @endif
@@ -248,10 +256,11 @@
                             <svg width="100%" height="100%" id="bpiLine2" class="clients-line"></svg>
                             <a href="#" class="cv-show"><img src="{{ asset('images/clients/sub-clients/'.$sub_clients[8]->subclient_image) }}" alt="" class="clients-img"/></a>
                             <div class="cv-container" id="cv-bpi">
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
+                                 @foreach($sub_videos as $sbv)
+                                    @if($sub_clients[8]->sub_clients_id == $sbv->sub_client_id)
+                                        <a href="{{ $sbv->video_link }}" target="_blank"><p>{{ $sbv->video_link }}</p></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         @endif
@@ -263,10 +272,11 @@
                             <svg width="100%" height="100%" id="forexLine3" class="clients-line"></svg>
                             <a href="#" class="cv-show"><img src="{{ asset('images/clients/sub-clients/'.$sub_clients[9]->subclient_image) }}" alt="" class="clients-img"/></a>
                             <div class="cv-container" id="">
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
+                                 @foreach($sub_videos as $sbv)
+                                    @if($sub_clients[9]->sub_clients_id == $sbv->sub_client_id)
+                                        <a href="{{ $sbv->video_link }}" target="_blank"><p>{{ $sbv->video_link }}</p></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         @endif
@@ -277,10 +287,11 @@
                             <svg width="100%" height="100%" id="dbpLine2" class="clients-line"></svg>
                             <a href="#" class="cv-show"><img src="{{ asset('images/clients/sub-clients/'.$sub_clients[10]->subclient_image) }}" alt="" class="clients-img"/></a>
                             <div class="cv-container" id="">
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
-                                <a href="#"><p>https://www.youtube.com/watch?v=79Z5iwEWbIQ</p></a>
+                                @foreach($sub_videos as $sbv)
+                                    @if($sub_clients[10]->sub_clients_id == $sbv->sub_client_id)
+                                        <a href="{{ $sbv->video_link }}" target="_blank"><p>{{ $sbv->video_link }}</p></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         @endif

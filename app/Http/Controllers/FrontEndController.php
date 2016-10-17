@@ -67,7 +67,9 @@ class FrontEndController extends Controller
 
     public function subClients($id){
         $subclients = $this->sub_clients->where('page_content_id',$id)->get();
-        return view('sub_clients',['sub_clients'=>$subclients]);
+        $subvideos  = $this->page_videos->where(['page_content_id'=>0,'page_category_id'=>0])->get();
+        
+        return view('sub_clients',['sub_clients'=>$subclients,'sub_videos'=>$subvideos]);
     }
 
 
