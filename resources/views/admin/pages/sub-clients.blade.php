@@ -97,9 +97,7 @@
           @endforeach
          @else
          <div class="alert alert-warning alert-dismissible fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            </button>
-            No print ads available
+            No sub-clients available
           </div>
 
          @endif 

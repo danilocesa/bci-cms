@@ -12,6 +12,8 @@ use App\PageVideos;
 use App\PrintAd;
 use App\SubClients;
 
+use Mail;
+
 class FrontEndController extends Controller
 {
     public function __construct(){
@@ -63,6 +65,7 @@ class FrontEndController extends Controller
 
     public function contactForm(Request $request){
         dd($request->all());
+
     }
 
     public function subClients($id){
