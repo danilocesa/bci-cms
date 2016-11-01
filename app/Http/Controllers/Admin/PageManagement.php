@@ -41,7 +41,7 @@ class PageManagement extends Controller
         $directors = $this->page_content->where('page_category_id',1)->get();
         $aboutInfo = $this->page_category->where('page_category_id',1)->first();
     
-        return view('admin\pages\index',[ 'directors'=>$directors,'aboutInfo' => $aboutInfo]);
+        return view('admin/pagesindex',[ 'directors'=>$directors,'aboutInfo' => $aboutInfo]);
     }
 
     /**
@@ -133,7 +133,7 @@ class PageManagement extends Controller
         $pageInfo = $this->page_category->where('page_category_id',$catID)->first();
         $pageContent = $this->page_content->where('page_category_id',$catID)->$qType();
 
-        return view('admin\pages\index',[
+        return view('admin/pages/index',[
             'pageInfo' => $pageInfo,
             'pageContent' => $pageContent
         ]);
@@ -335,7 +335,7 @@ class PageManagement extends Controller
         $page_content = $this->page_content->where('page_content_id',$id)->first();
         $page_videos = $this->page_videos->where('page_content_id',$id)->get();
         
-        return view('admin\pages\videos-page',['title'=>$page_content->portfolio_text,'videos'=>$page_videos]);
+        return view('admin/pages/videos-page',['title'=>$page_content->portfolio_text,'videos'=>$page_videos]);
     }
 
     /**
@@ -396,7 +396,7 @@ class PageManagement extends Controller
      * @return \Illuminate\Http\Response
      */
     public function subPrint(){
-        return view('admin\pages\print-page',['print_ad'=>$this->print_ad->get()]);
+        return view('admin/pages/print-page',['print_ad'=>$this->print_ad->get()]);
     }
 
     /**
@@ -428,7 +428,7 @@ class PageManagement extends Controller
     public function subClient($id){
         $subClients = $this->sub_clients->where('page_content_id',$id)->get();
 
-        return view('admin\pages\sub-clients',['sub_clients'=>$subClients]);
+        return view('admin/pages/sub-clients',['sub_clients'=>$subClients]);
     }
 
     /**
@@ -460,7 +460,7 @@ class PageManagement extends Controller
     public function subVideos($id){
         $subVideos = $this->page_videos->where('sub_client_id',$id)->get();
 
-        return view('admin\pages\sub-videos',['sub_videos'=>$subVideos]);
+        return view('admin/pages/sub-videos',['sub_videos'=>$subVideos]);
     }
 
 

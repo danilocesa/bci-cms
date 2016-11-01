@@ -68,6 +68,10 @@ class FrontEndController extends Controller
 
     }
 
+    public function uploadAttach(Request $request){
+        dd($request->all());
+    }
+
     public function subClients($id){
         $subclients = $this->sub_clients->where('page_content_id',$id)->get();
         $subvideos  = $this->page_videos->where(['page_content_id'=>0,'page_category_id'=>0])->get();

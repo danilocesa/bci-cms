@@ -23,7 +23,6 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	]
 	, function () {
 
-
 	/*
 	* AuthController
 	*/

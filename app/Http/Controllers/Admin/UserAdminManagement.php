@@ -44,7 +44,7 @@ class UserAdminManagement extends Controller
         // $this->ui_logs->type = 'User Management';
         // $this->ui_logs->type_description = 'Viewed user page';
         // $this->ui_logs->save();
-        return view('admin\users\index',['roles_list'=>$this->role->orderBy('updated_at','desc')->get(),'permissions'=>$this->permissions->all()]);
+        return view('admin/users/index',['roles_list'=>$this->role->orderBy('updated_at','desc')->get(),'permissions'=>$this->permissions->all()]);
     }
 
     /**

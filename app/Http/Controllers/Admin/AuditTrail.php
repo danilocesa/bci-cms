@@ -33,7 +33,7 @@ class AuditTrail extends Controller
         // $this->ui_logs->type = 'Audit Trail';
         // $this->ui_logs->type_description = 'Viewed audit trail';
         // $this->ui_logs->save();
-        return view('admin\audit');
+        return view('admin/audit');
 
     }
 
