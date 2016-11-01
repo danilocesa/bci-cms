@@ -150,17 +150,17 @@ html * { font-family: woodcut !important; }
 /*Other Details*/
 #port-main a {color:#00B8E8;}
 #event-details {width: 100%;position: absolute;margin: 17em 0 0 4em;}
-#event-details img {width:20%; height:auto; margin-bottom: 1px;}
+#event-details img {width:20%; height:auto; margin-bottom: 1px;cursor: pointer;}
 #digital-details {width: 100%;position: absolute;margin: 11em 0 0 2.2em;}
-#digital-details img {width:20%; height:auto; margin-bottom: 1px;}
+#digital-details img {width:20%; height:auto; margin-bottom: 1px;cursor: pointer;}
 #ooh-details {width: 100%;position: absolute;margin: 11em 0 0 12em;}
-#ooh-details img {width:20%; height:auto; margin-bottom: 1px;}
+#ooh-details img {width:20%; height:auto; margin-bottom: 1px;cursor: pointer;}
 #shopper-details {width: 100%;position: absolute;margin: 28em 0 0 2em;}
-#shopper-details img {width:20%; height:auto; margin-bottom: 1px;}
+#shopper-details img {width:20%; height:auto; margin-bottom: 1px;cursor: pointer;}
 #activation-details {width: 100%;position: absolute;margin: 5em 0 0 1em;}
-#activation-details img {width:20%; height:auto; margin-bottom: 1px;}
+#activation-details img {width:20%; height:auto; margin-bottom: 1px; cursor: pointer;}
 #tv-details {width: 100%;position: absolute;margin: 0;cursor:pointer;}
-#tv-details img {width:20%; height:auto; margin-bottom: 1px;}
+#tv-details img {width:20%; height:auto; margin-bottom: 1px;cursor: pointer;}
 /*Print*/
 #print-details {margin-top: 15%;width: 100%;}
 #print-details p{ font-size:1.7em;}
@@ -335,7 +335,7 @@ html * { font-family: woodcut !important; }
 #sLine{display:none}
 /*Other Details*/
 #event-details, #digital-details, #activation-details, #tv-details, #ooh-details, #shopper-details{    margin: 0 0 10% 0;text-align: center;width: 100%;}
-#event-details img, #digital-details img, #activation-details img, #tv-details img, #ooh-details img, #shopper-details img {width:80%; margin-bottom:0.3em;}
+#event-details img, #digital-details img, #activation-details img, #tv-details img, #ooh-details img, #shopper-details img {width:80%; margin-bottom:0.3em;cursor: pointer;}
 /*Print Details*/
 #print-details {margin-top: 0;}
 .print-details-top { width:98%;}
@@ -424,7 +424,7 @@ html * { font-family: woodcut !important; }
 #sLine{display:none}
 /*Other Details*/
 #event-details, #digital-details, #activation-details, #tv-details, #ooh-details, #shopper-details{    margin: 0 0 10% 0;text-align: center;width: 100%;}
-#event-details img, #digital-details img, #activation-details img, #tv-details img, #ooh-details img, #shopper-details img {width:40%; margin-bottom:0.3em;}
+#event-details img, #digital-details img, #activation-details img, #tv-details img, #ooh-details img, #shopper-details img {width:40%; margin-bottom:0.3em;cursor: pointer;}
 
 /*Print Details*/
 #print-details {margin-top: 0;}
@@ -617,7 +617,7 @@ html * { font-family: woodcut !important; }
 #sLine{ display:block;  position:absolute;  z-index:-1;  margin-left:-20%}
 /*Other Details*/
 #event-details, #digital-details, #activation-details, #tv-details, #ooh-details, #shopper-details{    margin: 0 0 10% 0;text-align: center;width: 100%;}
-#event-details img, #digital-details img, #activation-details img, #tv-details img, #ooh-details img, #shopper-details img {width:40%; margin-bottom:0.3em;}
+#event-details img, #digital-details img, #activation-details img, #tv-details img, #ooh-details img, #shopper-details img {width:40%; margin-bottom:0.3em;cursor: pointer;}
 
 /*Print Details*/
 #print-details {margin-top: 0;}

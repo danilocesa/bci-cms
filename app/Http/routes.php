@@ -33,7 +33,8 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	Route::post('/login','Admin\AuthController@authAdmin');
 	Route::get('logout','Admin\AuthController@doLogout');
 	Route::get('dashboard','Admin\AuthController@dashboard');
-
+	
+	Route::group(['middleware' => 'auth'], function () {
 	/*
     * PageManagement
     */
@@ -70,6 +71,7 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	Route::resource('audit-trail','Admin\AuditTrail');
 
 
-	Route::get('cAdu/{email}/{password}','Admin\AuthController@createAdminU');
-	Route::get('cheLog/','Admin\AuthController@checkLogged');
+	// Route::get('cAdu/{email}/{password}','Admin\AuthController@createAdminU');
+	// Route::get('cheLog/','Admin\AuthController@checkLogged');
+	});
 });
