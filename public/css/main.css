@@ -3,13 +3,14 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
 /* ===== Initializr Styles ==================================================
    Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
 ========================================================================== */
-body{font:16px/26px Helvetica,Helvetica Neue,Arial}.wrapper{width:90%;margin:0 5%}.title{color:#fff}.main{padding:30px 0}.main aside{color:grey;padding:0 5% 10px}.footer-container footer{color:#fff;padding:20px 0}.ie7 .title{padding-top:20px}
+body{font:16px/26px Helvetica,Helvetica Neue,Arial}.wrapper{width:90%;margin:0 5%}.title{color:#fff}.main{padding:30px 0;margin-top:60px!important;}.main aside{color:grey;padding:0 5% 10px}.footer-container footer{color:#fff;padding:20px 0}.ie7 .title{padding-top:20px}
 /* ==========================================================================
    Author's custom styles
 ========================================================================== */
 @font-face { font-family: woodcut; src: url(../fonts/Woodcut.ttf); }
 html * { font-family: woodcut !important; }
 .footer-container{ display:none; }
+.main-container{overflow:hidden;height:100%;}
 .main aside p{ font-size:1.1em; text-align: center; margin-top:10px; line-height: 1em; }
 .main aside img{ height:100px; }
 #bci-menu{ padding:10px; z-index: 1; }
@@ -239,6 +240,8 @@ html * { font-family: woodcut !important; }
    Media stage 1
 ========================================================================== */
 @media only screen and (max-width: 320px){
+.main-container{height:auto;overflow:visible;}	
+.main{margin-top:0!important;}
 .main aside img{display:block;margin-left:auto;margin-right:auto}
 .invisible {display:none;}
 .resp-divider{ top:39%!important; z-index: -1!important;display:block;}
@@ -355,7 +358,7 @@ html * { font-family: woodcut !important; }
 /*#clients-microsoft:after{display:none}
 #clients-mitsubishi:before{content:""; display:block; width:0px; height:15px; border:0; border-left:2px solid rgb(185,185,185); margin:0 auto; padding:0px}*/
 #clients-menu:before{content:""; display:block; width:105px; border-bottom:2px solid rgb(185,185,185); -webkit-transform:translateY(98px)translateX(-45px)rotate(135deg); position:absolute; z-index:-1;}
-#clients-menu:after{content:""; display:block; width:105px; border-bottom:2px solid rgb(185,185,185); -webkit-transform:translateY(65px)translateX(30px)rotate(45deg); position:absolute; top:16em;  z-index:-1}
+#clients-menu:after{content:""; display:block; width:105px; border-bottom:2px solid rgb(185,185,185); -webkit-transform:translateY(65px)translateX(30px)rotate(45deg); position:absolute; top:15em;  z-index:-1}
 
 .current:before{content:""; display:block; width:0px; height:90px !important; border:0; border-left:2px solid rgb(185,185,185); margin:0 auto; padding:0px; position: absolute; left: 48%; top: -55%; z-index:-1;}
 .current:after{display:none !important}
@@ -376,6 +379,8 @@ html * { font-family: woodcut !important; }
    ========================================================================== */
 
 @media only screen and (min-width: 321px) and (max-width: 479px) {
+.main-container{height:auto;overflow:visible;}
+.main{margin-top:0!important;}
 .main aside img{display:block;margin-left:auto;margin-right:auto}
 .invisible {display:none;}
 .resp-divider{ top:39%!important; z-index: -1!important;display:block;}
@@ -525,6 +530,8 @@ html * { font-family: woodcut !important; }
    Media stage 3
 ========================================================================== */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+.main-container{height:auto;overflow:visible;}
+.main{margin-top:0!important;}
 .main aside{width:100%}
 .main aside img{display:block;margin-left:auto;margin-right:auto}
 #bci-menu{width:120px}

@@ -168,6 +168,9 @@ return [
         /* Image Intervention */
         Intervention\Image\ImageServiceProvider::class,
 
+        /* Tracker */
+        PragmaRX\Tracker\Vendor\Laravel\ServiceProvider::class,
+
     ],
 
     /*
@@ -219,6 +222,8 @@ return [
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
 
         'Image' => Intervention\Image\Facades\Image::class,
+
+        'Tracker' => PragmaRX\Tracker\Vendor\Laravel\Facade::class,
 
     ],
 

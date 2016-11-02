@@ -30,46 +30,47 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 		return view('admin/login');
 	});
 
-	Route::post('/login','Admin\AuthController@authAdmin');
-	Route::get('logout','Admin\AuthController@doLogout');
-	Route::get('dashboard','Admin\AuthController@dashboard');
-
-	/*
-    * PageManagement
-    */
-
-    Route::post('page-uploads','Admin\PageManagement@processUpload');
-    Route::get('page-management/sub-page/{id}','Admin\PageManagement@subPage');
-    Route::post('page-management/save-video','Admin\PageManagement@saveVideo');
-    Route::get('page-management/delete-video/{id}','Admin\PageManagement@deleteVideo');
-    Route::get('page-management/sub-print','Admin\PageManagement@subPrint');
-    Route::get('page-management/delete-print/{id}','Admin\PageManagement@deletePrint');
-    Route::get('page-management/sub-clients/{id}','Admin\PageManagement@subClient');
-    Route::get('page-management/delete-subclients/{id}','Admin\PageManagement@deleteSubClient');
-    Route::get('page-management/subclient-videos/{id}','Admin\PageManagement@subVideos');
-	Route::resource('page-management','Admin\PageManagement');
 	
-	/*
-    * AdminManagement
-    */
-    Route::get('user-management/users','Admin\UserAdminManagement@userList');
-	Route::resource('user-management','Admin\UserAdminManagement');
+		
+		Route::post('/login','Admin\AuthController@authAdmin');
+		Route::group(['middleware'=>'auth'],function(){
+			Route::get('logout','Admin\AuthController@doLogout');
+			
+			Route::get('dashboard','Admin\AuthController@dashboard');
 
-	/*
-    * RoleAndPermission
-    */
-    Route::get('role-and-permission/add-permission','Admin\RoleAndPermission@addPermission');
-    Route::get('role-and-permission/show-permission/{id}','Admin\RoleAndPermission@showPermission');
-    Route::post('role-and-permission/attach-permission','Admin\RoleAndPermission@attachPermission');
-	Route::resource('role-and-permission','Admin\RoleAndPermission');
+			/*
+		    * PageManagement
+		    */
 
-	/*
-    * Audit Trail
-    */
-    Route::get('audit-trail/logs','Admin\AuditTrail@logsList');
-	Route::resource('audit-trail','Admin\AuditTrail');
+		    Route::post('page-uploads','Admin\PageManagement@processUpload');
+		    Route::get('page-management/sub-page/{id}','Admin\PageManagement@subPage');
+		    Route::post('page-management/save-video','Admin\PageManagement@saveVideo');
+		    Route::get('page-management/delete-video/{id}','Admin\PageManagement@deleteVideo');
+		    Route::get('page-management/sub-print','Admin\PageManagement@subPrint');
+		    Route::get('page-management/delete-print/{id}','Admin\PageManagement@deletePrint');
+		    Route::get('page-management/sub-clients/{id}','Admin\PageManagement@subClient');
+		    Route::get('page-management/delete-subclients/{id}','Admin\PageManagement@deleteSubClient');
+		    Route::get('page-management/subclient-videos/{id}','Admin\PageManagement@subVideos');
+			Route::resource('page-management','Admin\PageManagement');
+			
+			/*
+		    * AdminManagement
+		    */
+		    Route::get('user-management/users','Admin\UserAdminManagement@userList');
+			Route::resource('user-management','Admin\UserAdminManagement');
 
+			/*
+		    * RoleAndPermission
+		    */
+		    Route::get('role-and-permission/add-permission','Admin\RoleAndPermission@addPermission');
+		    Route::get('role-and-permission/show-permission/{id}','Admin\RoleAndPermission@showPermission');
+		    Route::post('role-and-permission/attach-permission','Admin\RoleAndPermission@attachPermission');
+			Route::resource('role-and-permission','Admin\RoleAndPermission');
 
-	Route::get('cAdu/{email}/{password}','Admin\AuthController@createAdminU');
-	Route::get('cheLog/','Admin\AuthController@checkLogged');
+			/*
+		    * Audit Trail
+		    */
+		    Route::get('audit-trail/logs','Admin\AuditTrail@logsList');
+			Route::resource('audit-trail','Admin\AuditTrail');
+		});
 });

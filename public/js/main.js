@@ -2,9 +2,11 @@ $(document).ready(function() {
 
 
 
-$('#bci-menu a .invisible').on('click',function(){
-	alert(1);
-	e.preventDefault();
+$('.menu-url').on('click',function(e){
+	if($(this).children('div.invisible').length){
+		return false;
+	}
+	// e.preventDefault();
 });
 
 

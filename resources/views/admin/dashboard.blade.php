@@ -47,7 +47,7 @@
 			<div class="row">
 	
 			<!-- Widget 1 -->
-				<!-- <div class="col-md-3 col-sm-3 col-xs-3">
+				<div class="col-md-3 col-sm-3 col-xs-3">
 					<div class="x_panel">
 						<div class="widget-chart">
 							<div class="widget-text">	
@@ -62,11 +62,11 @@
 							<span>32% higher than yesterday</span>
 						</div>
 					</div>
-				</div> -->
+				</div>
 			<!-- End Widget 1 -->
 			
 			<!-- Widget 2 -->
-				<!-- <div class="col-md-3 col-sm-3 col-xs-3">
+				<div class="col-md-3 col-sm-3 col-xs-3">
 					<div class="x_panel">
 						<div class="widget-chart">
 							<div class="widget-text">	
@@ -81,11 +81,11 @@
 							<span>32% higher than yesterday</span>
 						</div>
 					</div>
-				</div> -->
+				</div>
 			<!-- End Widget 2 -->
 			
 			<!-- Widget 3 -->
-				<!-- <div class="col-md-3 col-sm-3 col-xs-3">
+				<div class="col-md-3 col-sm-3 col-xs-3">
 					<div class="x_panel">
 						<div class="widget-chart">
 							<div class="widget-text">	
@@ -100,11 +100,11 @@
 							<span>32% higher than yesterday</span>
 						</div>
 					</div>
-				</div> -->
+				</div>
 			<!-- End Widget 3 -->
 			
 			<!-- Widget 4 -->
-				<!-- <div class="col-md-3 col-sm-3 col-xs-3">
+				<div class="col-md-3 col-sm-3 col-xs-3">
 					<div class="x_panel">
 						<div class="widget-chart">
 							<div class="widget-text">	
@@ -119,15 +119,11 @@
 							<span>32% higher than yesterday</span>
 						</div>
 					</div>
-				</div> -->
+				</div>
 			<!-- End Widget 4 -->
 			
 			</div>
-			<div class="alert alert-warning alert-dismissible fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            </button>
-            Under Construction
-          </div>
+		
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">

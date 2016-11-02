@@ -58,9 +58,7 @@ class AuthController extends Controller
     }
 
     public function dashboard(){
-        if(!auth()->user()){
-            abort(404);
-        }
+
         return view('admin/dashboard');
         // dump(auth()->user());
     }

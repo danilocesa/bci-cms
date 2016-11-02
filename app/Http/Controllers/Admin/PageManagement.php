@@ -41,7 +41,7 @@ class PageManagement extends Controller
         $directors = $this->page_content->where('page_category_id',1)->get();
         $aboutInfo = $this->page_category->where('page_category_id',1)->first();
     
-        return view('admin/pagesindex',[ 'directors'=>$directors,'aboutInfo' => $aboutInfo]);
+        return view('admin/pages/index',[ 'directors'=>$directors,'aboutInfo' => $aboutInfo]);
     }
 
     /**

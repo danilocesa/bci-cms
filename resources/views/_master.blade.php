@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{{ asset('css/normalize.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('css/semantic.min.css') }}">
+        @stack('styles')
         <script>
             if(navigator.userAgent.indexOf("Safari")!=-1){
                 console.log("You are using Safari!");
@@ -40,11 +41,14 @@
                 </p>
             </aside>
             <nav id="bci-menu">
-                <a href="{{ url('/') }}"><div class="menu-circle " id="home-menu">home</div></a>
-                <a href="{{ url('about-us') }}"><div class="menu-circle {{ Request::segment(1) == 'about-us' || Request::segment(1) == '' ? '' : 'invisible' }}" id="about-menu">about us</div></a>
-                <a href="{{ url('clients') }}"><div class="menu-circle {{ Request::segment(1) == 'clients' || Request::segment(1) == '' ? '' : 'invisible' }}" id="clients-menu">clients</div></a>
-                <a href="{{ url('portfolio') }}"><div class="menu-circle {{ Request::segment(1) == 'portfolio'  || Request::segment(1) == '' ? '' : 'invisible'}} " id="portfolio-menu">portfolio</div></a>
-                <a href="{{ url('contact-us') }}"><div class="menu-circle {{ Request::segment(1) == 'contact-us'  || Request::segment(1) == '' ? '' : 'invisible'}}" id="contact-us-menu">contact us</div></a>
+                <a href="{{ url('/') }}" class="menu-url">
+                    <div class="menu-circle" id="home-menu">home</div>
+                </a>
+                <a href="{{ url('about-us') }}" class="menu-url">
+                <div class="menu-circle {{ Request::segment(1) == 'about-us' || Request::segment(1) == '' ? '' : 'invisible' }}" id="about-menu">about us</div></a>
+                <a href="{{ url('clients') }}" class="menu-url"><div class="menu-circle {{ Request::segment(1) == 'clients' || Request::segment(1) == '' ? '' : 'invisible' }}" id="clients-menu">clients</div></a>
+                <a href="{{ url('portfolio') }}" class="menu-url"><div class="menu-circle {{ Request::segment(1) == 'portfolio'  || Request::segment(1) == '' ? '' : 'invisible'}} " id="portfolio-menu">portfolio</div></a>
+                <a href="{{ url('contact-us') }}" class="menu-url"><div class="menu-circle {{ Request::segment(1) == 'contact-us'  || Request::segment(1) == '' ? '' : 'invisible'}}" id="contact-us-menu">contact us</div></a>
             </nav>
                @yield('content')
         </div> <!-- #main -->

@@ -1,5 +1,13 @@
 @extends('_master')
 @section('title', 'BCI. eNav')
+@push('styles')
+    <style>
+        #contact-us-menu:after{ display:none;}
+        #clients-menu:before{ display:none;}
+        #clients-menu:after{ display:none;}
+        #about-menu:after{display:none;}
+    </style>
+@endpush
 @push('scripts')
 <script>
     window.onload = function(){
