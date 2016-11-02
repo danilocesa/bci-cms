@@ -29,9 +29,7 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 	Route::get('/login',function(){
 		return view('admin/login');
 	});
-
 	
-		
 		Route::post('/login','Admin\AuthController@authAdmin');
 		Route::group(['middleware'=>'auth'],function(){
 			Route::get('logout','Admin\AuthController@doLogout');
@@ -66,7 +64,6 @@ Route::group(['prefix'=>'web-admin','as' =>'web-admin'
 		    Route::get('role-and-permission/show-permission/{id}','Admin\RoleAndPermission@showPermission');
 		    Route::post('role-and-permission/attach-permission','Admin\RoleAndPermission@attachPermission');
 			Route::resource('role-and-permission','Admin\RoleAndPermission');
-
 			/*
 		    * Audit Trail
 		    */
