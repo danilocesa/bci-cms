@@ -168,8 +168,9 @@ return [
         /* Image Intervention */
         Intervention\Image\ImageServiceProvider::class,
 
-        /* Tracker */
-        PragmaRX\Tracker\Vendor\Laravel\ServiceProvider::class,
+        //Tracker
+        Weboap\Visitor\VisitorServiceProvider::class,
+
 
     ],
 
@@ -223,8 +224,7 @@ return [
 
         'Image' => Intervention\Image\Facades\Image::class,
 
-        'Tracker' => PragmaRX\Tracker\Vendor\Laravel\Facade::class,
-
+        'Visitor'   =>  Weboap\Visitor\VisitorServiceProvider::class,
     ],
 
 ];

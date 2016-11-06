@@ -52,21 +52,21 @@
 						<div class="widget-chart">
 							<div class="widget-text">	
 								<span>TODAYS VISITS</span>					
-								<p>1,000</p>
+								<p>{{ $viewsToday }}</p>
 							</div>
 							<div class="widget-icon">						
 								<i class="fa fa-eye"></i>
 							</div>
 						</div>
-						<div class="widget-title first">
+					<!-- 	<div class="widget-title first">
 							<span>32% higher than yesterday</span>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			<!-- End Widget 1 -->
 			
 			<!-- Widget 2 -->
-				<div class="col-md-3 col-sm-3 col-xs-3">
+				<!-- <div class="col-md-3 col-sm-3 col-xs-3">
 					<div class="x_panel">
 						<div class="widget-chart">
 							<div class="widget-text">	
@@ -81,11 +81,11 @@
 							<span>32% higher than yesterday</span>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			<!-- End Widget 2 -->
 			
 			<!-- Widget 3 -->
-				<div class="col-md-3 col-sm-3 col-xs-3">
+				<!-- <div class="col-md-3 col-sm-3 col-xs-3">
 					<div class="x_panel">
 						<div class="widget-chart">
 							<div class="widget-text">	
@@ -100,11 +100,11 @@
 							<span>32% higher than yesterday</span>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			<!-- End Widget 3 -->
 			
 			<!-- Widget 4 -->
-				<div class="col-md-3 col-sm-3 col-xs-3">
+				<!-- <div class="col-md-3 col-sm-3 col-xs-3">
 					<div class="x_panel">
 						<div class="widget-chart">
 							<div class="widget-text">	
@@ -119,12 +119,12 @@
 							<span>32% higher than yesterday</span>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			<!-- End Widget 4 -->
 			
 			</div>
 		
-            <div class="row">
+          <!--   <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -151,7 +151,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 						
             <div class="row">
 			
@@ -186,74 +186,25 @@
 					<div class="title_activity">
 						<h3>ACTIVITY</h3>
 					</div>
+					@foreach($activities as $ac)
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="x_panel">
 							<div class="activity">
-								<div class="act-img">
+								<!-- <div class="act-img">
 								  <img src="../images/avatar/jenny.jpg">
-								</div>
+								</div> -->
 								<div class="act-content">
 								  <div class="summary">
-									You added Jenny Hessa to your coworker group.
+									{{ $ac->name.' '.strtolower($ac->type_description) }}
 								  </div>
 								</div>
 								<div class="act-date">
-								  3 days ago
+								  {{ $ac->created_at->diffForHumans() }}
 								</div>	
 							</div>				
 						</div>
 					</div>
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="x_panel">
-							<div class="activity">
-								<div class="act-img">
-								  <img src="../images/avatar/jenny.jpg">
-								</div>
-								<div class="act-content">
-								  <div class="summary">
-									You added Jenny Hessa to your coworker group.
-								  </div>
-								</div>
-								<div class="act-date">
-								  3 days ago
-								</div>	
-							</div>				
-						</div>
-					</div>
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="x_panel">
-							<div class="activity">
-								<div class="act-img">
-								  <img src="../images/avatar/jenny.jpg">
-								</div>
-								<div class="act-content">
-								  <div class="summary">
-									You added Jenny Hessa to your coworker group.
-								  </div>
-								</div>
-								<div class="act-date">
-								  3 days ago
-								</div>	
-							</div>				
-						</div>
-					</div>
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="x_panel">
-							<div class="activity">
-								<div class="act-img">
-								  <img src="../images/avatar/jenny.jpg">
-								</div>
-								<div class="act-content">
-								  <div class="summary">
-									You added Jenny Hessa to your coworker group.
-								  </div>
-								</div>
-								<div class="act-date">
-								  3 days ago
-								</div>	
-							</div>				
-						</div>
-					</div>
+					@endforeach
 				</div>
 				
             </div>

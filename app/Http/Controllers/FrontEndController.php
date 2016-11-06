@@ -13,6 +13,7 @@ use App\PrintAd;
 use App\SubClients;
 
 use Mail;
+use Visitor;
 
 class FrontEndController extends Controller
 {
@@ -25,6 +26,7 @@ class FrontEndController extends Controller
     }
 
     public function index(){
+        Visitor::log();
     	$page_desc = '';
     	return view('index',['page_desc'=> $page_desc]);
     }

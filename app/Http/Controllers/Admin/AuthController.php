@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Auth;
 use Hash;
+use Visitor;
 use App\Http\Requests;
 use App\AdminsTB;
 use App\UILogs;
@@ -58,8 +59,10 @@ class AuthController extends Controller
     }
 
     public function dashboard(){
-
-        return view('admin/dashboard');
+        $clicksToday = Visitor::clicksToday();
+        $activities = $this->ui_logs->orderBy('created_at','desc')->limit(5)->get();
+    
+        return view('admin/dashboard',['viewsToday'=>$clicksToday,'activities'=>$activities]);
         // dump(auth()->user());
     }
 

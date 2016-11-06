@@ -11,7 +11,7 @@
         "zizaco/entrust" : "5.2.x-dev",
         "yajra/laravel-datatables-oracle": "^6.17",
         "intervention/image": "^2.3",
-        "pragmarx/tracker": "^3.0"
+        "weboap/visitor": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
