@@ -34,6 +34,10 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="main-container">
+        <div class="wall-gradient">
+            <div class="left-grad"></div>
+            <div class="right-grad"></div>
+        </div>
         <div class="main wrapper clearfix">
             <aside>
                 <a href="index.html"><img src="{{ asset('images/bci-logo.png') }}" /></a>

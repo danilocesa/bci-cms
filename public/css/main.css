@@ -3,7 +3,29 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
 /* ===== Initializr Styles ==================================================
    Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
 ========================================================================== */
-body{font:16px/26px Helvetica,Helvetica Neue,Arial}.wrapper{width:90%;margin:0 5%}.title{color:#fff}.main{padding:30px 0;margin-top:60px!important;}.main aside{color:grey;padding:0 5% 10px}.footer-container footer{color:#fff;padding:20px 0}.ie7 .title{padding-top:20px}
+body{font:16px/26px Helvetica,Helvetica Neue,Arial}.wrapper{width:90%;margin:0 5%}.title{color:#fff}
+.main{padding-top:60px!important;height:100%;background:white;}.main aside{color:grey;padding:0 5% 10px}.footer-container footer{color:#fff;padding:20px 0}.ie7 .title{padding-top:20px}
+.wall-gradient{height:100%;width:100%;position:absolute;z-index: -5;}
+.left-grad{
+	width:50%;
+	height:100%;
+	display:inline-block;
+	float:left;
+	background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(-90deg, #62d6f2, white); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(-90deg, #62d6f2, white); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(-90deg, #62d6f2, white); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(-90deg, #62d6f2, white); /* Standard syntax */ /* Standard syntax (must be last) */}
+.right-grad{
+	width:50%;
+	height:100%;
+	display:inline-block;
+	float:right;
+	background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #62d6f2 , white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #62d6f2, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #62d6f2, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #62d6f2 , white); /* Standard syntax (must be last) */}
 /* ==========================================================================
    Author's custom styles
 ========================================================================== */
@@ -14,7 +36,7 @@ html * { font-family: woodcut !important; }
 .main aside p{ font-size:1.1em; text-align: center; margin-top:10px; line-height: 1em; }
 .main aside img{ height:100px; }
 #bci-menu{ padding:10px; z-index: 1; }
-.menu-circle{width:90px;height:90px;background:#00B8E8;-moz-border-radius:50px;-webkit-border-radius:50px;border-radius:50px;margin-top:25px;;font-size:1.7em;color:#fff;text-align:center;line-height:3.9em;}
+.menu-circle{width:90px;height:90px;-moz-border-radius:50px;-webkit-border-radius:50px;border-radius:50px;margin-top:25px;;font-size:1.7em;color:#fff;text-align:center;line-height:3.9em;background-image: url("../images/menu-bg.png");background-size: 100px 100px;background-position:-3px -3px;background-repeat: no-repeat;}
 .menu-circle a, .menu-circle a:visited{ color:#fff; }
 .menu-circle a:hover{ color:#000; }
 .main-content{position: relative;width:60%;left:15%;top:40px;}
@@ -42,6 +64,7 @@ html * { font-family: woodcut !important; }
 #pLine{ position:absolute; top:0; left:0;}
 #wLine{ position:absolute; top:0; }
 #cuLine{ position:absolute; top:1em; }
+
 /* ==========================================================================
    About Us
 ========================================================================== */
