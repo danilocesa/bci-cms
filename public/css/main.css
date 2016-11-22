@@ -11,21 +11,21 @@ body{font:16px/26px Helvetica,Helvetica Neue,Arial}.wrapper{width:90%;margin:0 5
 	height:100%;
 	display:inline-block;
 	float:left;
-	background: red; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(-90deg, #62d6f2, white); /* For Safari 5.1 to 6.0 */
-  	background: -o-linear-gradient(-90deg, #62d6f2, white); /* For Opera 11.1 to 12.0 */
-  	background: -moz-linear-gradient(-90deg, #62d6f2, white); /* For Firefox 3.6 to 15 */
-  	background: linear-gradient(-90deg, #62d6f2, white); /* Standard syntax */ /* Standard syntax (must be last) */}
+	background: #62d6f2; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(-90deg, #62d6f2, white); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(-90deg, #62d6f2, white); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(-90deg, #62d6f2, white); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(-90deg, #62d6f2, white); /* Standard syntax */ /* Standard syntax (must be last) */}
 .right-grad{
 	width:50%;
 	height:100%;
 	display:inline-block;
 	float:right;
-	background: red; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left, #62d6f2 , white); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, #62d6f2, white); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #62d6f2, white); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #62d6f2 , white); /* Standard syntax (must be last) */}
+	background: #62d6f2; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #62d6f2 , white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #62d6f2, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #62d6f2, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #62d6f2 , white); /* Standard syntax (must be last) */}
 /* ==========================================================================
    Author's custom styles
 ========================================================================== */
@@ -53,17 +53,6 @@ html * { font-family: woodcut !important; }
 #progress-port .status{top:3px;left:50%;position:absolute;display:inline-block;color:#000}
 .form-err {display:none;}
 .caption input{width:100%}
-/* ==========================================================================
-   Index
-========================================================================== */
-#art-hand{ width: 423px; overflow:hidden; }
-#art-hand img{ width:610px; position:relative; }
-#line-art-connection{position: absolute;margin-left: 80px;margin-top: 5px;width: 746px;height: 44em;overflow:hidden;}
-#line-art-connection div{ position:absolute;  width:100%;  height:100%}
-#aLine{ position:absolute; }
-#pLine{ position:absolute; top:0; left:0;}
-#wLine{ position:absolute; top:0; }
-#cuLine{ position:absolute; top:1em; }
 
 /* ==========================================================================
    About Us
@@ -777,18 +766,9 @@ nav {float: right;width: 38%;}
 #auLine{top:10%;width:53%;height:25%;}
 #img-container-aboutus img { left:30%; }
 
-/*#img-container-aboutus img{ width:510px;  height:510px;  position:absolute;  left:39%;z-index:2;}
-#img-container-aboutus #left:before{ float:right;shape-outside: ellipse(260px 260px at 128% 19%); height: 350px;}
-#img-container-aboutus #right:before{ float:left;shape-outside: ellipse(260px 260px at -17% 35%); height: 455px;}*/
-
 /* ==========================================================================
    Portfolio
 ========================================================================== */
-/*.port-circle-events{ float:left;  position:relative;  width:30%;  padding-bottom:30%;  margin:8% 15% 0 0;  overflow:hidden}
-.port-circle-print{ float:left;  position:relative;  width:37%;  padding-bottom:37%;  margin:0;  overflow:hidden}
-.port-circle-digital{ float:left;  position:relative;  width:24%;  padding-bottom:24%;  margin:0 10% 0 30%;  overflow:hidden}
-.port-circle-activation{ float:left;  position:relative;  width:34%;  padding-bottom:34%;  margin:3% 0 0 7%;  overflow:hidden}
-.port-circle-tv{ float:left;  position:relative;  width:49%;  padding-bottom:49%;  margin:-12% 0px 0px 8%;  overflow:hidden}*/
 .port-circle-shopper {margin: -14% 0% 7% 4%;}
 .port-circle-events p {font-size:3em;}
 .port-circle-digital p {font-size:2em;}
@@ -887,27 +867,16 @@ nav {float: right;width: 38%;}
     #eline-2, #pline-2, #dline-2, #aline-2, #tline-2, #sline-2, #oline-2 { display: none; }
     #eline-3, #pline-3, #dline-3, #aline-3, #tline-3, #sline-3, #oline-3 { display: block; }
     #eline-4, #pline-4, #dline-4, #aline-4, #tline-4, #sline-4, #oline-4 { display: none; }
-     /*Other Details*/
-    /*#event-details {margin: 14% 0px 0px 35%;}*/
-    /*#digital-details {margin: 19% 0 0 24%;}*/
-    /*#activation-details {margin: 46% 0 0 5%;}*/
-    /*#tv-details {margin: 30% 0 0 54%;}     */
 }
 @media only screen and (min-width: 768px) and (max-width: 899px) {
     #eline-1, #pline-1, #dline-1, #aline-1, #tline-1, #sline-1, #oline-1 {display:none;}
     #eline-2, #pline-2, #dline-2, #aline-2, #tline-2, #sline-2, #oline-2 { display: none; }
     #eline-3, #pline-3, #dline-3, #aline-3, #tline-3, #sline-3, #oline-3 { display: none; }
     #eline-4, #pline-4, #dline-4, #aline-4, #tline-4, #sline-4, #oline-4 { display: block; }
-     /*Other Details*/
-    /*#event-details {margin: 13% 0px 0px 37%;}*/
-    /*#digital-details {margin: 16% 0 0 20%;}*/
-    /*#activation-details {margin: 43% 0 0 2%;}*/
-    /*#tv-details {margin: 27% 0 0 49%;} */
-    /*#event-details, #digital-details, #activation-details, #tv-details{    margin: 0 auto;text-align: center;width: 100%;}*/
-  /*Print Details*/
-  #print-details {margin: 0 10px;}
-  .print-details-top {width:98%; min-height: 200px;}
-  .print-details-bottom {width:48%; min-height: 200px; }    
+    /*Print Details*/
+    #print-details {margin: 0 10px;}
+    .print-details-top {width:98%; min-height: 200px;}
+    .print-details-bottom {width:48%; min-height: 200px; }    
 }
 
 

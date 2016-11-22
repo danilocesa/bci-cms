@@ -2,58 +2,54 @@
 @section('title', 'BCI. eNav')
 @push('styles')
     <style>
+        #art-hand{ width: 455px; overflow:hidden;; }
+        #art-hand img{ width:446px; position:relative; left:-6px}
+        #line-art-connection{position: absolute;margin-left: 80px;height: 44em;overflow:hidden;}
+        #line-art-connection div{ position:absolute;  width:100%;  height:100%}
+        #aLine{ position:absolute; }
+        #pLine{ position:absolute; top:0; left:0;}
+        #wLine{ position:absolute; top:0; }
+        #cuLine{ position:absolute; top:1em; }
+
         #contact-us-menu:after{ display:none;}
         #clients-menu:before{ display:none;}
         #clients-menu:after{ display:none;}
         #about-menu:after{display:none;}
+
+        .line-path {
+          stroke-dasharray: 1000;
+          stroke-dashoffset: 1000;
+          animation: dash 5s linear forwards;
+        }
+
+        #home-menu-line{
+            transform: translate(-20px, 115px);
+        }
+
+        @keyframes dash {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+
     </style>
 @endpush
 @push('scripts')
 <script>
-    window.onload = function(){
-        /* ==========================================================================
-          Index SVG Lines
-           ========================================================================== */    
-        var aLine = Snap("#aLine");
-        var cLine = Snap("#cLine");
-        var pLine = Snap("#pLine");
-        var wLine = Snap("#wLine");
-        var cuLine = Snap("#cuLine");
-        
-        if ($(window).width() >= 758) { //Media 1
-            // aLine.line(0, '12%', '99%', '48%').attr({ stroke: '#B9B9B9', strokeWidth: 2, strokeDasharray: 1000,strokeDashoffset:1000});
-            aLine.line(0, '12%', '99%', '48%').attr({ stroke: '#B9B9B9', strokeWidth: 2});
-            cLine.line(0, '30%', '73%', '25%').attr({ stroke: '#B9B9B9', strokeWidth: 2});
-            pLine.line(0, '49%', '58%', '18%').attr({ stroke: '#B9B9B9', 'strokeWidth': 2});
-            wLine.line(0, '68%', '42%', '36%').attr({ stroke: '#B9B9B9', 'strokeWidth': 2});
-            cuLine.line(0, '83%', '36%', '48%').attr({ stroke: '#B9B9B9', 'strokeWidth': 2});
-
-            //Animation of line
-            // aLine.animate({ strokeDashoffset: 1000 },3000);
-            // Snap.animate(1000,300, function( value ){
-            //        aLine.attr();
-            //        // console.log(1);
-            //        cLine.attr({ 'strokeDashoffset': value });
-
-            // },5000 );
-            // console.log(aLine.inAnim());
-
-            // console.log(aLine.selectAll('path'));
-            // aLine.path().getTotalLength(aLine.getTotalLength());
-        } else if($(window).width() >= 470 && $(window).width() < 758){
-            // aLine.line(0, '6%', '100%', '28%').attr({ stroke: '#B9B9B9', 'strokeWidth': 2});
-        }
-    }
+  
 </script>
 @endpush
 
 @section('content')
-    <div id="line-art-connection" class="line-animate">
-        <svg width="100%" height="100%" id="aLine"></svg>
-        <svg width="100%" height="100%" id="cLine"></svg>
-        <svg width="100%" height="100%" id="pLine"></svg>
-        <svg width="100%" height="100%" id="wLine"></svg>
-        <svg width="100%" height="100%" id="cuLine"></svg>
+    <div id="line-art-connection">
+        <svg height="570" width="590">
+          <line class="line-path" x1="0" y1="13%" x2="91%" y2="56%" style="stroke:#B9B9B9;stroke-width:2" />
+          <line class="line-path" x1="0" y1="33%" x2="69%" y2="35%" style="stroke:#B9B9B9;stroke-width:2" />
+          <line class="line-path" x1="0" y1="55%" x2="55%" y2="29%" style="stroke:#B9B9B9;stroke-width:2" />
+          <line class="line-path" x1="0" y1="75%" x2="42%" y2="41%" style="stroke:#B9B9B9;stroke-width:2" />
+          <line class="line-path" x1="0" y1="99%" x2="32%" y2="59%" style="stroke:#B9B9B9;stroke-width:2" />
+          Sorry, your browser does not support inline SVG.
+        </svg>
     </div>
     <div id="art-hand">
         <img src="{{ asset('images/art-hand.png') }}" />

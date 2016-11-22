@@ -55,6 +55,7 @@
                 <a href="{{ url('contact-us') }}" class="menu-url"><div class="menu-circle {{ Request::segment(1) == 'contact-us'  || Request::segment(1) == '' ? '' : 'invisible'}}" id="contact-us-menu">contact us</div></a>
             </nav>
                @yield('content')
+  
         </div> <!-- #main -->
     </div> <!-- #main-container -->
     </body>
