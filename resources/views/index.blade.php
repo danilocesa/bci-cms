@@ -16,15 +16,8 @@
         #clients-menu:after{ display:none;}
         #about-menu:after{display:none;}
 
-        .line-path {
-          stroke-dasharray: 1000;
-          stroke-dashoffset: 1000;
-          animation: dash 5s linear forwards;
-        }
-
-        #home-menu-line{
-            transform: translate(-20px, 115px);
-        }
+        .line-path{display:none;}
+        #art-hand{display:none;}
 
         @keyframes dash {
           to {
@@ -36,13 +29,27 @@
 @endpush
 @push('scripts')
 <script>
-  
+    $(document).ready(function(){
+        $('.skip-text').html('<a href="{{ url("slides") }}"><h1>Skip</h1></a>');
+        $("#art-hand").fadeIn(2500,function(){
+            $('.line-path').css({
+                "display":"block",
+                "stroke-dasharray":"1000",
+                "stroke-dashoffset":"1000",
+                "animation": "dash 7s linear forwards"
+            });
+            setTimeout(function(){
+                window.location = "{{ url('slides')}} ";
+            },6500);
+        });    
+
+    });
 </script>
 @endpush
 
 @section('content')
     <div id="line-art-connection">
-        <svg height="570" width="590">
+        <svg height="570" width="590" id="lines-hand">
           <line class="line-path" x1="0" y1="13%" x2="91%" y2="56%" style="stroke:#B9B9B9;stroke-width:2" />
           <line class="line-path" x1="0" y1="33%" x2="69%" y2="35%" style="stroke:#B9B9B9;stroke-width:2" />
           <line class="line-path" x1="0" y1="55%" x2="55%" y2="29%" style="stroke:#B9B9B9;stroke-width:2" />

@@ -58,6 +58,11 @@ class FrontEndController extends Controller
     			$page = $this->page_category->where('page_category_id',4)->first();
     			$result = ['page_name'=>$name,'content'=>$content,'page_desc'=>$page->page_description];
     			break;
+            case 'slides':
+                $content = $this->page_content->where('page_category_id',5)->first();
+                $page = $this->page_category->where('page_category_id',5)->first();
+                $result = ['page_name'=>$name,'content'=>$content,'page_desc'=>$page->page_description];
+                break;
     		default:
     			abort(404);
     			break;		

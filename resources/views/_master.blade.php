@@ -17,14 +17,12 @@
         @stack('styles')
         <script>
             if(navigator.userAgent.indexOf("Safari")!=-1){
-                console.log("You are using Safari!");
                 document.write('<link rel="stylesheet" type="text/css" href="{{ asset("css/safari.css") }}" />');
             }
         </script>
         <script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
         <script src="{{ asset('js/vendor/jquery-3.1.0.min.js') }}"></script>
         <script src="{{ asset('js/vendor/semantic.min.js') }}"></script>
-        <script src="{{ asset('js/vendor/snap.svg-min.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
         @stack('scripts')
     </head>
@@ -48,14 +46,26 @@
                 <a href="{{ url('/') }}" class="menu-url">
                     <div class="menu-circle" id="home-menu">home</div>
                 </a>
-                <a href="{{ url('about-us') }}" class="menu-url">
-                <div class="menu-circle {{ Request::segment(1) == 'about-us' || Request::segment(1) == '' ? '' : 'invisible' }}" id="about-menu">about us</div></a>
-                <a href="{{ url('clients') }}" class="menu-url"><div class="menu-circle {{ Request::segment(1) == 'clients' || Request::segment(1) == '' ? '' : 'invisible' }}" id="clients-menu">clients</div></a>
-                <a href="{{ url('portfolio') }}" class="menu-url"><div class="menu-circle {{ Request::segment(1) == 'portfolio'  || Request::segment(1) == '' ? '' : 'invisible'}} " id="portfolio-menu">portfolio</div></a>
-                <a href="{{ url('contact-us') }}" class="menu-url"><div class="menu-circle {{ Request::segment(1) == 'contact-us'  || Request::segment(1) == '' ? '' : 'invisible'}}" id="contact-us-menu">contact us</div></a>
+                <a href="{{ url('about-us') }}" class="menu-url"><div class="menu-circle" id="about-menu">about us</div></a>
+                <a href="{{ url('clients') }}" class="menu-url"><div class="menu-circle" id="clients-menu">clients</div></a>
+                <a href="{{ url('portfolio') }}" class="menu-url"><div class="menu-circle" id="portfolio-menu">portfolio</div></a>
+                <a href="{{ url('contact-us') }}" class="menu-url"><div class="menu-circle" id="contact-us-menu">contact us</div></a>
             </nav>
-               @yield('content')
-  
+            @yield('content')
+            <footer class="footer-container">
+                <div class="skip-text">
+                    
+                </div>
+                <div class="sm-icons">
+                    <a href="https://www.facebook.com/bci.enav" target="_blank">
+                        <img src="{{ asset('images/fb-icon.png') }}">
+                    </a>
+                    <a href="https://www.linkedin.com/company/bci-enav" target="_blank">
+                        <img src="{{ asset('images/linkedin-icon.png') }}">    
+                    </a>
+                    
+                <div>
+            </footer>
         </div> <!-- #main -->
     </div> <!-- #main-container -->
     </body>

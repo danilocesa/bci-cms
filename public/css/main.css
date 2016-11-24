@@ -1,37 +1,31 @@
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
 fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-moz-selection{background:#b3d4fc;text-shadow:none}::selection{background:#b3d4fc;text-shadow:none}hr{display:block;height:1px;border-top:1px solid #ccc;margin:1em 0}audio,canvas,iframe,img,svg,video{vertical-align:middle}fieldset{margin:0}textarea{resize:vertical}.browserupgrade{margin:.2em 0;background:red;color:#fff;padding:1em 0;text-align:center;font-size:1.5em}
-/* ===== Initializr Styles ==================================================
-   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
+body{font:16px/26px Helvetica,Helvetica Neue,Arial}
+/* ==========================================================================
+  Custom styles
 ========================================================================== */
-body{font:16px/26px Helvetica,Helvetica Neue,Arial}.wrapper{width:90%;margin:0 5%}.title{color:#fff}
-.main{padding-top:60px!important;height:100%;background:white;}.main aside{color:grey;padding:0 5% 10px}.footer-container footer{color:#fff;padding:20px 0}.ie7 .title{padding-top:20px}
+@font-face { font-family: woodcut; src: url(../fonts/Woodcut.ttf); }
+html * { font-family: woodcut !important; }
+.wrapper{width:90%;margin:0 5%}
+.title{color:#fff}
+.main{padding-top:60px!important;height:100%;background:white;}
+.main aside{color:grey;padding:0 5% 10px}
+.footer-container{position:relative;top:83%;width:100%;height:45px;overflow: hidden;}
+.sm-icons{float:right;margin-right: 25px; }
+.skip-text{float:left;margin-left:200px;}
 .wall-gradient{height:100%;width:100%;position:absolute;z-index: -5;}
-.left-grad{
-	width:50%;
-	height:100%;
-	display:inline-block;
-	float:left;
-	background: #62d6f2; /* For browsers that do not support gradients */
+.left-grad{width:50%;height:100%;display:inline-block;float:left;
+  background: #62d6f2; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(-90deg, #62d6f2, white); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(-90deg, #62d6f2, white); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(-90deg, #62d6f2, white); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(-90deg, #62d6f2, white); /* Standard syntax */ /* Standard syntax (must be last) */}
-.right-grad{
-	width:50%;
-	height:100%;
-	display:inline-block;
-	float:right;
-	background: #62d6f2; /* For browsers that do not support gradients */
+  background: -o-linear-gradient(-90deg, #62d6f2, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(-90deg, #62d6f2, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(-90deg, #62d6f2, white); /* Standard syntax */ /* Standard syntax (must be last) */}
+.right-grad{width:50%;height:100%;display:inline-block;float:right;
+  background: #62d6f2; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left, #62d6f2 , white); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(right, #62d6f2, white); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(right, #62d6f2, white); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to right, #62d6f2 , white); /* Standard syntax (must be last) */}
-/* ==========================================================================
-   Author's custom styles
-========================================================================== */
-@font-face { font-family: woodcut; src: url(../fonts/Woodcut.ttf); }
-html * { font-family: woodcut !important; }
-.footer-container{ display:none; }
 .main-container{overflow:hidden;height:100%;}
 .main aside p{ font-size:1.1em; text-align: center; margin-top:10px; line-height: 1em; }
 .main aside img{ height:100px; }
@@ -73,7 +67,6 @@ html * { font-family: woodcut !important; }
 #img-container-aboutus h2.ui.header .sub.header{font-size: 0.9em; color: #464646;} 
 #img-container-aboutus p{font-size: 0.9em; color: #808080;line-height: 1;margin-bottom:12px;}
 #auLine{z-index:-1;position:absolute;width:60%;height:25%;top:20%;}
-
 
 /* ==========================================================================
    Contact Us
