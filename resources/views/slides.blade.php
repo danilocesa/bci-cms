@@ -1,111 +1,138 @@
 @extends('_master')
 @section('title', 'Slides')
 @push('styles')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/swiper.min.css') }}">
 <style type="text/css">
-    /* jssor slider arrow navigator skin 08 css */
-        /*
-        .jssora08l                  (normal)
-        .jssora08r                  (normal)
-        .jssora08l:hover            (normal mouseover)
-        .jssora08r:hover            (normal mouseover)
-        .jssora08l.jssora08ldn      (mousedown)
-        .jssora08r.jssora08rdn      (mousedown)
-        .jssora08l.jssora08lds      (disabled)
-        .jssora08r.jssora08rds      (disabled)
-        */
-        .jssora08l, .jssora08r {
-            display: block;
-            position: absolute;
-            /* size of arrow element */
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            background: url('{{ asset("images/a08.png") }}') no-repeat;
-            overflow: hidden;
-            opacity: .4;
-            filter: alpha(opacity=40);
-        }
-        .jssora08l { background-position: -5px -35px; }
-        .jssora08r { background-position: -65px -35px; }
-        .jssora08l:hover { background-position: -5px -35px; opacity: .8; filter:alpha(opacity=80); }
-        .jssora08r:hover { background-position: -65px -35px; opacity: .8; filter:alpha(opacity=80); }
-        .jssora08l.jssora08ldn { background-position: -5px -35px; opacity: .3; filter:alpha(opacity=30); }
-        .jssora08r.jssora08rdn { background-position: -65px -35px; opacity: .3; filter:alpha(opacity=30); }
-        .jssora08l.jssora08lds { background-position: -5px -35px; opacity: .3; pointer-events: none; }
-        .jssora08r.jssora08rds { background-position: -65px -35px; opacity: .3; pointer-events: none; }
+.swiper-container {
+    width: 490px;
+    height: 610px;
+}   
+.swiper-slide{
+    height:280px!important;
+}
+
+.swiper-nav-bg-top{
+    position: absolute;
+    top:-3em;
+    z-index: 1;
+    left:50%;
+    width: 53px;
+    height: 37px;
+    background: black;
+    opacity: 0.5;
+}
+.swiper-button-top{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 13.5px 18px 15.5px;
+    border-color: transparent transparent #007bff transparent;
+    margin-top: 7px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.swiper-nav-bg-bottom{
+    position: absolute;
+    bottom:-3em;
+    z-index: 1;
+    left:50%;
+    width: 53px;
+    height: 37px;
+    background: black;
+    opacity: 0.5;
+}
+
+.swiper-button-bottom{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 100px 100px 0 100px;
+    border-color: #007bff transparent transparent transparent;
+    margin-top: 7px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+
+
 
 
 </style>
 @endpush
 @push('scripts')
-<script src="{{ asset('js/vendor/jssor.slider-21.1.6.min.js') }}"></script>
+<script src="{{ asset('js/vendor/swiper.jquery.min.js') }}"></script>
+<script src="{{ asset('js/vendor/swiper.min.js') }}"></script>
 <script>
-jssor_1_slider_init = function() {
-    var jssor_1_options = {
-      $AutoPlay: false,
-      $DragOrientation: 2,
-      $PlayOrientation: 2,
-      $ArrowNavigatorOptions: {
-        $Class: $JssorArrowNavigator$
-      }
-    };
-
-    var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-
-    /*responsive code begin*/
-    /*you can remove responsive code if you don't want the slider scales while window resizing*/
-    function ScaleSlider() {
-        var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-        if (refSize) {
-            refSize = Math.min(refSize, 600);
-            jssor_1_slider.$ScaleWidth(refSize);
-        }
-        else {
-            window.setTimeout(ScaleSlider, 30);
-        }
-    }
-    ScaleSlider();
-    $Jssor$.$AddEvent(window, "load", ScaleSlider);
-    $Jssor$.$AddEvent(window, "resize", ScaleSlider);
-    $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
-    /*responsive code end*/
-};
+$(document).ready(function () {
+    //initialize swiper when document ready  
+    var mySwiper = new Swiper ('.swiper-container', {
+      // Optional parameters
+      direction: 'vertical',
+      loop: true,
+      slidesPerView: 2,
+      preloadImages: false,
+      lazyLoading: true,
+      lazyLoadingInPrevNext: true,
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+      nextButton: '.swiper-button-top',
+      prevButton: '.swiper-button-bottom',
+      spaceBetween:40
+    });      
+  });       
 
 </script>
 @endpush
 
 @section('content')
 <div class="main-content">
-  <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 520px; overflow: hidden; visibility: hidden;">
-        <!-- Loading Screen -->
-        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
-            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-            <div style="position:absolute;display:block;background:url('{{ asset('images/loading.gif')}}') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+  <!-- Slider main container -->
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+            <img data-src="{{ asset('images/a1.png') }}" class="swiper-lazy" width="100%" height="100%">
+            <div class="slider-caption">
+                    test
+            </div>
+            <div class="swiper-lazy-preloader"></div>
         </div>
-        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 350px; overflow: hidden;">
-            <div data-p="112.50">
-                <img data-u="image" src="{{ asset('images/a1.png') }}" />
-                <div class="slide-caption">
-                    <button>open</button>
-                    <span>sdf sdfsdfsd fsdf sdfsd fsdf sdf sdfsf sdfsdf sdf sfsdfsd</span>
-                </div>
+        <div class="swiper-slide">
+            <img data-src="{{ asset('images/about-us.png') }}" class="swiper-lazy" width="100%" height="100%">
+            <div class="slider-caption">
+                    test
             </div>
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="{{ asset('images/a1.png') }}" />
-            </div>
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="{{ asset('images/a1.png') }}" />
-            </div>
-            <a data-u="any" href="http://www.jssor.com" style="display:none">Vertical Slider</a>
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="{{ asset('images/a1.png') }}" />
-            </div>
+            <div class="swiper-lazy-preloader"></div>
         </div>
-        <!-- Arrow Navigator -->
-        <span data-u="arrowleft" class="jssora08l" style="top:8px;left:8px;width:50px;height:50px;" data-autocenter="1"></span>
-        <span data-u="arrowright" class="jssora08r" style="bottom:8px;right:8px;width:50px;height:50px;" data-autocenter="1"></span>
+        <div class="swiper-slide">
+            <img data-src="{{ asset('images/a1.png') }}" class="swiper-lazy" width="100%" height="100%">
+            <div class="slider-caption">
+                    test
+            </div>
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img data-src="{{ asset('images/about-us.png') }}" class="swiper-lazy" width="100%" height="100%">
+            <div class="slider-caption">
+                    test
+            </div>
+            <div class="swiper-lazy-preloader"></div>
+        </div>
     </div>
-    <script type="text/javascript">jssor_1_slider_init();</script>
+    
+    
+
+</div>
+
+<!-- If we need navigation buttons -->
+    <div class="swiper-nav-bg-top">
+        <div class="swiper-button-top"></div>    
+    </div>
+    <div class="swiper-nav-bg-bottom">
+        <div class="swiper-button-bottom"></div>
+    </div>
 
 </div>  
 
