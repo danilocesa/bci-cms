@@ -11,49 +11,43 @@
     height:280px!important;
 }
 
-.swiper-nav-bg-top{
+.swiper-button-top{
+    border-style: solid;
+    border-width: 0 27.5px 25px 26.5px;
+    border-color: transparent transparent #007bff transparent;
+    cursor: pointer;
     position: absolute;
-    top:-3em;
+    top:-4em;
     z-index: 1;
-    left:50%;
+    left:47%;
     width: 53px;
     height: 37px;
-    background: black;
-    opacity: 0.5;
 }
-.swiper-button-top{
-    width: 0;
-    height: 0;
+.swiper-button-bottom{
     border-style: solid;
-    border-width: 0 13.5px 18px 15.5px;
-    border-color: transparent transparent #007bff transparent;
-    margin-top: 7px;
-    margin-left: 12px;
+    border-width: 28px 26px 0 26px;
+    border-color: #007bff transparent transparent transparent;
+    margin-top: 10px;
+    margin-left: 11px;
     cursor: pointer;
-}
-
-.swiper-nav-bg-bottom{
     position: absolute;
     bottom:-3em;
     z-index: 1;
-    left:50%;
+    left:45%;
     width: 53px;
     height: 37px;
-    background: black;
-    opacity: 0.5;
 }
 
-.swiper-button-bottom{
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 100px 100px 0 100px;
-    border-color: #007bff transparent transparent transparent;
+.slider-caption button{
+    float:left;
+    width: 50px;
+}
+.slider-caption p{
+    float:left;
+    margin-left:9px;
     margin-top: 7px;
-    margin-left: 12px;
-    cursor: pointer;
+    font-size:1.;
 }
-
 
 
 
@@ -95,7 +89,10 @@ $(document).ready(function () {
         <div class="swiper-slide">
             <img data-src="{{ asset('images/a1.png') }}" class="swiper-lazy" width="100%" height="100%">
             <div class="slider-caption">
-                    test
+                <a href="{{ url('slides/1')}}">
+                    <button class="ui blue button">Open</button>
+                </a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
             </div>
             <div class="swiper-lazy-preloader"></div>
         </div>
@@ -109,7 +106,7 @@ $(document).ready(function () {
         <div class="swiper-slide">
             <img data-src="{{ asset('images/a1.png') }}" class="swiper-lazy" width="100%" height="100%">
             <div class="slider-caption">
-                    test
+                
             </div>
             <div class="swiper-lazy-preloader"></div>
         </div>
@@ -127,12 +124,8 @@ $(document).ready(function () {
 </div>
 
 <!-- If we need navigation buttons -->
-    <div class="swiper-nav-bg-top">
-        <div class="swiper-button-top"></div>    
-    </div>
-    <div class="swiper-nav-bg-bottom">
-        <div class="swiper-button-bottom"></div>
-    </div>
+    <div class="swiper-button-top"></div> 
+    <div class="swiper-button-bottom"></div>
 
 </div>  
 
