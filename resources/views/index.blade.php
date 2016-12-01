@@ -2,6 +2,7 @@
 @section('title', 'BCI. eNav')
 @push('styles')
     <style>
+        .footer-container{top:80.7%;}
         #art-hand{ width: 455px; overflow:hidden;; }
         #art-hand img{ width:446px; position:relative; left:-6px}
         #line-art-connection{position: absolute;margin-left: 80px;height: 44em;overflow:hidden;}

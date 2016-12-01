@@ -3,10 +3,8 @@
 @push('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/swiper.min.css') }}">
 <style type="text/css">
-.swiper-container {
-    width: 490px;
-    height: 610px;
-}   
+.footer-container{top:5em;}
+.swiper-container {width: 490px;height: 612px;}   
 .swiper-slide{
     height:280px!important;
 }
@@ -42,6 +40,7 @@
     float:left;
     width: 50px;
 }
+
 .slider-caption p{
     float:left;
     margin-left:9px;
@@ -97,23 +96,42 @@ $(document).ready(function () {
             <div class="swiper-lazy-preloader"></div>
         </div>
         <div class="swiper-slide">
-            <img data-src="{{ asset('images/about-us.png') }}" class="swiper-lazy" width="100%" height="100%">
+            <img data-src="{{ asset('images/a1.png') }}" class="swiper-lazy" width="100%" height="100%">
             <div class="slider-caption">
-                    test
+                <a href="{{ url('slides/1')}}">
+                    <button class="ui blue button">Open</button>
+                </a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
             </div>
             <div class="swiper-lazy-preloader"></div>
         </div>
         <div class="swiper-slide">
             <img data-src="{{ asset('images/a1.png') }}" class="swiper-lazy" width="100%" height="100%">
             <div class="slider-caption">
-                
+                <a href="{{ url('slides/1')}}">
+                    <button class="ui blue button">Open</button>
+                </a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
             </div>
             <div class="swiper-lazy-preloader"></div>
         </div>
         <div class="swiper-slide">
-            <img data-src="{{ asset('images/about-us.png') }}" class="swiper-lazy" width="100%" height="100%">
+            <img data-src="{{ asset('images/a1.png') }}" class="swiper-lazy" width="100%" height="100%">
             <div class="slider-caption">
-                    test
+                <a href="{{ url('slides/1')}}">
+                    <button class="ui blue button">Open</button>
+                </a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            </div>
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img data-src="{{ asset('images/a1.png') }}" class="swiper-lazy" width="100%" height="100%">
+            <div class="slider-caption">
+                <a href="{{ url('slides/1')}}">
+                    <button class="ui blue button">Open</button>
+                </a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
             </div>
             <div class="swiper-lazy-preloader"></div>
         </div>

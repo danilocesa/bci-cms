@@ -53,9 +53,7 @@
             </nav>
             @yield('content')
             <footer class="footer-container">
-                <div class="skip-text">
-                    
-                </div>
+                <div class="skip-text"></div>
                 <div class="sm-icons">
                     <a href="https://www.facebook.com/bci.enav" target="_blank">
                         <img src="{{ asset('images/fb-icon.png') }}">

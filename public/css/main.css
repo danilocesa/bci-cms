@@ -9,8 +9,8 @@ html * { font-family: woodcut !important; }
 .wrapper{width:90%;margin:0 5%}
 .title{color:#fff}
 .main{padding-top:60px!important;height:100%;background:white;}
-.main aside{color:grey;padding:0 5% 10px}
-.footer-container{position:relative;top:83%;width:100%;height:45px;overflow: hidden;}
+.main aside{color:grey;padding:0 5% 10px;position: relative;z-index: 50}
+.footer-container{position:relative;top:8em;width:100%;height:45px;overflow: hidden;}
 .sm-icons{float:right;margin-right: 25px; }
 .skip-text{float:left;margin-left:200px;}
 .wall-gradient{height:100%;width:100%;position:absolute;z-index: -5;}
@@ -26,10 +26,10 @@ html * { font-family: woodcut !important; }
   background: -o-linear-gradient(right, #62d6f2, white); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(right, #62d6f2, white); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to right, #62d6f2 , white); /* Standard syntax (must be last) */}
-.main-container{overflow:hidden;height:100%;}
+.main-container{height:100%;}
 .main aside p{ font-size:1.1em; text-align: center; margin-top:10px; line-height: 1em; }
 .main aside img{ height:100px; }
-#bci-menu{ padding:10px; z-index: 1; }
+#bci-menu{ padding:10px; z-index: 50; }
 .menu-circle{width:90px;height:90px;-moz-border-radius:50px;-webkit-border-radius:50px;border-radius:50px;margin-top:25px;;font-size:1.7em;color:#fff;text-align:center;line-height:3.9em;background-image: url("../images/menu-bg.png");background-size: 100px 100px;background-position:-3px -3px;background-repeat: no-repeat;}
 .menu-circle a, .menu-circle a:visited{ color:#fff; }
 .menu-circle a:hover{ color:#000; }
@@ -51,22 +51,19 @@ html * { font-family: woodcut !important; }
 /* ==========================================================================
    About Us
 ========================================================================== */
-#img-container-aboutus{ position:absolute;  left:-35%;top:1.5em;}
-.director-content{ width:140%;  font-size:1.1em;z-index:3;position:relative;}
-/*#img-container-aboutus img{ width:600px;  height:580px;  position:absolute;  left:28%;z-index:2;}*/
-#img-container-aboutus img{ width:520px;  height:520px;  position:absolute;  left:35%;z-index:2;}
-#img-container-aboutus #left, #right{width:40%}
-#img-container-aboutus #left{ float:left;  text-align:right;  word-wrap:break-word;  margin-top:190px}
-#img-container-aboutus #right{ float:right;  text-align:left;  word-wrap:break-word;  margin-top:100px}
-#img-container-aboutus #left:before, #right:before{ content:"";  width:100%;  /*height:490px*/}
-/*#img-container-aboutus #left:before{ float:right;shape-outside: ellipse(308px 288px at 129% 19%)}
-#img-container-aboutus #right:before{ float:left;shape-outside:ellipse(284px 281px at -17% 40%)}*/
-#img-container-aboutus #left:before{ float:right;shape-outside: ellipse(260px 260px at 133% 20%); height: 350px;}
-#img-container-aboutus #right:before{ float:left;shape-outside: ellipse(260px 260px at -15% 35%); height: 455px;}
+#img-container-aboutus{ position:relative;  left:-20%;top:4em;height:570px;overflow: hidden;width: 850px;}
+.director-content{font-size:1.1em;z-index:3;position:relative;top:-34.1em;}
+#img-container-aboutus img{ width:540px;  height:540px;  position:relative;  left:11%;}
+#img-container-aboutus #left, #right{width:50%}
+#img-container-aboutus #left{ float:left;  text-align:right;  word-wrap:break-word;height:544px;}
+#img-container-aboutus #right{ float:right;  text-align:left;  word-wrap:break-word;height:544px;}
+#img-container-aboutus #left:before, #right:before{ content:"";  width:100%;}
+#img-container-aboutus #left:before{ float:right;shape-outside: ellipse(271px 270px at 86% 73%); height: 350px;}
+#img-container-aboutus #right:before{ float:left;shape-outside: ellipse(274px 270px at -14% 56%); height: 455px;}
 #img-container-aboutus h2{margin: 0; color: #009fde; font-size: 1.6rem;}
 #img-container-aboutus h2.ui.header .sub.header{font-size: 0.9em; color: #464646;} 
 #img-container-aboutus p{font-size: 0.9em; color: #808080;line-height: 1;margin-bottom:12px;}
-#auLine{z-index:-1;position:absolute;width:60%;height:25%;top:20%;}
+#auLine{position:absolute;width:60%;height:25%;top:13%;}
 
 /* ==========================================================================
    Contact Us
@@ -177,20 +174,20 @@ html * { font-family: woodcut !important; }
 /* ==========================================================================
    Clients
 ========================================================================== */
-#clients-container{position:absolute; width:160%; left:-27%;  }
+#clients-container{width:745px; }
 .clients-img{width:100%; height:100%; border-radius:50%; z-index:10}
-#clients-container #clients-panasonic{position:absolute; width:18%; left:22%}
-#clients-container #clients-forex{position:absolute; width:9%; left:18%; top:150px}
-#clients-container #clients-dbp{position:absolute; width:9%; left:20%; top:250px}
-#clients-container #clients-scentshop{position:absolute; width:14%; left:9%; top:320px}
-#clients-container #clients-ritemed{position:absolute; width:14%; left:2%; top:450px}
-#clients-container #clients-bpi{position:absolute; width:10%; left:19%; top:425px}
-#clients-container #clients-blue{position:absolute; width:26%; left:30%; top:300px}
-#clients-container #clients-accenture{position:absolute; width:14%; left:30%; top:180px}
-#clients-container #clients-metrobank{position:absolute; width:14%; right:30%; top:435px}
-#clients-container #clients-microsoft{position:absolute; width:20%; right:35%; top:80px}
-#clients-container #clients-ucpb{position:absolute; width:10%; right:23%; top:85px}
-#clients-container #clients-mitsubishi{position:absolute; width:35%; right:4%; top:165px}
+#clients-container #clients-panasonic{position:absolute; width:24%; left:22%}
+#clients-container #clients-forex{position:absolute; width:13%; left:18%; top:150px}
+#clients-container #clients-dbp{position:absolute; width:13%; left:20%; top:250px}
+#clients-container #clients-scentshop{position:absolute; width:19%; left:9%; top:320px}
+#clients-container #clients-ritemed{position:absolute; width:20%; left:2%; top:450px}
+#clients-container #clients-bpi{position:absolute; width:14%; left:19%; top:425px}
+#clients-container #clients-blue{position:absolute; width:34%; left:30%; top:300px}
+#clients-container #clients-accenture{position:absolute; width:20%; left:30%; top:180px}
+#clients-container #clients-metrobank{position:absolute; width:20%; right:30%; top:435px}
+#clients-container #clients-microsoft{position:absolute; width:28%; right:35%; top:80px}
+#clients-container #clients-ucpb{position:absolute; width:13%; right:23%; top:85px}
+#clients-container #clients-mitsubishi{position:absolute; width:46%; right:4%; top:165px}
 #panasonicLine1{position: absolute;left:-85%;top: 63%;z-index:-1;}
 #microsoftLine1{position: absolute;left:-190%;width:200%;z-index:-1;}
 #dbpLine1{position: absolute;left:-135%;top:0%;width:160%;z-index:-1;}
@@ -831,7 +828,7 @@ nav {float: right;width: 38%;}
    ========================================================================== */
 @media only screen and (min-width: 1140px) {
 .main aside { float: right;width: 28%; }
-.wrapper { width: 835px; margin: 0 auto; }
+.wrapper { width: 945px; margin: 0 auto; }
 .main aside img{ width:100%; height:100%; }
 #art-hand{margin-left:230px;margin-top:50px;width:500px;position:absolute;height:530px;}
 #art-hand img{ width:490px;height:100%; }

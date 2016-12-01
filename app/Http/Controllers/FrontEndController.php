@@ -11,6 +11,7 @@ use App\PageCategory;
 use App\PageVideos;
 use App\PrintAd;
 use App\SubClients;
+use App\Slides;
 
 use Mail;
 use Visitor;
@@ -22,7 +23,8 @@ class FrontEndController extends Controller
         $this->page_category = new PageCategory;
         $this->page_videos = new PageVideos;
         $this->print_ad = new PrintAd;
-    	$this->sub_clients = new SubClients;
+        $this->sub_clients = new SubClients;
+    	$this->slides = new Slides;
     }
 
     public function index(){
@@ -84,6 +86,12 @@ class FrontEndController extends Controller
         $subvideos  = $this->page_videos->where(['page_content_id'=>0,'page_category_id'=>0])->get();
         
         return view('sub_clients',['sub_clients'=>$subclients,'sub_videos'=>$subvideos]);
+    }
+
+    public function subSlides($id){
+        $slide_content = $this->slides->where('slide_content_id',$id)->get();
+        // dd($slide_content);
+        return view('sub_slide');
     }
 
 
